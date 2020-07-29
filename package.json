@@ -1,16 +1,16 @@
 {
-	"name": "@upate/emmaterial",
-	"version": "0.8.0",
-	"description": "Libreria de componentes del proyecto Úpate",
+	"name": "@joseirrazabal/nxbook",
+	"version": "0.0.1",
+	"description": "Libreria de componentes del proyecto",
 	"main": "index.js",
 	"scripts": {
 		"dist": "npm run build && cp package.json .npmrc lib && cd lib && npm publish",
 		"prebuild": "npm run clean",
 		"build": "npm run build:cjs && cp -r css lib/scss",
 		"dev": "nodemon --ignore lib/ --ignore dev/ -e js,jsx --exec npm run build:dev",
-		"build:dev": "cross-env BABEL_ENV=cjs babel src/ -d dev/ && cp -rf dev/* lib",
-		"build:cjs": "cross-env BABEL_ENV=cjs babel --presets=@babel/env,@babel/react --plugins @babel/plugin-syntax-dynamic-import,@babel/plugin-syntax-import-meta,@babel/plugin-proposal-class-properties,@babel/plugin-proposal-json-strings src/ -d lib/",
-		"build:esm": "cross-env BABEL_ENV=esm babel src/ -d esm/",
+		"build:dev": "cross-env BABEL_ENV=cjs babel src/components/ -d dev/ && cp -rf dev/* lib",
+		"build:cjs": "cross-env BABEL_ENV=cjs babel --presets=@babel/env,@babel/react --plugins @babel/plugin-syntax-dynamic-import,@babel/plugin-syntax-import-meta,@babel/plugin-proposal-class-properties,@babel/plugin-proposal-json-strings src/components/ -d lib/",
+		"build:esm": "cross-env BABEL_ENV=esm babel src/components/ -d esm/",
 		"clean": "rimraf lib esm",
 		"precover": "rimraf coverage && npm run react",
 		"cover": "cross-env NODE_ENV=test node --max-old-space-size=2048 $(which nyc) npm run mocha test",
@@ -39,11 +39,6 @@
 		"check-changelog": "expr $(git status --porcelain 2>/dev/null| grep \"^\\s*M.*CHANGELOG.md\" | wc -l) >/dev/null || (echo 'Please edit CHANGELOG.md' && exit 1)",
 		"check-only-changelog-changed": "(expr $(git status --porcelain 2>/dev/null| grep -v \"CHANGELOG.md\" | wc -l) >/dev/null && echo 'Only CHANGELOG.md may have uncommitted changes' && exit 1) || exit 0"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+git@bitbucket.org:upate/emmaterial.git"
-	},
-	"author": "Upate <webaccoutns@upate.com>",
 	"license": "MIT",
 	"devDependencies": {
 		"@babel/cli": "^7.7.4",
@@ -64,7 +59,7 @@
 		"@storybook/addon-knobs": "^5.2.8",
 		"@storybook/addon-links": "^5.2.8",
 		"@storybook/addon-options": "^5.2.8",
-		"@storybook/react": "^5.2.8",
+		"@storybook/react": "^5.3.19",
 		"airbnb-js-shims": "^2.2.1",
 		"babel-eslint": "^10.0.3",
 		"babel-loader": "^8.0.6",

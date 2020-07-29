@@ -26,7 +26,7 @@ global.navigator = { userAgent: 'chrome' }
 const fs = require('fs')
 const CleanCSS = require('clean-css')
 
-const compileCSS = require('@upate/react-with-styles-interface-css-compiler')
+const compileCSS = require('react-with-styles-interface-css-compiler')
 
 const registerMaxSpecificity = require('react-with-styles-interface-css/dist/utils/registerMaxSpecificity').default
 const registerCSSInterfaceWithDefaultTheme = require('../src/utils/registerCSSInterfaceWithDefaultTheme').default
