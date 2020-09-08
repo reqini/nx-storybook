@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import ButtonGeneric from "../../Buttons/ButtonGeneric";
+import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(() => ({
@@ -32,7 +32,6 @@ const Resume = ({ onClose, onResume, onInitial }) => {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-
             onResume();
             onClose();
           }}
@@ -42,7 +41,6 @@ const Resume = ({ onClose, onResume, onInitial }) => {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-
             onInitial();
             onClose();
           }}

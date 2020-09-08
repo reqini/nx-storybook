@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
 import get from "lodash/get";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
@@ -408,4 +407,4 @@ RibbonsSimple.defaultProps = {
   scrollToTop: true,
 };
 
-export default withRouter(RibbonsSimple);
+export default RibbonsSimple;

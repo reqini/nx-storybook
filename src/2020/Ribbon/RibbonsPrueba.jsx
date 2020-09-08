@@ -14,7 +14,7 @@ import TitleRibbons from "../Typography/TitleRibbons";
 
 import CardLandscape from "components/Molecules/Cards/CardLandscape";
 import CardTalent from "components/Molecules/Cards/CardTalent";
-import CardSearch from "../Cards/CardSearch";
+import CardSearch from "components/Molecules/Cards/CardSearch";
 import CardPlans from "components/Molecules/Cards/CardPlans";
 import CardAlugados from "../Cards/CardAlugados";
 import CardChannels from "components/Molecules/Cards/CardChannels";

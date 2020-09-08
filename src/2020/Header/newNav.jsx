@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 
 import { Modal } from "../Modals/Modal";
 import Exit from "../Modals/exit/exit";
@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
   },
   iconNav: {
-    height: '35px',
+    height: "35px",
     width: "35px !important",
     marginRight: "25px",
   },
@@ -152,6 +152,7 @@ const NavLinkMenu = ({
   location,
   snDown = null,
 }) => {
+  const history = useHistory();
   const classes = useStyles();
   const { t, i18n } = useTranslation();
 
@@ -170,43 +171,28 @@ const NavLinkMenu = ({
   const { src: Image, alt } = image;
   const { key, text } = translate;
 
-  // para que el de salir no genere un history.push
-  if (!to) {
-    return (
-      <a
-        id={id}
-        key={id}
-        tabIndex={0}
-        className={`${classes.navItem} focusable ${
-          active === `/${id}` || active === `/node/${id}`
-            ? `${classes.navItemActive} active`
-            : ""
-        }`}
-        onClick={onClick}
-        data-sn-down={snDown}
-      >
-        <Image className={classes.iconNav} alt={alt} />
-        <span>{t(key, text)}</span>
-      </a>
-    );
-  }
-
   return (
-    <NavLink
+    <a
       id={id}
       key={id}
+      tabIndex={0}
       className={`${classes.navItem} focusable ${
         active === `/${id}` || active === `/node/${id}`
           ? `${classes.navItemActive} active`
           : ""
       }`}
-      to={to}
-      activeClassName="active"
-      onClick={onClick}
+      onClick={() => {
+        if (onClick) {
+          onClick();
+        } else {
+          history.push(to);
+        }
+      }}
+      data-sn-down={snDown}
     >
       <Image className={classes.iconNav} alt={alt} />
-      <span>{t({ key }, text)}</span>
-    </NavLink>
+      <span>{t(key, text)}</span>
+    </a>
   );
 };
 

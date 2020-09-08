@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 
-import ButtonGeneric from "../../Buttons/ButtonGeneric";
+import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
 import imageLogo from "../../Icons/App/net_launch_logo_claro.svg";
 
 const useStyles = makeStyles((theme) => ({

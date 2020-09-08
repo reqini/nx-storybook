@@ -1,12 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import ISO6391 from "iso-639-1";
 
-import ButtonGeneric from "../../Buttons/ButtonGeneric";
+import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
 import CheckIcon from "@material-ui/icons/Check";
 
 const useStyles = makeStyles((theme) => ({
-  // modalidad simple
   containerModal: {
     display: "flex",
     flexFlow: "row",
@@ -18,13 +16,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexFlow: "row",
   },
-  // esta modalidad de styles es cuando manejas props
-  /* containerModal: () => ({
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: theme.sizeBody.hd.height,
-  }), */
   contentButtons: {
     textAlign: "center",
     maxWidth: 550
@@ -79,7 +70,6 @@ const Languages = ({
                   e.preventDefault();
                   onClick({ item });
                 }}
-                // title={ISO6391.getNativeName(item)}
                 title={item}
               >
                 {(options.length === 1 || item === selected) && (

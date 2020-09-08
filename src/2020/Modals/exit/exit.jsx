@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 
-import ButtonGeneric from "../../Buttons/ButtonGeneric";
+import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
 
 const useStyles = makeStyles(() => ({
   modalContainer: {
@@ -20,7 +19,6 @@ const useStyles = makeStyles(() => ({
     maxWidth: 550,
   },
   title: {
-    //marginBottom: 100,
     fontWeight: 400,
   },
 }));
@@ -80,4 +78,4 @@ const Exit = ({ onClose, logout = () => {} }) => {
   );
 };
 
-export default withRouter(Exit);
+export default Exit;
