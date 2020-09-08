@@ -88,7 +88,8 @@ const CardTalent = ({
   height,
   bgSize,
   borderRadius,
-  title = "",
+  name = "",
+  lastName = "",
   image,
   children,
   infoTalent = false,
@@ -107,14 +108,10 @@ const CardTalent = ({
   id,
   focusHandlerDown = () => {},
 }) => {
+
   const classes = useStyles({ width, height, bgSize, borderRadius, image });
-
-  const aTitle = title.split(" ") || [];
-
-  const name = aTitle.slice(0, aTitle.length - 1).join(" ");
-  const lastName = aTitle.slice(aTitle.length - 1, aTitle.length);
-
   const nameToInitials = useCallback((name) => {
+    
     if (!name) {
       return "";
     }
@@ -184,7 +181,7 @@ const CardTalent = ({
           variant="body1"
           style={{ marginTop: "-5px" }}
         >
-          {name}{lastName}
+          {lastName}
         </Typography>
       </div>
     </div>
