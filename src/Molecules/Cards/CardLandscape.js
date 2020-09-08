@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography'
-import { withRouter } from 'react-router-dom'
+/* import { withRouter } from 'react-router-dom' */
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
 
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: withContent ? 'flex-start' : 'flex-end',
     flexDirection: withContent ? 'column' : 'row',
     alignItems: 'flex-start',
-    border: `4px solid transparent`,
+    margin: 4,
 
     '&::before': {
       content: `''`,
@@ -56,14 +56,15 @@ const useStyles = makeStyles(theme => ({
       backgroundRepeat: 'no-repeat'
     },
 
-    '&:hover': {
+/*     '&:hover': {
       boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
       border: `4px solid white`,
-    },
+    }, */
 
     '&:focus': {
       boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
       border: `4px solid white`,
+      margin: 0
     }
   }),
   backgroundOpacity: () => ({
@@ -238,4 +239,5 @@ const CardLandscape = ({
     </div>
   )
 }
-export default React.memo(withRouter(CardLandscape))
+//export default React.memo(withRouter(CardLandscape))
+export default React.memo(CardLandscape)//

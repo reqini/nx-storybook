@@ -75,8 +75,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CardPlans = ({
-  wholeNumber,
-  decimals,
   purchased = false,
   width,
   height,
@@ -151,8 +149,8 @@ const CardPlans = ({
       <div className={classes.channelsPlans}>{live} canais</div>
       <div className={classes.pricePlans}>
         <p>
-          {price}
-          <b>{wholeNumber}</b>,{decimals}
+          {price.currency}
+          <b>{price.wholeNumber}</b>,{price.decimals}
           {duration}
           {period}
         </p>

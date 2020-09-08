@@ -2,18 +2,18 @@ import React, { useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const imageDefault = require("../../Icons/placeholder-actor.svg");
+const imageDefault = require("./images/placeholder-actor.svg");
 
 const useStyles = makeStyles((theme) => ({
-  containerCardTalent: ({width}) => ({
+  containerCardTalent: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    width: width || 100,
+    width: 100,
     marginRight: 15,
     minHeight: 160,
-  }),
+  },
   contentDefaultTalent: ({ width }) => ({
     backgroundImage: `url(${imageDefault})`,
     position: "relative",
@@ -56,10 +56,6 @@ const useStyles = makeStyles((theme) => ({
     height: height || 110,
     width: width || 110,
 
-    "&:hover": {
-      border: `4px solid white`,
-      margin: 0,
-    },
     "&:focus": {
       border: `4px solid white`,
       margin: 0,
@@ -88,8 +84,7 @@ const CardTalent = ({
   height,
   bgSize,
   borderRadius,
-  name = "",
-  lastName = "",
+  title = "",
   image,
   children,
   infoTalent = false,
@@ -108,10 +103,14 @@ const CardTalent = ({
   id,
   focusHandlerDown = () => {},
 }) => {
-
   const classes = useStyles({ width, height, bgSize, borderRadius, image });
-  const nameToInitials = useCallback((name) => {
 
+  const aTitle = title.split(" ") || [];
+
+  const name = aTitle.slice(0, aTitle.length - 1).join(" ");
+  const lastName = aTitle.slice(aTitle.length - 1, aTitle.length);
+
+  const nameToInitials = useCallback((name) => {
     if (!name) {
       return "";
     }

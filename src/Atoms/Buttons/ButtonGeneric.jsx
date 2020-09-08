@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   constainer: ({ width, margin = 10, minHeight }) => ({
     display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     flexFlow: 'column',
     boxSizing: 'border-box',
     width: width,
@@ -31,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none',
     boxSizing: 'border-box',
 
-    '&:hover': {
+    /* '&:hover': {
       height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
       background: theme.palette.buttonsColor.foco,
       borderRadius: 1,
@@ -42,7 +44,7 @@ const useStyles = makeStyles(theme => ({
       boxSizing: 'border-box',
       transition: 'box-shadow 0.15s ease-in',
       boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)'
-    },
+    }, */
 
     '&:focus': {
       height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
