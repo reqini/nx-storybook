@@ -16,44 +16,53 @@ const useStyles = makeStyles(theme => ({
     heightFocoDisable = false,
     backgroundButton = false,
     fontWeight = false
-  }) => {
-    return {
-      width: width,
-      height: theme.sizeButton.height.main,
-      minHeight: minHeight,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      background: backgroundButton ? theme.palette.buttonsColor.main : '',
-      borderRadius: 6,
-      fontSize: 26,
-      lineHeight: '22px',
+  }) => ({
+    width: width,
+    height: theme.sizeButton.height.main,
+    minHeight: minHeight || 54,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: backgroundButton ? theme.palette.buttonsColor.main : '',
+    borderRadius: 6,
+    fontSize: 26,
+    lineHeight: '22px',
+    color: '#fff',
+    position: 'relative',
+    textDecoration: 'none',
+    boxSizing: 'border-box',
+
+    '&:hover': {
+      height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
+      background: theme.palette.buttonsColor.foco,
+      borderRadius: 1,
+      fontWeight: fontWeight ? 500 : 900,
       color: '#fff',
-      position: 'relative',
-      textDecoration: 'none',
-      //textTransform: "lowercase",
+      border: 'none',
+      background: theme.palette.primary.main,
       boxSizing: 'border-box',
+      transition: 'box-shadow 0.15s ease-in',
+      boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)'
+    },
 
-      '&:focus': {
-        height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
-        background: theme.palette.buttonsColor.foco,
-        borderRadius: 1,
-        fontWeight: fontWeight ? 500 : 900,
-        color: '#fff',
-        border: 'none',
-        background: theme.palette.primary.main,
-        boxSizing: 'border-box',
-        transition: 'box-shadow 0.15s ease-in',
-        boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)'
-      },
+    '&:focus': {
+      height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
+      background: theme.palette.buttonsColor.foco,
+      borderRadius: 1,
+      fontWeight: fontWeight ? 500 : 900,
+      color: '#fff',
+      border: 'none',
+      background: theme.palette.primary.main,
+      boxSizing: 'border-box',
+      transition: 'box-shadow 0.15s ease-in',
+      boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)'
+    },
 
-      '& span': {
-        fontWeight: fontWeightSpan,
-        fontSize: 20
-        //textTransform: "lowercase",
-      }
+    '& span': {
+      fontWeight: fontWeightSpan,
+      fontSize: 20
     }
-  },
+  }),
   nonFocusable: {
     background: 'silver!important',
     color: 'gray!important',
@@ -73,7 +82,7 @@ const ButtonGeneric = ({
   isFocusable = true,
   fontWeightSpan,
   children,
-  title,
+  title = null,
   width = 235 /* 329 */,
   heightFocoDisable,
   margin,
