@@ -7,7 +7,9 @@ const chokidar = require('chokidar')
 var myArgs = process.argv.slice(2)
 
 const dev = myArgs[0] || '/home/jose/propio/newFaa'
-const dir = ['react', 'react-dom', '@material-ui', 'react-i18next']
+
+// components que requieren hooks compoartidos
+const dir = ['react', 'react-dom', '@material-ui', 'react-i18next', 'react-router-dom']
 
 // borro las carpetas de librerias compartidas
 dir.map(item => {
@@ -28,7 +30,7 @@ dir.map(item => {
 // link simbolico a app
 dir.map(item => {
   fs.lstat(`node_modules/${item}`, function(err, stats) {
-    if (!stats || stats.isSymbolicLink()) {
+    if (!stats || !stats.isSymbolicLink()) {
       fs.symlink(`${dev}/node_modules/${item}`, `node_modules/${item}`, error => {
         console.log('link', item)
         if (error) {
