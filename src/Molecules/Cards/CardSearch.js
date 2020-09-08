@@ -13,23 +13,21 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     height: height || 225,
     width: width || 290,
-    //margin: 7.8,
     border: `4px solid transparent`,
     borderRadius: borderRadius || 12,
     overflow: "hidden",
 
-    "&:hover": {
+/*     "&:hover": {
       backgroundPosition: "92px 40px",
       border: `4px solid white`,
       borderRadius: 12,
       //margin: 3.8,
-    },
+    }, */
 
     "&:focus": {
       backgroundPosition: "92px 40px",
       border: `4px solid white`,
       borderRadius: 12,
-      //margin: 3.8,
     },
   }),
   logoChannel: ({ floatImage }) => ({

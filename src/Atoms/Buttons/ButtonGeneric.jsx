@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     backgroundButton = false,
     fontWeight = false
   }) => ({
-    width: width || 'auto',
+    width: width || 230,
     height: theme.sizeButton.height.main,
     display: 'flex',
     justifyContent: 'center',
