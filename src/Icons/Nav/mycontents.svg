@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/Alugados</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Net/SideBar/Alugados" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/Fav">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <path d="M27.9733023,7.5 C16.651465,7.5 7.47330234,16.6781626 7.47330234,28 C7.47330234,39.3218374 16.651465,48.5 27.9733023,48.5 C39.2951397,48.5 48.4733023,39.3218374 48.4733023,28 C48.4733023,16.6781626 39.2951397,7.5 27.9733023,7.5 Z" id="Path" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M22.6722616,32.5536406 L22.6722616,23.4463594 C22.6722616,22.3417899 23.5676921,21.4463594 24.6722616,21.4463594 C25.0203155,21.4463594 25.3623441,21.53719 25.6645395,21.7098731 L33.6334106,26.2635137 C34.5924455,26.8115337 34.9256389,28.033243 34.377619,28.9922779 C34.2004404,29.3023404 33.9434732,29.5593077 33.6334106,29.7364863 L25.6645395,34.2901269 C24.7055046,34.8381469 23.4837953,34.5049534 22.9357753,33.5459185 C22.7630922,33.2437231 22.6722616,32.9016945 22.6722616,32.5536406 Z" id="Path-Copy" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

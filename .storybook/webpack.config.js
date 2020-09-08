@@ -52,21 +52,21 @@ module.exports = {
 						]
 					}
 				}
-			},
+			}
 		]
 	},
 	resolve: {
 		extensions: ['.mjs', '.js', '.jsx'],
 		alias: {
-      'components': path.resolve(__dirname, "../src/components")
+			Components: path.resolve(__dirname, '../src')
 		}
 	},
-  devtool: 'cheap-module-eval-source-map',
-  target: 'web',
+	devtool: 'cheap-module-eval-source-map',
+	target: 'web',
 	node: {
 		fs: 'empty',
 		net: 'empty',
-		tls: 'empty',
+		tls: 'empty'
 		// process: false
 	}
 }

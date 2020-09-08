@@ -35,7 +35,7 @@ if (!fullScreen) {
 					}
 				}
 			},
-			text: `Import ${context.name} from "components/${context.kind}/${context.name}"`
+			text: `Import ${context.name} from "Components/${context.kind}/${context.name}"`
 		})(story)(context)
 	})
 }
