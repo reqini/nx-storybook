@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 
-import ButtonGeneric from "../../Buttons/ButtonGeneric";
+import ButtonGeneric from "../../Atoms/Buttons/ButtonGeneric";
 
 const useStyles = makeStyles(() => ({
   modalContainer: {

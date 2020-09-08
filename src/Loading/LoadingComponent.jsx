@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import PulseLoader from "react-spinners/PulseLoader";
 
 import imageLogo from "../Icons/App/net_launch_logo_claro.svg";

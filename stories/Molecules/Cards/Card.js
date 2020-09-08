@@ -2,14 +2,14 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean, number, array } from '@storybook/addon-knobs/react'
 
-import CardLandscape from 'Components/Cards/CardLandscape'
-import CardTalent from 'Components/Cards/CardTalent'
-import CardSearch from 'Components/Cards/CardSearch'
-import CardRents from 'Components/Cards/CardRents'
-import CardPlans from 'Components/Cards/CardPlans'
-import CardChannels from 'Components/Cards/CardChannels'
+import CardLandscape from 'Components/Molecules/Cards/CardLandscape'
+import CardTalent from 'Components/Molecules/Cards/CardTalent'
+import CardSearch from 'Components/Molecules/Cards/CardSearch'
+import CardRents from 'Components/Molecules/Cards/CardRents'
+import CardPlans from 'Components/Molecules/Cards/CardPlans'
+import CardChannels from 'Components/Molecules/Cards/CardChannels'
 
-const stories = storiesOf('/Atoms/Cards', module)
+const stories = storiesOf('/Molecules/Cards', module)
 
 stories.add('Landscape', () => (
   <CardLandscape
