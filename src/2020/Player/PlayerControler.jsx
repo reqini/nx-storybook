@@ -1,54 +1,75 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
+import IconBack from "../Icons/App/net_back_icon.svg";
+import IconBackFocus from "../Icons/App/net_back_icon_focus.svg";
+
+import IconEpisodes from "../Icons/Player/Episodes.svg";
+
+import IconReplay from "../Icons/Player/Back10s.svg";
+import IconBackward from "../Icons/Player/Back10s.svg";
+import IconBackwardFocus from "../Icons/Player/Back10s.svg";
+
+import IconPlay from "../Icons/Player/Play.svg";
+import IconPlayFocus from "../Icons/Player/PlayFoco.svg";
+
+import IconPause from "../Icons/Player/Pause.svg";
+
+import IconForward from "../Icons/Player/Forward10s.svg";
+import IconForwardFocus from "../Icons/Player/Forward10s.svg";
+
+import IconSub from "../Icons/Player/Subtitles.svg";
+
+import svgToUri from "../svgToUri";
+
 const getProperties = ({ type }) => {
   switch (type) {
     case "back":
       return {
         className: "transparent",
-        image: require("../Icons/App/net_back_icon.svg"),
-        focus: require("../Icons/App/net_back_icon_focus.svg"),
+        image: IconBack,
+        focus: IconBackFocus,
       };
     case "episodes":
       return {
-        image: require("../Icons/Player/Episodes.svg"),
+        image: IconEpisodes,
       };
     case "replay":
       return {
-        image: require("../Icons/Player/Back10s.svg"),
+        image: IconReplay,
       };
     case "previewSong":
       return {};
     case "stepBackward":
       return {
-        image: require("../Icons/Player/Back10s.svg"),
-        focus: require("../Icons/Player/Back10s.svg"),
+        image: IconBackward,
+        focus: IconBackwardFocus,
       };
     case "play":
       return {
         className: "transparent",
-        image: require("../Icons/Player/Play.svg"),
-        focus: require("../Icons/Player/PlayFoco.svg"),
+        image: IconPlay,
+        focus: IconPlayFocus,
       };
     case "pause":
       return {
         className: "transparent",
-        image: require("../Icons/Player/Pause.svg"),
+        image: IconPause,
       };
     case "stepForward":
       return {
-        image: require("../Icons/Player/Forward10s.svg"),
-        focus: require("../Icons/Player/Forward10s.svg"),
+        image: IconForward,
+        focus: IconForwardFocus,
       };
     case "next":
       return {
-        image: require("../Icons/Player/Forward10s.svg"),
+        image: IconForward,
       };
     case "nextSong":
       return {};
     case "language":
       return {
-        image: require("../Icons/Player/Subtitles.svg"),
+        image: IconSub,
       };
     case "skipIntro":
       return {
@@ -94,13 +115,13 @@ const useStyles = makeStyles((theme) => ({
     height: 48,
     margin: "0 10px",
     borderRadius: "50%",
-    backgroundImage: `url(${image})`,
+    backgroundImage: `${svgToUri(image)}`,
     backgroundSize: 48,
     backgroundPosition: "center",
 
     "&:focus": {
       background: theme.palette.primary.main,
-      backgroundImage: `url(${image})`,
+      backgroundImage: `${svgToUri(image)}`,
       backgroundSize: 48,
       backgroundPosition: "center",
     },

@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import get from "lodash/get";
 
-import Device from "../../../devices/device";
 
 import CardRents from "../Cards/CardRents";
 import ButtonBack from "../Buttons/ButtonBack";
@@ -33,14 +32,13 @@ const useStyles = makeStyles(() => ({
   }),
 }));
 
-const Buy = ({ item, onClose, handlePlay, setFocus }) => {
+const Buy = ({ item, onClose, handlePlay, setFocus, keys }) => {
   const classes = useStyles();
 
   const [loading, setLoading] = React.useState(true);
   const [completed, setCompleted] = React.useState(0);
 
   const handleKeyPress = (e) => {
-    const keys = Device.getDevice().getKeys();
     const currentKey = keys.getPressKey(e.keyCode) || null;
 
     switch (currentKey) {

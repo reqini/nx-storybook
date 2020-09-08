@@ -1,13 +1,10 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Device from "../../../devices/device";
-
 import SliderProgress from "./sliderProgress";
 import PlayerControler from "./PlayerControler";
 import ButtonBack from "../Buttons/ButtonBack";
 
-const keys = Device.getDevice().getKeys();
 var time = false;
 const hideTime = 6000;
 
@@ -41,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NewControls = ({
+  keys,
   title,
   subTitle,
   isSerie,

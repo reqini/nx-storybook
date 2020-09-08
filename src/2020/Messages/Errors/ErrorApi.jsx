@@ -2,9 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 
-import Message from "../../../../components/2020/Messages/message";
-import TextMessages from "../../../../components/2020/Typography/TextMessages";
-import ButtonGeneric from "../../../../components/2020/Buttons/ButtonGeneric";
+import Message from "../../Messages/message";
+import TextMessages from "../../Typography/TextMessages";
+import ButtonGeneric from "../../Buttons/ButtonGeneric";
 
 import ImageMessage from "../../Icons/Messages/net_contenido_alquilado_sin_contenido.svg";
 

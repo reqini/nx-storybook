@@ -2,13 +2,10 @@ import React, { useState, useCallback, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
 
-import Device from "../../../devices/device";
-
 import EpgHeader from "./EpgHeader";
 import Background from "./Background";
 import ContainerEvents from "./ContainerEvents";
 
-const keys = Device.getDevice().getKeys();
 var time = false;
 const hideTime = 6000;
 
@@ -46,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Epg = ({
+  keys,
   loading,
   channels,
   events,
@@ -211,6 +209,7 @@ const Epg = ({
           >
             {channels.size > 0 && showEpg && (
               <ContainerEvents
+                keys={keys}
                 showEpg={showEpg}
                 miniEpg={miniEpg}
                 channels={channels}

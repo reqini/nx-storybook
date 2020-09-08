@@ -12,12 +12,12 @@ import Talent from "../Modals/talent/talent";
 
 import TitleRibbons from "../Typography/TitleRibbons";
 
-import CardLandscape from "../Cards/CardLandscape";
-import CardTalent from "../Cards/CardTalent";
+import CardLandscape from "components/Molecules/Cards/CardLandscape";
+import CardTalent from "components/Molecules/Cards/CardTalent";
 import CardSearch from "../Cards/CardSearch";
-import CardPlans from "../Cards/CardPlans";
+import CardPlans from "components/Molecules/Cards/CardPlans";
 import CardAlugados from "../Cards/CardAlugados";
-import CardChannels from "../Cards/CardChannels";
+import CardChannels from "components/Molecules/Cards/CardChannels";
 
 const heightOtrosContenidos = 220;
 const heightTalent = 120;
@@ -361,7 +361,6 @@ const Ribbon = ({
           title={item.title}
           notDefaultImg={item.provider}
           image={item.imageCard}
-          novo={id === "destaque" ? true : false}
           clickHandler={item.clickHandler}
           clickHandlerNew={clickHandler}
           focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
@@ -369,17 +368,12 @@ const Ribbon = ({
             setTopIndex(index);
             focusHandler(data, topIndex);
           }}
-          width={270}
+          width={269}
           height={149}
           bgSize={
             !get(item, "provider") && get(item, "href")
               ? "190px 100px"
               : "270px 150px"
-          }
-          bgSizeFocus={
-            !get(item, "provider") && get(item, "href")
-              ? "210px 113px"
-              : "286px 168px"
           }
           sendToPlay={sendToPlay}
         ></CardLandscape>

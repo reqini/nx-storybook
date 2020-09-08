@@ -4,8 +4,6 @@ import moment from "moment";
 import { Collection, ScrollSync, AutoSizer } from "react-virtualized";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Device from "../../../devices/device";
-
 import ListTime from "./ListTime";
 import ListChannels from "./ListChannels";
 import InfoEvent from "./InfoEvent";
@@ -16,8 +14,6 @@ const eventHeight = 90;
 const epgFullHeight = 360;
 const minHeightShowInfo = 250;
 const widthChannel = 153;
-
-const keys = Device.getDevice().getKeys();
 
 const useStyles = makeStyles((theme) => ({
   collection: {
@@ -32,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CollectionExample = ({
+  keys,
   miniEpg,
   channels,
   events,

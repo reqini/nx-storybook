@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import get from "lodash/get";
 import { useTranslation } from "react-i18next";
 
-import RibbonsVertical from "../../../components/2020/Ribbon/RibbonsVertical";
-import TitleVcard from "../../../components/2020/Typography/TitleVcard";
+import RibbonsVertical from "../Ribbon/RibbonsVertical";
+import TitleVcard from "../Typography/TitleVcard";
 import { getItemProperties, resizeImage } from "../resizeTmp";
 
 const useStyles = makeStyles((theme) => ({
