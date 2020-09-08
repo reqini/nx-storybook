@@ -12,7 +12,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
-// import '../css/storybook.scss'
+import '../css/storybook.scss'
 
 import theme from '../src/theme/DefaultTheme'
 
