@@ -12,12 +12,12 @@ import Talent from "../Modals/talent/talent";
 
 import TitleRibbons from "../Typography/TitleRibbons";
 
-import CardLandscape from "components/Molecules/Cards/CardLandscape";
-import CardTalent from "components/Molecules/Cards/CardTalent";
-import CardSearch from "components/Molecules/Cards/CardSearch";
-import CardPlans from "components/Molecules/Cards/CardPlans";
+import CardLandscape from "../Cards/CardLandscape";
+import CardTalent from "../Cards/CardTalent";
+import CardSearch from "../Cards/CardSearch";
+import CardPlans from "../Cards/CardPlans";
 import CardAlugados from "../Cards/CardAlugados";
-import CardChannels from "components/Molecules/Cards/CardChannels";
+import CardChannels from "../Cards/CardChannels";
 
 const heightOtrosContenidos = 220;
 const heightTalent = 120;

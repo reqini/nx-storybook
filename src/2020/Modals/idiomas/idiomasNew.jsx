@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
-import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
 import CheckIcon from "@material-ui/icons/Check";
+
+import ButtonGeneric from "../../Buttons/ButtonGeneric";
 
 const useStyles = makeStyles((theme) => ({
   containerModal: {

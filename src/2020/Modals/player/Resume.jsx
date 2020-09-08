@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
-import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
 import { useTranslation } from "react-i18next";
+
+import ButtonGeneric from "../../Buttons/ButtonGeneric";
 
 const useStyles = makeStyles(() => ({
   container: {

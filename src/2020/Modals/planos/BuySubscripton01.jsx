@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import get from "lodash/get";
 import { useTranslation } from "react-i18next";
 
-import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
+import ButtonGeneric from "../../Buttons/ButtonGeneric";
 import ButtonBack from "../../Buttons/ButtonBack";
 import imageLogo from "../../Icons/App/net_launch_logo_claro.svg";
 

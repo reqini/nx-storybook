@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 
-import ButtonGeneric from "components/Atoms/Buttons/ButtonGeneric";
+import ButtonGeneric from "../../Buttons/ButtonGeneric";
 
 const useStyles = makeStyles(() => ({
   modalContainer: {
