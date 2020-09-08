@@ -1,6 +1,6 @@
 {
   "name": "@joseirrazabal/nxbook",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Libreria de componentes del proyecto",
   "scripts": {
     "dist": "npm run build && cp package.json .npmrc lib && cd lib && npm publish",
@@ -50,7 +50,9 @@
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addon-options": "^5.2.8",
+    "@storybook/addons": "^6.0.21",
     "@storybook/react": "^5.3.19",
+    "@storybook/theming": "^6.0.21",
     "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",

@@ -73,11 +73,17 @@ const theme = createMuiTheme({
       contrastText: "#ccc",
     },
     epg: {
-      main: "rgba(0, 0, 0, 0.6)",
+      /* main: "rgba(0, 0, 0, 0.6)",
       active: "#34455f",
       activeBlock: "#19222f",
       focus: "#4171B9",
-      focusBlock: "#223e67",
+      focusBlock: "#223e67", */
+
+      main: "rgba(0, 0, 0, 0.6)",
+      active: "#34455F",
+      activeBlock: "#1A222F",
+      focus: "#007DFF",
+      focusBlock: "#4171B9",
     },
     textColor: {
       main: "#FFFFFF",
