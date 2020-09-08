@@ -5,19 +5,18 @@ import Typography from "@material-ui/core/Typography";
 const imageDefault = require("./images/placeholder-actor.svg");
 
 const useStyles = makeStyles((theme) => ({
-  containerCardTalent: {
+  containerCardTalent: ({width}) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    width: 100,
+    width: width || 100,
     marginRight: 15,
     minHeight: 160,
-  },
+  }),
   contentDefaultTalent: ({ width }) => ({
     backgroundImage: `url(${imageDefault})`,
     position: "relative",
-    //padding: 5,
     backgroundSize: width || 100,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -50,27 +49,19 @@ const useStyles = makeStyles((theme) => ({
   cardTalent: ({ width, height, bgSize, borderRadius, image }) => ({
     backgroundImage: `url(${image})`,
     position: "relative",
-    /* margin: height * 0.06, */
     margin: 4,
     backgroundSize: bgSize || "cover",
     backgroundPosition: "center",
     borderRadius: borderRadius || "50%",
     height: height || 110,
     width: width || 110,
-    //boxSizing: "border-box",
 
-    /*  "&:hover": {
-      width: width + width * 0.13,
-      height: height + height * 0.13,
-      backgroundSize: bgSize + bgSize * 0.13,
-      //border: `2px solid ${theme.palette.primary.main}`,
+    "&:hover": {
+      border: `4px solid white`,
       margin: 0,
-    }, */
+    },
     "&:focus": {
       border: `4px solid white`,
-      /* width: width + width * 0.13,
-      height: height + height * 0.13, */
-      //backgroundSize: bgSize + bgSize * 0.13,
       margin: 0,
     },
   }),
@@ -79,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
   },
   typographyTitle: ({ width }) => ({
     color: "white",
-    //marginTop: 5,
     fontSize: 18,
     textAlign: "center",
     width: width,
@@ -194,7 +184,7 @@ const CardTalent = ({
           variant="body1"
           style={{ marginTop: "-5px" }}
         >
-          {lastName}
+          {name}{lastName}
         </Typography>
       </div>
     </div>

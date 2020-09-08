@@ -20,27 +20,21 @@ const useStyles = makeStyles(theme => ({
     bgSize,
     borderRadius,
     image,
-    bgSizeFocus,
     border,
     withContent,
     notDefaultImg,
-    minWidth,
     padding = 10,
     marginFoco
   }) => ({
     backgroundImage: `url(${image})`,
     position: 'relative',
-    //margin: height * 0.06,
     margin: marginFoco,
     backgroundSize: bgSize || 230,
     padding: padding || null,
-    //border: border ? `1px solid ${theme.palette.primary.main}` : null,
     borderRadius: borderRadius || 12,
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
-    //boxSizing: "border-box",
     height: height || 136,
     width: width || 230,
-    //minWidth: minWidth || null,
     display: 'flex',
     overflow: 'hidden',
     justifyContent: withContent ? 'flex-start' : 'flex-end',
@@ -63,10 +57,6 @@ const useStyles = makeStyles(theme => ({
     },
 
     '&:focus': {
-      //width: width + width * 0.06,
-      //height: height + height * 0.13,
-      //backgroundSize: bgSizeFocus || "cover",
-      //boxShadow: "inset 0 0px 8px 2px rgba(0, 0, 0, .3)",
       boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
       border: border ? `4px solid white` : null,
       margin: 0
@@ -177,7 +167,6 @@ const CardLandscape = ({
     const imgObj = new Image()
     imgObj.src = data.imageFull
   }, [])
-  //console.log("RENDER CARD SIMPLE")
   return (
     <div
       className={data.href ? null : classes.containerCard}

@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CardChannels = ({
   purchased,
+  dataExtra,
   price,
   period = "DAY",
   planTitle,
@@ -122,9 +123,6 @@ const CardChannels = ({
             })}
           </div>
         </div>
-        {/* <div>
-          <p>{planTitle}</p>
-        </div> */}
         {purchased ?
         <ChipContainer
           title={'minha assinatura'}
@@ -138,8 +136,8 @@ const CardChannels = ({
       </div>
       <div className={classes.pricePlans}>
         <p>
-          {price.currency}
-          <b>{price.wholeNumber}</b>,{price.decimals}
+          {price}
+          <b>{dataExtra}</b>
           {duration}
           {period}
         </p>

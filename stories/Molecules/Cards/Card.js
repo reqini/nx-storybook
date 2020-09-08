@@ -24,10 +24,10 @@ stories.add('Landscape', () => (
 
 stories.add('talents', () => (
   <CardTalent
-    infoTalent={text('rol talento', 'Conductor')}
-    title={text('Titulo', 'Marcelo tinelli')}
-    width={number('width', 88)}
-    height={number('height', 88)}
+    lastName={text('Apellido', 'Tinelli')}
+    name={text('Nombre', 'Marcelo')}
+    width={number('width', 110)}
+    height={number('height', 110)}
     bgSize={number('bg size', 'cover')}
     image={text(
       'image',
