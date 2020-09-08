@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     backgroundButton = false,
     fontWeight = false
   }) => ({
-    width: width,
+    width: width || 'auto',
     height: theme.sizeButton.height.main,
     minHeight: minHeight || 54,
     display: 'flex',
@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
 
     '& span': {
       fontWeight: fontWeightSpan,
-      fontSize: 20
+      fontSize: 20,
     }
   }),
   nonFocusable: {
@@ -83,7 +83,7 @@ const ButtonGeneric = ({
   fontWeightSpan,
   children,
   title = null,
-  width = 235 /* 329 */,
+  width,
   heightFocoDisable,
   margin,
   onClick,
