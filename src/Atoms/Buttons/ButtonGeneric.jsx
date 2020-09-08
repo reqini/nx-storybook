@@ -2,24 +2,23 @@ import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
-  constainer: ({ width, margin = 10 }) => ({
+  constainer: ({ width, margin = 10, minHeight }) => ({
     display: 'flex',
     flexFlow: 'column',
     boxSizing: 'border-box',
     width: width,
+    minHeight: minHeight || 54,
     margin: margin
   }),
   button: ({
     width,
     fontWeightSpan,
-    minHeight,
     heightFocoDisable = false,
     backgroundButton = false,
     fontWeight = false
   }) => ({
     width: width || 'auto',
     height: theme.sizeButton.height.main,
-    minHeight: minHeight || 54,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
