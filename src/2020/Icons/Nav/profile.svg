@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/profile</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M21,1 C9.954305,1 1,9.954305 1,21 C1,32.045695 9.954305,41 21,41 C32.045695,41 41,32.045695 41,21 C41,9.954305 32.045695,1 21,1 Z" id="path-1"></path>
+        <path d="M21.0130188,0.5 C9.69118143,0.5 0.513018797,9.67816263 0.513018797,21 C0.513018797,32.3218374 9.69118143,41.5 21.0130188,41.5 C32.3348562,41.5 41.5130188,32.3218374 41.5130188,21 C41.5130188,9.67816263 32.3348562,0.5 21.0130188,0.5 Z" id="path-3"></path>
+    </defs>
+    <g id="Icons/Net/SideBar/profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/profile">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <g id="icon_profile" transform="translate(7.000000, 7.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Orion_avatar" mask="url(#mask-2)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                    <g transform="translate(6.000000, 8.500000)" id="Path">
+                        <path d="M11,20.4 L11,22 C11,23 10.5,24.6 5.5,25.5 C2.68121981,25.9725639 0.472563931,28.1812198 0,31 C5.02277785,32.6666667 10.0227778,33.5 15,33.5 C19.9772222,33.5 24.9772222,32.6666667 30,31 C29.2011713,28.1794444 26.8792443,26.0510113 24,25.5 C19,24.55 19,23 19,22 L19,20.4"></path>
+                        <path d="M22,11.8 C22,16.8 18.85,21 15,21 C11.15,21 8,17 8,12 L8,7.2 C8,2 11.7,0 15,0 C18.3,0 22,1.8 22,7 L22,11.8 Z"></path>
+                    </g>
+                </g>
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Mask" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xlink:href="#path-3"></use>
+            </g>
+        </g>
+    </g>
+</svg>

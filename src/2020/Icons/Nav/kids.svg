@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/Infantil</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Net/SideBar/Infantil" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/Infantil">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <path d="M19.0978301,9.29555125 C38.3041561,5.89930062 41.9798174,43.8791668 27.0800757,48 M10.0989398,37.4095932 C13.2439839,17.2763163 44.3803039,12.2018896 48.5057372,28 M41.407681,12.7469669 C39.9908331,12.5697064 34.5187466,16.164294 34.0989398,18.4095932" id="Shape" stroke="#FFFFFF" stroke-width="3.12" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M28.0057372,48 C39.3275746,48 48.5057372,38.8218374 48.5057372,27.5 C48.5057372,16.1781626 39.3275746,7 28.0057372,7 C16.6838998,7 7.50573721,16.1781626 7.50573721,27.5 C7.50573721,38.8218374 16.6838998,48 28.0057372,48 Z" id="Oval" stroke="#FFFFFF" stroke-width="3.12" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

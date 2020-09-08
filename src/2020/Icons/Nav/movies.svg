@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/Film</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Net/SideBar/Film" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/Film">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <g id="Group" transform="translate(7.564771, 7.153217)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0,18.3811769 L40.8195997,18.3811769 L40.8195997,34.7448133 C40.8195997,36.7531215 39.1915443,38.3811769 37.1832361,38.3811769 L3.63636364,38.3811769 C1.62805546,38.3811769 1.57821445e-15,36.7531215 0,34.7448133 L0,18.3811769 L0,18.3811769 Z" id="Path" stroke-width="3.09090909"></path>
+                <path d="M34.8728983,0.804167014 L3.93109079,7.52761164 L3.93109079,7.52761164 C-0.710737327,8.53074644 0.233194777,15.0781577 0.233194777,15.0781577 L39.7084287,6.48053563 L39.2269097,3.73044946 C38.8805396,1.75223574 36.9960921,0.429365085 35.0178784,0.775735159 C34.9693642,0.784229633 34.9210275,0.793708874 34.8728983,0.804167014 Z" id="Path" stroke-width="3.09090909"></path>
+                <line x1="8.24794626" y1="31.6158528" x2="31.8644391" y2="31.6158528" id="Path" stroke-width="2.42424242"></line>
+            </g>
+        </g>
+    </g>
+</svg>

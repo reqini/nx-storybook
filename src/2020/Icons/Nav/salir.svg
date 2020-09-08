@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/salir</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Net/SideBar/salir" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/AoVivo">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <path d="M28.952381,19.5494505 L28.952381,14.7142857 C28.952381,11.5583729 26.3940081,9 23.2380952,9 L13.7142857,9 C10.5583729,9 8,11.5583729 8,14.7142857 L8,41.7186273 C8,44.8745402 10.5583729,47.4329131 13.7142857,47.4329131 L23.2380952,47.4329131 C26.3940081,47.4329131 28.952381,44.8745402 28.952381,41.7186273 L28.952381,36.5457875 L28.952381,36.5457875" id="Path" stroke="#FFFFFF" stroke-width="3.23809524" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M40.5010212,34.8831232 L47.6081566,29.7618051 C48.461629,29.1468029 48.6549473,27.956369 48.0399452,27.1028966 C47.9201733,26.9366826 47.7743706,26.7908798 47.6081566,26.671108 L40.5010212,21.5497899 L40.5010212,21.5497899" id="Path" stroke="#FFFFFF" stroke-width="3.23809524" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="19" y1="28.2164565" x2="46.6839116" y2="28.2164565" id="Path" stroke="#FFFFFF" stroke-width="3.23809524" stroke-linecap="round" stroke-linejoin="round"></line>
+        </g>
+    </g>
+</svg>

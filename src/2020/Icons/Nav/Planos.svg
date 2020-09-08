@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/Planos</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Net/SideBar/Planos" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/PLanos">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <path d="M12.7486617,10.4517246 L43.2674085,10.4517246 C46.0726644,10.4517246 48.3467736,12.7258338 48.3467736,15.5310897 L48.3467736,41.3944727 C48.3467736,44.1997285 46.0726644,46.4738378 43.2674085,46.4738378 L12.7486617,46.4738378 C9.94340587,46.4738378 7.66929667,44.1997285 7.66929667,41.3944727 L7.66929667,15.5310897 C7.66929667,12.7258338 9.94340587,10.4517246 12.7486617,10.4517246 Z" id="Rectangle-path-Copy" stroke="#FFFFFF" stroke-width="3.23809524" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="8.58718349" y1="21.9106589" x2="47.353434" y2="21.9106589" id="Line" stroke="#FFFFFF" stroke-width="3.23809524" stroke-linecap="round" stroke-linejoin="round"></line>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/Search</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Net/SideBar/Search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/Search">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <line x1="37.7142857" y1="37.7142857" x2="47.7222291" y2="47.4172537" id="Line-2" stroke="#FFFFFF" stroke-width="3.23809524" stroke-linecap="round" stroke-linejoin="round"></line>
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="3.23809524" stroke-linecap="round" stroke-linejoin="round" cx="25.1428571" cy="25.1428571" r="17.1428571"></circle>
+        </g>
+    </g>
+</svg>

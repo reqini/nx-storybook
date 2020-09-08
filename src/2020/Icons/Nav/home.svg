@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icons/Net/SideBar/Home</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Net/SideBar/Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/sidebar/Home">
+            <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+            <g id="home" transform="translate(7.000000, 7.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.4">
+                <path d="M17.900918,3.47893886 L0.718331263,23.3793103 L0.718331263,23.3793103 C0.681138348,23.4118699 2.36893242,23.4118699 5.78171347,23.3793103 L5.78171347,34.2761379 C5.78171347,37.5898464 8.46800497,40.2761379 11.7817135,40.2761379 L15.4027546,40.2761379 L15.4027546,40.2761379 L26.8425896,40.2761379 L30.8957726,40.2761379 C34.2094811,40.2761379 36.8957726,37.5898464 36.8957726,34.2761379 L36.8957726,23.3793103 L36.8957726,23.3793103 L41.3378441,23.3793103 C41.3853511,23.3793982 35.5846814,16.7381713 23.9358351,3.45562975 C22.4792219,1.79473548 19.9519828,1.62913145 18.2910877,3.08574366 C18.1521014,3.20763521 18.0217323,3.33901521 17.900918,3.47893886 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

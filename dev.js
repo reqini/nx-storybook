@@ -13,7 +13,6 @@ const dir = ['react', 'react-dom', '@material-ui']
 dir.map(item => {
   try {
     if (!fs.existsSync(`node_modules/${item}2`)) {
-      console.log('==========0!')
       fs.rename(`node_modules/${item}`, `node_modules/${item}2`, function(err) {
         if (err) throw err
         console.log('Move: ', item)
@@ -29,7 +28,7 @@ dir.map(item => {
 // link simbolico a app
 dir.map(item => {
   fs.lstat(`node_modules/${item}`, function(err, stats) {
-    if (!stats.isSymbolicLink()) {
+    if (!stats || stats.isSymbolicLink()) {
       fs.symlink(`${dev}/${item}`, `node_modules/${item}`, error => {
         console.log('link', item)
         if (error) {
