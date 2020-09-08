@@ -1,6 +1,6 @@
 {
   "name": "@joseirrazabal/nxbook",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Libreria de componentes del proyecto",
   "scripts": {
     "dist": "npm run build && cp package.json .npmrc lib && cd lib && npm publish",
