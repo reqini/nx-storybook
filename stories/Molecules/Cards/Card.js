@@ -6,10 +6,9 @@ import CardLandscape from 'Components/Molecules/Cards/CardLandscape'
 import CardTalent from 'Components/Molecules/Cards/CardTalent'
 import CardSearch from 'Components/Molecules/Cards/CardSearch'
 import CardRents from 'Components/Molecules/Cards/CardRents'
-import CardPlans from 'Components/Molecules/Cards/CardPlans'
 import CardChannels from 'Components/Molecules/Cards/CardChannels'
 
-const stories = storiesOf('/Molecules/Cards', module)
+const stories = storiesOf('/Molecules/Card', module)
 
 stories.add('Landscape', () => (
   <CardLandscape
@@ -56,18 +55,6 @@ stories.add('search', () => (
     width={number('width', 290)}
     height={number('height', 225)}
     imageFull={text('image', 'http://netb.tmsimg.com/assets/p9087912_v_h2_ac.jpg')}
-    borderRadius={number('border radius', 6)}
-  />
-))
-
-stories.add('plans', () => (
-  <CardPlans
-    title={text('Titulo', 'Titulo de ejemplo de una pelicula')}
-    subTitle={text('sub titulo', 'ontem as 17h')}
-    width={number('width', 290)}
-    height={number('height', 210)}
-    bgSize={text('size background', '100%')}
-    image={text('image', 'http://netb.tmsimg.com/assets/p9087912_v_h2_ac.jpg')}
     borderRadius={number('border radius', 6)}
   />
 ))
