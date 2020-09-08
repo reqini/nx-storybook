@@ -4,19 +4,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 
 import BackSpaceIcon from "./images/back-space.svg";
-import capitalLettersActive from "./images/capital_letters_active.svg";
-import capitalLettersInactive from "./images/capital_letters_inactive.svg";
+import CapitalLettersActive from "./images/capital_letters_active.svg";
+import CapitalLettersInactive from "./images/capital_letters_inactive.svg";
 
 import TvLatinLower from "./layouts/tvLatinLower";
 import TvLatinUpper from "./layouts/tvLatinUpper";
 import TvSymbolsLayout from "./layouts/tvSymbols";
 
-import DeviceStorage from "../../DeviceStorage/DeviceStorage";
-import Device from "../../../devices/device";
-
 import KeyboardButton from "./button";
-
-const keysDevice = Device.getDevice().getKeys();
 
 const useStyles = makeStyles((theme) => ({
   keyboardHeaderHorizontal: {
@@ -172,6 +167,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Keyboard = ({
+  DeviceStorage,
+  keysDevice,
   showMails = false,
   currentValue = "",
   onClick = () => {},
@@ -392,16 +389,14 @@ const Keyboard = ({
               <KeyboardButton
                 value={
                   typeKeyboard === "upper" ? (
-                    <img
+                    <CapitalLettersActive
                       alt="back-space-icon"
                       className={classes.keyboardImage2}
-                      src={capitalLettersActive}
                     />
                   ) : (
-                    <img
+                    <CapitalLettersInactive
                       alt="back-space-icon"
                       className={classes.keyboardImage2}
-                      src={capitalLettersInactive}
                     />
                   )
                 }

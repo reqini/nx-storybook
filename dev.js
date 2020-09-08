@@ -7,7 +7,7 @@ const chokidar = require('chokidar')
 var myArgs = process.argv.slice(2)
 
 const dev = myArgs[0] || '/home/jose/propio/newFaa/node_modules'
-const dir = ['react', 'react-dom', '@material-ui']
+const dir = ['react', 'react-dom', '@material-ui', 'react-i18next']
 
 // borro las carpetas de librerias compartidas
 dir.map(item => {
