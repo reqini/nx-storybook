@@ -276,23 +276,6 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             location={location}
           />
         ))}
-        {/*
-        <li className={classes.li}>
-          <NavLinkMenu
-            id="rents"
-            to={`/rents`}
-            image={{
-              src: imageAlugados,
-              alt: "rents",
-            }}
-            translate={{
-              key: "net_alugados_menu_vertical",
-              text: "alugados",
-            }}
-            location={location}
-          />
-        </li>
-        */}
         <li className={classes.li}>
           <NavLinkMenu
             id="plans"
@@ -311,7 +294,6 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
         <li className={classes.li}>
           <NavLinkMenu
             id="config"
-            // to="#"
             onClick={() => {
               setIsModalOpen(true);
             }}

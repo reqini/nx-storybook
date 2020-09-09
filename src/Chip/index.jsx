@@ -1,5 +1,5 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles"
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
@@ -28,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ChipContainer({ title, color, height, gradient, uppercase, width, padding }) {
-  const classes = useStyles({ title, color, height, uppercase, width, padding });
 
+  const classes = useStyles({ title, color, height, uppercase, width, padding });
   let style = {};
   if (gradient) {
     style = { background: `linear-gradient(${gradient})` };
   }
+
   return (
     <React.Fragment>
       <div className={classes.chip} style={style}>
