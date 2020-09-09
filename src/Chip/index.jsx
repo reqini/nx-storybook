@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   })
 }))
 
-export default function ChipContainer({ title, color, height, gradient, uppercase, width, padding }) {
+const ChipContainer = ({ title, color, height, gradient, uppercase, width, padding }) => {
   const classes = useStyles({ title, color, height, uppercase, width, padding })
   let style = {}
   if (gradient) {
@@ -44,3 +44,5 @@ export default function ChipContainer({ title, color, height, gradient, uppercas
     </React.Fragment>
   )
 }
+
+export default ChipContainer

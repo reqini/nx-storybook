@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 /* import { withRouter } from 'react-router-dom' */
@@ -165,13 +165,12 @@ const CardLandscape = ({
     padding,
     marginFoco
   })
-  const [foco, setFoco] = useState(false)
-
   // cargar imagen full en paralelo
   useEffect(() => {
     const imgObj = new Image()
     imgObj.src = data.imageFull
-  }, [])
+  }, [data])
+
   return (
     <div
       className={data.href ? null : classes.containerCard}
@@ -179,7 +178,7 @@ const CardLandscape = ({
     >
       <div
         id={id}
-        className={`${classes.landscape} ${isFocusable ? 'focusable' : ''} ${foco ? 'active' : ''} ${
+        className={`${classes.landscape} ${isFocusable ? 'focusable' : ''} ${
           data.href && !data.provider ? classes.category : ''
         }`}
         tabIndex='0'
@@ -203,14 +202,13 @@ const CardLandscape = ({
           if (scrollToTop) {
             let item = e.currentTarget.parentNode.parentNode.parentNode.parentNode
 
-            if (indexRibbon == 0 && isSerie) {
+            if (indexRibbon === 0 && isSerie) {
               item = e.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode
             }
 
             item.scrollIntoView(true)
           }
 
-          // setFoco(true);
           focusHandler(data)
         }}
         onKeyUp={e => {
@@ -239,5 +237,4 @@ const CardLandscape = ({
     </div>
   )
 }
-//export default React.memo(withRouter(CardLandscape))
 export default React.memo(CardLandscape) //

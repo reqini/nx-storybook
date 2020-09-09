@@ -43,7 +43,6 @@ const useStyles = makeStyles(theme => ({
     margin: 0,
     marginTop: 5,
     listStyle: 'none',
-    //overflow: "hidden",
     display: 'flex',
     justifyContent: 'center',
     position: 'relative',
@@ -60,8 +59,7 @@ const useStyles = makeStyles(theme => ({
       },
 
       '& img': {
-        width: '100%',
-        //maxWidth: 45,
+        // width: '100%',
         width: 37.3
       }
     }

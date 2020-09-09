@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { text, boolean, number, array } from '@storybook/addon-knobs/react'
+import { text, number } from '@storybook/addon-knobs/react'
 
 import CardLandscape from 'Components/Molecules/Cards/CardLandscape'
 import CardTalent from 'Components/Molecules/Cards/CardTalent'

@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 80,
     backgroundPosition: '85px 40px',
     backgroundRepeat: 'no-repeat',
-    border: 'none',
     height: height || 225,
     width: width || 290,
     border: `4px solid transparent`,
@@ -115,8 +114,8 @@ const CardSearch = ({
 
   // cargar imagen full en paralelo
   useEffect(() => {
-    const imgObj = new Image()
-    //imgObj.src = data.imageFull;
+    // const imgObj = new Image()
+    // imgObj.src = data.imageFull;
   }, [])
 
   return (

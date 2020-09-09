@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 
     '&:focus': {
       height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
-      background: theme.palette.buttonsColor.foco,
+      // background: theme.palette.buttonsColor.foco,
       borderRadius: 1,
       fontWeight: fontWeight ? 500 : 900,
       color: '#fff',
