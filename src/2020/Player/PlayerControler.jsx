@@ -137,9 +137,7 @@ const Button = React.memo(({ text, classButton, type, image, onClick = () => {} 
 const DefaultButtons = ({
   title,
   subTitle,
-  back,
   progresBar,
-  className,
   play,
   episodes,
   stepBackward,
@@ -155,7 +153,6 @@ const DefaultButtons = ({
 
   return (
     <React.Fragment>
-      {back}
       <div className={classes.contentTitle}>
         <h3 className={classes.title}>{title}</h3>
         <h3 className={classes.subTitle}>{subTitle}</h3>

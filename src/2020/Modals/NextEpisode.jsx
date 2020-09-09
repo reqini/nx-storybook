@@ -1,20 +1,18 @@
-import React, { useEffect, useCallback } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import get from "lodash/get";
+import React, { useEffect, useCallback } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import get from 'lodash/get'
 
-
-import CardRents from "../Cards/CardRents";
-import ButtonBack from "../Buttons/ButtonBack";
+import CardRents from '../Cards/CardRents'
 
 const useStyles = makeStyles(() => ({
   constainer: {
-    display: "flex",
-    widht: "100%",
-    height: "100%",
+    display: 'flex',
+    widht: '100%',
+    height: '100%'
   },
   nextEpisode: () => ({
-    position: "absolute",
+    position: 'absolute',
     bottom: 0,
     zIndex: 1,
     width: 300,
@@ -24,103 +22,92 @@ const useStyles = makeStyles(() => ({
     marginRight: 30,
     marginBottom: 30,
 
-    "&:focus": {
+    '&:focus': {
       backgroundSize: 55,
       height: 55,
-      width: 55,
-    },
-  }),
-}));
+      width: 55
+    }
+  })
+}))
 
 const Buy = ({ item, onClose, handlePlay, setFocus, keys }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const [loading, setLoading] = React.useState(true);
-  const [completed, setCompleted] = React.useState(0);
+  const [loading, setLoading] = React.useState(true)
+  const [completed, setCompleted] = React.useState(0)
 
-  const handleKeyPress = (e) => {
-    const currentKey = keys.getPressKey(e.keyCode) || null;
+  const handleKeyPress = e => {
+    const currentKey = keys.getPressKey(e.keyCode) || null
 
     switch (currentKey) {
-      case "BACK":
+      case 'BACK':
         // e.preventDefault();
         // e.stopPropagation();
-        onClose();
-        break;
+        onClose()
+        break
       default:
-        break;
+        break
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress, true);
+    document.addEventListener('keydown', handleKeyPress, true)
 
     function progress() {
-      setCompleted((oldCompleted) => {
+      setCompleted(oldCompleted => {
         if (oldCompleted === 100) {
-          return 0;
+          return 0
         }
-        const diff = 10;
-        return Math.min(oldCompleted + diff, 100);
-      });
+        const diff = 10
+        return Math.min(oldCompleted + diff, 100)
+      })
     }
-    setInterval(progress, 1000);
+    setInterval(progress, 1000)
 
-    setLoading(false);
+    setLoading(false)
     setTimeout(() => {
-      setFocus();
-    }, 600);
+      setFocus()
+    }, 600)
 
     return () => {
-      document.removeEventListener("keydown", handleKeyPress, true);
-    };
-  }, []);
+      document.removeEventListener('keydown', handleKeyPress, true)
+    }
+  }, [])
 
   useEffect(() => {
     if (completed == 100) {
-      handleClick();
+      handleClick()
     }
-  }, [completed]);
+  }, [completed])
 
   const handleClick = useCallback(() => {
-    handlePlay(item);
-    onClose();
-  });
+    handlePlay(item)
+    onClose()
+  })
 
   if (loading) {
-    return null;
+    return null
   }
 
   return (
-    <div className={classes.container} style={{ background: "transparent" }}>
-      <ButtonBack
-        onClick={() => {
-          onClose();
-        }}
-      />
+    <div className={classes.container} style={{ background: 'transparent' }}>
       <div className={classes.nextEpisode}>
         <CardRents
           isFocusable
           width={290}
           height={225}
-          image={get(item, "image_large")}
-          title={`T:${get(item, "extendedcommon.media.episode.season")} E:${get(
+          image={get(item, 'image_large')}
+          title={`T:${get(item, 'extendedcommon.media.episode.season')} E:${get(
             item,
-            "extendedcommon.media.episode.number"
-          )} - ${get(item, "title")}`}
+            'extendedcommon.media.episode.number'
+          )} - ${get(item, 'title')}`}
           subTitle={`próximo episódio em ${10 - completed / 10} segundos`}
           clickHandler={handleClick}
-          progressLine={
-            <LinearProgress
-              variant="determinate"
-              color="secondary"
-              value={completed}
-            />
-          }
+          progressLine={<LinearProgress variant='determinate' color='secondary' value={completed} />}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Buy;
+export default Buy

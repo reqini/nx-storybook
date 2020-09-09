@@ -23,8 +23,10 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexFlow: 'column',
     position: 'absolute',
-    width: '100%',
-    bottom: 0
+    bottom: 0,
+    background: 'transparent',
+    height: '100%',
+    width: '100%'
   }),
   Hours: {
     display: 'flex',
@@ -123,21 +125,8 @@ const NewControls = ({
   return (
     <div style={{ visibility: showControls ? 'visible' : 'hidden' }}>
       <div className={`${classes.PlayerContainer}`}>
-        <div
-          className={`${classes.PlayerWrapper}`}
-          style={{
-            background: 'transparent',
-            height: '100%',
-            width: '100%'
-          }}
-        >
+        <div className={`${classes.PlayerWrapper}`}>
           <PlayerControler
-            back={
-              <ButtonBack
-                snDown={'#playerSlider'} // hacia abajo siempre al slider
-                onClick={back}
-              />
-            }
             useLanguages={useLanguages}
             onShowLanguages={onShowLanguages}
             title={title}

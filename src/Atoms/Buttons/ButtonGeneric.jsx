@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   constainer: ({ width, margin = 10, minHeight }) => ({
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
 
     '& span': {
       fontWeight: fontWeightSpan,
-      fontSize: 20,
+      fontSize: 20
     }
   }),
   nonFocusable: {
