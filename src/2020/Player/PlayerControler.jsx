@@ -1,166 +1,143 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
-import IconBack from "../Icons/App/net_back_icon.svg";
-import IconBackFocus from "../Icons/App/net_back_icon_focus.svg";
+import IconBack from '../Icons/App/net_back_icon.svg'
+import IconEpisodes from '../Icons/Player/Episodes.svg'
+import IconBackward from '../Icons/Player/Back10s.svg'
+import IconPlay from '../Icons/Player/Play.svg'
+import IconPause from '../Icons/Player/Pause.svg'
+import IconForward from '../Icons/Player/Forward10s.svg'
+import IconSub from '../Icons/Player/Subtitles.svg'
 
-import IconEpisodes from "../Icons/Player/Episodes.svg";
-
-import IconReplay from "../Icons/Player/Back10s.svg";
-import IconBackward from "../Icons/Player/Back10s.svg";
-import IconBackwardFocus from "../Icons/Player/Back10s.svg";
-
-import IconPlay from "../Icons/Player/Play.svg";
-import IconPlayFocus from "../Icons/Player/PlayFoco.svg";
-
-import IconPause from "../Icons/Player/Pause.svg";
-
-import IconForward from "../Icons/Player/Forward10s.svg";
-import IconForwardFocus from "../Icons/Player/Forward10s.svg";
-
-import IconSub from "../Icons/Player/Subtitles.svg";
-
-import svgToUri from "../svgToUri";
+import svgToUri from '../svgToUri'
 
 const getProperties = ({ type }) => {
   switch (type) {
-    case "back":
+    case 'back':
       return {
-        className: "transparent",
-        image: IconBack,
-        focus: IconBackFocus,
-      };
-    case "episodes":
+        className: 'transparent',
+        image: IconBack
+      }
+    case 'episodes':
       return {
-        image: IconEpisodes,
-      };
-    case "replay":
+        image: IconEpisodes
+      }
+    case 'replay':
+      return {}
+    case 'previewSong':
+      return {}
+    case 'stepBackward':
       return {
-        image: IconReplay,
-      };
-    case "previewSong":
-      return {};
-    case "stepBackward":
+        image: IconBackward
+      }
+    case 'play':
       return {
-        image: IconBackward,
-        focus: IconBackwardFocus,
-      };
-    case "play":
+        className: 'transparent',
+        image: IconPlay
+      }
+    case 'pause':
       return {
-        className: "transparent",
-        image: IconPlay,
-        focus: IconPlayFocus,
-      };
-    case "pause":
+        className: 'transparent',
+        image: IconPause
+      }
+    case 'stepForward':
       return {
-        className: "transparent",
-        image: IconPause,
-      };
-    case "stepForward":
+        image: IconForward
+      }
+    case 'next':
       return {
-        image: IconForward,
-        focus: IconForwardFocus,
-      };
-    case "next":
+        image: IconForward
+      }
+    case 'nextSong':
+      return {}
+    case 'language':
       return {
-        image: IconForward,
-      };
-    case "nextSong":
-      return {};
-    case "language":
-      return {
-        image: IconSub,
-      };
-    case "skipIntro":
+        image: IconSub
+      }
+    case 'skipIntro':
       return {
         // text: Translator.get("skip_intro_player", "Omitir intro"),
-        className: "focusable focusable-skip skip-control-btn action",
-      };
-    case "record":
+        className: 'focusable focusable-skip skip-control-btn action'
+      }
+    case 'record':
       return {
-        className: "player-ui-button action",
-      };
-    case "favorite":
+        className: 'player-ui-button action'
+      }
+    case 'favorite':
     default:
-      return {};
+      return {}
   }
-};
+}
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   containerControls: {
-    backgroundImage:
-      "linear-gradient(to bottom, rgba(255, 255, 255, 0), black)",
-    position: "absolute",
+    backgroundImage: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), black)',
+    position: 'absolute',
     bottom: 0,
     height: 100,
-    width: "100%",
+    width: '100%'
   },
   contentTitle: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    background:
-      "linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%)",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%)'
   },
   title: {
-    marginBottom: 10,
+    marginBottom: 10
   },
   subTitle: {
-    margin: 0,
+    margin: 0
   },
   buttons: ({ image }) => ({
     width: 48,
     height: 48,
-    margin: "0 10px",
-    borderRadius: "50%",
+    margin: '0 10px',
+    borderRadius: '50%',
     backgroundImage: `${svgToUri(image)}`,
     backgroundSize: 48,
-    backgroundPosition: "center",
+    backgroundPosition: 'center',
 
-    "&:focus": {
+    '&:focus': {
       background: theme.palette.primary.main,
       backgroundImage: `${svgToUri(image)}`,
       backgroundSize: 48,
-      backgroundPosition: "center",
-    },
+      backgroundPosition: 'center'
+    }
   }),
   contentButtons: {
-    height: "60px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));
-
-const Button = React.memo(
-  ({ text, classButton, type, image, onClick = () => {} }) => {
-    const data = getProperties({ type });
-    const classes = useStyles({ image: data.image, focus: data.focus, type });
-
-    return (
-      <div
-        className={`${classes.buttons} ${data.className} focusable`}
-        tabIndex="0"
-        data-sn-up={"#playerSlider"} // hacia arriba siempre al slider
-        onClick={(e) => {
-          e.preventDefault();
-          onClick();
-        }}
-      >
-        {text && text}
-      </div>
-    );
+    height: '60px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
-);
+}))
+
+const Button = React.memo(({ text, classButton, type, image, onClick = () => {} }) => {
+  const data = getProperties({ type })
+  const classes = useStyles({ image: data.image, type })
+
+  return (
+    <div
+      className={`${classes.buttons} ${data.className} focusable`}
+      tabIndex='0'
+      data-sn-up={'#playerSlider'} // hacia arriba siempre al slider
+      onClick={e => {
+        e.preventDefault()
+        onClick()
+      }}
+    >
+      {text && text}
+    </div>
+  )
+})
 
 const DefaultButtons = ({
   title,
   subTitle,
-  back,
   progresBar,
-  className,
   play,
   episodes,
   stepBackward,
@@ -170,13 +147,12 @@ const DefaultButtons = ({
   handlePausePlay,
   useLanguages,
   onShowLanguages,
-  handleBackwardForward = () => {},
+  handleBackwardForward = () => {}
 }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <React.Fragment>
-      {back}
       <div className={classes.contentTitle}>
         <h3 className={classes.title}>{title}</h3>
         <h3 className={classes.subTitle}>{subTitle}</h3>
@@ -185,34 +161,20 @@ const DefaultButtons = ({
         {progresBar}
 
         <div className={classes.contentButtons}>
-          {episodes && <Button type="episodes" onClick={onShowEpisodes} />}
-          {stepBackward && (
-            <Button
-              type="stepBackward"
-              onClick={() => handleBackwardForward(true)}
-            />
-          )}
+          {episodes && <Button type='episodes' onClick={onShowEpisodes} />}
+          {stepBackward && <Button type='stepBackward' onClick={() => handleBackwardForward(true)} />}
           {play &&
             (isPause ? (
-              <Button
-                classButton={classes.player}
-                type="play"
-                onClick={handlePausePlay}
-              />
+              <Button classButton={classes.player} type='play' onClick={handlePausePlay} />
             ) : (
-              <Button type="pause" onClick={handlePausePlay} />
+              <Button type='pause' onClick={handlePausePlay} />
             ))}
-          {stepForward && (
-            <Button
-              type="stepForward"
-              onClick={() => handleBackwardForward()}
-            />
-          )}
-          {useLanguages && <Button type="language" onClick={onShowLanguages} />}
+          {stepForward && <Button type='stepForward' onClick={() => handleBackwardForward()} />}
+          {useLanguages && <Button type='language' onClick={onShowLanguages} />}
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default React.memo(DefaultButtons);
+export default React.memo(DefaultButtons)

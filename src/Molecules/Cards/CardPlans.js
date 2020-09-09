@@ -1,54 +1,54 @@
-import React from "react";
-import get from "lodash/get";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react'
+import get from 'lodash/get'
+import { makeStyles } from '@material-ui/core/styles'
 
-import CardLandscape from "./CardLandscape";
-import ChipContainer from "../../Chip";
+import CardLandscape from './CardLandscape'
+import ChipContainer from '../../Chip'
 
 const colorClasses = [
-  "45deg,#0D9F70,#2574B4",
+  '45deg,#0D9F70,#2574B4'
   /* "45deg,#6D51B8,#D44169", */
   /* "45deg,#AA00FF,#D89D2F", */
-];
+]
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   channelsPlans: {
     fontWeight: 900,
     fontSize: 18,
     margin: 5,
-    color: "white",
-    position: "relative",
+    color: 'white',
+    position: 'relative'
   },
   pricePlans: {
-    textAlign: "center",
-    width: "100%",
+    textAlign: 'center',
+    width: '100%',
     padding: 0,
-    color: "white",
-    position: "relative",
+    color: 'white',
+    position: 'relative',
 
-    "& p": {
-      margin: "15px 0",
+    '& p': {
+      margin: '15px 0',
       fontSize: 13.4,
 
-      "& b": {
+      '& b': {
         fontSize: 30.15,
-        fontWeight: 500,
-      },
-    },
+        fontWeight: 500
+      }
+    }
   },
   listChannelsPlans: {
-    width: "100%",
+    width: '100%',
     height: 50,
     padding: 0,
     margin: 0,
     marginTop: 5,
-    listStyle: "none",
+    listStyle: 'none',
     //overflow: "hidden",
-    display: "flex",
+    display: 'flex',
     justifyContent: 'center',
-    position: "relative",
+    position: 'relative',
 
-    "& li": {
+    '& li': {
       height: 32.4,
       marginLeft: 10,
       display: 'flex',
@@ -59,20 +59,20 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 0
       },
 
-      "& img": {
-        width: "100%",
+      '& img': {
+        width: '100%',
         //maxWidth: 45,
-        width: 37.3,
-      },
-    },
+        width: 37.3
+      }
+    }
   },
   contentTags: {
     margin: '5px 0',
     width: '100%',
-    display: 'flex', 
+    display: 'flex',
     justifyContent: 'space-between'
   }
-}));
+}))
 
 const CardPlans = ({
   purchased = false,
@@ -83,9 +83,9 @@ const CardPlans = ({
   live,
   duration,
   price,
-  imageCard = "http://netb.tmsimg.com/assets/p9087912_v_h2_ac.jpg",
-  period = "DAY",
-  planTitle = "PLAN",
+  imageCard = 'http://netb.tmsimg.com/assets/p9087912_v_h2_ac.jpg',
+  period = 'DAY',
+  planTitle = 'PLAN',
   channels = [],
   clickHandler = () => {},
   focusHandler = () => {},
@@ -95,7 +95,7 @@ const CardPlans = ({
   id,
   isLast,
   focusHandlerDown = () => {},
-  marginFoco,
+  marginFoco
 }) => {
   const classes = useStyles({
     width,
@@ -104,7 +104,7 @@ const CardPlans = ({
     borderRadius,
     marginFoco,
     purchased
-  });
+  })
 
   return (
     <CardLandscape
@@ -114,7 +114,7 @@ const CardPlans = ({
       withContent
       padding={20}
       isFocusable={true}
-      bgSize={"cover"}
+      bgSize={'cover'}
       borderRadius={12}
       height={198 - 40}
       image={imageCard}
@@ -133,18 +133,17 @@ const CardPlans = ({
           uppercase
           height={18}
           width={'auto'}
-          gradient={
-            colorClasses[Math.floor(Math.random() * colorClasses.length)]
-          }
+          gradient={colorClasses[Math.floor(Math.random() * colorClasses.length)]}
         />
-        {purchased ?
-        <ChipContainer
-          title={'meu plano'}
-          color={"rgba(255,255,255,0.28)"}
-          height={18}
-          padding={'0'}
-          width={70}
-        /> : null}
+        {purchased ? (
+          <ChipContainer
+            title={'meu plano'}
+            color={'rgba(255,255,255,0.28)'}
+            height={18}
+            padding={'0'}
+            width={70}
+          />
+        ) : null}
       </div>
       <div className={classes.channelsPlans}>{live} canais</div>
       <div className={classes.pricePlans}>
@@ -157,7 +156,7 @@ const CardPlans = ({
       </div>
       <ul className={classes.listChannelsPlans}>
         {channels.map((ch, i) => {
-          if (get(ch, "composition.systemParameters.IMAGE_URL")) {
+          if (get(ch, 'composition.systemParameters.IMAGE_URL')) {
             return (
               <li key={i}>
                 <img
@@ -165,11 +164,11 @@ const CardPlans = ({
                   alt={ch.composition.systemParameters.DISPAY_NAME}
                 />
               </li>
-            );
+            )
           }
         })}
       </ul>
     </CardLandscape>
-  );
-};
-export default React.memo(CardPlans);
+  )
+}
+export default React.memo(CardPlans)

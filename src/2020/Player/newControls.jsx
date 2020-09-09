@@ -1,41 +1,43 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useCallback, useEffect, useRef } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
-import SliderProgress from "./sliderProgress";
-import PlayerControler from "./PlayerControler";
-import ButtonBack from "../Buttons/ButtonBack";
+import SliderProgress from './sliderProgress'
+import PlayerControler from './PlayerControler'
+import ButtonBack from '../Buttons/ButtonBack'
 
-var time = false;
-const hideTime = 6000;
+var time = false
+const hideTime = 6000
 
-var gShowControls = false; // poruqe dentro del handleKey no cambia el showControls
+var gShowControls = false // poruqe dentro del handleKey no cambia el showControls
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   PlayerContainer: () => ({
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
-    width: "100%",
-    height: "100%",
-    boxSizing: "border-box",
+    width: '100%',
+    height: '100%',
+    boxSizing: 'border-box'
   }),
   PlayerWrapper: () => ({
-    display: "flex",
-    flexFlow: "column",
-    position: "absolute",
-    width: "100%",
+    display: 'flex',
+    flexFlow: 'column',
+    position: 'absolute',
     bottom: 0,
+    background: 'transparent',
+    height: '100%',
+    width: '100%'
   }),
   Hours: {
-    display: "flex",
+    display: 'flex',
     height: 30,
-    alignItems: "center",
-    fontWeight: "400",
+    alignItems: 'center',
+    fontWeight: '400',
     fontSize: 14,
     marginLeft: 153,
-    overflow: "hidden",
-  },
-}));
+    overflow: 'hidden'
+  }
+}))
 
 const NewControls = ({
   keys,
@@ -56,88 +58,75 @@ const NewControls = ({
   handlePausePlay,
   useLanguages = false,
   onShowLanguages,
-  handleBackwardForward,
+  handleBackwardForward
 }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const [showControls, setShowControls] = useState(false);
+  const [showControls, setShowControls] = useState(false)
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener('keydown', handleKeyPress)
 
     return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
+      document.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [])
 
   useEffect(() => {
-    setShowControls(false);
+    setShowControls(false)
     // if (!loading) {
     //   setShowControls(true);
     //   setTime();
     // }
-  }, [loading]);
+  }, [loading])
 
   useEffect(() => {
-    gShowControls = showControls;
+    gShowControls = showControls
 
     if (showControls) {
       setTimeout(() => {
-        window.SpatialNavigation.focus("@newPlayer");
-      }, 100);
+        window.SpatialNavigation.focus('@newPlayer')
+      }, 100)
     }
-  }, [showControls]);
+  }, [showControls])
 
   const setTime = () => {
-    clearTimeout(time);
+    clearTimeout(time)
     time = setTimeout(() => {
-      setShowControls(false);
-    }, hideTime);
-  };
+      setShowControls(false)
+    }, hideTime)
+  }
 
-  const handleKeyPress = (e) => {
-    const currentKey = keys ? keys.getPressKey(e.keyCode) : null;
+  const handleKeyPress = e => {
+    const currentKey = keys ? keys.getPressKey(e.keyCode) : null
 
     if (!gShowControls) {
-      setShowControls(true);
+      setShowControls(true)
 
-      e.preventDefault();
-      e.stopPropagation();
+      e.preventDefault()
+      e.stopPropagation()
     }
 
-    setTime();
+    setTime()
 
     switch (currentKey) {
-      case "RED":
-        e.preventDefault();
-        e.stopPropagation();
+      case 'RED':
+        e.preventDefault()
+        e.stopPropagation()
 
-        break;
+        break
     }
-  };
+  }
 
   if (loading) {
-    return false;
+    return false
   }
 
   return (
-    <div style={{ visibility: showControls ? "visible" : "hidden" }}>
+    <div style={{ visibility: showControls ? 'visible' : 'hidden' }}>
       <div className={`${classes.PlayerContainer}`}>
-        <div
-          className={`${classes.PlayerWrapper}`}
-          style={{
-            background: "transparent",
-            height: "100%",
-            width: "100%",
-          }}
-        >
+        <div className={`${classes.PlayerWrapper}`}>
           <PlayerControler
-            back={
-              <ButtonBack
-                snDown={"#playerSlider"} // hacia abajo siempre al slider
-                onClick={back}
-              />
-            }
             useLanguages={useLanguages}
             onShowLanguages={onShowLanguages}
             title={title}
@@ -162,7 +151,7 @@ const NewControls = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(NewControls);
+export default React.memo(NewControls)
