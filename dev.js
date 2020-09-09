@@ -2,11 +2,13 @@ const fs = require('fs')
 const path = require('path')
 const cp = require('child_process')
 const chokidar = require('chokidar')
+const dotenv = require('dotenv')
 
-// ejecutar: node dev.js /ruta/al/proyecto/node_modules
-var myArgs = process.argv.slice(2)
+dotenv.config()
 
-const dev = myArgs[0] || '/home/jose/propio/newFaa'
+const dev = process.env.PATH_APP
+
+console.log('path aplicacion: ', process.env.PATH_APP)
 
 // components que requieren hooks compoartidos
 const dir = ['react', 'react-dom', '@material-ui', 'react-i18next', 'react-router-dom']

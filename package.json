@@ -7,7 +7,7 @@
     "dist": "npm run build && cp package.json .npmrc lib && cd lib && npm publish",
     "prebuild": "npm run clean",
     "clean": "rimraf esm",
-    "dev": "nodemon --ignore lib/ --ignore dev/ -e js,jsx --exec npm run build:cjs",
+    "dev": "node dev.js",
     "build": "npm run build:cjs",
     "build:cjs": "cross-env BABEL_ENV=cjs babel --presets=@babel/env,@babel/react --plugins @babel/plugin-syntax-dynamic-import,@babel/plugin-syntax-import-meta,@babel/plugin-proposal-class-properties,@babel/plugin-proposal-json-strings src/ -d lib/",
     "start": "start-storybook -p 6006",
