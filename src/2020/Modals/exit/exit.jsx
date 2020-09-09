@@ -1,81 +1,78 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { useTranslation } from "react-i18next";
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { useTranslation } from 'react-i18next'
 
-import ButtonGeneric from "../../Buttons/ButtonGeneric";
+import ButtonGeneric from '../../Buttons/ButtonGeneric'
 
 const useStyles = makeStyles(() => ({
   modalContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%'
   },
   contentCenter: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textAlign: "center",
-    maxWidth: 550,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+    maxWidth: 550
   },
   title: {
-    fontWeight: 400,
-  },
-}));
+    fontWeight: 400
+  }
+}))
 
 const Exit = ({ onClose, logout = () => {} }) => {
-  const { t, i18n } = useTranslation();
-  const classes = useStyles();
-  const [loading, setLoading] = useState(true);
+  const { t, i18n } = useTranslation()
+  const classes = useStyles()
+  const [loading, setLoading] = useState(true)
 
   const getFocus = () => {
     setTimeout(() => {
-      window.SpatialNavigation.focus("@modal-new");
-    }, 200);
-  };
+      window.SpatialNavigation.focus('@modal-new')
+    }, 200)
+  }
 
   React.useEffect(() => {
     const fetchData = async () => {
-      setLoading(false);
-      getFocus();
-    };
+      setLoading(false)
+      getFocus()
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   React.useEffect(() => {
-    getFocus();
-  }, [loading]);
+    getFocus()
+  }, [loading])
 
   if (loading) {
-    return null;
+    return null
   }
 
   const handleLogout = async () => {
     try {
-      const result = await logout();
+      const result = await logout()
     } catch (e) {
-      console.error("[EXIT] -- ERROR:", e);
+      console.error('[EXIT] -- ERROR:', e)
     }
-  };
+  }
 
   return (
     <div className={classes.modalContainer}>
       <div className={classes.contentCenter}>
-        <h2 className={classes.title}>{t("net_salir_confirmar", "sair")}</h2>
+        <h2 className={classes.title}>{t('net_salir_confirmar', 'sair')}</h2>
         <ButtonGeneric
-          onClick={(e) => {
-            handleLogout();
+          onClick={e => {
+            handleLogout()
           }}
-          title={t("exit_btn_exit_txt", "Sair")}
+          title={t('exit_btn_exit_txt', 'Sair')}
         />
-        <ButtonGeneric
-          onClick={(e) => onClose()}
-          title={t("exit_btn_cancel_txt", "Cancelar")}
-        />
+        <ButtonGeneric onClick={e => onClose()} title={t('exit_btn_cancel_txt', 'Cancelar')} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Exit;
+export default Exit

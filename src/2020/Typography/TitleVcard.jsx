@@ -1,8 +1,8 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
-import backButton from "../Icons/App/net_back_icon.svg";
-import backButtonFocus from "../Icons/App/net_back_icon_focus.svg";
+import backButton from '../Icons/App/net_back_icon.svg'
+import backButtonFocus from '../Icons/App/net_back_icon_focus.svg'
 
 const useStyles = makeStyles(() => ({
   titleVcard: ({ maxWidth, noWrap }) => ({
@@ -10,10 +10,10 @@ const useStyles = makeStyles(() => ({
     marginBottom: 20,
     fontSize: 40,
     fontWeight: 800,
-    overflow: noWrap ? "hidden" : null,
-    maxWidth: maxWidth || "100%",
-    whiteSpace: noWrap ? "nowrap" : null,
-    textOverflow: noWrap ? "ellipsis" : null,
+    overflow: noWrap ? 'hidden' : null,
+    maxWidth: maxWidth || '100%',
+    whiteSpace: noWrap ? 'nowrap' : null,
+    textOverflow: noWrap ? 'ellipsis' : null
   }),
   buttomBack: {
     width: 50,
@@ -21,47 +21,41 @@ const useStyles = makeStyles(() => ({
     marginBottom: 5,
     backgroundSize: 50,
     backgroundImage: `url(${backButton})`,
-    backgroundRepeat: "no-repeat",
+    backgroundRepeat: 'no-repeat',
 
-    "&:focus": {
+    '&:focus': {
       backgroundImage: `url(${backButtonFocus})`,
       backgroundSize: 55,
       marginBottom: 0,
       height: 55,
-      width: 55,
-    },
+      width: 55
+    }
   },
   contentTitle: ({ position }) => ({
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
     top: 0,
-    position: position || null,
-  }),
-}));
+    position: position || null
+  })
+}))
 
-const TitleVcard = ({
-  title,
-  onClose = null,
-  position,
-  maxWidth,
-  noWrap = false,
-}) => {
-  const classes = useStyles({ title, onClose, position, maxWidth, noWrap });
+const TitleVcard = ({ title, onClose = null, position, maxWidth, noWrap = false }) => {
+  const classes = useStyles({ title, onClose, position, maxWidth, noWrap })
 
   return (
     <div className={classes.contentTitle}>
       {onClose && (
         <div
           className={`${classes.buttomBack} focusable`}
-          tabIndex="0"
-          onClick={(e) => {
-            e.preventDefault();
-            onClose();
+          tabIndex='0'
+          onClick={e => {
+            e.preventDefault()
+            onClose()
           }}
         />
       )}
       <h4 className={classes.titleVcard}>{title}</h4>
     </div>
-  );
-};
-export default React.memo(TitleVcard);
+  )
+}
+export default React.memo(TitleVcard)

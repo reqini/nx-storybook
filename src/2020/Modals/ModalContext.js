@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-const getPressKey = () => {};
+const getPressKey = () => {}
 
-const ModalContext = React.createContext({ keys: { getPressKey } });
+const ModalContext = React.createContext({ keys: { getPressKey } })
 
-export default ModalContext;
+export default ModalContext

@@ -1,137 +1,132 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import get from "lodash/get";
-import LinearProgress from "@material-ui/core/LinearProgress";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import get from 'lodash/get'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
-import CardRents from "../Cards/CardRents";
-import CardLandscape from "../Cards/CardLandscape";
-import CardTalent from "../Cards/CardTalent";
-import CardSearch from "../Cards/CardSearch";
-import CardPlans from "../Cards/CardPlans";
-import CardAlugados from "../Cards/CardAlugados";
-import CardChannels from "../Cards/CardChannels";
-import TitleRibbons from "../Typography/TitleRibbons";
-import { Modal } from "../Modals/Modal";
-import Talent from "../Modals/talent/talent";
+import CardRents from '../Cards/CardRents'
+import CardLandscape from '../Cards/CardLandscape'
+import CardTalent from '../Cards/CardTalent'
+import CardSearch from '../Cards/CardSearch'
+import CardPlans from '../Cards/CardPlans'
+import CardAlugados from '../Cards/CardAlugados'
+import CardChannels from '../Cards/CardChannels'
+import TitleRibbons from '../Typography/TitleRibbons'
+import { Modal } from '../Modals/Modal'
+import Talent from '../Modals/talent/talent'
 
 class RibbonsSimple extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    const { items, visibleNumber } = props;
+    const { items, visibleNumber } = props
 
     this.state = {
       items: this.getVisibleItems(items, visibleNumber),
-      isModalOpen: false,
-    };
+      isModalOpen: false
+    }
   }
 
   getVisibleItems = (items, visibleNumber) => {
-    const visible = [];
-    let currentIndex = null;
+    const visible = []
+    let currentIndex = null
 
     for (let i = 0; i < items.length; i++) {
       if (items[i].current) {
-        currentIndex = i;
-        break;
+        currentIndex = i
+        break
       }
     }
 
     if (currentIndex !== null) {
-      let fromCurrent = items.slice(currentIndex, currentIndex + visibleNumber);
+      let fromCurrent = items.slice(currentIndex, currentIndex + visibleNumber)
 
       if (fromCurrent.length < visibleNumber) {
-        const rest = items.slice(0, visibleNumber - fromCurrent.length);
-        fromCurrent = fromCurrent.concat(rest);
+        const rest = items.slice(0, visibleNumber - fromCurrent.length)
+        fromCurrent = fromCurrent.concat(rest)
       }
 
       for (let i = 0; i < fromCurrent.length; i++) {
-        let index =
-          currentIndex + i < items.length
-            ? currentIndex + i
-            : currentIndex + i - items.length;
-        visible.push({ index, item: fromCurrent[i] });
+        let index = currentIndex + i < items.length ? currentIndex + i : currentIndex + i - items.length
+        visible.push({ index, item: fromCurrent[i] })
       }
     } else {
-      const lim = Math.min(items.length, visibleNumber);
+      const lim = Math.min(items.length, visibleNumber)
       for (let i = 0; i < lim; i++) {
-        visible.push({ index: i, item: items[i] });
+        visible.push({ index: i, item: items[i] })
       }
     }
 
-    return visible;
-  };
+    return visible
+  }
 
-  focusHandler = (data) => {
-    const focused = document.activeElement;
+  focusHandler = data => {
+    const focused = document.activeElement
 
-    focused.removeEventListener("sn:willmove", this.arrowHandler);
-    focused.addEventListener("sn:willmove", this.arrowHandler);
+    focused.removeEventListener('sn:willmove', this.arrowHandler)
+    focused.addEventListener('sn:willmove', this.arrowHandler)
 
-    this.props.focusHandler(data);
-  };
+    this.props.focusHandler(data)
+  }
 
-  arrowHandler = (e) => {
-    const direction = e.detail.direction.toUpperCase();
-    const { items } = this.state;
+  arrowHandler = e => {
+    const direction = e.detail.direction.toUpperCase()
+    const { items } = this.state
 
     if (items.length === 0) {
-      return;
+      return
     }
 
     switch (direction) {
-      case "LEFT":
-        this.navigationLeft(items);
-        e.preventDefault();
-        e.stopPropagation();
-        break;
-      case "RIGHT":
-        this.navigationRight(items);
-        e.preventDefault();
-        e.stopPropagation();
-        break;
+      case 'LEFT':
+        this.navigationLeft(items)
+        e.preventDefault()
+        e.stopPropagation()
+        break
+      case 'RIGHT':
+        this.navigationRight(items)
+        e.preventDefault()
+        e.stopPropagation()
+        break
       default:
-        return;
+        return
     }
 
-    this.setState({ items: items });
-  };
+    this.setState({ items: items })
+  }
 
-  navigationLeft = (items) => {
+  navigationLeft = items => {
     if (items[0].index === 0) {
-      let sel = document.querySelector(`.modal-overlay`);
+      let sel = document.querySelector(`.modal-overlay`)
       if (!sel && !this.props.blockSnLeft) {
         setTimeout(() => {
-          window.SpatialNavigation.focus("nav_down");
-        }, 100);
+          window.SpatialNavigation.focus('nav_down')
+        }, 100)
       }
-      return;
+      return
     }
 
-    const index =
-      items[0].index === 0 ? this.props.items.length - 1 : items[0].index - 1;
+    const index = items[0].index === 0 ? this.props.items.length - 1 : items[0].index - 1
 
-    items.pop();
-    items.unshift({ index, item: this.props.items[index] });
-  };
+    items.pop()
+    items.unshift({ index, item: this.props.items[index] })
+  }
 
-  navigationRight = (items) => {
-    const last = items[items.length - 1];
+  navigationRight = items => {
+    const last = items[items.length - 1]
 
-    const index =
-      last.index === this.props.items.length - 1 ? 0 : last.index + 1;
+    const index = last.index === this.props.items.length - 1 ? 0 : last.index + 1
 
-    items.shift();
-    items.push({ index, item: this.props.items[index] });
-  };
+    items.shift()
+    items.push({ index, item: this.props.items[index] })
+  }
 
   closeModal = () => {
-    this.setState({ isModalOpen: false });
+    this.setState({ isModalOpen: false })
 
     setTimeout(() => {
-      window.SpatialNavigation.focus("@container");
-    }, 100);
-  };
+      window.SpatialNavigation.focus('@container')
+    }, 100)
+  }
 
   render() {
     const {
@@ -145,47 +140,36 @@ class RibbonsSimple extends Component {
       isSerie,
       snUp,
       snDown,
-      clickHandler,
-    } = this.props;
-    const { items } = this.state;
+      clickHandler
+    } = this.props
+    const { items } = this.state
 
     if (!items.length) {
-      return null;
+      return null
     }
 
     return (
       <div style={{ marginBottom: 10 }}>
-        {title && (
-          <TitleRibbons
-            title={title.charAt(0).toLowerCase() + title.slice(1)}
-          />
-        )}
+        {title && <TitleRibbons title={title.charAt(0).toLowerCase() + title.slice(1)} />}
 
         {this.state.isModalOpen && (
           <Modal onClose={this.closeModal}>
             {({ setFocus }) => (
-              <Talent
-                talent={this.state.isModalOpen}
-                onClose={this.closeModal}
-                setFocus={setFocus}
-              />
+              <Talent talent={this.state.isModalOpen} onClose={this.closeModal} setFocus={setFocus} />
             )}
           </Modal>
         )}
 
-        <div
-          className="wrapScroll"
-          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
-        >
-          <div style={{ display: "inline-flex" }}>
+        <div className='wrapScroll' style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+          <div style={{ display: 'inline-flex' }}>
             {items.map(({ item }, index) => {
-              const typeFinal = item.type || type;
-              let isLast = index === items.length - 1;
-              let isFocusable = false;
+              const typeFinal = item.type || type
+              let isLast = index === items.length - 1
+              let isFocusable = false
               if (index === 0) {
-                isFocusable = true;
+                isFocusable = true
               }
-              if (typeFinal === "talent") {
+              if (typeFinal === 'talent') {
                 return (
                   <CardTalent
                     snUp={snUp}
@@ -201,17 +185,17 @@ class RibbonsSimple extends Component {
                     infoTalent={item.info}
                     // en vcard viene en cover
                     image={item.imageCard || item.cover}
-                    novo={id === "destaque" ? true : false}
+                    novo={id === 'destaque' ? true : false}
                     clickHandler={() => {
-                      this.setState({ isModalOpen: item });
+                      this.setState({ isModalOpen: item })
                     }}
                     focusHandler={this.focusHandler}
-                    bgSize={"cover"}
+                    bgSize={'cover'}
                     sendToPlay={sendToPlay}
                   />
-                );
+                )
               }
-              if (typeFinal === "search") {
+              if (typeFinal === 'search') {
                 return (
                   <CardRents
                     snUp={snUp}
@@ -220,9 +204,9 @@ class RibbonsSimple extends Component {
                     isFocusable={isFocusable}
                     scrollToTop={scrollToTop}
                     key={`${id}-${index}`}
-                    color="white"
+                    color='white'
                     data={item}
-                    bgSize={"cover"}
+                    bgSize={'cover'}
                     width={260}
                     height={200}
                     image={item.imageCard}
@@ -231,7 +215,7 @@ class RibbonsSimple extends Component {
                     focusHandler={this.focusHandler}
                     clickHandler={item.clickHandler}
                   />
-                );
+                )
               }
               /* if (id === "Continuar-Assistindo") {
                 return (
@@ -262,7 +246,7 @@ class RibbonsSimple extends Component {
                   />
                 );
               } */
-              if (typeFinal === "ao-vivo" || id === "nx-live-events") {
+              if (typeFinal === 'ao-vivo' || id === 'nx-live-events') {
                 return (
                   <CardSearch
                     snUp={snUp}
@@ -281,19 +265,19 @@ class RibbonsSimple extends Component {
                     data={item}
                     // clickHandler={item.clickHandler}
                     focusHandler={this.focusHandler}
-                    sendToPlay={(group_id) => sendToPlay(group_id, true)}
+                    sendToPlay={group_id => sendToPlay(group_id, true)}
                     progressLine={
                       <LinearProgress
-                        variant="determinate"
-                        color="secondary"
-                        value={get(item, "date_advance.porcent")}
+                        variant='determinate'
+                        color='secondary'
+                        value={get(item, 'date_advance.porcent')}
                       />
                     }
                   />
-                );
+                )
               }
 
-              if (typeFinal === "plans") {
+              if (typeFinal === 'plans') {
                 return (
                   <CardPlans
                     {...item}
@@ -304,10 +288,10 @@ class RibbonsSimple extends Component {
                     clickHandler={item.clickHandler}
                     focusHandler={this.focusHandler}
                   />
-                );
+                )
               }
 
-              if (typeFinal === "plans-channels") {
+              if (typeFinal === 'plans-channels') {
                 return (
                   <CardChannels
                     {...item}
@@ -318,10 +302,10 @@ class RibbonsSimple extends Component {
                     clickHandler={item.clickHandler}
                     focusHandler={this.focusHandler}
                   />
-                );
+                )
               }
 
-              if (typeFinal === "alugados") {
+              if (typeFinal === 'alugados') {
                 return (
                   <CardAlugados
                     snUp={snUp}
@@ -335,7 +319,7 @@ class RibbonsSimple extends Component {
                     title={item.title}
                     subTitle={item.subTitle}
                   />
-                );
+                )
               }
 
               return (
@@ -344,7 +328,7 @@ class RibbonsSimple extends Component {
                   snDown={snDown}
                   isLast={isLast}
                   scrollToTop={scrollToTop}
-                  minHeight={get(items, "0.item.href") ? 120 : 170}
+                  minHeight={get(items, '0.item.href') ? 120 : 170}
                   indexRibbon={indexRibbon}
                   index={index}
                   isSerie={isSerie}
@@ -352,7 +336,7 @@ class RibbonsSimple extends Component {
                   key={`${id}-${index}`}
                   data={item}
                   title={item.title}
-                  notDefaultImg={id === "nx-providers" ? true : null}
+                  notDefaultImg={id === 'nx-providers' ? true : null}
                   // en vcard viene en cover
                   image={item.imageCard || item.cover}
                   novo={false}
@@ -362,23 +346,23 @@ class RibbonsSimple extends Component {
                   width={270}
                   height={149}
                   bgSize={
-                    !get(items, "0.item.provider") && get(items, "0.item.href")
-                      ? "190px 100px"
-                      : "270px 150px"
+                    !get(items, '0.item.provider') && get(items, '0.item.href')
+                      ? '190px 100px'
+                      : '270px 150px'
                   }
                   bgSizeFocus={
-                    !get(items, "0.item.provider") && get(items, "0.item.href")
-                      ? "210px 113px"
-                      : "286px 168px"
+                    !get(items, '0.item.provider') && get(items, '0.item.href')
+                      ? '210px 113px'
+                      : '286px 168px'
                   }
                   sendToPlay={sendToPlay}
                 ></CardLandscape>
-              );
+              )
             })}
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -391,12 +375,12 @@ RibbonsSimple.propTypes = {
       group_id: PropTypes.string,
       cover: PropTypes.string,
       provider: PropTypes.node,
-      format_types: PropTypes.arrayOf(PropTypes.string),
+      format_types: PropTypes.arrayOf(PropTypes.string)
     })
   ).isRequired,
   focusHandler: PropTypes.func,
-  isSerie: PropTypes.bool,
-};
+  isSerie: PropTypes.bool
+}
 
 RibbonsSimple.defaultProps = {
   slidesToShow: 4.2,
@@ -404,7 +388,7 @@ RibbonsSimple.defaultProps = {
   items: [],
   focusHandler: () => {},
   isSerie: false,
-  scrollToTop: true,
-};
+  scrollToTop: true
+}
 
-export default RibbonsSimple;
+export default RibbonsSimple

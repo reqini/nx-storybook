@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { useHistory } from 'react-router-dom'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   landscape: ({ width, height, bgSize, borderRadius, image }) => ({
     backgroundImage: `url(${image})`,
-    border: "4px solid black",
+    border: '4px solid black',
     backgroundSize: bgSize || 230,
     borderRadius: borderRadius || 12,
     height: height || 136,
     width: width || 230,
-    "&:focus": {
-      border: `4px solid white`,
-    },
-  }),
-}));
+    '&:focus': {
+      border: `4px solid white`
+    }
+  })
+}))
 
 const CardLandscape = ({
   marginFoco = 4,
@@ -45,9 +45,9 @@ const CardLandscape = ({
   snDown = null,
   snLeft = null,
   id,
-  focusHandlerDown = () => {},
+  focusHandlerDown = () => {}
 }) => {
-  const history = useHistory();
+  const history = useHistory()
   const classes = useStyles({
     withContent,
     width,
@@ -60,68 +60,65 @@ const CardLandscape = ({
     minWidth,
     notDefaultImg,
     padding,
-    marginFoco,
-  });
-  const [foco, setFoco] = useState(false);
+    marginFoco
+  })
+  const [foco, setFoco] = useState(false)
 
   // cargar imagen full en paralelo
   useEffect(() => {
-    const imgObj = new Image();
-    imgObj.src = data.imageFull;
-  }, []);
+    const imgObj = new Image()
+    imgObj.src = data.imageFull
+  }, [])
 
   return (
     <div
       id={id}
-      className={`${classes.landscape} ${isFocusable ? "focusable" : ""} ${
-        foco ? "active" : ""
-      } ${data.href && !data.provider ? classes.category : ""}`}
-      tabIndex="0"
-      onClick={(e) => {
-        e.preventDefault();
+      className={`${classes.landscape} ${isFocusable ? 'focusable' : ''} ${foco ? 'active' : ''} ${
+        data.href && !data.provider ? classes.category : ''
+      }`}
+      tabIndex='0'
+      onClick={e => {
+        e.preventDefault()
 
         if (data.sendToPlay) {
-          sendToPlay(data);
+          sendToPlay(data)
         } else if (clickHandler) {
-          return clickHandler();
+          return clickHandler()
         } else if (clickHandlerNew) {
-          return clickHandlerNew(data);
+          return clickHandlerNew(data)
         } else {
           history.push({
             pathname: data.href || `/vcard/${data.group_id}`,
-            state: { menuSelect: match.url },
-          });
+            state: { menuSelect: match.url }
+          })
         }
       }}
-      onFocus={(e) => {
+      onFocus={e => {
         if (scrollToTop) {
-          let item =
-            e.currentTarget.parentNode.parentNode.parentNode.parentNode;
+          let item = e.currentTarget.parentNode.parentNode.parentNode.parentNode
 
           if (indexRibbon == 0 && isSerie) {
-            item =
-              e.currentTarget.parentNode.parentNode.parentNode.parentNode
-                .parentNode;
+            item = e.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode
           }
 
-          item.scrollIntoView(true);
+          item.scrollIntoView(true)
         }
 
         // setFoco(true);
-        focusHandler(data);
+        focusHandler(data)
       }}
-      onKeyUp={(e) => {
-        focusHandler(data);
+      onKeyUp={e => {
+        focusHandler(data)
       }}
-      onKeyDown={(e) => {
-        focusHandlerDown(e);
+      onKeyDown={e => {
+        focusHandlerDown(e)
       }}
       data-sn-up={snUp}
       data-sn-down={snDown}
-      data-sn-right={isLast ? "" : null}
-      data-sn-left={isFirst ? (snLeft !== null ? snLeft : "@nav_down") : null}
+      data-sn-right={isLast ? '' : null}
+      data-sn-left={isFirst ? (snLeft !== null ? snLeft : '@nav_down') : null}
     ></div>
-  );
-};
+  )
+}
 
-export default React.memo(CardLandscape);
+export default React.memo(CardLandscape)

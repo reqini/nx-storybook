@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import moment from "moment";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState } from 'react'
+import moment from 'moment'
+import { makeStyles } from '@material-ui/core/styles'
 
-import TitleRibbons from "../../Typography/TitleRibbons";
-import { Info } from "../../Resume/Resume";
+import TitleRibbons from '../../Typography/TitleRibbons'
+import { Info } from '../../Resume/Resume'
 
-import imageDefault from "../../Resume/images/placeholder_background.svg";
+import imageDefault from '../../Resume/images/placeholder_background.svg'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   containerFuture: {
-    width: "100%",
+    width: '100%',
     height: theme.sizeBody.hd.height,
     padding: 45,
-    backgroundSize: "cover",
-    position: "relative",
-    textAlign: "initial",
+    backgroundSize: 'cover',
+    position: 'relative',
+    textAlign: 'initial',
     boxSizing: 'border-box'
   },
   resume: {
@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     top: 0,
     //boxShadow: "inset 9em -10em 20em 0em #000",
-    "-webkit-box-shadow": 'inset 7em -6em 6em 0em #000',
-    "-moz-box-shadow": 'inset 7em -6em 6em 0em #000',
-    "box-shadow": 'inset 7em -6em 6em 0em #000',
+    '-webkit-box-shadow': 'inset 7em -6em 6em 0em #000',
+    '-moz-box-shadow': 'inset 7em -6em 6em 0em #000',
+    'box-shadow': 'inset 7em -6em 6em 0em #000',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    backgroundRepeat: 'no-repeat'
   }),
   resumeDataLarge: {
     width: '100%'
@@ -58,33 +58,33 @@ const useStyles = makeStyles((theme) => ({
   descrip: {
     width: '100%'
   }
-}));
+}))
 
 const Program = ({ channel, event, onClose }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
-  const classes = useStyles();
+  const classes = useStyles()
 
   const getFocus = () => {
     setTimeout(() => {
-      window.SpatialNavigation.focus("@modal-new");
-    }, 200);
-  };
+      window.SpatialNavigation.focus('@modal-new')
+    }, 200)
+  }
 
   React.useEffect(() => {
     const fetchData = async () => {
-      setLoading(false);
-      getFocus();
-    };
+      setLoading(false)
+      getFocus()
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   React.useEffect(() => {
-    getFocus();
-  }, [loading]);
+    getFocus()
+  }, [loading])
 
-  const { number, image: logo } = channel;
+  const { number, image: logo } = channel
   const {
     title,
     description,
@@ -100,28 +100,28 @@ const Program = ({ channel, event, onClose }) => {
     eventStatus,
     subtitle,
     language,
-    resolution,
-  } = event;
+    resolution
+  } = event
 
-  const date_time = `Hoje ${moment(
-    event.date_begin,
-    "YYYY/MM/DD HH:mm:ss"
-  ).format("HH:mm")} - ${moment(event.date_end, "YYYY/MM/DD HH:mm:ss").format(
-    "HH:mm"
-  )}`;
+  const date_time = `Hoje ${moment(event.date_begin, 'YYYY/MM/DD HH:mm:ss').format('HH:mm')} - ${moment(
+    event.date_end,
+    'YYYY/MM/DD HH:mm:ss'
+  ).format('HH:mm')}`
   const duration = moment
     .utc()
-    .startOf("day")
-    .add(event.duration, "minutes")
-    .format("hh:mm:ss");
+    .startOf('day')
+    .add(event.duration, 'minutes')
+    .format('hh:mm:ss')
 
   const DataMoldal = () => {
     return (
-      <div
-        onClick={(e) => onClose()} className={`content-future ${classes.containerFuture}`}>
-        <div className={classes.background} style={{backgroundImage: `url(${image || imageDefault})`}} />
+      <div onClick={e => onClose()} className={`content-future ${classes.containerFuture}`}>
+        <div
+          className={classes.background}
+          style={{ backgroundImage: `url(${image || imageDefault})` }}
+        />
         <div className={`${classes.resume} fromVMenu`}>
-          <div className={"resume-container fullWidth"}>
+          <div className={'resume-container fullWidth'}>
             <div className={`resume-data-container`}>
               <div className={classes.resumeDataLarge}>
                 <div className={classes.imgLogo}>
@@ -145,7 +145,7 @@ const Program = ({ channel, event, onClose }) => {
                     language={language}
                     resolution={resolution}
                   />
-                  <div className="resume-description block-with-text">
+                  <div className='resume-description block-with-text'>
                     <p>{description}</p>
                   </div>
                   <h4 className={`focusable ${classes.contentFutureTime}`}>{date_time}</h4>
@@ -155,20 +155,20 @@ const Program = ({ channel, event, onClose }) => {
           </div>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (
-    <div className="modal-overlay">
+    <div className='modal-overlay'>
       <div className={`modal-container-new program-future`}>
         <DataMoldal />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Program;
+export default Program

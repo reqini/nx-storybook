@@ -1,164 +1,164 @@
-import React, { useState, useEffect, useRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import get from "lodash/get";
-import { useTranslation } from "react-i18next";
+import React, { useState, useEffect, useRef } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import get from 'lodash/get'
+import { useTranslation } from 'react-i18next'
 
-import RibbonsVertical from "../Ribbon/RibbonsVertical";
-import TitleVcard from "../Typography/TitleVcard";
-import { getItemProperties, resizeImage } from "../resizeTmp";
+import RibbonsVertical from '../Ribbon/RibbonsVertical'
+import TitleVcard from '../Typography/TitleVcard'
+import { getItemProperties, resizeImage } from '../resizeTmp'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   containerSeasons: ({ width, height }) => ({
     width: width || theme.sizeBody.hd.width,
     height: height || theme.sizeBody.hd.height,
-    position: "fixed",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "24px 40px",
-    boxSizing: "border-box",
-    overflow: "hidden",
+    position: 'fixed',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '24px 40px',
+    boxSizing: 'border-box',
+    overflow: 'hidden',
 
-    "& ul": {
-      listStyle: "none",
+    '& ul': {
+      listStyle: 'none',
       padding: 0,
-      margin: 0,
-    },
+      margin: 0
+    }
   }),
   contentSeasonsVertical: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    overflow: "hidden",
-    width: "30%",
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    overflow: 'hidden',
+    width: '30%',
     height: 530,
     marginTop: 100,
-    position: "relative",
-    flexDirection: "column",
+    position: 'relative',
+    flexDirection: 'column',
 
-    "& li": {
-      width: "100%",
-    },
+    '& li': {
+      width: '100%'
+    }
   },
   contentSeasonsHorizontal: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    overflow: "hidden",
-    width: "100%",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    overflow: 'hidden',
+    width: '100%',
 
-    "& li": {
-      width: "100%",
-    },
+    '& li': {
+      width: '100%'
+    }
   },
   buttom: {
-    width: "100%",
+    width: '100%',
     height: 48,
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     borderRadius: 6,
-    textAlign: "center",
+    textAlign: 'center',
     //transition: ".5s",
     fontSize: 23,
-    color: "white",
-    textDecoration: "none",
+    color: 'white',
+    textDecoration: 'none',
 
-    "&:focus": {
+    '&:focus': {
       background: theme.palette.primary.main,
 
-      "& span": {
-        color: "white",
-      },
+      '& span': {
+        color: 'white'
+      }
     },
 
-    "&:active": {
+    '&:active': {
       background: theme.palette.secondary.main,
 
-      "& span": {
-        color: "white",
-      },
+      '& span': {
+        color: 'white'
+      }
     },
 
-    "& span": {
-      color: "transparent",
+    '& span': {
+      color: 'transparent'
     },
 
-    "&:hover": {
+    '&:hover': {
       background: theme.palette.primary.main,
 
-      "& span": {
-        color: "white",
-      },
-    },
+      '& span': {
+        color: 'white'
+      }
+    }
   },
   activeClass: {
     background: theme.palette.secondary.main,
 
-    "& span": {
-      color: "white",
-    },
+    '& span': {
+      color: 'white'
+    }
   },
   vertical: {
-    flexDirection: "row",
+    flexDirection: 'row'
   },
   verticalList: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
 
-    "& li": {
-      margin: "10px 0",
-    },
+    '& li': {
+      margin: '10px 0'
+    }
   },
   portada: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
-    left: 40,
+    left: 40
   },
   horizontal: {
-    flexDirection: "column",
+    flexDirection: 'column'
   },
   horizontalList: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
 
-    "& li": {
-      margin: "0 10px",
-    },
+    '& li': {
+      margin: '0 10px'
+    }
   },
   contentEpisodesVertical: {
-    position: "relative",
-    overflow: "hidden",
-    display: "flex",
-    flexDirection: "column",
-    alignSelf: "flex-start",
-    alignItems: "center",
-    width: "70%",
-    height: "100%",
+    position: 'relative',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    alignSelf: 'flex-start',
+    alignItems: 'center',
+    width: '70%',
+    height: '100%'
   },
   contentEpisodesHorizontal: {
-    overflow: "hidden",
-    width: "100%",
+    overflow: 'hidden',
+    width: '100%'
   },
   itemExample: {
     width: 300,
     height: 183,
-    background: "white",
-    float: "left",
-    margin: 10,
+    background: 'white',
+    float: 'left',
+    margin: 10
   },
   contentModalTitle: {
     width: 365,
     //minHeight: 110,
     top: 56,
-    position: "fixed",
-    background: "black",
-  },
-}));
+    position: 'fixed',
+    background: 'black'
+  }
+}))
 
 const Seasons = ({
   getBookmark = async () => {},
@@ -169,168 +169,158 @@ const Seasons = ({
   onClick = false,
   user,
   season = 1,
-  episode = 1,
+  episode = 1
 }) => {
-  const classes = useStyles({ width, height });
-  const { t, i18n } = useTranslation();
-  const refContainer = useRef();
+  const classes = useStyles({ width, height })
+  const { t, i18n } = useTranslation()
+  const refContainer = useRef()
 
-  const [data, setData] = useState([]);
-  const [seasons, setSeasons] = useState(get(contentSerie, "seasons", []));
+  const [data, setData] = useState([])
+  const [seasons, setSeasons] = useState(get(contentSerie, 'seasons', []))
   const [episodes, setEpisodes] = useState(
     get(contentSerie, `seasons.${parseInt(season - 1, 10)}.episodes`, [])
-  );
+  )
 
-  const [seasonActive, setSeasonActive] = useState(parseInt(season, 10));
+  const [seasonActive, setSeasonActive] = useState(parseInt(season, 10))
 
   useEffect(() => {
-    getBook();
+    getBook()
 
-    window.SpatialNavigation.add("episodes", {
+    window.SpatialNavigation.add('episodes', {
       selector: `#containerEpisodes .focusable`,
-      enterTo: ".episodeActive",
-      defaultElement: ".episodeActive",
-    });
-    window.SpatialNavigation.makeFocusable("episodes");
+      enterTo: '.episodeActive',
+      defaultElement: '.episodeActive'
+    })
+    window.SpatialNavigation.makeFocusable('episodes')
 
-    window.SpatialNavigation.add("seasons", {
+    window.SpatialNavigation.add('seasons', {
       selector: `#containerSeasons .focusable`,
-      enterTo: ".seasonActive",
-      defaultElement: ".seasonActive",
-    });
-    window.SpatialNavigation.makeFocusable("seasons");
+      enterTo: '.seasonActive',
+      defaultElement: '.seasonActive'
+    })
+    window.SpatialNavigation.makeFocusable('seasons')
 
     setTimeout(() => {
-      window.SpatialNavigation.focus(`#episode-${season}-${episode}`);
-    }, 300);
-  }, []);
+      window.SpatialNavigation.focus(`#episode-${season}-${episode}`)
+    }, 300)
+  }, [])
 
   const getBook = async () => {
     let contentSerie2 = await Promise.all(
-      contentSerie.seasons.map(async (season) => {
-        const episodes = season.episodes.map((item) => item.id);
-        const dataAll = await getBookmark(episodes.join(","), user);
-        const data = get(dataAll, "response.groups", []);
+      contentSerie.seasons.map(async season => {
+        const episodes = season.episodes.map(item => item.id)
+        const dataAll = await getBookmark(episodes.join(','), user)
+        const data = get(dataAll, 'response.groups', [])
 
         return {
           ...season,
-          episodes: season.episodes.map((episode) => {
+          episodes: season.episodes.map(episode => {
             const vistime = get(
-              data.find((item) => item.id === episode.id),
-              "vistime",
+              data.find(item => item.id === episode.id),
+              'vistime',
               {}
-            );
+            )
 
             return {
               ...episode,
-              vistime,
-            };
-          }),
-        };
+              vistime
+            }
+          })
+        }
       })
-    );
+    )
 
-    const result = { ...contentSerie, seasons: contentSerie2 };
-    setData(result);
-    setSeasons(get(result, "seasons", []));
-    setEpisodes(get(result, `seasons.${seasonActive - 1}.episodes`, []));
-  };
+    const result = { ...contentSerie, seasons: contentSerie2 }
+    setData(result)
+    setSeasons(get(result, 'seasons', []))
+    setEpisodes(get(result, `seasons.${seasonActive - 1}.episodes`, []))
+  }
 
   useEffect(() => {
-    refContainer.current.scrollTop = 0;
-  }, [seasonActive]);
+    refContainer.current.scrollTop = 0
+  }, [seasonActive])
 
   return (
     <div className={`${classes.containerSeasons} ${classes.vertical}`}>
-      <div
-        id="containerSeasons"
-        className={`${classes.contentSeasonsVertical}`}
-      >
+      <div id='containerSeasons' className={`${classes.contentSeasonsVertical}`}>
         <div className={classes.contentModalTitle}>
           <TitleVcard title={info.title} noWrap maxWidth={365} />
         </div>
         <ul className={`${classes.verticalList}`}>
           {seasons.map((season, i) => {
-            const isLast = i === seasons.length - 1;
+            const isLast = i === seasons.length - 1
             return (
               <li>
                 <a
                   id={`season-${parseInt(season.number, 10)}`}
                   key={i}
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
+                  href='#'
+                  onClick={e => {
+                    e.preventDefault()
 
                     if (seasonActive !== season.number) {
-                      setSeasonActive(parseInt(season.number, 10));
-                      setEpisodes(season.episodes);
+                      setSeasonActive(parseInt(season.number, 10))
+                      setEpisodes(season.episodes)
                     }
                   }}
-                  onKeyUp={(e) => {
-                    e.preventDefault();
+                  onKeyUp={e => {
+                    e.preventDefault()
 
                     if (seasonActive !== season.number) {
-                      setSeasonActive(parseInt(season.number, 10));
-                      setEpisodes(season.episodes);
+                      setSeasonActive(parseInt(season.number, 10))
+                      setEpisodes(season.episodes)
                     }
                   }}
                   className={`focusable ${classes.buttom} ${
                     seasonActive === parseInt(season.number, 10)
                       ? `${classes.activeClass} seasonActive`
-                      : ""
+                      : ''
                   }`}
-                  data-sn-up={i === 0 ? "" : null}
-                  data-sn-down={isLast ? "" : null}
-                  data-sn-left={""}
-                  data-sn-right={"@episodes"}
+                  data-sn-up={i === 0 ? '' : null}
+                  data-sn-down={isLast ? '' : null}
+                  data-sn-left={''}
+                  data-sn-right={'@episodes'}
                 >
-                  {`${t("season", "Temporada")} ${season.number}`}
+                  {`${t('season', 'Temporada')} ${season.number}`}
                   <span>{season.episodes.length} Capitulos</span>
                 </a>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
 
-      <div
-        id="containerEpisodes"
-        ref={refContainer}
-        className={`${classes.contentEpisodesVertical}`}
-      >
+      <div id='containerEpisodes' ref={refContainer} className={`${classes.contentEpisodesVertical}`}>
         <RibbonsVertical
           focusHandler={() => {}}
           scrollToTop={false}
-          snLeft={"@seasons"}
-          snRight={""}
-          title="episodes"
+          snLeft={'@seasons'}
+          snRight={''}
+          title='episodes'
           isSerie={true}
-          items={episodes.map((item) => {
+          items={episodes.map(item => {
             const itemFinal = getItemProperties({
               item,
-              version: "v5.86",
-            });
-            const imaCard = get(
-              item,
-              "external.gracenote.assets.iconic_16_9_e"
-            );
+              version: 'v5.86'
+            })
+            const imaCard = get(item, 'external.gracenote.assets.iconic_16_9_e')
 
             return {
               ...itemFinal,
               vistime: item.vistime,
-              dubbed: get(item, "media.language.dubbed"),
-              subbed: get(item, "media.language.subbed"),
+              dubbed: get(item, 'media.language.dubbed'),
+              subbed: get(item, 'media.language.subbed'),
               imageCard: imaCard && resizeImage(imaCard, 290),
               title: item.title_episode,
               clickHandler: () => {
-                onClick(itemFinal.group_id);
-              },
-            };
+                onClick(itemFinal.group_id)
+              }
+            }
           })}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(Seasons);
+export default React.memo(Seasons)

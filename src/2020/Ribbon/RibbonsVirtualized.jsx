@@ -1,27 +1,27 @@
-import React, { useState, useCallback } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Collection, AutoSizer } from "react-virtualized";
+import React, { useState, useCallback } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { Collection, AutoSizer } from 'react-virtualized'
 
-import RibbonsSimple from "./RibbonsPrueba";
+import RibbonsSimple from './RibbonsPrueba'
 
-const heightCategory = 170;
-const heightLiveEvent = 300;
-const heightCard = 260;
+const heightCategory = 170
+const heightLiveEvent = 300
+const heightCard = 260
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   autoSizer: {
-    overflow: "hidden!important",
-    height: "100%!important",
-    width: "100%!important",
+    overflow: 'hidden!important',
+    height: '100%!important',
+    width: '100%!important'
   },
   collection: {
-    overflow: "hidden!important",
-  },
-}));
+    overflow: 'hidden!important'
+  }
+}))
 
 const Ribbons = ({
   setFocus,
-  prefixId = "",
+  prefixId = '',
   list = [],
   focusHandler = () => {},
   handleVcard = () => {},
@@ -29,41 +29,41 @@ const Ribbons = ({
   api = () => {},
   snUp = null,
   snDown = null,
-  snLeft = null,
+  snLeft = null
 }) => {
-  const classes = useStyles();
-  var glY = 0;
+  const classes = useStyles()
+  var glY = 0
 
-  const [scrollTop2, setScrollTop2] = useState(0);
+  const [scrollTop2, setScrollTop2] = useState(0)
 
   const cellSizeAndPositionGetter = useCallback(({ index }) => {
-    const item = list[index];
+    const item = list[index]
 
     // alto de cada carusel segun el tipo de card que se va a mostrar
     const height = item.category
       ? heightCategory
-      : item.type === "ao-vivo"
+      : item.type === 'ao-vivo'
       ? heightLiveEvent
-      : heightCard;
+      : heightCard
 
     // va acumulando el alto, para setear el proximo carusel
-    const y = glY;
-    glY = y + height;
+    const y = glY
+    glY = y + height
 
     return {
       height: index === list.length - 1 ? 400 : height, // al ultimo carusel seteo el tamaño asi tiene margen hacia abajo
       width: 1000,
       x: 0,
-      y: y,
-    };
-  }, []);
+      y: y
+    }
+  }, [])
 
   const cellRenderer = useCallback(({ index, key, style }) => {
-    const ribbon = list[index];
-    const isLast = index === list.length - 1;
+    const ribbon = list[index]
+    const isLast = index === list.length - 1
 
     return (
-      <div key={key} style={{ ...style, width: "100%" }}>
+      <div key={key} style={{ ...style, width: '100%' }}>
         <RibbonsSimple
           isFirst={index === 0}
           isLast={isLast}
@@ -71,13 +71,13 @@ const Ribbons = ({
           setFocus={setFocus}
           prefixId={prefixId}
           index={index}
-          snUp={index === 0 ? snUp || " " : null}
-          snDown={snDown || index === list.length - 1 ? " " : null}
+          snUp={index === 0 ? snUp || ' ' : null}
+          snDown={snDown || index === list.length - 1 ? ' ' : null}
           snLeft={snLeft}
           scrollToTop={false}
-          focusHandler={(data) => {
-            setScrollTop2(index);
-            focusHandler({ data });
+          focusHandler={data => {
+            setScrollTop2(index)
+            focusHandler({ data })
           }}
           clickHandler={handleVcard}
           sendToPlay={sendToPlay}
@@ -87,15 +87,15 @@ const Ribbons = ({
           type={ribbon.type}
         />
       </div>
-    );
-  }, []);
+    )
+  }, [])
 
   return (
     <AutoSizer className={classes.autoSizer}>
       {({ height, width }) => (
         <Collection
           className={classes.collection}
-          scrollToAlignment="start"
+          scrollToAlignment='start'
           scrollToCell={scrollTop2}
           cellCount={list.length}
           cellRenderer={cellRenderer}
@@ -106,7 +106,7 @@ const Ribbons = ({
         />
       )}
     </AutoSizer>
-  );
-};
+  )
+}
 
-export default React.memo(Ribbons);
+export default React.memo(Ribbons)

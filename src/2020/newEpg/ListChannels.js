@@ -1,7 +1,7 @@
-import React from "react";
-import { List } from "react-virtualized";
+import React from 'react'
+import { List } from 'react-virtualized'
 
-import Channel from "./channel";
+import Channel from './channel'
 
 const Channels = ({
   paddingVertical = true,
@@ -12,12 +12,12 @@ const Channels = ({
   paddingRow,
   eventHeight = 100,
   width,
-  height,
+  height
 }) => {
   const rowRenderer = React.useCallback(
     ({ index, key, style }) => {
-      const { number, canPlay, image } = listChannels.get(index);
-      let active = parseInt(number) === parseInt(currentChannel);
+      const { number, canPlay, image } = listChannels.get(index)
+      let active = parseInt(number) === parseInt(currentChannel)
 
       return (
         <Channel
@@ -31,12 +31,12 @@ const Channels = ({
           image={image}
           eventHeight={eventHeight}
         />
-      );
+      )
     },
     [currentChannel]
-  );
+  )
 
-  const style = React.useMemo(() => ({ overflow: "hidden" }), []);
+  const style = React.useMemo(() => ({ overflow: 'hidden' }), [])
   return (
     <List
       style={style}
@@ -48,7 +48,7 @@ const Channels = ({
       height={height}
       width={width}
     />
-  );
-};
+  )
+}
 
-export default React.memo(Channels);
+export default React.memo(Channels)

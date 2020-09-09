@@ -1,123 +1,118 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
+import React from 'react'
+import clsx from 'clsx'
+import { makeStyles } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
 
-import imageLogo from "../Icons/App/net_launch_logo_claro.svg";
+import imageLogo from '../Icons/App/net_launch_logo_claro.svg'
 
-const drawerWidth = 266;
+const drawerWidth = 266
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
+    display: 'flex',
     height: theme.sizeBody.hd.height,
     maxWidth: 50,
-    position: "fixed",
+    position: 'fixed'
   },
   logo: {
     marginLeft: 10,
-    marginTop: 15,
+    marginTop: 15
   },
   contentLogo: {
-    position: "fixed",
+    position: 'fixed',
     top: 10,
-    left: 10,
+    left: 10
   },
   paper: {
     height: theme.sizeBody.hd.height,
-    background: theme.palette.default.main,
+    background: theme.palette.default.main
   },
   menuButton: {
-    marginRight: 36,
+    marginRight: 36
   },
   heightDrawer: {
-    height: theme.sizeBody.hd.height,
+    height: theme.sizeBody.hd.height
   },
   hide: {
-    display: "none",
+    display: 'none'
   },
   drawer: {
     width: drawerWidth,
     height: theme.sizeBody.hd.height,
     flexShrink: 0,
-    whiteSpace: "nowrap",
+    whiteSpace: 'nowrap'
   },
   drawerOpen: {
-    border: "none",
+    border: 'none',
     width: drawerWidth,
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
   drawerClose: {
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
+      duration: theme.transitions.duration.leavingScreen
     }),
-    border: "none",
-    overflowX: "hidden",
+    border: 'none',
+    overflowX: 'hidden',
     width: 75,
-    [theme.breakpoints.up("sm")]: {
-      width: 75,
-    },
+    [theme.breakpoints.up('sm')]: {
+      width: 75
+    }
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}));
+    padding: theme.spacing(3)
+  }
+}))
 
-const PersistentDrawerLeft = (props) => {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(props.menuVisible ? true : false);
+const PersistentDrawerLeft = props => {
+  const classes = useStyles()
+  const [open, setOpen] = React.useState(props.menuVisible ? true : false)
 
   React.useEffect(() => {
-    setOpen(props.menuVisible);
-  }, [props.menuVisible]);
+    setOpen(props.menuVisible)
+  }, [props.menuVisible])
 
   function handleDrawerOpen() {
-    setOpen(true);
+    setOpen(true)
   }
 
   function handleDrawerClose() {
-    setOpen(false);
+    setOpen(false)
   }
 
   return (
-    <div id="navHeader" className={classes.root} style={{ zIndex: 999 }}>
+    <div id='navHeader' className={classes.root} style={{ zIndex: 999 }}>
       <Drawer
         onFocus={handleDrawerOpen}
         onBlur={handleDrawerClose}
         onClick={handleDrawerClose}
-        variant="permanent"
-        anchor="left"
+        variant='permanent'
+        anchor='left'
         open={open}
         className={clsx(classes.drawer, {
           [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
+          [classes.drawerClose]: !open
         })}
         classes={{
           paper: clsx(classes.paper, {
             [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
+            [classes.drawerClose]: !open
+          })
         }}
       >
         {open && (
           <div className={classes.contentLogo}>
-            <img
-              width={100}
-              src={imageLogo}
-              alt="claroTv logo"
-              className={classes.logo}
-            />
+            <img width={100} src={imageLogo} alt='claroTv logo' className={classes.logo} />
           </div>
         )}
         {props.children}
       </Drawer>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(PersistentDrawerLeft);
+export default React.memo(PersistentDrawerLeft)

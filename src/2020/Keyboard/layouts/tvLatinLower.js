@@ -1,119 +1,96 @@
-let layoutHeader=[];
-layoutHeader['default']=[
-  ['@gmail.com', '@hotmail.com', '@yahoo.com'],
-];
-layoutHeader['brasil']=[
-  ['@gmail.com', '@hotmail.com', '@yahoo.com'],
-];
-layoutHeader['argentina']=[
-  ['@gmail.com', '@hotmail.com', '@yahoo.com'],
-];
+let layoutHeader = []
+layoutHeader['default'] = [['@gmail.com', '@hotmail.com', '@yahoo.com']]
+layoutHeader['brasil'] = [['@gmail.com', '@hotmail.com', '@yahoo.com']]
+layoutHeader['argentina'] = [['@gmail.com', '@hotmail.com', '@yahoo.com']]
 
+let layoutNumber = []
+layoutNumber['default'] = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['0']]
+layoutNumber['brasil'] = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['0']]
+layoutNumber['argentina'] = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['0']]
+8
 
-let layoutNumber=[];
-layoutNumber['default']=[
-  ['1', '2', '3'],
-  ['4', '5', '6'],
-  ['7', '8', '9'],
-  ['0']
-];
-layoutNumber['brasil']=[
-  ['1', '2', '3'],
-  ['4', '5', '6'],
-  ['7', '8', '9'],
-  ['0']
-];
-layoutNumber['argentina']=[
-  ['1', '2', '3'],
-  ['4', '5', '6'],
-  ['7', '8', '9'],
-  ['0']
-];8
+let layout = []
 
-
-
-let layout=[];
-
-layout['default']=[
+layout['default'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['argentina']=[
+]
+layout['argentina'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['brasil']=[
+]
+layout['brasil'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['chile']=[
+]
+layout['chile'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['colombia']=[
+]
+layout['colombia'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['dominicana']=[
+]
+layout['dominicana'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['ecuador']=[
+]
+layout['ecuador'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['elsalvador']=[
+]
+layout['elsalvador'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['guatemala']=[
+]
+layout['guatemala'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['honduras']=[
+]
+layout['honduras'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['mexico']=[
+]
+layout['mexico'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['nicaragua']=[
+]
+layout['nicaragua'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['panama']=[
+]
+layout['panama'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['paraguay']=[
+]
+layout['paraguay'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['peru']=[
+]
+layout['peru'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
-layout['uruguay']=[
+]
+layout['uruguay'] = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', '&'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '-', '_', '?']
-];
+]
 
 export default {
   symbolsKeyValue: 'abc',

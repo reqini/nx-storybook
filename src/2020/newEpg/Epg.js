@@ -1,46 +1,46 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import moment from "moment";
+import React, { useState, useCallback, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import moment from 'moment'
 
-import EpgHeader from "./EpgHeader";
-import Background from "./Background";
-import ContainerEvents from "./ContainerEvents";
+import EpgHeader from './EpgHeader'
+import Background from './Background'
+import ContainerEvents from './ContainerEvents'
 
-var time = false;
-const hideTime = 6000;
+var time = false
+const hideTime = 6000
 
-var gShowEpg = false; // poruqe dentro del handleKey no cambia el showEpg
-var gMiniEpg = false; // poruqe dentro del handleKey no cambia el showEpg
+var gShowEpg = false // poruqe dentro del handleKey no cambia el showEpg
+var gMiniEpg = false // poruqe dentro del handleKey no cambia el showEpg
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   PlayerContainer: () => ({
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
-    width: "100%",
-    height: "100%",
-    boxSizing: "border-box",
+    width: '100%',
+    height: '100%',
+    boxSizing: 'border-box'
   }),
   PlayerWrapper: () => ({
-    display: "flex",
-    flexFlow: "column",
-    position: "absolute",
-    width: "100%",
-    bottom: 0,
+    display: 'flex',
+    flexFlow: 'column',
+    position: 'absolute',
+    width: '100%',
+    bottom: 0
   }),
   Hours: {
-    display: "flex",
+    display: 'flex',
     height: 30,
-    alignItems: "center",
-    fontWeight: "400",
+    alignItems: 'center',
+    fontWeight: '400',
     fontSize: 14,
     marginLeft: 153,
-    overflow: "hidden",
+    overflow: 'hidden'
   },
   Epg: () => ({
-    flexDirection: "row",
-  }),
-}));
+    flexDirection: 'row'
+  })
+}))
 
 const Epg = ({
   keys,
@@ -53,125 +53,125 @@ const Epg = ({
   yellowHandler,
   blueHandler,
   notHide,
-  setEvent,
+  setEvent
 }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const [item, setItem] = useState(null);
-  const setItemCallback = useCallback((item) => setItem(item), []);
+  const [item, setItem] = useState(null)
+  const setItemCallback = useCallback(item => setItem(item), [])
 
-  const [miniEpg, setMiniEpg] = useState(true);
-  const [showEpg, setShowEpg] = useState(false);
+  const [miniEpg, setMiniEpg] = useState(true)
+  const [showEpg, setShowEpg] = useState(false)
 
-  const [currentEvent, setCurrentEvent] = useState(false);
+  const [currentEvent, setCurrentEvent] = useState(false)
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener('keydown', handleKeyPress)
 
     return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
+      document.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [])
 
   useEffect(() => {
     // seteo event de tv, para posicionar foco cuando vuelve de lista de canales o a algun popup
-    setEvent(item);
-  }, [item]);
+    setEvent(item)
+  }, [item])
 
   useEffect(() => {
-    setShowEpg(false);
-    setMiniEpg(true);
+    setShowEpg(false)
+    setMiniEpg(true)
     // if (!loading) {
     //   setShowEpg(true);
     //   setTime();
     // }
 
-    const event = getCurrentEvent(events, { group_id: currentChannel });
-    setCurrentEvent(event);
-  }, [loading]);
+    const event = getCurrentEvent(events, { group_id: currentChannel })
+    setCurrentEvent(event)
+  }, [loading])
 
   useEffect(() => {
-    gShowEpg = showEpg;
-  }, [showEpg]);
+    gShowEpg = showEpg
+  }, [showEpg])
 
   useEffect(() => {
     if (!miniEpg) {
-      clearTimeout(time);
+      clearTimeout(time)
     } else {
-      setTime();
+      setTime()
     }
-    gMiniEpg = miniEpg;
+    gMiniEpg = miniEpg
 
-    const event = getCurrentEvent(events, { group_id: currentChannel });
-    setCurrentEvent(event);
-  }, [miniEpg]);
+    const event = getCurrentEvent(events, { group_id: currentChannel })
+    setCurrentEvent(event)
+  }, [miniEpg])
 
   // no ocualtar cuando hay un modal, para al cerrar el modal vuelva a posicionarse donde estaba
   useEffect(() => {
     if (notHide) {
-      clearTimeout(time);
+      clearTimeout(time)
     } else {
-      setTime();
+      setTime()
     }
-  }, [notHide]);
+  }, [notHide])
 
   const setTime = () => {
-    clearTimeout(time);
+    clearTimeout(time)
     time = setTimeout(() => {
-      setShowEpg(false);
-      setMiniEpg(true);
-    }, hideTime);
-  };
+      setShowEpg(false)
+      setMiniEpg(true)
+    }, hideTime)
+  }
 
   const getCurrentEvent = React.useCallback((list, currentChannel) => {
-    const eventFocus = list.find((item) => {
+    const eventFocus = list.find(item => {
       if (item.channel.group_id === currentChannel.group_id) {
         const current = moment().isBetween(
-          moment(item.date_begin, "YYYY/MM/DD HH:mm:ss"),
-          moment(item.date_end, "YYYY/MM/DD HH:mm:ss"),
+          moment(item.date_begin, 'YYYY/MM/DD HH:mm:ss'),
+          moment(item.date_end, 'YYYY/MM/DD HH:mm:ss'),
           null,
-          "[)"
-        );
-        return current;
+          '[)'
+        )
+        return current
       }
-    });
-    return eventFocus;
-  }, []);
+    })
+    return eventFocus
+  }, [])
 
-  const handleKeyPress = (e) => {
-    const currentKey = keys ? keys.getPressKey(e.keyCode) : null;
+  const handleKeyPress = e => {
+    const currentKey = keys ? keys.getPressKey(e.keyCode) : null
 
     if (!gShowEpg) {
-      setShowEpg(true);
+      setShowEpg(true)
 
-      e.preventDefault();
-      e.stopPropagation();
+      e.preventDefault()
+      e.stopPropagation()
     }
 
     if (gMiniEpg) {
-      setTime();
+      setTime()
     }
 
     switch (currentKey) {
-      case "RED":
-        e.preventDefault();
-        e.stopPropagation();
+      case 'RED':
+        e.preventDefault()
+        e.stopPropagation()
 
-        setMiniEpg((prevState) => !prevState);
-        break;
+        setMiniEpg(prevState => !prevState)
+        break
     }
-  };
+  }
 
   const redHandler = React.useCallback(() => {
-    setMiniEpg((prevState) => !prevState);
-  }, []);
+    setMiniEpg(prevState => !prevState)
+  }, [])
 
   if (loading) {
-    return false;
+    return false
   }
 
   return (
-    <div style={{ visibility: showEpg ? "visible" : "hidden" }}>
+    <div style={{ visibility: showEpg ? 'visible' : 'hidden' }}>
       {!miniEpg && <Background item={item} />}
 
       <div className={`${classes.PlayerContainer}`}>
@@ -179,32 +179,25 @@ const Epg = ({
           className={`${classes.PlayerWrapper}`}
           style={{
             background: miniEpg
-              ? "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)"
-              : "transparent",
+              ? 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)'
+              : 'transparent'
           }}
         >
           <EpgHeader
-            date={
-              item && item.date_begin && moment(item.date_begin).format("LL")
-            }
-            type={miniEpg ? "MINI" : "FULL"}
+            date={item && item.date_begin && moment(item.date_begin).format('LL')}
+            type={miniEpg ? 'MINI' : 'FULL'}
             redHandler={redHandler}
             greenHandler={greenHandler}
             yellowHandler={yellowHandler}
             blueHandler={blueHandler}
           />
 
-          {miniEpg && (
-            <i
-              className="fa fa-chevron-up"
-              style={{ marginLeft: 70, marginBottom: 10 }}
-            />
-          )}
+          {miniEpg && <i className='fa fa-chevron-up' style={{ marginLeft: 70, marginBottom: 10 }} />}
           <div
             style={{
-              background: "rgba(0, 0, 0, 0.3)",
-              height: miniEpg ? "97px" : "380px",
-              marginBottom: 10,
+              background: 'rgba(0, 0, 0, 0.3)',
+              height: miniEpg ? '97px' : '380px',
+              marginBottom: 10
             }}
           >
             {channels.size > 0 && showEpg && (
@@ -223,15 +216,12 @@ const Epg = ({
             )}
           </div>
           {miniEpg && (
-            <i
-              className="fa fa-chevron-down"
-              style={{ paddingBottom: "8px", marginLeft: 70 }}
-            />
+            <i className='fa fa-chevron-down' style={{ paddingBottom: '8px', marginLeft: 70 }} />
           )}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Epg;
+export default Epg

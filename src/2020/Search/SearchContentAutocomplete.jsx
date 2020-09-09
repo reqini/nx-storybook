@@ -1,5 +1,5 @@
-import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   autocomplete: () => ({
@@ -7,19 +7,14 @@ const useStyles = makeStyles(() => ({
     width: 750,
     height: 60,
     margin: '10px auto',
-    display: "flex",
+    display: 'flex',
     justifyContent: 'center',
-    alignItems: "center",
+    alignItems: 'center'
   })
-}));
+}))
 
-export default function SearchContentAutocomplete({children}) {
+export default function SearchContentAutocomplete({ children }) {
+  const classes = useStyles()
 
-  const classes = useStyles();
-
-  return (
-    <div className={`${classes.autocomplete}`}>
-      { children }
-    </div>
-  );
+  return <div className={`${classes.autocomplete}`}>{children}</div>
 }

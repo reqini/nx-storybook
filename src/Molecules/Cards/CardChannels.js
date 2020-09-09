@@ -1,35 +1,35 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import get from "lodash/get";
-import ChipContainer from "../../Chip";
-import CardLandscape from "./CardLandscape";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import get from 'lodash/get'
+import ChipContainer from '../../Chip'
+import CardLandscape from './CardLandscape'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   channels: {
-    display: "flex",
-    position: "relative",
-    alignItems: "center",
+    display: 'flex',
+    position: 'relative',
+    alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    
-    "& img": {
+
+    '& img': {
       height: 27.62,
-      marginRight: 5,
+      marginRight: 5
     },
-    "& p": {
-      color: "white",
-      width: "100%",
-      margin: "0 5px",
-      whiteSpace: "break-spaces",
-      boxSizing: "border-box",
-    },
+    '& p': {
+      color: 'white',
+      width: '100%',
+      margin: '0 5px',
+      whiteSpace: 'break-spaces',
+      boxSizing: 'border-box'
+    }
   },
   description: {
-    position: "relative",
+    position: 'relative',
     width: '100%',
     height: 40,
 
-    "& p":{
+    '& p': {
       margin: '5px 21px',
       color: 'white',
       fontSize: 12
@@ -38,40 +38,40 @@ const useStyles = makeStyles((theme) => ({
   gradient: {
     width: 10,
     height: 40,
-    background: "linear-gradient(45deg, #3876DE, #2D86B6)",
-    marginRight: 10,
+    background: 'linear-gradient(45deg, #3876DE, #2D86B6)',
+    marginRight: 10
   },
   contentImage: {
-    overflow: "hidden",
-    height: 27.62,
+    overflow: 'hidden',
+    height: 27.62
   },
   pricePlans: {
-    textAlign: "center",
-    width: "100%",
+    textAlign: 'center',
+    width: '100%',
     margin: 0,
     padding: 0,
-    color: "white",
-    position: "relative",
+    color: 'white',
+    position: 'relative',
 
     '& p': {
       margin: 0,
       marginTop: 10
     },
 
-    "& b": {
+    '& b': {
       fontSize: 28,
-      fontWeight: 500,
-    },
-  },
-}));
+      fontWeight: 500
+    }
+  }
+}))
 
 const CardChannels = ({
   purchased,
   price,
-  period = "DAY",
+  period = 'DAY',
   planTitle,
   duration,
-  imageCard = "",
+  imageCard = '',
   channels = [],
   clickHandler = () => {},
   focusHandler = () => {},
@@ -80,9 +80,9 @@ const CardChannels = ({
   snLeft = null,
   id,
   isLast,
-  focusHandlerDown = () => {},
+  focusHandlerDown = () => {}
 }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <CardLandscape
@@ -91,7 +91,7 @@ const CardChannels = ({
       withContent
       padding={'12px 5px'}
       isFocusable={true}
-      bgSize={"cover"}
+      bgSize={'cover'}
       borderRadius={12}
       height={150 - 24}
       image={imageCard}
@@ -105,29 +105,30 @@ const CardChannels = ({
       snLeft={snLeft}
     >
       <div className={classes.channels}>
-        <div style={{display: 'flex', alignItems: 'center'}}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <div className={classes.gradient} />
           <div className={classes.contentImage}>
             {channels.map((ch, i) => {
-              if (get(ch, "composition.systemParameters.IMAGE_URL")) {
+              if (get(ch, 'composition.systemParameters.IMAGE_URL')) {
                 return (
                   <img
                     key={i}
-                    src={get(ch, "composition.systemParameters.IMAGE_URL")}
-                    alt={get(ch, "composition.systemParameters.DISPAY_NAME")}
+                    src={get(ch, 'composition.systemParameters.IMAGE_URL')}
+                    alt={get(ch, 'composition.systemParameters.DISPAY_NAME')}
                   />
-                );
+                )
               }
             })}
           </div>
         </div>
-        {purchased ?
-        <ChipContainer
-          title={'minha assinatura'}
-          color={"rgba(255,255,255,0.28)"}
-          height={18}
-          width={'auto'}
-        /> : null}
+        {purchased ? (
+          <ChipContainer
+            title={'minha assinatura'}
+            color={'rgba(255,255,255,0.28)'}
+            height={18}
+            width={'auto'}
+          />
+        ) : null}
       </div>
       <div className={classes.description}>
         <p>{planTitle}</p>
@@ -141,7 +142,7 @@ const CardChannels = ({
         </p>
       </div>
     </CardLandscape>
-  );
-};
+  )
+}
 
-export default React.memo(CardChannels);
+export default React.memo(CardChannels)

@@ -1,29 +1,29 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import CheckIcon from "@material-ui/icons/Check";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import CheckIcon from '@material-ui/icons/Check'
 
-import ButtonGeneric from "../../Buttons/ButtonGeneric";
+import ButtonGeneric from '../../Buttons/ButtonGeneric'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   containerModal: {
-    display: "flex",
-    flexFlow: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    height: theme.sizeBody.hd.height,
+    display: 'flex',
+    flexFlow: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: theme.sizeBody.hd.height
   },
   containerSubModal: {
-    display: "flex",
-    flexFlow: "row",
+    display: 'flex',
+    flexFlow: 'row'
   },
   contentButtons: {
-    textAlign: "center",
+    textAlign: 'center',
     maxWidth: 550
   },
   title: {
-    color: "#fff",
+    color: '#fff',
     fontWeight: 600,
-    fontSize: 28,
+    fontSize: 28
   },
   containerCheck: {
     display: 'flex',
@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
     width: 0
   },
   check: {
-    paddingLeft: "30px",
-  },
-}));
+    paddingLeft: '30px'
+  }
+}))
 
 const Languages = ({
   options = [],
@@ -46,12 +46,12 @@ const Languages = ({
   contentId = null,
   isPreview = false,
   isLive = false,
-  selected = "pt",
+  selected = 'pt'
 }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   if (!selected) {
-    selected = "pt";
+    selected = 'pt'
   }
   if (isLive) {
     return (
@@ -65,10 +65,10 @@ const Languages = ({
                 backgroundButton={false}
                 fontWeight={false}
                 minHeight={54}
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onClick({ item });
+                href='#'
+                onClick={e => {
+                  e.preventDefault()
+                  onClick({ item })
                 }}
                 title={item}
               >
@@ -78,11 +78,11 @@ const Languages = ({
                   </div>
                 )}
               </ButtonGeneric>
-            );
+            )
           })}
         </div>
       </div>
-    );
+    )
   }
 
   if (options.length >= 2) {
@@ -91,69 +91,63 @@ const Languages = ({
         <div className={classes.containerSubModal}>
           <div className={classes.contentButtons}>
             <h2 className={classes.title}>{title}</h2>
-            {options.map((item) => {
-              const isCurrent = isPreview
-                ? item.is_current
-                : item.content_id === contentId;
+            {options.map(item => {
+              const isCurrent = isPreview ? item.is_current : item.content_id === contentId
 
               return (
                 <ButtonGeneric
-                  key={"id-" + item.option_id}
+                  key={'id-' + item.option_id}
                   width={250}
                   backgroundButton={false}
                   fontWeight={false}
-                  fontWeightSpan={isCurrent ? 500 : ""}
+                  fontWeightSpan={isCurrent ? 500 : ''}
                   minHeight={54}
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onClick({ item });
+                  href='#'
+                  onClick={e => {
+                    e.preventDefault()
+                    onClick({ item })
                   }}
                   title={
-                    item.option_id.indexOf("D-") || item.option_id.indexOf("O-")
-                      ? item.label_short
-                      : ""
+                    item.option_id.indexOf('D-') || item.option_id.indexOf('O-') ? item.label_short : ''
                   }
                 >
                   <div className={classes.containerCheck}>
                     {isCurrent && <CheckIcon className={classes.check} />}
                   </div>
                 </ButtonGeneric>
-              );
+              )
             })}
           </div>
 
           <div className={classes.contentButtons}>
             <h2 className={classes.title}>{titleAudioLegendas}</h2>
-            {optionsLegendas.map((item) => {
-              const isCurrent = isPreview
-                ? item.is_current
-                : item.content_id === contentId;
+            {optionsLegendas.map(item => {
+              const isCurrent = isPreview ? item.is_current : item.content_id === contentId
               return (
                 <ButtonGeneric
-                  key={"id-" + item.option_id}
+                  key={'id-' + item.option_id}
                   width={250}
                   minHeight={54}
                   backgroundButton={false}
                   fontWeight={false}
-                  fontWeightSpan={isCurrent ? 500 : ""}
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onClick({ item });
+                  fontWeightSpan={isCurrent ? 500 : ''}
+                  href='#'
+                  onClick={e => {
+                    e.preventDefault()
+                    onClick({ item })
                   }}
-                  title={item.option_id.indexOf("S-") ? item.label_short : ""}
+                  title={item.option_id.indexOf('S-') ? item.label_short : ''}
                 >
                   <div className={classes.containerCheck}>
                     {isCurrent && <CheckIcon className={classes.check} />}
                   </div>
                 </ButtonGeneric>
-              );
+              )
             })}
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -161,41 +155,39 @@ const Languages = ({
       <div className={classes.containerSubModal}>
         <div className={classes.contentButtons}>
           <h2 className={classes.title}>{title}</h2>
-          {options.map((item) => {
-            const isCurrent = isPreview
-              ? item.is_current
-              : item.content_id === contentId;
+          {options.map(item => {
+            const isCurrent = isPreview ? item.is_current : item.content_id === contentId
 
             return (
               <ButtonGeneric
                 width={250}
                 backgroundButton={false}
                 fontWeight={false}
-                fontWeightSpan={isCurrent ? 500 : ""}
+                fontWeightSpan={isCurrent ? 500 : ''}
                 minHeight={54}
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onClick({ item });
+                href='#'
+                onClick={e => {
+                  e.preventDefault()
+                  onClick({ item })
                 }}
                 title={
-                  item.option_id.includes("S-") ||
-                  item.option_id.includes("D-") ||
-                  item.option_id.includes("O-")
+                  item.option_id.includes('S-') ||
+                  item.option_id.includes('D-') ||
+                  item.option_id.includes('O-')
                     ? item.label_short
-                    : ""
+                    : ''
                 }
               >
                 <div className={classes.containerCheck}>
                   {isCurrent && <CheckIcon className={classes.check} />}
                 </div>
               </ButtonGeneric>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Languages;
+export default Languages

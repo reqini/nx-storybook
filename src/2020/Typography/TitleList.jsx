@@ -1,5 +1,5 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   titleList: () => ({
@@ -8,16 +8,11 @@ const useStyles = makeStyles(() => ({
     paddingTop: 10,
     margin: 0,
     marginLeft: 7
-  }),
-}));
+  })
+}))
 
 export default function TitleList({ title }) {
+  const classes = useStyles({ title })
 
-  const classes = useStyles({ title });
-
-  return (
-    <h1 className={classes.titleList}>
-      {title}
-    </h1>
-  );
+  return <h1 className={classes.titleList}>{title}</h1>
 }
