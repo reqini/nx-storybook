@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
-const imageDefault = require('./images/placeholder-actor.svg')
+const defaultImage = require('../../Icons/default-image.svg')
 
 const useStyles = makeStyles(theme => ({
   containerCardTalent: {
