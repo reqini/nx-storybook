@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import DefaultImage from '../../Atoms/Icons/default-image.svg'
 
-// const defaultImage = require('../../Atoms/Icons/default-image.svg')
+import svgToUri from '../../svgToUri'
+import DefaultImage from '../../Atoms/Icons/default-image.svg'
 
 const useStyles = makeStyles(theme => ({
   cardSearch: ({ width, height, borderRadius, notPlaceHolder }) => ({
-    backgroundImage: `url(${notPlaceHolder || DefaultImage})`,
+    backgroundImage: `url(${notPlaceHolder || svgToUri(DefaultImage)})`,
     backgroundSize: 80,
     backgroundPosition: '85px 40px',
     backgroundRepeat: 'no-repeat',

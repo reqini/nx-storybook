@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+
 import DefaultImage from '../../Atoms/Icons/default-image.svg'
-// const defaultImage = require('../../Atoms/Icons/default-image.svg')
+import svgToUri from '../../svgToUri'
 
 const useStyles = makeStyles(theme => ({
   containerCardTalent: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: 160
   },
   contentDefaultTalent: ({ width }) => ({
-    backgroundImage: `url(${DefaultImage})`,
+    backgroundImage: `url(${svgToUri(DefaultImage)})`,
     position: 'relative',
     backgroundSize: width || 100,
     backgroundPosition: 'center',

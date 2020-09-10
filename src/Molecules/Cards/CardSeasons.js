@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
+
+import svgToUri from '../../svgToUri'
 import DefaultImage from '../../Atoms/Icons/default-image.svg'
-// const defaultImage = require('../../Atoms/Icons/default-image.svg')
 
 const useStyles = makeStyles(theme => ({
   tagNetflex: {
@@ -58,7 +59,7 @@ const useStyles = makeStyles(theme => ({
       left: 0,
       top: 0,
       background: theme.palette.optional.main,
-      backgroundImage: `url(${notDefaultImg || DefaultImage})`,
+      backgroundImage: `url(${notDefaultImg || svgToUri(DefaultImage)})`,
       backgroundSize: 80,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'

@@ -9,7 +9,7 @@ const stories = storiesOf('/Atoms/Chip', module)
 stories.add('ChipContainer', () => (
   <ChipContainer 
     title={text('texto', 'etiqueta')} 
-    color={text('Background', 'red')} 
+    color={text('Background', '#000000')} 
     width={number('ancho', 230)} 
   />
 ))

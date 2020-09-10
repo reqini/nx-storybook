@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import DefaultImage from '../../Atoms/Icons/default-image.svg'
 
-// const defaultImage = require('../../Atoms/Icons/default-image.svg')
+import svgToUri from '../../svgToUri'
+import DefaultImage from '../../Atoms/Icons/default-image.svg'
 
 const useStyles = makeStyles(theme => ({
   cardRents: ({ width, height, borderRadius }) => ({
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   }),
   cardRentsContentDefaultImage: () => ({
     background: theme.palette.cardSearch.main,
-    backgroundImage: `url(${DefaultImage})`,
+    backgroundImage: `url(${svgToUri(DefaultImage)})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 100,
     backgroundPosition: 'center',
