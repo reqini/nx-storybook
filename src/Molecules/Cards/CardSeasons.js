@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
-
-const defaultImage = require('../../Atoms/Icons/default-image.svg')
+import DefaultImage from '../../Atoms/Icons/default-image.svg'
+// const defaultImage = require('../../Atoms/Icons/default-image.svg')
 
 const useStyles = makeStyles(theme => ({
   tagNetflex: {
@@ -36,14 +36,11 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${image})`,
     backgroundRepeat: 'no-repeat',
     position: 'relative',
-    /* margin: height * 0.06, */
     margin: 4,
     backgroundSize: bgSize || 230,
     padding: 10,
-    //border: border ? `1px solid transparent` : null,
     borderRadius: borderRadius || 12,
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
-    //boxSizing: "border-box",
     height: height || 136,
     width: width || 230,
     display: 'flex',
@@ -61,28 +58,17 @@ const useStyles = makeStyles(theme => ({
       left: 0,
       top: 0,
       background: theme.palette.optional.main,
-      backgroundImage: `url(${notDefaultImg || defaultImage})`,
+      backgroundImage: `url(${notDefaultImg || DefaultImage})`,
       backgroundSize: 80,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     },
 
     '&:focus': {
-      /* width: width + width * 0.06,
-      height: height + height * 0.13, */
-      //backgroundSize: bgSizeFocus || "cover",
       border: '4px solid white',
       boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
       margin: 0
     }
-    /* "&:hover": {
-      width: width + width * 0.06,
-      height: height + height * 0.13,
-      backgroundSize: bgSizeFocus || "cover",
-      border: '4px solid white',
-      boxShadow: "0 4px 8px 2px rgba(0, 0, 0, .3)",
-      margin: 2,
-    }, */
   }),
   contentDescrip: {
     width: 425 - 10,
@@ -92,10 +78,7 @@ const useStyles = makeStyles(theme => ({
     alignSelf: 'center',
 
     '& span': {
-      /* padding: 0,
-      margin: 0, */
       marginBottom: 0
-      // fontStyle: "italic",
     },
 
     '& h2': {

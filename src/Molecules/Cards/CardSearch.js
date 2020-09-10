@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import DefaultImage from '../../Atoms/Icons/default-image.svg'
 
-const defaultImage = require('../../Atoms/Icons/default-image.svg')
+// const defaultImage = require('../../Atoms/Icons/default-image.svg')
 
 const useStyles = makeStyles(theme => ({
   cardSearch: ({ width, height, borderRadius, notPlaceHolder }) => ({
-    backgroundImage: `url(${notPlaceHolder || defaultImage})`,
+    backgroundImage: `url(${notPlaceHolder || DefaultImage})`,
     backgroundSize: 80,
     backgroundPosition: '85px 40px',
     backgroundRepeat: 'no-repeat',
@@ -15,13 +16,6 @@ const useStyles = makeStyles(theme => ({
     border: `4px solid transparent`,
     borderRadius: borderRadius || 12,
     overflow: 'hidden',
-
-    /*     "&:hover": {
-      backgroundPosition: "92px 40px",
-      border: `4px solid white`,
-      borderRadius: 12,
-      //margin: 3.8,
-    }, */
 
     '&:focus': {
       backgroundPosition: '92px 40px',

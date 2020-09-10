@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-/* import { withRouter } from 'react-router-dom' */
+
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
+import DefaultImage from '../../Atoms/Icons/default-image.svg'
 
-const defaultImage = require('../../Atoms/Icons/default-image.svg')
+// const defaultImage = require('../../Atoms/Icons/default-image.svg')
 
 const useStyles = makeStyles(theme => ({
   containerCard: ({ height, width, minWidth }) => ({
@@ -50,7 +51,7 @@ const useStyles = makeStyles(theme => ({
       left: 0,
       top: 0,
       background: theme.palette.optional.main,
-      backgroundImage: `url(${notDefaultImg || defaultImage})`,
+      backgroundImage: `url(${notDefaultImg || DefaultImage})`,
       backgroundSize: 80,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
