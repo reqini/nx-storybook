@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import PulseLoader from 'react-spinners/PulseLoader'
 
-import imageLogo from '../Icons/App/net_launch_logo_claro.svg'
+import imageLogo from '../../Atoms/Icons/App/net_launch_logo_claro.svg'
 
 class LoadingComponent extends React.Component {
   constructor(props) {
@@ -49,7 +49,8 @@ const styles = () => ({
     height: '100%'
   },
   text: {
-    fontSize: 24
+    fontSize: 24,
+    color: 'white'
   },
   imgLogin: {
     height: 50,
