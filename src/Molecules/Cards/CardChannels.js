@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import get from 'lodash/get'
-import ChipContainer from '../../Chip'
+import ChipContainer from '../../Atoms/Chip/ChipContainer'
 import CardLandscape from './CardLandscape'
 
 const useStyles = makeStyles(theme => ({

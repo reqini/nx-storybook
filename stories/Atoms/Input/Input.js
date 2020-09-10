@@ -6,6 +6,4 @@ import Input from 'Components/Atoms/Input/Input'
 
 const stories = storiesOf('/Atoms/Input', module)
 
-stories.add('Input', () => (
-  <Input />
-))
+stories.add('Input', () => (<Input /> ))

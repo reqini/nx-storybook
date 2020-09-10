@@ -3,7 +3,7 @@ import get from 'lodash/get'
 import { makeStyles } from '@material-ui/core/styles'
 
 import CardLandscape from './CardLandscape'
-import ChipContainer from '../../Chip'
+import ChipContainer from '../../Atoms/Chip/ChipContainer'
 
 const colorClasses = [
   '45deg,#0D9F70,#2574B4'

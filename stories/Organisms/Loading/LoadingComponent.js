@@ -6,9 +6,5 @@ import LoadingComponent from 'Components/Organisms/Loading/LoadingComponent'
 
 const stories = storiesOf('/Organisms/Loading', module)
 
-stories.add('LoadingComponent', () => (
-  <LoadingComponent 
-    title={text('Titulo', 'Cargando...')} 
-  />
-))
+stories.add('LoadingComponent', () => (<LoadingComponent title={text('Titulo', 'Cargando...')} />))
  
