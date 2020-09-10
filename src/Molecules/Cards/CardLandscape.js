@@ -226,7 +226,7 @@ const CardLandscape = ({
         <Paper elevation={0} className={classes.paper}>
           {novo && <Chip label='NOVO' className={classes.chip} />}
         </Paper>
-        {opacity ? <div className={classes.backgroundOpacity} /> : null}
+        {opacity && <div className={classes.backgroundOpacity} />}
         {children}
       </div>
       {isSerie && (

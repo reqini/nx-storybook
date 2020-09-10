@@ -102,7 +102,7 @@ const Input = ({
         onClick={e => onClick({ name })}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          {icon ? <div className={classes.lupa} /> : null}
+          {icon && <div className={classes.lupa} />}
           {value || focused ? (
             <div className={classes.textInput}>{getText(value)}</div>
           ) : (

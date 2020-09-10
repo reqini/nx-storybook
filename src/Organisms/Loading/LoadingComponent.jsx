@@ -17,8 +17,8 @@ class LoadingComponent extends React.Component {
     const { classes, image, title, background } = this.props
     return (
       <div className={`${classes.containerLoading}`} style={{ background: background }}>
-        {image ? <img className={classes.imgLogin} src={imageLogo} /> : null}
-        {title ? <p className={classes.text}>{title}</p> : null}
+        {image && <img className={classes.imgLogin} src={imageLogo} />}
+        {title && <p className={classes.text}>{title}</p>}
         <PulseLoader sizeUnit={'px'} size={18} color={'#E1261C'} loading={this.state.loading} />
       </div>
     )
