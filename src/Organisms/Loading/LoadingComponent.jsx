@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
 import PulseLoader from 'react-spinners/PulseLoader'
 
+import { withStyles } from '@material-ui/core/styles'
+
+import svgToUri from '../../svgToUri'
 import imageLogo from '../../Atoms/Icons/App/net_launch_logo_claro.svg'
 
 class LoadingComponent extends React.Component {
@@ -17,7 +19,7 @@ class LoadingComponent extends React.Component {
     const { classes, image, title, background } = this.props
     return (
       <div className={`${classes.containerLoading}`} style={{ background: background }}>
-        {image && <img className={classes.imgLogin} src={imageLogo} />}
+        {image && <img className={classes.imgLogin} src={svgToUri(imageLogo)} />}
         {title && <p className={classes.text}>{title}</p>}
         <PulseLoader sizeUnit={'px'} size={18} color={'#E1261C'} loading={this.state.loading} />
       </div>
