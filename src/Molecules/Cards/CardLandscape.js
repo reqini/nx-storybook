@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
 
-const defaultImage = require('../../Icons/default-image.svg')
+const defaultImage = require('../../Atoms/Icons/default-image.svg')
 
 const useStyles = makeStyles(theme => ({
   containerCard: ({ height, width, minWidth }) => ({
