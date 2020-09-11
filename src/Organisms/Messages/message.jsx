@@ -26,13 +26,13 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const Message = ({ image, children, height = 720 }) => {
+const Message = ({ image, children, height = 720, alt = 'popcorn icon' }) => {
   const classes = useStyles({ height })
 
   return (
     <Grid container spacing={0} className={`fromVMenu rents-error ${classes.globalError}`}>
       <Grid item xs={4} className={classes.contentError}>
-        <img src={image && svgToUri(ImagePopcorn)} alt='popcorn icon' className={classes.image} />
+        <img src={image && svgToUri(ImagePopcorn)} alt={alt} className={classes.image} />
         {children}
       </Grid>
     </Grid>
