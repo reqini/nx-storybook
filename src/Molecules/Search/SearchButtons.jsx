@@ -45,9 +45,9 @@ const useStyles = makeStyles(theme => ({
 
 const RenderButton = ({ pagSelected, setPagSelected, result = [] }) => {
   const classes = useStyles({})
-  const { t, i18n } = useTranslation()
-
+  const { t /* i18n */ } = useTranslation()
   const extraProps = { 'data-sn-down': '@searchCont' }
+
   if (!result.length) {
     extraProps['data-sn-down'] = '@keyboard'
   }
@@ -62,7 +62,6 @@ const RenderButton = ({ pagSelected, setPagSelected, result = [] }) => {
       >
         {t('search.net_busqueda_all', 'todos')}
       </button>
-
       <button
         className={`${classes.btnSearch} focusable ${pagSelected === 'tv' &&
           `${classes.active} active`}`}
@@ -71,7 +70,6 @@ const RenderButton = ({ pagSelected, setPagSelected, result = [] }) => {
       >
         {t('search.net_busqueda_tv')}
       </button>
-
       <button
         className={`${classes.btnSearch} focusable ${pagSelected === 'movies' &&
           `${classes.active} active`}`}
@@ -80,7 +78,6 @@ const RenderButton = ({ pagSelected, setPagSelected, result = [] }) => {
       >
         {t('search.net_busqueda_filmes', 'Filmes')}
       </button>
-
       <button
         className={`${classes.btnSearch} focusable ${pagSelected === 'series' &&
           `${classes.active} active`}`}
@@ -89,7 +86,6 @@ const RenderButton = ({ pagSelected, setPagSelected, result = [] }) => {
       >
         {t('search.net_busqueda_series', 'Series')}
       </button>
-
       <button
         className={`${classes.btnSearch} focusable ${pagSelected === 'talents' &&
           `${classes.active} active`}`}

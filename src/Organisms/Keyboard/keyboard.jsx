@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 230,
 
     '&:focus': {
-      color: '#e1251b!important',
+      color: theme.palette.secondary.main,
       background: 'transparent!important',
       fontWeight: '900'
     }
@@ -54,33 +54,32 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '6px',
     border: 'none',
     margin: '5px 0',
-    padding: '10px',
+    padding: 10,
     '&:focus': {
       fontWeight: 900,
-      background: '#e1251b!important',
+      background: theme.palette.secondary.main,
       fontWeight: '900'
     },
     '&:hover': {
       fontWeight: 900,
-      background: '#e1251b!important',
+      background: theme.palette.secondary.main,
       fontWeight: '900'
     }
   },
   keyboardEmpty2: {
-    borderRadius: '6px',
+    borderRadius: 6,
     border: '1px solid #fff',
     padding: '12px 32px',
     fontWeight: '100',
     width: 'calc(100% / 5)',
-
     '&:focus': {
       fontWeight: 900,
-      background: '#e1251b!important',
+      background: theme.palette.secondary.main,
       fontWeight: '900'
     },
     '&:hover': {
       fontWeight: 900,
-      background: '#e1251b!important',
+      background: theme.palette.secondary.main,
       fontWeight: '900'
     }
   },
@@ -94,7 +93,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 270,
     marginLeft: 10,
     marginRight: 10,
-    background: '#272e35',
+    background: theme.palette.buttonsColor.foco,
     padding: '8px 10px',
     borderRadius: 6
   },
@@ -116,47 +115,45 @@ const useStyles = makeStyles(theme => ({
     width: 'auto'
   },
   especial: {
-    minWidth: '60px'
+    minWidth: 60
   },
   keyboardLetter: {
     borderRadius: '50%',
     fontWeight: '300',
-    height: '50px',
+    height: 50,
     lineHeight: '50px',
     margin: '5px 0',
     width: '9.09091%',
     maxWidth: 52,
-
     '&:focus': {
       fontWeight: 900,
-      background: '#e1251b!important',
-      fontWeight: '900'
-    },
-    '&:hover': {
-      fontWeight: 900,
-      background: '#e1251b!important',
+      background: theme.palette.secondary.main,
       fontWeight: '900'
     }
+    /*     '&:hover': {
+      fontWeight: 900,
+      background: theme.palette.secondary.main,
+      fontWeight: '900'
+    } */
   },
   keyboardLetterNumber: {
     borderRadius: '50%',
-    height: '52px',
-    margin: '3px',
-    padding: '15px',
+    height: 52,
+    margin: 3,
+    padding: 15,
     lineHeight: '20px',
     width: '20%',
-    maxWidth: '53px',
-
+    maxWidth: 53,
     '&:focus': {
       fontWeight: 900,
-      background: '#e1251b!important',
-      fontWeight: '900'
-    },
-    '&:hover': {
-      fontWeight: 900,
-      background: '#e1251b!important',
+      background: theme.palette.secondary.main,
       fontWeight: '900'
     }
+    /*     '&:hover': {
+      fontWeight: 900,
+      background: theme.palette.secondary.main,
+      fontWeight: '900'
+    } */
   },
   formContainer: {
     boxSizing: 'border-box',
@@ -177,21 +174,16 @@ const Keyboard = ({
 }) => {
   const classes = useStyles()
   const { t, i18n } = useTranslation()
-
   const [typeKeyboard, setTypeKeyboard] = useState('')
-
   const [keys, setKeys] = useState([])
   const [keysNumber, setKeysNumber] = useState([])
   const [keysHeader, setKeysHeader] = useState([])
-
   const input = currentValue
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
-
     setKeysNumber(getKeysLayoutNumber())
     setKeysHeader(getKeysLayoutHeader())
-
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
     }

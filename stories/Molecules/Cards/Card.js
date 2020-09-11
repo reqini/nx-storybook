@@ -8,7 +8,7 @@ import CardSearch from 'Components/Molecules/Cards/CardSearch'
 import CardRents from 'Components/Molecules/Cards/CardRents'
 import CardChannels from 'Components/Molecules/Cards/CardChannels'
 
-const stories = storiesOf('/Molecules/Card', module)
+const stories = storiesOf('/Molecules/Card/', module)
 
 stories.add('Landscape', () => (
   <CardLandscape

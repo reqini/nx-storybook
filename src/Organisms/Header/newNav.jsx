@@ -128,7 +128,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     alignItems: 'center',
     display: 'flex',
-    fontWeight: '300 !important',
+    fontWeight: '300',
 
     padding: '4px 0 4px 21px',
     textTransform: 'lowercase',
@@ -138,12 +138,12 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 0,
       backgroundColor: theme.palette.primary.main,
       outline: 0,
-      fontWeight: '800 !important'
+      fontWeight: '800'
     }
   },
   navItemActive: {
     backgroundColor: theme.palette.active.main,
-    fontWeight: '500 !important'
+    fontWeight: '500'
   },
   li: {
     overflow: 'hidden',
