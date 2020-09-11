@@ -33,22 +33,8 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none',
     boxSizing: 'border-box',
 
-    /* '&:hover': {
-      height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
-      background: theme.palette.buttonsColor.foco,
-      borderRadius: 1,
-      fontWeight: fontWeight ? 500 : 900,
-      color: '#fff',
-      border: 'none',
-      background: theme.palette.primary.main,
-      boxSizing: 'border-box',
-      transition: 'box-shadow 0.15s ease-in',
-      boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)'
-    }, */
-
     '&:focus': {
       height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
-      // background: theme.palette.buttonsColor.foco,
       borderRadius: 1,
       fontWeight: fontWeight ? 500 : 900,
       color: '#fff',
@@ -65,9 +51,9 @@ const useStyles = makeStyles(theme => ({
     }
   }),
   nonFocusable: {
-    background: 'silver!important',
-    color: 'gray!important',
-    cursor: 'no-drop!important'
+    background: 'silver',
+    color: 'gray',
+    cursor: 'no-drop'
   },
   description: {
     marginTop: 5,
