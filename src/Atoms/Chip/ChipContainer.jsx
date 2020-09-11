@@ -34,7 +34,7 @@ const ChipContainer = ({ title, color, height, gradient, uppercase, width, paddi
     height,
     uppercase,
     width,
-    padding
+    padding,
   })
   let style = {}
 
