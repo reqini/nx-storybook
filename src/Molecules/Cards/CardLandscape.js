@@ -55,12 +55,6 @@ const useStyles = makeStyles(theme => ({
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     },
-
-    /*     '&:hover': {
-      boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
-      border: `4px solid white`,
-    }, */
-
     '&:focus': {
       boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
       border: `4px solid white`,
@@ -94,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     background: 'transparent'
   },
   chip: {
-    borderRadius: '12px',
+    borderRadius: 12,
     height: 25,
     lineHeight: '20px',
     fontSize: 20,

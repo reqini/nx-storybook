@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
   simpleImage: ({ height, width, circular }) => ({
     height: height || null,
     width: width || null,
-    borderRadius: circular ? '50%' : null
+    borderRadius: circular && '50%'
   })
 }))
 
@@ -15,11 +15,10 @@ const SimpleImage = ({
   title = null,
   width,
   height,
-  circular
+  circular = null
 }) => {
   const classes = useStyles({ image, width, height, circular })
 
   return <img className={classes.simpleImage} src={image} alt={alt} title={title} />
 }
-
 export default React.memo(SimpleImage)
