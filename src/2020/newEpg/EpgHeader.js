@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 const useStyles = makeStyles(() => ({
   epgHeaderContainer: {
     display: 'block',
-    maxWidth: 1260
+    maxWidth: 1260,
   },
   epgHeader: {
     position: 'relative',
@@ -13,18 +13,18 @@ const useStyles = makeStyles(() => ({
     marginBottom: 2,
     boxSizing: 'border-box',
     overflow: 'hidden',
-    padding: '5px 10px'
+    padding: '5px 10px',
   },
   transparent: {
     background: 'transparent',
-    border: 'none'
+    border: 'none',
   },
   epgHeaderTitle: {
     position: 'absolute',
     fontSize: 20,
     fontWeight: 400,
     width: '20%',
-    paddingLeft: 145
+    paddingLeft: 145,
   },
   colorCodes: {
     width: '98%',
@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     margin: 0,
     padding: 0,
     paddingRight: 40,
-    textAlign: 'right'
+    textAlign: 'right',
   },
   colorCodeItem: {
     fontSize: 16,
@@ -52,14 +52,14 @@ const useStyles = makeStyles(() => ({
     '& span': {
       height: 10,
       width: 10,
-      verticalAlign: 'middle'
+      verticalAlign: 'middle',
     },
     '& p': {
       margin: 0,
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
-    }
+      alignItems: 'center',
+    },
   },
   colorBall: {
     display: 'inline-block',
@@ -69,20 +69,20 @@ const useStyles = makeStyles(() => ({
     marginLeft: '5px',
     marginRight: '5px',
     padding: 0,
-    verticalAlign: 'center'
+    verticalAlign: 'center',
   },
   blue: {
-    background: '#007dff'
+    background: '#007dff',
   },
   red: {
-    background: 'red'
+    background: 'red',
   },
   yellow: {
-    background: '#ffe100'
+    background: '#ffe100',
   },
   green: {
-    background: '#00af1d'
-  }
+    background: '#00af1d',
+  },
 }))
 
 const EpgHeader = ({
@@ -91,7 +91,7 @@ const EpgHeader = ({
   yellowHandler = () => {},
   redHandler = () => {},
   greenHandler = () => {},
-  blueHandler = () => {}
+  blueHandler = () => {},
 }) => {
   const classes = useStyles()
   const { t, i18n } = useTranslation()
@@ -100,7 +100,7 @@ const EpgHeader = ({
     <div
       className={`${classes.epgHeader} ${type === 'MINI' ? classes.transparent : null}`}
       style={{
-        top: type === 'MINI' ? '20px' : '2px'
+        top: type === 'MINI' ? '20px' : '2px',
       }}
     >
       <div className={classes.epgHeaderContainer}>

@@ -3,20 +3,20 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import Resume from '../Resume/Resume'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   epgContentResume: () => ({
     height: 200,
-    background: 'red'
+    background: 'red',
   }),
   epgResume: {
     'resume-data-container': {
       width: 'calc(100% - 30px)',
-      height: 290
+      height: 290,
     },
     'resume-data-large': {
-      marginTop: 0
-    }
-  }
+      marginTop: 0,
+    },
+  },
 }))
 
 const Background = ({ item }) => {
@@ -32,7 +32,7 @@ const Background = ({ item }) => {
         left: '0px',
         position: 'absolute',
         width: '100%',
-        height: '100%'
+        height: '100%',
       }}
     >
       <Resume
@@ -41,7 +41,7 @@ const Background = ({ item }) => {
           title,
           cover: image || false,
           description,
-          lenguage: language
+          lenguage: language,
         }}
         isLive={false}
       />

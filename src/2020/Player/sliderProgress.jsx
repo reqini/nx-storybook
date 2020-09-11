@@ -6,7 +6,7 @@ var timeMultipleStep = null
 var multipleStep = 1
 var isCharged = false
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   slider: {
     //position: "absolute",
     transform: 'translate(-50%, -25%)',
@@ -29,8 +29,8 @@ const useStyles = makeStyles(theme => ({
       width: 18,
       height: 18,
       transition: '.5s',
-      top: -1
-    }
+      top: -1,
+    },
   },
   container: {
     position: 'relative',
@@ -40,8 +40,8 @@ const useStyles = makeStyles(theme => ({
     userSelect: 'none',
     boxSizing: 'border-box',
     width: '100%',
-    height: 5
-  }
+    height: 5,
+  },
 }))
 
 const SliderProgress = ({ player, durationTotal, durationProgress, initialProgress }) => {
@@ -83,7 +83,7 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
     setIsMove(false)
   }
 
-  const willMove = e => {
+  const willMove = (e) => {
     const { direction } = e.detail
 
     if (direction === 'left' || direction === 'right') {
@@ -99,11 +99,11 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
       switch (direction) {
         case 'left':
           e.preventDefault()
-          setX(prevState => prevState - 5 * multipleStep)
+          setX((prevState) => prevState - 5 * multipleStep)
           break
         case 'right':
           e.preventDefault()
-          setX(prevState => prevState + 5 * multipleStep)
+          setX((prevState) => prevState + 5 * multipleStep)
           break
         default:
       }
@@ -131,43 +131,43 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
     }
   }, [durationProgress])
 
-  const getClientPosition = e => {
+  const getClientPosition = (e) => {
     const touches = e.touches
 
     if (touches && touches.length) {
       const finger = touches[0]
       return {
         x: finger.clientX,
-        y: finger.clientY
+        y: finger.clientY,
       }
     }
 
     return {
       x: e.clientX,
-      y: e.clientY
+      y: e.clientY,
     }
   }
 
-  const getPos = e => {
+  const getPos = (e) => {
     const clientPos = getClientPosition(e)
     const left = clientPos.x + start.current.x - offset.current.x
 
     return { left }
   }
 
-  const handleMouseDown = e => {
+  const handleMouseDown = (e) => {
     // e.preventDefault();
     const dom = handle.current
     const clientPos = getClientPosition(e)
 
     start.current = {
       x: dom.offsetLeft,
-      y: dom.offsetTop
+      y: dom.offsetTop,
     }
 
     offset.current = {
       x: clientPos.x,
-      y: clientPos.y
+      y: clientPos.y,
     }
 
     document.addEventListener('mousemove', handleDrag)
@@ -177,7 +177,7 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
     document.addEventListener('touchcancel', handleDragEnd)
   }
 
-  const handleDrag = e => {
+  const handleDrag = (e) => {
     setIsMove(true)
     e.preventDefault()
     change(getPos(e))
@@ -197,8 +197,8 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
     setX(x)
   }
 
-  const handleDragEnd = e => {
-    setIsMove(prevState => {
+  const handleDragEnd = (e) => {
+    setIsMove((prevState) => {
       if (prevState) {
         player.seek(x)
       }
@@ -210,7 +210,7 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
     document.removeEventListener('mouseup', handleDragEnd)
 
     document.removeEventListener('touchmove', handleDrag, {
-      passive: false
+      passive: false,
     })
     document.removeEventListener('touchend', handleDragEnd)
     document.removeEventListener('touchcancel', handleDragEnd)
@@ -223,13 +223,11 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
         width: '100%',
         display: 'flex',
         flexFlow: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
       }}
     >
       <div style={{ paddingLeft: '25px', paddingRight: '25px' }}>
-        {moment({ hours: 0, minute: 0, seconds: 0 })
-          .add(x, 's')
-          .format('HH:mm:ss')}
+        {moment({ hours: 0, minute: 0, seconds: 0 }).add(x, 's').format('HH:mm:ss')}
       </div>
 
       <div ref={container} className={classes.container}>
@@ -237,7 +235,7 @@ const SliderProgress = ({ player, durationTotal, durationProgress, initialProgre
           id='playerSlider'
           ref={handle}
           onMouseDown={handleMouseDown}
-          onClick={e => {
+          onClick={(e) => {
             e.stopPropagation()
             e.nativeEvent.stopImmediatePropagation()
           }}

@@ -9,16 +9,16 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
   },
   containerButton: {
     textAlign: 'center',
-    maxWidth: '550px'
+    maxWidth: '550px',
   },
   title: {
     marginBottom: 100,
-    fontWeight: 400
-  }
+    fontWeight: 400,
+  },
 }))
 
 const Resume = ({ onClose, onResume, onInitial }) => {
@@ -30,7 +30,7 @@ const Resume = ({ onClose, onResume, onInitial }) => {
       <div className={classes.containerButton}>
         <ButtonGeneric
           href='#'
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault()
             onResume()
             onClose()
@@ -39,7 +39,7 @@ const Resume = ({ onClose, onResume, onInitial }) => {
         />
         <ButtonGeneric
           href='#'
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault()
             onInitial()
             onClose()

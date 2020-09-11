@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
 import imageLogo from '../../Icons/App/net_launch_logo_claro.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -14,27 +14,27 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     margin: '20px 0 0 0',
-    fontSize: '37px'
+    fontSize: '37px',
   },
   content: {
     marginTop: '25px',
     fontSize: '25px',
     lineHeight: '0px',
     fontWeight: '400',
-    color: 'gray'
+    color: 'gray',
   },
   contentLogo: {
     position: 'absolute',
     top: 20,
-    left: 20
-  }
+    left: 20,
+  },
 }))
 
 const showError = ({ channel, onClose = () => {} }) => {
@@ -62,20 +62,20 @@ const showError = ({ channel, onClose = () => {} }) => {
       <p
         className={classes.content}
         dangerouslySetInnerHTML={{
-          __html: msg.split('.').join('. <br/>')
+          __html: msg.split('.').join('. <br/>'),
         }}
       />
       <ButtonGeneric
-        onClick={e => {
+        onClick={(e) => {
           onClose()
           history.push({
             pathname: '/plans',
-            state: { channel: channel }
+            state: { channel: channel },
           })
         }}
         title={'ver planos'}
       />
-      <ButtonGeneric onClick={e => onClose()} title={t('net_back_registro_dispositivo', 'Cerrar')} />
+      <ButtonGeneric onClick={(e) => onClose()} title={t('net_back_registro_dispositivo', 'Cerrar')} />
     </div>
   )
 }

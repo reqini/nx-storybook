@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
   }),
   channelBlock: () => ({
     textDecoration: 'none',
@@ -20,17 +20,17 @@ const useStyles = makeStyles(() => ({
     height: 102,
 
     '& img': {
-      opacity: 0.5
+      opacity: 0.5,
     },
 
     '& span': {
-      opacity: 0.5
+      opacity: 0.5,
     },
 
     '&:focus': {
       backgroundColor: 'rgb(25, 34, 47)!important',
-      border: '4px solid white'
-    }
+      border: '4px solid white',
+    },
   }),
 
   block: {
@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     height: '100%',
     left: 0,
-    top: 0
+    top: 0,
   },
   channel: () => ({
     textDecoration: 'none',
@@ -58,9 +58,9 @@ const useStyles = makeStyles(() => ({
       border: '4px solid white',
 
       '& p': {
-        color: 'white'
-      }
-    }
+        color: 'white',
+      },
+    },
   }),
   channelText: {
     textAlign: 'center',
@@ -68,11 +68,11 @@ const useStyles = makeStyles(() => ({
     fontWeight: '500',
     width: 110,
     color: '#fff',
-    textTransform: 'lowercase'
+    textTransform: 'lowercase',
   },
   channelImg: () => ({
     opacity: 1,
-    height: 64
+    height: 64,
   }),
   contentText: {
     padding: '10px 20px 0px 20px',
@@ -89,9 +89,9 @@ const useStyles = makeStyles(() => ({
       maxWidth: 230,
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis'
-    }
-  }
+      textOverflow: 'ellipsis',
+    },
+  },
 }))
 
 const CardEpgChannels = ({ onClick, number, name, image, title, time, canPlay, active = false }) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cardAlugados: ({ width, height, borderRadius }) => ({
     background: '#1c1e1d',
     //border: `1px solid ${theme.palette.primary.main}`,
@@ -21,12 +21,14 @@ const useStyles = makeStyles(theme => ({
       /* width: width + width * 0.06,
       height: height + height * 0.06, */
       border: `4px solid white`,
-      margin: 3
-    }
+      margin: 3,
+    },
   }),
   cardAlugadosImage: ({ bgSize, image }) => ({
-    backgroundImage: `url(${image ||
-      'http://clarovideocdn5.clarovideo.net/pregeneracion//cms/images/202001/75478_Default_Passangers-now_16154434.jpg'})`,
+    backgroundImage: `url(${
+      image ||
+      'http://clarovideocdn5.clarovideo.net/pregeneracion//cms/images/202001/75478_Default_Passangers-now_16154434.jpg'
+    })`,
     position: 'relative',
     backgroundRepeat: 'no-repeat',
     backgroundSize: bgSize || '100%',
@@ -34,22 +36,22 @@ const useStyles = makeStyles(theme => ({
     height: 155,
     display: 'flex',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   }),
   cardAlugadosContent: {
     boxSizing: 'border-box',
-    padding: 10
+    padding: 10,
   },
   title: () => ({
     color: 'white',
     fontSize: 15,
-    marginBottom: 5
+    marginBottom: 5,
   }),
   subTitle: ({ width }) => ({
     color: 'rgb(210, 176, 7)',
     width: width,
-    fontSize: 15
-  })
+    fontSize: 15,
+  }),
 }))
 
 const CardAlugados = ({
@@ -65,7 +67,7 @@ const CardAlugados = ({
   snDown = null,
   snLeft = null,
   id,
-  focusHandlerDown = () => {}
+  focusHandlerDown = () => {},
 }) => {
   const classes = useStyles({
     width,
@@ -73,7 +75,7 @@ const CardAlugados = ({
     bgSize,
     borderRadius,
     image,
-    subTitle
+    subTitle,
   })
 
   return (
@@ -81,7 +83,7 @@ const CardAlugados = ({
       id={id}
       className={`focusable ${classes.cardAlugados}`}
       tabIndex='0'
-      onKeyDown={e => {
+      onKeyDown={(e) => {
         focusHandlerDown(e)
       }}
       snUp={snUp}

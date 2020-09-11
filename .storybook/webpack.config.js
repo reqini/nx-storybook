@@ -10,15 +10,15 @@ module.exports = {
         loader: 'eslint-loader',
         options: {
           reporter: 'consola',
-          formatter: 'codeframe',
-          // formatter: 'stylish',
+          // formatter: 'codeframe',
+          formatter: 'stylish',
           // formatter: 'compact',
           // formatter: 'table',
           cache: true
         }
       },
       {
-        test: /\.jsx$/,
+        test: /\.js?$/,
         // use: ['babel-loader']
         use: {
           loader: 'babel-loader',

@@ -7,8 +7,8 @@ const useStyles = makeStyles(() => ({
     paddingBottom: 5,
     paddingTop: 10,
     margin: 0,
-    marginLeft: 7
-  })
+    marginLeft: 7,
+  }),
 }))
 
 export default function TitleList({ title }) {

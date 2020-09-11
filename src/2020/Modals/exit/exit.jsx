@@ -9,18 +9,18 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
   },
   contentCenter: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    maxWidth: 550
+    maxWidth: 550,
   },
   title: {
-    fontWeight: 400
-  }
+    fontWeight: 400,
+  },
 }))
 
 const Exit = ({ onClose, logout = () => {} }) => {
@@ -64,12 +64,12 @@ const Exit = ({ onClose, logout = () => {} }) => {
       <div className={classes.contentCenter}>
         <h2 className={classes.title}>{t('net_salir_confirmar', 'sair')}</h2>
         <ButtonGeneric
-          onClick={e => {
+          onClick={(e) => {
             handleLogout()
           }}
           title={t('exit_btn_exit_txt', 'Sair')}
         />
-        <ButtonGeneric onClick={e => onClose()} title={t('exit_btn_cancel_txt', 'Cancelar')} />
+        <ButtonGeneric onClick={(e) => onClose()} title={t('exit_btn_cancel_txt', 'Cancelar')} />
       </div>
     </div>
   )

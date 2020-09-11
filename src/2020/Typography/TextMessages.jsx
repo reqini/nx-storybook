@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   titleMessages: () => ({
     minWidth: 500,
     display: 'flex',
@@ -10,16 +10,16 @@ const useStyles = makeStyles(theme => ({
 
     '& strong': {
       fontSize: 28,
-      marginBottom: 10
+      marginBottom: 10,
     },
     '& span': {
       color: theme.palette.titleMessages.main,
       fontSize: 23,
       marginTop: 5,
       lineHeight: '30px',
-      fontWeight: 300
-    }
-  })
+      fontWeight: 300,
+    },
+  }),
 }))
 
 export default function TextMessages({ title, textContent, action = null }) {

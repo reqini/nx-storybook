@@ -10,14 +10,14 @@ import TitleVcard from '../Typography/TitleVcard'
 
 //import imageDefault from "./images/placeholder_background.jpg";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   resume: {
     display: 'flex',
     flexFlow: 'column',
     overflow: 'hidden',
     width: '100%',
     minHeight: '200px',
-    paddingLeft: '15px'
+    paddingLeft: '15px',
   },
   resumeContainer: {
     display: 'block',
@@ -25,22 +25,22 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     width: '100%',
     maxWidth: 1280,
-    height: 720
+    height: 720,
   },
   resumeDataContainer: {
     display: 'flex',
     alignItems: 'flex-start',
     height: '400px',
-    margin: 'auto'
+    margin: 'auto',
   },
   imgChannelResume: {
     position: 'absolute',
     right: 0,
-    top: 20
+    top: 20,
   },
   resumeDataLarge: {
     float: 'left',
-    marginTop: 20
+    marginTop: 20,
   },
   backgroundGradient: {
     position: 'absolute',
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0
+    right: 0,
   },
   resumePreviewFullwidth: {
     position: 'absolute',
@@ -61,9 +61,9 @@ const useStyles = makeStyles(theme => ({
     zIndex: 0,
 
     '& img': {
-      width: '100%'
-    }
-  }
+      width: '100%',
+    },
+  },
 }))
 
 const Resume = ({
@@ -92,12 +92,12 @@ const Resume = ({
     imageFull,
     imageCard,
     cover,
-    infoRented
+    infoRented,
   },
   className,
   favoriteButton,
   code = '',
-  buttons
+  buttons,
 }) => {
   const { t, i18n } = useTranslation()
   const classes = useStyles()
@@ -109,7 +109,7 @@ const Resume = ({
       className={`${className} ${classes.resume}`}
       style={{
         //backgroundImage: `url(${imageDefault})`
-        background: 'black'
+        background: 'black',
       }}
     >
       {srcImage && (
@@ -121,7 +121,7 @@ const Resume = ({
             })`, */
             background: 'black',
             backgroundSize: 'cover',
-            backgroundPosition: 'top'
+            backgroundPosition: 'top',
           }}
         >
           <div className={classes.backgroundGradient} />

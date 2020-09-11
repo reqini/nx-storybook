@@ -10,7 +10,7 @@ import BuyPlan from './Buy'
 
 import { Modal } from '../Modal'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   global: {
     display: 'flex',
     flexFlow: 'column',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     //padding: 20,
     padding: '20px 0 20px 20px',
     //paddingRight: 25,
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
   contentSearch: {
     display: 'flex',
@@ -30,13 +30,13 @@ const useStyles = makeStyles(theme => ({
       maxWidth: 560,
       textAlign: 'center',
       marginTop: 15,
-      lineHeight: '38px'
-    }
+      lineHeight: '38px',
+    },
   },
   info: {
     height: '320px',
-    width: '100%'
-  }
+    width: '100%',
+  },
 }))
 
 const PlansPage = ({
@@ -47,7 +47,7 @@ const PlansPage = ({
   isPopup = false,
   refresh = () => {},
   playFullMedia = () => {},
-  api = () => {}
+  api = () => {},
 }) => {
   const { t, i18n } = useTranslation()
   const classes = useStyles()
@@ -130,7 +130,7 @@ const PlansPage = ({
                 price: {
                   wholeNumber: String(price).slice(0, -item.totalPrice.scale),
                   decimals: String(price).slice(-item.totalPrice.scale),
-                  currency: t('net_planos_precio', 'R$')
+                  currency: t('net_planos_precio', 'R$'),
                 },
                 channels: item.items.filter((item, i) => i < 5),
                 duration: period === 'DAY' && duration ? '/' + duration : '',
@@ -145,7 +145,7 @@ const PlansPage = ({
                 unlimited: recurrence.recurrent,
                 clickHandler: () => {
                   setIsModalOpen({ ...item, type: 'plan' })
-                }
+                },
               }
             })}
           />
@@ -170,7 +170,7 @@ const PlansPage = ({
             key={2}
             type='plans-channels'
             title={titleOutrosConteudos}
-            items={listAddons.map(item => {
+            items={listAddons.map((item) => {
               let price =
                 String(item.totalPrice.amount).length > item.totalPrice.scale
                   ? String(item.totalPrice.amount)
@@ -197,7 +197,7 @@ const PlansPage = ({
                 price: {
                   wholeNumber: String(price).slice(0, -item.totalPrice.scale),
                   decimals: String(price).slice(-item.totalPrice.scale),
-                  currency: t('net_planos_precio', 'R$')
+                  currency: t('net_planos_precio', 'R$'),
                 },
                 channels: [get(item, 'items[0]')], // solo el primer logo
                 duration: period === 'DAY' && duration ? '/ ' + duration : '',
@@ -212,7 +212,7 @@ const PlansPage = ({
                 unlimited: recurrence.recurrent,
                 clickHandler: () => {
                   setIsModalOpen({ ...item, type: 'plan-channel' })
-                }
+                },
               }
             })}
           />

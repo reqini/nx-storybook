@@ -1,9 +1,11 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-// import { text, number } from '@storybook/addon-knobs/react'
+import { withKnobs } from '@storybook/addon-knobs'
 
-import Input from 'Components/Atoms/Input/Input'
+import InputComponent from 'Components/Atoms/Input/Input'
 
-const stories = storiesOf('/Atoms/Input', module)
+export default {
+  title: '/Atoms/Input',
+  decorators: [withKnobs],
+}
 
-stories.add('Input', () => (<Input /> ))
+export const Input = () => <InputComponent />

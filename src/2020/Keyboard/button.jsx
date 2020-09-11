@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     background: 'transparent',
     boxSizing: 'border-box',
@@ -9,8 +9,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: '25px',
     float: 'left',
     textAlign: 'center',
-    textDecoration: 'none'
-  }
+    textDecoration: 'none',
+  },
 }))
 
 const KeyboardButton = ({
@@ -21,11 +21,11 @@ const KeyboardButton = ({
   value = '',
   className = '',
   snUp = null,
-  useMail = false
+  useMail = false,
 }) => {
   const classes = useStyles()
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     e.preventDefault()
     onClick(value)
   }

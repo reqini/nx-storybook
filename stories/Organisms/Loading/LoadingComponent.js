@@ -1,9 +1,11 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { text } from '@storybook/addon-knobs/react'
+import { withKnobs, text } from '@storybook/addon-knobs'
 
 import LoadingComponent from 'Components/Organisms/Loading/LoadingComponent'
 
-const stories = storiesOf('/Organisms/Loading', module)
+export default {
+  title: '/Organisms/Loading',
+  decorators: [withKnobs],
+}
 
-stories.add('LoadingComponent', () => (<LoadingComponent title={text('Titulo', 'Cargando...')} />))
+export const Loading = () => <LoadingComponent title={text('Titulo', 'Cargando...')} />

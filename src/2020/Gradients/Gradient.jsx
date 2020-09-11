@@ -8,8 +8,8 @@ const useStyles = makeStyles(() => ({
     left: 0,
     width: '100%',
     height: height || 100,
-    backgroundImage: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), black)'
-  })
+    backgroundImage: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), black)',
+  }),
 }))
 
 const Gradient = ({ height, position = 'absolute', bottom }) => {

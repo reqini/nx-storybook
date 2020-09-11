@@ -7,12 +7,12 @@ import Chip from '@material-ui/core/Chip'
 import DefaultImage from '../../Atoms/Icons/default-image.svg'
 import svgToUri from '../../svgToUri'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   containerCard: ({ height, width, minWidth }) => ({
     minHeight: height + height * 0.13,
     minWidth: width + (minWidth || 2) + width * 0.06,
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
   }),
   landscape: ({
     width,
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     border,
     withContent,
     notDefaultImg,
-    padding = 10
+    padding = 10,
   }) => ({
     backgroundImage: `url(${image})`,
     backgroundRepeat: 'no-repeat',
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
       backgroundImage: `${notDefaultImg ? `url(${notDefaultImg})` : svgToUri(DefaultImage)}`,
       backgroundSize: 80,
       backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
     },
 
     /*     '&:hover': {
@@ -64,8 +64,8 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
       border: `4px solid white`,
-      margin: 0
-    }
+      margin: 0,
+    },
   }),
   backgroundOpacity: () => ({
     background: 'rgba(0, 0, 0, 0.7)',
@@ -75,7 +75,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     top: 0,
     left: 0,
-    zIndex: 0
+    zIndex: 0,
   }),
   category: ({ bgSizeFocus }) => ({
     height: 100,
@@ -87,11 +87,11 @@ const useStyles = makeStyles(theme => ({
       width: 190 + 190 * 0.11,
       height: 100 + 100 * 0.14,
       margin: 0,
-      marginTop: 2
-    }
+      marginTop: 2,
+    },
   }),
   paper: {
-    background: 'transparent'
+    background: 'transparent',
   },
   chip: {
     borderRadius: '12px',
@@ -104,15 +104,15 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0 1px 4px 0 rgba(0,0,0,0.5)',
 
     '& span': {
-      margin: 0
-    }
+      margin: 0,
+    },
   },
   typography: ({ width }) => ({
     color: 'white',
     marginTop: 10,
     marginLeft: 15,
-    width: width || 290
-  })
+    width: width || 290,
+  }),
 }))
 
 const CardLandscape = ({
@@ -149,7 +149,7 @@ const CardLandscape = ({
   snDown = null,
   snLeft = null,
   id,
-  focusHandlerDown = () => {}
+  focusHandlerDown = () => {},
 }) => {
   const classes = useStyles({
     withContent,
@@ -163,7 +163,7 @@ const CardLandscape = ({
     minWidth,
     notDefaultImg,
     padding,
-    marginFoco
+    marginFoco,
   })
   // cargar imagen full en paralelo
   useEffect(() => {
@@ -182,7 +182,7 @@ const CardLandscape = ({
           data.href && !data.provider ? classes.category : ''
         }`}
         tabIndex='0'
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
 
           if (data.sendToPlay) {
@@ -194,11 +194,11 @@ const CardLandscape = ({
           } else {
             history.push({
               pathname: data.href || `/vcard/${data.group_id}`,
-              state: { menuSelect: match.url }
+              state: { menuSelect: match.url },
             })
           }
         }}
-        onFocus={e => {
+        onFocus={(e) => {
           if (scrollToTop) {
             let item = e.currentTarget.parentNode.parentNode.parentNode.parentNode
 
@@ -211,10 +211,10 @@ const CardLandscape = ({
 
           focusHandler(data)
         }}
-        onKeyUp={e => {
+        onKeyUp={(e) => {
           focusHandler(data)
         }}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           focusHandlerDown(e)
         }}
         // data-sn-left={index === 0 ? "@nav_down" : null}

@@ -1,22 +1,22 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   event: ({ width, background, height, eventHeight }) => ({
-    boxSizing: "border-box",
-    color: "white",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    boxSizing: 'border-box',
+    color: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     padding: 10,
     marginRight: 1,
     height: height || eventHeight,
     background: `${theme.palette.epg.main}`,
-    "&:focus": {
+    '&:focus': {
       background: `${background || theme.palette.epg.focus}!important`,
     },
-    "&:hover": {
+    '&:hover': {
       background: `${background || theme.palette.epg.focus}!important`,
     },
   }),
@@ -27,24 +27,23 @@ const useStyles = makeStyles((theme) => ({
     background: `${theme.palette.epg.activeBlock}!important`,
   }),
   eventBlock: () => ({
- 
-    "& p":{
-      color: "#FFFFFF",
+    '& p': {
+      color: '#FFFFFF',
       opacity: 0.5,
     },
-    "& h2":{
-      color: "#FFFFFF",
+    '& h2': {
+      color: '#FFFFFF',
       opacity: 0.5,
     },
 
-    "&:focus": {
+    '&:focus': {
       background: `${theme.palette.epg.focusBlock}!important`,
     },
-    "&:hover": {
+    '&:hover': {
       background: `${theme.palette.epg.focusBlock}!important`,
     },
   }),
-}));
+}))
 
 const Event = ({
   style,
@@ -58,51 +57,48 @@ const Event = ({
   onFocus = () => {},
   onKeyDown = () => {},
 }) => {
-  const classes = useStyles({ eventHeight });
-  let keysProps = {};
+  const classes = useStyles({ eventHeight })
+  let keysProps = {}
 
   // cargar imagen full en paralelo
-  const imgObj = new Image();
-  imgObj.src = event.image;
+  const imgObj = new Image()
+  imgObj.src = event.image
 
   if (current) {
-    let prevCh = parseInt(event.channel.index) - 1;
-    let nextCh = parseInt(event.channel.index) + 1;
+    let prevCh = parseInt(event.channel.index) - 1
+    let nextCh = parseInt(event.channel.index) + 1
 
     keysProps = {
-      "data-sn-up": `[data-ch-index="${prevCh}"][data-current="true"]`,
-      "data-sn-down": `[data-ch-index="${nextCh}"][data-current="true"]`,
-    };
+      'data-sn-up': `[data-ch-index="${prevCh}"][data-current="true"]`,
+      'data-sn-down': `[data-ch-index="${nextCh}"][data-current="true"]`,
+    }
   }
 
   if (event.last) {
-    keysProps = { ...keysProps, "data-sn-right": "" };
+    keysProps = { ...keysProps, 'data-sn-right': '' }
   }
 
   const clickHandler = React.useCallback(() => {
-    setShowInfo({ show: false });
+    setShowInfo({ show: false })
     changeChannel({
       channel: event.channel,
       event: { ...event, current },
-    });
-  }, []);
+    })
+  }, [])
 
   const styleFinal = React.useMemo(() => {
-    const { height, width } = style;
+    const { height, width } = style
     return {
       ...style,
       padding: paddingRow - 7,
       height: height - paddingRow,
       width: width - paddingRow,
-    };
-  }, []);
+    }
+  }, [])
 
-  const style01 = React.useMemo(
-    () => ({ fontSize: 20, fontWeight: 500, width: "100%" }),
-    []
-  );
+  const style01 = React.useMemo(() => ({ fontSize: 20, fontWeight: 500, width: '100%' }), [])
 
-  const style02 = React.useMemo(() => ({ fontSize: 20 }), []);
+  const style02 = React.useMemo(() => ({ fontSize: 20 }), [])
 
   return (
     <div
@@ -111,11 +107,7 @@ const Event = ({
       data-ch-index={event.channel.index}
       data-current={current}
       className={`focusable ${classes.event} ${
-        current
-          ? !event.channel.canPlay
-            ? classes.eventActiveBlock
-            : classes.eventActive
-          : ""
+        current ? (!event.channel.canPlay ? classes.eventActiveBlock : classes.eventActive) : ''
       }
       ${!event.channel.canPlay && classes.eventBlock}
       `}
@@ -125,14 +117,14 @@ const Event = ({
       onKeyDown={onKeyDown}
       {...keysProps}
     >
-      <Typography noWrap style={style01} variant="h2">
+      <Typography noWrap style={style01} variant='h2'>
         {event.title}
       </Typography>
-      <Typography style={style02} noWrap variant="body2">
+      <Typography style={style02} noWrap variant='body2'>
         {event.time}
       </Typography>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(Event);
+export default React.memo(Event)

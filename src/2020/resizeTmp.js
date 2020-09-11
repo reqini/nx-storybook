@@ -25,7 +25,7 @@ const getItemPropertiesTv = ({
   dateBegin,
   dateEnd,
   dateFrom,
-  isSearch = false
+  isSearch = false,
 }) => {
   let isSerie = common.is_series
 
@@ -66,7 +66,7 @@ const getItemPropertiesTv = ({
     group_id: common.id,
     year: event.ext_year,
     genres: event.genres,
-    original: item // para test
+    original: item, // para test
   }
 }
 
@@ -100,7 +100,7 @@ const getItemProperties = ({ item, version = 'v5.86', category }) => {
     image_base_horizontal,
     season_number,
     episode_number,
-    is_series: isSerie
+    is_series: isSerie,
   } = itemFinal
 
   let rating = get(external, 'gracenote.rating_classind') || null
@@ -177,7 +177,7 @@ const getItemProperties = ({ item, version = 'v5.86', category }) => {
     duration,
     season: season_number,
     episode: episode_number,
-    original: itemFinal // para test
+    original: itemFinal, // para test
   }
 }
 
@@ -192,16 +192,13 @@ const getItemPropertiesTalent = ({ item }) => {
     internal_ids: item.internal_ids || [],
     group_id: item.id,
     imageCard: imaCard && resizeImage(imaCard, 110),
-    title: title
+    title: title,
   }
 }
 
 const advance = (since, to, now) => {
-  const strToDate = string => {
-    string = string
-      .replace(/\//g, '')
-      .replace(/:/g, '')
-      .replace(' ', '')
+  const strToDate = (string) => {
+    string = string.replace(/\//g, '').replace(/:/g, '').replace(' ', '')
     let result = new Date(
       parseInt(string.substring(0, 4)),
       parseInt(string.substring(4, 6)) - 1, // los meses empiezan en 0
@@ -215,7 +212,7 @@ const advance = (since, to, now) => {
 
   let result = {
     total: (strToDate(to).getTime() - strToDate(since).getTime()) / 1000 / 60,
-    paso: (strToDate(now).getTime() - strToDate(since).getTime()) / 1000 / 60
+    paso: (strToDate(now).getTime() - strToDate(since).getTime()) / 1000 / 60,
   }
   result.porcent = parseInt((result.paso / result.total) * 100)
   return result

@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   simpleImage: ({ height, width }) => ({
     height: height || null,
-    width: width || null
-  })
+    width: width || null,
+  }),
 }))
 
 const SimpleImage = ({
@@ -13,7 +13,7 @@ const SimpleImage = ({
   alt = null,
   title = null,
   width,
-  height
+  height,
 }) => {
   const classes = useStyles({ image, width, height })
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   constainer: ({ width, margin = 10, minHeight }) => ({
     display: 'flex',
     justifyContent: 'center',
@@ -10,14 +10,14 @@ const useStyles = makeStyles(theme => ({
     boxSizing: 'border-box',
     width: width,
     minHeight: minHeight || 54,
-    margin: margin
+    margin: margin,
   }),
   button: ({
     width,
     fontWeightSpan,
     heightFocoDisable = false,
     backgroundButton = false,
-    fontWeight = false
+    fontWeight = false,
   }) => ({
     width: width || 230,
     height: theme.sizeButton.height.main,
@@ -42,25 +42,25 @@ const useStyles = makeStyles(theme => ({
       background: theme.palette.primary.main,
       boxSizing: 'border-box',
       transition: 'box-shadow 0.15s ease-in',
-      boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)'
+      boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)',
     },
 
     '& span': {
       fontWeight: fontWeightSpan,
-      fontSize: 20
-    }
+      fontSize: 20,
+    },
   }),
   nonFocusable: {
     background: 'silver',
     color: 'gray',
-    cursor: 'no-drop'
+    cursor: 'no-drop',
   },
   description: {
     marginTop: 5,
     fontSize: '18px',
     textTransform: 'lowercase',
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 }))
 
 const ButtonGeneric = ({
@@ -79,7 +79,7 @@ const ButtonGeneric = ({
   snDown = null,
   snRight = null,
   snLeft = null,
-  minHeight = null
+  minHeight = null,
 }) => {
   const classes = useStyles({
     width,
@@ -89,7 +89,7 @@ const ButtonGeneric = ({
     heightFocoDisable,
     margin,
     isFocusable,
-    backgroundButton
+    backgroundButton,
   })
 
   return (
@@ -97,7 +97,7 @@ const ButtonGeneric = ({
       <div
         tabIndex='0'
         className={`${isFocusable ? 'focusable' : classes.nonFocusable} ${classes.button}`}
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
           onClick && onClick(e)
         }}

@@ -6,18 +6,18 @@ import CardLandscape from './CardLandscape'
 import ChipContainer from '../Chip'
 
 const colorClasses = [
-  '45deg,#0D9F70,#2574B4'
+  '45deg,#0D9F70,#2574B4',
   /* "45deg,#6D51B8,#D44169", */
   /* "45deg,#AA00FF,#D89D2F", */
 ]
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   channelsPlans: {
     fontWeight: 900,
     fontSize: 18,
     margin: 5,
     color: 'white',
-    position: 'relative'
+    position: 'relative',
   },
   pricePlans: {
     textAlign: 'center',
@@ -32,9 +32,9 @@ const useStyles = makeStyles(theme => ({
 
       '& b': {
         fontSize: 30.15,
-        fontWeight: 500
-      }
-    }
+        fontWeight: 500,
+      },
+    },
   },
   listChannelsPlans: {
     width: '100%',
@@ -56,22 +56,22 @@ const useStyles = makeStyles(theme => ({
       alignItems: 'center',
 
       '&:first-child': {
-        marginLeft: 0
+        marginLeft: 0,
       },
 
       '& img': {
         width: '100%',
         //maxWidth: 45,
-        width: 37.3
-      }
-    }
+        width: 37.3,
+      },
+    },
   },
   contentTags: {
     margin: '5px 0',
     width: '100%',
     display: 'flex',
-    justifyContent: 'space-between'
-  }
+    justifyContent: 'space-between',
+  },
 }))
 
 const CardPlans = ({
@@ -95,7 +95,7 @@ const CardPlans = ({
   id,
   isLast,
   focusHandlerDown = () => {},
-  marginFoco
+  marginFoco,
 }) => {
   const classes = useStyles({
     width,
@@ -103,7 +103,7 @@ const CardPlans = ({
     bgSize,
     borderRadius,
     marginFoco,
-    purchased
+    purchased,
   })
 
   return (

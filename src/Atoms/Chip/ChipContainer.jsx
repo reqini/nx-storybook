@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   chip: ({ color, height, uppercase, width, padding }) => ({
     margin: 0,
     width: width || null,
@@ -22,9 +22,9 @@ const useStyles = makeStyles(theme => ({
     '& h6': {
       margin: 0,
       fontSize: 11.7,
-      lineHeight: '19px'
-    }
-  })
+      lineHeight: '19px',
+    },
+  }),
 }))
 
 const ChipContainer = ({ title, color, height, gradient, uppercase, width, padding }) => {

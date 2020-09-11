@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   modalOverlay: {
     width: theme.sizeBody.hd.width,
     height: theme.sizeBody.hd.height,
@@ -16,11 +16,11 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     left: 0,
     background: 'rgba(0, 0, 0, 1)',
-    color: theme.palette.textColor.main
+    color: theme.palette.textColor.main,
   },
   modalContainer: {
     display: 'flex',
-    width: 580
+    width: 580,
   },
   modalContent: {
     justifyContent: 'center',
@@ -29,28 +29,28 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
 
     '& img': {
-      height: 122
+      height: 122,
     },
     '& p': {
       '& b': {
-        padding: '0px 10px 0px 0px'
-      }
-    }
+        padding: '0px 10px 0px 0px',
+      },
+    },
   },
   modalText: {
     textAlign: 'center',
     fontSize: 25,
     fontWeight: 400,
-    color: 'gray'
+    color: 'gray',
   },
   containerButton: {
     display: 'flex',
     flexFlow: 'column',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 }))
 
-const ErrorCreditCard = props => {
+const ErrorCreditCard = (props) => {
   const { t, i18n } = useTranslation()
 
   let msg = t(
@@ -72,13 +72,13 @@ const ErrorCreditCard = props => {
             <p
               className={classes.modalText}
               dangerouslySetInnerHTML={{
-                __html: msg.split('.').join('. <br/>')
+                __html: msg.split('.').join('. <br/>'),
               }}
             />
           </div>
           <div>
             <ButtonGeneric
-              onClick={e => props.onClose()}
+              onClick={(e) => props.onClose()}
               title={t('net_cerrar_sin_medio_de_pago', 'Cerrar')}
             />
           </div>

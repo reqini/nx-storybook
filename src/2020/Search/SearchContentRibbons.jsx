@@ -7,21 +7,21 @@ const useStyles = makeStyles(() => ({
     width: width || '100%',
     display: 'block',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
   }),
   scrollerContainer: {
     display: 'block',
     position: 'relative',
     height: '100%',
     width: '100%',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   scrollChildren: {
     height: '100%',
     //width: 'calc(100% - 25px)',
-    overflow: 'hidden'
+    overflow: 'hidden',
     //paddingLeft: 25
-  }
+  },
 }))
 
 export default function SearchContentRibbons({ children }) {

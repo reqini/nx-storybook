@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import ChipContainer from '../../Atoms/Chip/ChipContainer'
 import CardLandscape from './CardLandscape'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   channels: {
     display: 'flex',
     position: 'relative',
@@ -15,15 +15,15 @@ const useStyles = makeStyles(theme => ({
 
     '& img': {
       height: 27.62,
-      marginRight: 5
+      marginRight: 5,
     },
     '& p': {
       color: 'white',
       width: '100%',
       margin: '0 5px',
       whiteSpace: 'break-spaces',
-      boxSizing: 'border-box'
-    }
+      boxSizing: 'border-box',
+    },
   },
   description: {
     position: 'relative',
@@ -33,18 +33,18 @@ const useStyles = makeStyles(theme => ({
     '& p': {
       margin: '5px 21px',
       color: 'white',
-      fontSize: 12
-    }
+      fontSize: 12,
+    },
   },
   gradient: {
     width: 10,
     height: 40,
     background: 'linear-gradient(45deg, #3876DE, #2D86B6)',
-    marginRight: 10
+    marginRight: 10,
   },
   contentImage: {
     overflow: 'hidden',
-    height: 27.62
+    height: 27.62,
   },
   pricePlans: {
     textAlign: 'center',
@@ -56,14 +56,14 @@ const useStyles = makeStyles(theme => ({
 
     '& p': {
       margin: 0,
-      marginTop: 10
+      marginTop: 10,
     },
 
     '& b': {
       fontSize: 28,
-      fontWeight: 500
-    }
-  }
+      fontWeight: 500,
+    },
+  },
 }))
 
 const CardChannels = ({
@@ -81,7 +81,7 @@ const CardChannels = ({
   snLeft = null,
   id,
   isLast,
-  focusHandlerDown = () => {}
+  focusHandlerDown = () => {},
 }) => {
   const classes = useStyles()
 

@@ -8,8 +8,8 @@ const useStyles = makeStyles(() => ({
     margin: '10px auto',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
-  })
+    alignItems: 'center',
+  }),
 }))
 
 const SearchContentAutocomplete = ({ children }) => {

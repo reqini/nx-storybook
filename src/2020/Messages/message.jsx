@@ -7,19 +7,19 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   contentError: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   image: {
     height: 140,
-    marginBottom: 15
-  }
+    marginBottom: 15,
+  },
 }))
 
 export default function Message({ image, children, height = 720 }) {

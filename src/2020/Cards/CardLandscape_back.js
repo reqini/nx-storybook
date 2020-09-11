@@ -2,10 +2,12 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   landscape: ({ width, height, bgSize, borderRadius, image }) => ({
-    backgroundImage: `url(${image ||
-      'http://clarovideocdn5.clarovideo.net/pregeneracion//cms/images/202001/75478_Default_Passangers-now_16154434.jpg'})`,
+    backgroundImage: `url(${
+      image ||
+      'http://clarovideocdn5.clarovideo.net/pregeneracion//cms/images/202001/75478_Default_Passangers-now_16154434.jpg'
+    })`,
     position: 'relative',
     margin: height * 0.06,
     backgroundSize: bgSize || 290,
@@ -22,20 +24,20 @@ const useStyles = makeStyles(theme => ({
       width: width + width * 0.06,
       height: height + height * 0.13,
       backgroundSize: bgSize + bgSize * 0.13,
-      margin: 0
+      margin: 0,
     },
     '&:focus': {
       width: width + width * 0.13,
       height: height + height * 0.13,
       backgroundSize: bgSize + bgSize * 0.13,
-      marginTop: 0
-    }
+      marginTop: 0,
+    },
   }),
   typography: ({ width }) => ({
     color: 'white',
     marginTop: 10,
-    width: width || 290
-  })
+    width: width || 290,
+  }),
 }))
 
 const CardLandscape = ({ width, height, bgSize, borderRadius, title = false, image, children }) => {

@@ -4,16 +4,16 @@ import { useTranslation } from 'react-i18next'
 
 import ImageLogo from '../Icons/App/net_launch_logo_claro.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     position: 'absolute',
     top: '27px',
-    left: '17px'
+    left: '17px',
   },
   img: {
     position: 'absolute',
     left: '20px',
-    width: '100px'
+    width: '100px',
   },
   title: {
     margin: 0,
@@ -21,8 +21,8 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     left: '133px',
     top: '11px',
-    fontWeight: '500'
-  }
+    fontWeight: '500',
+  },
 }))
 
 const HeaderLogin = () => {

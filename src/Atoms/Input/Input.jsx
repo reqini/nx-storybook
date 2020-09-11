@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const lupa = require('../Icons/Nav/Search.svg')
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   inputContainer: {
-    width: '100%'
+    width: '100%',
   },
   input: {
     display: 'flex',
@@ -23,8 +23,8 @@ const useStyles = makeStyles(theme => ({
       color: '#fff',
       boxShadow: 'none!important',
       background: theme.palette.primary.main,
-      fontWeight: '500'
-    }
+      fontWeight: '500',
+    },
   },
   placeholder: {
     borderBottom: 'none',
@@ -35,12 +35,12 @@ const useStyles = makeStyles(theme => ({
     overflowY: 'hidden',
     padding: '4px 0',
     whiteSpace: 'nowrap',
-    textTransform: 'lowercase'
+    textTransform: 'lowercase',
   },
   nonFocusable: {
     background: 'silver',
     color: 'gray',
-    cursor: 'no-drop'
+    cursor: 'no-drop',
   },
   lupa: {
     height: 40,
@@ -48,13 +48,13 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${lupa})`,
     backgroundSize: 30,
     backgroundPosition: '0px center',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
   },
   textInput: {
     display: 'inline-block',
     float: 'left',
     fontSize: '18px',
-    lineHeight: '1'
+    lineHeight: '1',
   },
   cursor: {
     background: '#fff',
@@ -66,8 +66,8 @@ const useStyles = makeStyles(theme => ({
     'animation-name': 'toBlink',
     'animation-duration': '.9s',
     'animation-timing-function': 'linear',
-    'animation-iteration-count': 'infinite'
-  }
+    'animation-iteration-count': 'infinite',
+  },
 }))
 
 const Input = ({
@@ -78,7 +78,7 @@ const Input = ({
   isFocusable = true,
   placeholder,
   type = 'text',
-  onClick = () => {}
+  onClick = () => {},
 }) => {
   const classes = useStyles()
   const focused = currentFocus === name
@@ -88,7 +88,7 @@ const Input = ({
   const sinSpacio = String(value).match(wsRegex)
   const totalSpace = sinSpacio && sinSpacio[0].length
 
-  const getText = text => {
+  const getText = (text) => {
     return type === 'text' ? text : text.replace(/[\s\S]/g, '*')
   }
 
@@ -99,7 +99,7 @@ const Input = ({
         className={`${classes.input} ${
           isFocusable ? 'focusable' : /* "nonfocusable" */ classes.nonFocusable
         }`}
-        onClick={e => onClick({ name })}
+        onClick={(e) => onClick({ name })}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
           {icon && <div className={classes.lupa} />}

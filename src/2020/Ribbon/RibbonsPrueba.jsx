@@ -25,15 +25,15 @@ const heightCard = 290
 
 const marginFoco = 4
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   autoSizer: {
     overflow: 'hidden!important',
     height: '100%!important',
-    width: '100%!important'
+    width: '100%!important',
   },
   collection: {
-    overflow: 'hidden!important'
-  }
+    overflow: 'hidden!important',
+  },
 }))
 
 const Ribbon = ({
@@ -55,7 +55,7 @@ const Ribbon = ({
   index: indexRibbon,
   clickHandler,
   setFocus,
-  api = () => {} // para talents
+  api = () => {}, // para talents
 }) => {
   const { keys } = useContext(ModalContext)
   const [topIndex, setTopIndex] = useState(0)
@@ -107,7 +107,7 @@ const Ribbon = ({
       height: height,
       width: width,
       x: x,
-      y: 0
+      y: 0,
     }
   }, [])
 
@@ -150,8 +150,8 @@ const Ribbon = ({
             clickHandler={() => {
               setIsModalOpen(item)
             }}
-            focusHandlerDown={e => focusHandlerDown(e, snDown, snUp)}
-            focusHandler={data => {
+            focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
+            focusHandler={(data) => {
               setTopIndex(index)
               focusHandler(data, topIndex)
             }}
@@ -183,8 +183,8 @@ const Ribbon = ({
             image={item.imageCard}
             title={item.title}
             subTitle={item.subTitle}
-            focusHandlerDown={e => focusHandlerDown(e, snDown, snUp)}
-            focusHandler={data => {
+            focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
+            focusHandler={(data) => {
               setTopIndex(index)
               focusHandler(data, topIndex)
             }}
@@ -216,12 +216,12 @@ const Ribbon = ({
             title={item.title}
             subTitle={item.subTitle}
             data={item}
-            focusHandlerDown={e => focusHandlerDown(e, snDown, snUp)}
-            focusHandler={data => {
+            focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
+            focusHandler={(data) => {
               setTopIndex(index)
               focusHandler(data, topIndex)
             }}
-            sendToPlay={group_id => sendToPlay(group_id, true)}
+            sendToPlay={(group_id) => sendToPlay(group_id, true)}
             progressLine={
               <LinearProgress
                 variant='determinate'
@@ -257,8 +257,8 @@ const Ribbon = ({
             clickHandler={() => {
               setIsModalOpen(item)
             }}
-            focusHandlerDown={e => focusHandlerDown(e, snDown, snUp)}
-            focusHandler={data => {
+            focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
+            focusHandler={(data) => {
               setTopIndex(index)
               focusHandler(data, topIndex)
             }}
@@ -282,8 +282,8 @@ const Ribbon = ({
             id={`${prefixId}-${indexRibbon}-${index}`}
             key={`${prefixId}-${index}`}
             clickHandler={item.clickHandler}
-            focusHandlerDown={e => focusHandlerDown(e, snDown, snUp)}
-            focusHandler={data => {
+            focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
+            focusHandler={(data) => {
               setTopIndex(index)
               focusHandler(data, topIndex)
             }}
@@ -304,8 +304,8 @@ const Ribbon = ({
             id={`${prefixId}-${indexRibbon}-${index}`}
             key={`${prefixId}-${index}`}
             clickHandler={item.clickHandler}
-            focusHandlerDown={e => focusHandlerDown(e, snDown, snUp)}
-            focusHandler={data => {
+            focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
+            focusHandler={(data) => {
               setTopIndex(index)
               focusHandler(data, topIndex)
             }}
@@ -358,8 +358,8 @@ const Ribbon = ({
           image={item.imageCard}
           clickHandler={item.clickHandler}
           clickHandlerNew={clickHandler}
-          focusHandlerDown={e => focusHandlerDown(e, snDown, snUp)}
-          focusHandler={data => {
+          focusHandlerDown={(e) => focusHandlerDown(e, snDown, snUp)}
+          focusHandler={(data) => {
             setTopIndex(index)
             focusHandler(data, topIndex)
           }}
@@ -403,7 +403,7 @@ const Ribbon = ({
           <div
             style={{
               width: '100%',
-              height: '100%'
+              height: '100%',
             }}
           >
             {isModalOpen && (

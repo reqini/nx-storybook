@@ -5,7 +5,7 @@ import Chip from '@material-ui/core/Chip'
 
 const defaultImage = require('./images/default-image.svg')
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   tagNetflex: {
     border: '1px solid white',
     padding: '0 5px',
@@ -15,12 +15,12 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '20px',
     fontSize: 15,
     height: 18.4,
-    marginTop: 1
+    marginTop: 1,
   },
 
   containerCard: {
     display: 'flex',
-    marginTop: 4
+    marginTop: 4,
   },
   cardSeasons: ({
     width,
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     bgSizeFocus,
     border,
     withContent,
-    notDefaultImg
+    notDefaultImg,
   }) => ({
     backgroundImage: `url(${image})`,
     backgroundRepeat: 'no-repeat',
@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
       backgroundImage: `url(${notDefaultImg || defaultImage})`,
       backgroundSize: 80,
       backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
     },
 
     '&:focus': {
@@ -73,8 +73,8 @@ const useStyles = makeStyles(theme => ({
       //backgroundSize: bgSizeFocus || "cover",
       border: '4px solid white',
       boxShadow: '0 4px 8px 2px rgba(0, 0, 0, .3)',
-      margin: 0
-    }
+      margin: 0,
+    },
     /* "&:hover": {
       width: width + width * 0.06,
       height: height + height * 0.13,
@@ -94,7 +94,7 @@ const useStyles = makeStyles(theme => ({
     '& span': {
       /* padding: 0,
       margin: 0, */
-      marginBottom: 0
+      marginBottom: 0,
       // fontStyle: "italic",
     },
 
@@ -105,7 +105,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 20,
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis'
+      textOverflow: 'ellipsis',
     },
 
     '& p': {
@@ -116,8 +116,8 @@ const useStyles = makeStyles(theme => ({
       lineHeight: '27px',
       fontSize: 16,
       overflow: 'hidden',
-      maxHeight: 85
-    }
+      maxHeight: 85,
+    },
   },
   backgroundOpacity: () => ({
     background: 'rgba(0, 0, 0, 0.7)',
@@ -127,7 +127,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     top: 0,
     left: 0,
-    zIndex: 0
+    zIndex: 0,
   }),
   category: ({ bgSizeFocus }) => ({
     height: 100,
@@ -139,11 +139,11 @@ const useStyles = makeStyles(theme => ({
       width: 190 + 190 * 0.11,
       height: 100 + 100 * 0.14,
       margin: 0,
-      marginTop: 2
-    }
+      marginTop: 2,
+    },
   }),
   paper: {
-    background: 'transparent'
+    background: 'transparent',
   },
   chip: {
     borderRadius: '12px',
@@ -156,21 +156,21 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0 1px 4px 0 rgba(0,0,0,0.5)',
 
     '& span': {
-      margin: 0
-    }
+      margin: 0,
+    },
   },
   typography: ({ width }) => ({
     color: 'white',
     marginTop: 10,
     marginLeft: 15,
-    width: width || 290
+    width: width || 290,
   }),
   contentChildren: {
     position: 'absolute',
     bottom: 0,
     left: 0,
-    width: '100%'
-  }
+    width: '100%',
+  },
 }))
 
 const CardSeasons = ({
@@ -209,7 +209,7 @@ const CardSeasons = ({
   snLeft = null,
   snRight = null,
   dubbed = false,
-  subbed = false
+  subbed = false,
 }) => {
   const classes = useStyles({
     withContent,
@@ -225,7 +225,7 @@ const CardSeasons = ({
     image,
     bgSizeFocus,
     border,
-    notDefaultImg
+    notDefaultImg,
   })
   // cargar imagen full en paralelo
   useEffect(() => {
@@ -241,7 +241,7 @@ const CardSeasons = ({
           isActive ? 'episodeActive' : ''
         } ${data.href && !data.provider ? classes.category : ''}`}
         tabIndex='0'
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
 
           if (data.sendToPlay) {
@@ -250,7 +250,7 @@ const CardSeasons = ({
             return clickHandler()
           }
         }}
-        onFocus={e => {
+        onFocus={(e) => {
           if (scrollToTop) {
             let item = e.currentTarget.parentNode.parentNode.parentNode.parentNode
 
@@ -263,7 +263,7 @@ const CardSeasons = ({
 
           focusHandler(data)
         }}
-        onKeyUp={e => {
+        onKeyUp={(e) => {
           focusHandler(data)
         }}
         // data-sn-left={index === 0 ? "@nav_down" : null}

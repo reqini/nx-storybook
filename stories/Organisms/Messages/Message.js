@@ -1,9 +1,11 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-// import { text } from '@storybook/addon-knobs/react'
+import { withKnobs } from '@storybook/addon-knobs'
 
-import Message from 'Components/Organisms/Messages/message'
+import MessageComponent from 'Components/Organisms/Messages/message'
 
-const stories = storiesOf('/Organisms/Messages', module)
+export default {
+  title: '/Organisms/Messages',
+  decorators: [withKnobs],
+}
 
-stories.add('Message', () => (<Message />))
+export const Message = () => <MessageComponent />

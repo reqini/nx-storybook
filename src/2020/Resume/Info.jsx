@@ -11,18 +11,18 @@ const useStyles = makeStyles(() => ({
     fontWeight: 300,
     width: '100%',
     display: 'flex',
-    padding: 0
+    padding: 0,
   }),
   resumeWeta: {
     marginBottom: 10,
     marginRight: 10,
     listStyle: 'none',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   noWrap: {
     maxWidth: 180,
     whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis'
+    textOverflow: 'ellipsis',
   },
   tagNetflex: {
     border: '1px solid white',
@@ -33,10 +33,10 @@ const useStyles = makeStyles(() => ({
     lineHeight: '20px',
     fontSize: 15,
     height: 18.4,
-    marginTop: 1
+    marginTop: 1,
   },
   tagBold: {
-    fontWeight: 500
+    fontWeight: 500,
   },
   resumeColor: {
     borderRadius: 3,
@@ -45,8 +45,8 @@ const useStyles = makeStyles(() => ({
     marginTop: 1.5,
     width: 32,
     textAlign: 'center',
-    lineHeight: '22px'
-  }
+    lineHeight: '22px',
+  },
 }))
 
 const Info = ({
@@ -65,7 +65,7 @@ const Info = ({
   language,
   resolution,
   marginTop,
-  isModalProps = false
+  isModalProps = false,
 }) => {
   const classes = useStyles({ marginTop })
   const { t, i18n } = useTranslation()

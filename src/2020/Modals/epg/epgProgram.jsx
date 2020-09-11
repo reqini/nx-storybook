@@ -7,7 +7,7 @@ import { Info } from '../../Resume/Resume'
 
 import imageDefault from '../../Resume/images/placeholder_background.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   containerFuture: {
     width: '100%',
     height: theme.sizeBody.hd.height,
@@ -15,12 +15,12 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     position: 'relative',
     textAlign: 'initial',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
   resume: {
     position: 'relative',
     zIndex: 2,
-    width: 550
+    width: 550,
   },
   background: () => ({
     position: 'absolute',
@@ -33,10 +33,10 @@ const useStyles = makeStyles(theme => ({
     '-moz-box-shadow': 'inset 7em -6em 6em 0em #000',
     'box-shadow': 'inset 7em -6em 6em 0em #000',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
   }),
   resumeDataLarge: {
-    width: '100%'
+    width: '100%',
   },
   imgLogo: {
     display: 'flex',
@@ -46,18 +46,18 @@ const useStyles = makeStyles(theme => ({
     '& span': {
       fontSize: 30,
       fontWeight: 500,
-      marginRight: 10
+      marginRight: 10,
     },
     '& img': {
-      height: 50
-    }
+      height: 50,
+    },
   },
   contentFutureTime: {
-    color: theme.palette.epg.focus
+    color: theme.palette.epg.focus,
   },
   descrip: {
-    width: '100%'
-  }
+    width: '100%',
+  },
 }))
 
 const Program = ({ channel, event, onClose }) => {
@@ -100,22 +100,18 @@ const Program = ({ channel, event, onClose }) => {
     eventStatus,
     subtitle,
     language,
-    resolution
+    resolution,
   } = event
 
   const date_time = `Hoje ${moment(event.date_begin, 'YYYY/MM/DD HH:mm:ss').format('HH:mm')} - ${moment(
     event.date_end,
     'YYYY/MM/DD HH:mm:ss'
   ).format('HH:mm')}`
-  const duration = moment
-    .utc()
-    .startOf('day')
-    .add(event.duration, 'minutes')
-    .format('hh:mm:ss')
+  const duration = moment.utc().startOf('day').add(event.duration, 'minutes').format('hh:mm:ss')
 
   const DataMoldal = () => {
     return (
-      <div onClick={e => onClose()} className={`content-future ${classes.containerFuture}`}>
+      <div onClick={(e) => onClose()} className={`content-future ${classes.containerFuture}`}>
         <div
           className={classes.background}
           style={{ backgroundImage: `url(${image || imageDefault})` }}

@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   modalOverlay: {
     width: theme.sizeBody.hd.width,
     height: theme.sizeBody.hd.height,
@@ -13,30 +13,30 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     left: 0,
     background: 'rgba(0, 0, 0, 1)',
-    color: theme.palette.textColor.main
+    color: theme.palette.textColor.main,
   },
   modalContainer: {
     display: 'table-cell',
-    verticalAlign: 'middle'
+    verticalAlign: 'middle',
   },
   modalContent: {
     '& p': {
       '& b': {
-        padding: '0px 10px 0px 0px'
-      }
-    }
+        padding: '0px 10px 0px 0px',
+      },
+    },
   },
   modalText: {
     textAlign: 'center',
     fontSize: 25,
     fontWeight: 400,
-    color: 'gray'
+    color: 'gray',
   },
   containerButton: {
     display: 'flex',
     flexFlow: 'column',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 }))
 
 const BuyRent = ({ period, DurationRenta, priceStart, priceEnd, lastDigits, RenderButtonBuy }) => {

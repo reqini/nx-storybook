@@ -9,26 +9,26 @@ import TitleVcard from '../Typography/TitleVcard'
 
 import imageDefault from './images/placeholder_background.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   resume: {
     display: 'flex',
     flexFlow: 'column',
     overflow: 'hidden',
     width: '100%',
     minHeight: '200px',
-    paddingLeft: '15px'
+    paddingLeft: '15px',
   },
   resumeDataContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
     height: '400px',
-    margin: 'auto'
+    margin: 'auto',
   },
   imgChannelResume: {
     position: 'absolute',
     right: 0,
-    top: 20
+    top: 20,
   },
   globalIntro: {
     display: 'flex',
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     position: 'absolute',
     boxSizing: 'border-box',
-    top: 0
+    top: 0,
   },
   global: {
     backgroundColor: 'black',
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     top: 0,
     left: 0,
-    width: 1280
+    width: 1280,
     //paddingLeft: 20
   },
   contentRibbons: {
@@ -61,8 +61,8 @@ const useStyles = makeStyles(theme => ({
     '& h2': {
       padding: 0,
       margin: 0,
-      marginBotton: 15
-    }
+      marginBotton: 15,
+    },
   },
   infoVcard: {
     width: '41%',
@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
     background: 'black',
     zIndex: 1,
     height: 405,
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
   contInfoResume: {
     zIndex: 1,
@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
     width: 600,
     top: 30,
     left: 20,
-    position: 'absolute'
+    position: 'absolute',
   },
   wrapImageBackground: {
     width: '60%',
@@ -88,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     backgroundSize: 1280,
     backgroundPosition: 'top right',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
   },
   backgroundVcard: {
     width: '100%',
@@ -96,14 +96,14 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     backgroundSize: 'cover',
     backgroundPosition: 'top',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
   },
   contentRibonns: {
     listStyle: 'none',
     padding: 0,
     margin: 0,
     display: 'flex',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   description: {
     fontSize: 20,
@@ -113,16 +113,16 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 700,
     height: 'auto',
     maxHeight: 100,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   infoRented: {
     '& p': {
       color: theme.palette.colorRented.main,
       margin: 0,
       marginTop: 5,
-      fontSize: 20
-    }
-  }
+      fontSize: 20,
+    },
+  },
 }))
 
 const ResumeNew = ({
@@ -151,14 +151,14 @@ const ResumeNew = ({
     imageFull,
     imageCard,
     cover,
-    infoRented
+    infoRented,
   },
   onClose = null,
   className,
   favoriteButton,
   code = '',
   buttons,
-  hasLanguages
+  hasLanguages,
 }) => {
   const { t, i18n } = useTranslation()
   const classes = useStyles()
@@ -220,7 +220,7 @@ const ResumeNew = ({
               '-webkit-box-shadow': 'inset 7em -6em 6em 0em #000',
               '-moz-box-shadow': 'inset 7em -6em 6em 0em #000',
               'box-shadow': 'inset 7em -6em 6em 0em #000',
-              backgroundImage: `url(${srcImage || imageDefault})`
+              backgroundImage: `url(${srcImage || imageDefault})`,
             }}
           >
             {/* <GradientLanding width={"40%"} /> */}

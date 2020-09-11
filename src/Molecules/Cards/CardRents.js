@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import svgToUri from '../../svgToUri'
 import DefaultImage from '../../Atoms/Icons/default-image.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cardRents: ({ width, height, borderRadius }) => ({
     background: theme.palette.cardSearch.main,
     border: `2px solid ${theme.palette.grayColor.main}`,
@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       background: theme.palette.colorActive.main,
       border: `4px solid white`,
-      margin: 0
-    }
+      margin: 0,
+    },
   }),
   cardRentsContentDefaultImage: () => ({
     background: theme.palette.cardSearch.main,
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 100,
     backgroundPosition: 'center',
     width: '100%',
-    height: 146
+    height: 146,
   }),
   cardRentsImage: ({ bgSize, image, bgSizeFocus }) => ({
     backgroundImage: `url(${image})`,
@@ -44,22 +44,22 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start',
 
     '&:focus': {
-      backgroundSize: bgSizeFocus || 'cover'
-    }
+      backgroundSize: bgSizeFocus || 'cover',
+    },
   }),
   cardRentsContent: {
     padding: 10,
     textAlign: 'left',
-    height: '100%'
+    height: '100%',
   },
   title: () => ({
     color: 'white',
-    fontSize: 15
+    fontSize: 15,
   }),
   subTitle: () => ({
     color: theme.palette.colorRents.main,
-    fontSize: 15
-  })
+    fontSize: 15,
+  }),
 }))
 
 const CardRents = ({
@@ -83,7 +83,7 @@ const CardRents = ({
   snLeft = null,
   snRight = null,
   isFirst = false,
-  focusHandlerDown = () => {}
+  focusHandlerDown = () => {},
 }) => {
   const classes = useStyles({
     width,
@@ -91,7 +91,7 @@ const CardRents = ({
     bgSize,
     borderRadius,
     image,
-    bgSizeFocus
+    bgSizeFocus,
   })
 
   return (
@@ -99,7 +99,7 @@ const CardRents = ({
       id={id}
       tabIndex='0'
       className={`${isFocusable ? 'focusable' : ''} ${classes.cardRents}`}
-      onClick={e => {
+      onClick={(e) => {
         if (typeof clickHandler === 'function') {
           e.preventDefault()
           return clickHandler()
@@ -111,7 +111,7 @@ const CardRents = ({
       onFocus={() => focusHandler && focusHandler(data)}
       data-sn-up={snUp}
       data-sn-down={snDown}
-      onKeyDown={e => {
+      onKeyDown={(e) => {
         focusHandlerDown(e)
       }}
     >

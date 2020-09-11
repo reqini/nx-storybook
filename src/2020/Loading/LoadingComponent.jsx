@@ -9,7 +9,7 @@ class LoadingComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: true
+      loading: true,
     }
   }
 
@@ -27,13 +27,13 @@ class LoadingComponent extends React.Component {
 LoadingComponent.propTypes = {
   background: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.bool
+  image: PropTypes.bool,
 }
 
 LoadingComponent.defaultProps = {
   background: 'black',
   title: null,
-  image: false
+  image: false,
 }
 const styles = () => ({
   containerLoading: {
@@ -46,14 +46,14 @@ const styles = () => ({
     top: 0,
     left: 0,
     width: '100%',
-    height: '100%'
+    height: '100%',
   },
   text: {
-    fontSize: 24
+    fontSize: 24,
   },
   imgLogin: {
     height: 50,
-    marginBottom: 30
-  }
+    marginBottom: 30,
+  },
 })
 export default withStyles(styles)(LoadingComponent)

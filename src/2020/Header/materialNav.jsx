@@ -7,68 +7,68 @@ import ImageLogo from '../Icons/App/net_launch_logo_claro.svg'
 
 const drawerWidth = 266
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     height: theme.sizeBody.hd.height,
     maxWidth: 50,
-    position: 'fixed'
+    position: 'fixed',
   },
   logo: {
     marginLeft: 10,
-    marginTop: 15
+    marginTop: 15,
   },
   contentLogo: {
     position: 'fixed',
     top: 10,
-    left: 10
+    left: 10,
   },
   paper: {
     height: theme.sizeBody.hd.height,
-    background: theme.palette.default.main
+    background: theme.palette.default.main,
   },
   menuButton: {
-    marginRight: 36
+    marginRight: 36,
   },
   heightDrawer: {
-    height: theme.sizeBody.hd.height
+    height: theme.sizeBody.hd.height,
   },
   hide: {
-    display: 'none'
+    display: 'none',
   },
   drawer: {
     width: drawerWidth,
     height: theme.sizeBody.hd.height,
     flexShrink: 0,
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
   },
   drawerOpen: {
     border: 'none',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   drawerClose: {
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
     border: 'none',
     overflowX: 'hidden',
     width: 75,
     [theme.breakpoints.up('sm')]: {
-      width: 75
-    }
+      width: 75,
+    },
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3)
-  }
+    padding: theme.spacing(3),
+  },
 }))
 
-const PersistentDrawerLeft = props => {
+const PersistentDrawerLeft = (props) => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(props.menuVisible ? true : false)
 
@@ -95,13 +95,13 @@ const PersistentDrawerLeft = props => {
         open={open}
         className={clsx(classes.drawer, {
           [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open
+          [classes.drawerClose]: !open,
         })}
         classes={{
           paper: clsx(classes.paper, {
             [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open
-          })
+            [classes.drawerClose]: !open,
+          }),
         }}
       >
         {open && (

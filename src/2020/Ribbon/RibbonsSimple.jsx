@@ -22,7 +22,7 @@ class RibbonsSimple extends Component {
 
     this.state = {
       items: this.getVisibleItems(items, visibleNumber),
-      isModalOpen: false
+      isModalOpen: false,
     }
   }
 
@@ -59,7 +59,7 @@ class RibbonsSimple extends Component {
     return visible
   }
 
-  focusHandler = data => {
+  focusHandler = (data) => {
     const focused = document.activeElement
 
     focused.removeEventListener('sn:willmove', this.arrowHandler)
@@ -68,7 +68,7 @@ class RibbonsSimple extends Component {
     this.props.focusHandler(data)
   }
 
-  arrowHandler = e => {
+  arrowHandler = (e) => {
     const direction = e.detail.direction.toUpperCase()
     const { items } = this.state
 
@@ -94,7 +94,7 @@ class RibbonsSimple extends Component {
     this.setState({ items: items })
   }
 
-  navigationLeft = items => {
+  navigationLeft = (items) => {
     if (items[0].index === 0) {
       let sel = document.querySelector(`.modal-overlay`)
       if (!sel && !this.props.blockSnLeft) {
@@ -111,7 +111,7 @@ class RibbonsSimple extends Component {
     items.unshift({ index, item: this.props.items[index] })
   }
 
-  navigationRight = items => {
+  navigationRight = (items) => {
     const last = items[items.length - 1]
 
     const index = last.index === this.props.items.length - 1 ? 0 : last.index + 1
@@ -140,7 +140,7 @@ class RibbonsSimple extends Component {
       isSerie,
       snUp,
       snDown,
-      clickHandler
+      clickHandler,
     } = this.props
     const { items } = this.state
 
@@ -265,7 +265,7 @@ class RibbonsSimple extends Component {
                     data={item}
                     // clickHandler={item.clickHandler}
                     focusHandler={this.focusHandler}
-                    sendToPlay={group_id => sendToPlay(group_id, true)}
+                    sendToPlay={(group_id) => sendToPlay(group_id, true)}
                     progressLine={
                       <LinearProgress
                         variant='determinate'
@@ -375,11 +375,11 @@ RibbonsSimple.propTypes = {
       group_id: PropTypes.string,
       cover: PropTypes.string,
       provider: PropTypes.node,
-      format_types: PropTypes.arrayOf(PropTypes.string)
+      format_types: PropTypes.arrayOf(PropTypes.string),
     })
   ).isRequired,
   focusHandler: PropTypes.func,
-  isSerie: PropTypes.bool
+  isSerie: PropTypes.bool,
 }
 
 RibbonsSimple.defaultProps = {
@@ -388,7 +388,7 @@ RibbonsSimple.defaultProps = {
   items: [],
   focusHandler: () => {},
   isSerie: false,
-  scrollToTop: true
+  scrollToTop: true,
 }
 
 export default RibbonsSimple

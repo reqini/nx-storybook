@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
   constainer: {
     display: 'flex',
     widht: '100%',
-    height: '100%'
+    height: '100%',
   },
   nextEpisode: () => ({
     position: 'absolute',
@@ -25,9 +25,9 @@ const useStyles = makeStyles(() => ({
     '&:focus': {
       backgroundSize: 55,
       height: 55,
-      width: 55
-    }
-  })
+      width: 55,
+    },
+  }),
 }))
 
 const Buy = ({ item, onClose, handlePlay, setFocus, keys }) => {
@@ -36,7 +36,7 @@ const Buy = ({ item, onClose, handlePlay, setFocus, keys }) => {
   const [loading, setLoading] = React.useState(true)
   const [completed, setCompleted] = React.useState(0)
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e) => {
     const currentKey = keys.getPressKey(e.keyCode) || null
 
     switch (currentKey) {
@@ -54,7 +54,7 @@ const Buy = ({ item, onClose, handlePlay, setFocus, keys }) => {
     document.addEventListener('keydown', handleKeyPress, true)
 
     function progress() {
-      setCompleted(oldCompleted => {
+      setCompleted((oldCompleted) => {
         if (oldCompleted === 100) {
           return 0
         }

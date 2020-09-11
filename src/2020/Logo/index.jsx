@@ -17,13 +17,13 @@ const Logo = ({ width, classes, image, height, position }) => {
 Logo.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
-  image: PropTypes
+  image: PropTypes,
 }
 Logo.defaultProps = {
   width: null,
   height: 40,
   position: 'relative',
-  image: null
+  image: null,
 }
 
 const styles = () => ({
@@ -32,7 +32,7 @@ const styles = () => ({
     padding: 20,
     marginLeft: 20,
     display: 'flex',
-    justifyContent: 'flex-start'
-  }
+    justifyContent: 'flex-start',
+  },
 })
 export default withStyles(styles)(Logo)

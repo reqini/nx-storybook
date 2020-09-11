@@ -10,14 +10,14 @@ const hideTime = 6000
 
 var gShowControls = false // poruqe dentro del handleKey no cambia el showControls
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   PlayerContainer: () => ({
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
     height: '100%',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   }),
   PlayerWrapper: () => ({
     display: 'flex',
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     background: 'transparent',
     height: '100%',
-    width: '100%'
+    width: '100%',
   }),
   Hours: {
     display: 'flex',
@@ -35,8 +35,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: '400',
     fontSize: 14,
     marginLeft: 153,
-    overflow: 'hidden'
-  }
+    overflow: 'hidden',
+  },
 }))
 
 const NewControls = ({
@@ -58,7 +58,7 @@ const NewControls = ({
   handlePausePlay,
   useLanguages = false,
   onShowLanguages,
-  handleBackwardForward
+  handleBackwardForward,
 }) => {
   const classes = useStyles()
 
@@ -97,7 +97,7 @@ const NewControls = ({
     }, hideTime)
   }
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e) => {
     const currentKey = keys ? keys.getPressKey(e.keyCode) : null
 
     if (!gShowControls) {

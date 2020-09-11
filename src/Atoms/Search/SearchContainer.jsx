@@ -6,8 +6,8 @@ const useStyles = makeStyles(() => ({
     height: 425,
     position: 'relative',
     width: '100%',
-    zIndex: 10
-  }
+    zIndex: 10,
+  },
 }))
 
 const SearchContainer = ({ children, ref }) => {

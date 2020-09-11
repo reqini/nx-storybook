@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import ImageMessage from '../../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: ({ useButtom }) => ({
     position: useButtom ? 'initial' : 'absolute',
     top: 0,
@@ -14,18 +14,18 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   }),
   title: {
     margin: '20px 0 0 0',
     fontSize: 37,
-    fontWeight: 500
+    fontWeight: 500,
   },
   content: {
     fontSize: 39,
     lineHeight: '0px',
     fontWeight: '400',
-    color: 'gray'
+    color: 'gray',
   },
   button: {
     marginTop: 20,
@@ -46,9 +46,9 @@ const useStyles = makeStyles(theme => ({
       background: theme.palette.primary.main,
       boxShadow: `0 0 0 7px ${theme.palette.primary.main}`,
       color: '#fff',
-      border: 'none'
-    }
-  }
+      border: 'none',
+    },
+  },
 }))
 
 const showError = ({ onClose = () => {}, useButtom = true }) => {
@@ -64,11 +64,15 @@ const showError = ({ onClose = () => {}, useButtom = true }) => {
       <p
         className={classes.content}
         dangerouslySetInnerHTML={{
-          __html: msg.split('.').join('. <br/>')
+          __html: msg.split('.').join('. <br/>'),
         }}
       />
       {useButtom && (
-        <a className={`${classes.button} focusable`} href='javascript:void(0)' onClick={e => onClose()}>
+        <a
+          className={`${classes.button} focusable`}
+          href='javascript:void(0)'
+          onClick={(e) => onClose()}
+        >
           {t('player_error_contenido_button', 'OK')}
         </a>
       )}

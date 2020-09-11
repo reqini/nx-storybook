@@ -4,37 +4,37 @@ import CheckIcon from '@material-ui/icons/Check'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   containerModal: {
     display: 'flex',
     flexFlow: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: theme.sizeBody.hd.height
+    height: theme.sizeBody.hd.height,
   },
   containerSubModal: {
     display: 'flex',
-    flexFlow: 'row'
+    flexFlow: 'row',
   },
   contentButtons: {
     textAlign: 'center',
-    maxWidth: 550
+    maxWidth: 550,
   },
   title: {
     color: '#fff',
     fontWeight: 600,
-    fontSize: 28
+    fontSize: 28,
   },
   containerCheck: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 0,
-    width: 0
+    width: 0,
   },
   check: {
-    paddingLeft: '30px'
-  }
+    paddingLeft: '30px',
+  },
 }))
 
 const Languages = ({
@@ -46,7 +46,7 @@ const Languages = ({
   contentId = null,
   isPreview = false,
   isLive = false,
-  selected = 'pt'
+  selected = 'pt',
 }) => {
   const classes = useStyles()
 
@@ -66,7 +66,7 @@ const Languages = ({
                 fontWeight={false}
                 minHeight={54}
                 href='#'
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault()
                   onClick({ item })
                 }}
@@ -91,7 +91,7 @@ const Languages = ({
         <div className={classes.containerSubModal}>
           <div className={classes.contentButtons}>
             <h2 className={classes.title}>{title}</h2>
-            {options.map(item => {
+            {options.map((item) => {
               const isCurrent = isPreview ? item.is_current : item.content_id === contentId
 
               return (
@@ -103,7 +103,7 @@ const Languages = ({
                   fontWeightSpan={isCurrent ? 500 : ''}
                   minHeight={54}
                   href='#'
-                  onClick={e => {
+                  onClick={(e) => {
                     e.preventDefault()
                     onClick({ item })
                   }}
@@ -121,7 +121,7 @@ const Languages = ({
 
           <div className={classes.contentButtons}>
             <h2 className={classes.title}>{titleAudioLegendas}</h2>
-            {optionsLegendas.map(item => {
+            {optionsLegendas.map((item) => {
               const isCurrent = isPreview ? item.is_current : item.content_id === contentId
               return (
                 <ButtonGeneric
@@ -132,7 +132,7 @@ const Languages = ({
                   fontWeight={false}
                   fontWeightSpan={isCurrent ? 500 : ''}
                   href='#'
-                  onClick={e => {
+                  onClick={(e) => {
                     e.preventDefault()
                     onClick({ item })
                   }}
@@ -155,7 +155,7 @@ const Languages = ({
       <div className={classes.containerSubModal}>
         <div className={classes.contentButtons}>
           <h2 className={classes.title}>{title}</h2>
-          {options.map(item => {
+          {options.map((item) => {
             const isCurrent = isPreview ? item.is_current : item.content_id === contentId
 
             return (
@@ -166,7 +166,7 @@ const Languages = ({
                 fontWeightSpan={isCurrent ? 500 : ''}
                 minHeight={54}
                 href='#'
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault()
                   onClick({ item })
                 }}

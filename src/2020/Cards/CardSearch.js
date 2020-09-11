@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 
 const defaultImage = require('./images/default-image.svg')
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cardSearch: ({ width, height, borderRadius, notPlaceHolder }) => ({
     //background: "gray",
     backgroundImage: `url(${notPlaceHolder || defaultImage})`,
@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 12,
       /* width: width + width * 0.06,
       height: height + height * 0.08, */
-      margin: 3.8
-    }
+      margin: 3.8,
+    },
   }),
   logoChannel: ({ floatImage, notPlaceHolder }) => ({
     position: 'absolute',
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${floatImage})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 100,
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
   }),
   cardSearchImage: ({ bgSize, image }) => ({
     background: '#4E565C',
@@ -52,27 +52,27 @@ const useStyles = makeStyles(theme => ({
     //boxShadow: theme.shadowBox.generic,
     display: 'flex',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   }),
   progressLine: {
     position: 'absolute',
     bottom: 0,
-    width: '100%'
+    width: '100%',
   },
   cardSearchContent: () => ({
     padding: 10,
     textAlign: 'left',
-    height: '100%'
+    height: '100%',
     //background: theme.palette.optional.main,
   }),
   title: () => ({
     color: 'white',
-    fontSize: 15
+    fontSize: 15,
   }),
   subTitle: ({ color }) => ({
     color: color || theme.palette.colorSearch.main,
-    fontSize: 15
-  })
+    fontSize: 15,
+  }),
 }))
 
 const CardSearch = ({
@@ -101,7 +101,7 @@ const CardSearch = ({
   snUp = null,
   snDown = null,
   snLeft = null,
-  focusHandlerDown = () => {}
+  focusHandlerDown = () => {},
 }) => {
   const classes = useStyles({
     width,
@@ -111,7 +111,7 @@ const CardSearch = ({
     image,
     floatImage,
     color,
-    notPlaceHolder
+    notPlaceHolder,
   })
 
   // cargar imagen full en paralelo
@@ -125,7 +125,7 @@ const CardSearch = ({
       id={id}
       tabIndex='0'
       className={`${isFocusable ? 'focusable' : ''} ${classes.cardSearch}`}
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault()
         if (data.sendToPlay) {
           sendToPlay(data.group_id)
@@ -133,7 +133,7 @@ const CardSearch = ({
           return clickHandler()
         }
       }}
-      onFocus={e => {
+      onFocus={(e) => {
         if (scrollToTop) {
           const item = e.currentTarget.parentNode.parentNode.parentNode
           item.scrollIntoView(true)
@@ -141,10 +141,10 @@ const CardSearch = ({
 
         focusHandler(data)
       }}
-      onKeyUp={e => {
+      onKeyUp={(e) => {
         focusHandler(data)
       }}
-      onKeyDown={e => {
+      onKeyDown={(e) => {
         focusHandlerDown(e)
       }}
       data-sn-right={isLast ? '' : null}

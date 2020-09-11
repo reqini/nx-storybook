@@ -13,20 +13,20 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     margin: '10px 0px 15px 0px !important',
     padding: '0px 20px',
-    fontSize: '40px'
+    fontSize: '40px',
   },
   content: {
     margin: 0,
     fontSize: '25px',
     lineHeight: '36px',
     fontWeight: '400',
-    color: 'gray'
-  }
+    color: 'gray',
+  },
 }))
 
 const showError = ({ onClose = () => {}, getData = () => {} }) => {
@@ -42,18 +42,18 @@ const showError = ({ onClose = () => {}, getData = () => {} }) => {
       <p
         className={classes.content}
         dangerouslySetInnerHTML={{
-          __html: msg.split('.').join('. <br/>')
+          __html: msg.split('.').join('. <br/>'),
         }}
       />
       <ButtonGeneric
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
           getData()
         }}
         title={t('btn_menu_retry', 'tentar novamente')}
       />
       <ButtonGeneric
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
           onClose()
         }}

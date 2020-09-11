@@ -10,16 +10,16 @@ const useStyles = makeStyles(() => ({
 
     '& span': {
       fontSize: 26,
-      marginLeft: marginL
-    }
+      marginLeft: marginL,
+    },
   }),
   titleRibbons: ({ marginL }) => ({
     marginTop: 0,
     fontWeight: 400,
     fontSize: 26,
     width: '100%',
-    marginLeft: `${marginL}px!important`
-  })
+    marginLeft: `${marginL}px!important`,
+  }),
 }))
 
 const TitleRibbons = ({ title, spanTag = null, marginB = 10, marginL = 7 }) => {

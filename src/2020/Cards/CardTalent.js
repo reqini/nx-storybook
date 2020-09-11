@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 
 const imageDefault = require('./images/placeholder-actor.svg')
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   containerCardTalent: {
     display: 'flex',
     flexDirection: 'column',
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     width: 100,
     marginRight: 15,
-    minHeight: 160
+    minHeight: 160,
   },
   contentDefaultTalent: ({ width }) => ({
     backgroundImage: `url(${imageDefault})`,
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     height: 'auto',
     width: '100%',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   }),
   avatar: ({ width, height, bgSize, borderRadius, image }) => ({
     position: 'relative',
@@ -44,8 +44,8 @@ const useStyles = makeStyles(theme => ({
     color: '#c0c0c0',
     '&:focus': {
       border: `4px solid white`,
-      margin: 0
-    }
+      margin: 0,
+    },
   }),
   cardTalent: ({ width, height, bgSize, borderRadius, image }) => ({
     backgroundImage: `url(${image})`,
@@ -71,11 +71,11 @@ const useStyles = makeStyles(theme => ({
       /* width: width + width * 0.13,
       height: height + height * 0.13, */
       //backgroundSize: bgSize + bgSize * 0.13,
-      margin: 0
-    }
+      margin: 0,
+    },
   }),
   infoCard: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   typographyTitle: ({ width }) => ({
     color: 'white',
@@ -83,14 +83,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: 18,
     textAlign: 'center',
     width: width,
-    marginTop: 5
+    marginTop: 5,
   }),
   typographyRol: ({ width }) => ({
     color: 'white',
     fontSize: 12,
     textAlign: 'center',
-    width: width
-  })
+    width: width,
+  }),
 }))
 
 const CardTalent = ({
@@ -115,7 +115,7 @@ const CardTalent = ({
   snDown = null,
   snLeft = null,
   id,
-  focusHandlerDown = () => {}
+  focusHandlerDown = () => {},
 }) => {
   const classes = useStyles({ width, height, bgSize, borderRadius, image })
 
@@ -124,7 +124,7 @@ const CardTalent = ({
   const name = aTitle.slice(0, aTitle.length - 1).join(' ')
   const lastName = aTitle.slice(aTitle.length - 1, aTitle.length)
 
-  const nameToInitials = useCallback(name => {
+  const nameToInitials = useCallback((name) => {
     if (!name) {
       return ''
     }
@@ -133,7 +133,7 @@ const CardTalent = ({
 
     return name
       .split(' ')
-      .map(item => item.charAt(0))
+      .map((item) => item.charAt(0))
       .join('')
       .toUpperCase()
   }, [])
@@ -145,7 +145,7 @@ const CardTalent = ({
           id={id}
           className={`${image ? classes.cardTalent : classes.avatar} ${isFocusable ? 'focusable' : ''}`}
           tabIndex='0'
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault()
 
             if (data.sendToPlay) {
@@ -154,7 +154,7 @@ const CardTalent = ({
               return clickHandler()
             }
           }}
-          onFocus={e => {
+          onFocus={(e) => {
             if (scrollToTop) {
               const item = e.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode
 
@@ -163,7 +163,7 @@ const CardTalent = ({
 
             focusHandler(data)
           }}
-          onKeyDown={e => {
+          onKeyDown={(e) => {
             focusHandlerDown(e)
           }}
           data-sn-right={isLast ? '' : null}

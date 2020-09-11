@@ -8,7 +8,7 @@ import ButtonGeneric from '../../Buttons/ButtonGeneric'
 
 import ImageMessage from '../../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   landscape: () => ({
     display: 'flex',
     alignItems: 'center',
@@ -16,15 +16,15 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   }),
   title: () => ({
     fontSize: 25,
     paddingBottom: 5,
     paddingTop: 10,
     margin: 0,
-    marginLeft: 7
-  })
+    marginLeft: 7,
+  }),
 }))
 
 const ErrorApi = ({ getData = () => {}, title = false }) => {
@@ -41,7 +41,7 @@ const ErrorApi = ({ getData = () => {}, title = false }) => {
           action={
             <ButtonGeneric
               href='#'
-              onClick={e => {
+              onClick={(e) => {
                 e.preventDefault()
                 getData()
               }}

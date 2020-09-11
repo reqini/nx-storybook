@@ -15,16 +15,16 @@ const epgFullHeight = 360
 const minHeightShowInfo = 250
 const widthChannel = 153
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   collection: {
-    overflow: 'hidden!important'
+    overflow: 'hidden!important',
   },
   Epg: () => ({
-    flexDirection: 'row'
+    flexDirection: 'row',
   }),
   flex: {
-    display: 'flex'
-  }
+    display: 'flex',
+  },
 }))
 
 const CollectionExample = ({
@@ -35,7 +35,7 @@ const CollectionExample = ({
   currentEvent,
   changeChannel,
   setItem,
-  showEpg
+  showEpg,
 }) => {
   const classes = useStyles()
 
@@ -62,7 +62,7 @@ const CollectionExample = ({
     }, 200)
   }, [])
 
-  const setFocusCurrentEvent = currentEvent => {
+  const setFocusCurrentEvent = (currentEvent) => {
     setUseNavigationNew(false)
     setResetPosition(true)
     setPositionCell(currentEvent)
@@ -90,7 +90,7 @@ const CollectionExample = ({
   }, [miniEpg])
 
   const current = useCallback(
-    event =>
+    (event) =>
       moment().isBetween(
         moment(event.date_begin, 'YYYY/MM/DD HH:mm:ss'),
         moment(event.date_end, 'YYYY/MM/DD HH:mm:ss'),
@@ -101,7 +101,7 @@ const CollectionExample = ({
   )
 
   const getCurrentEvent = useCallback((list, { group_id }) => {
-    const eventFocus = list.find(item => {
+    const eventFocus = list.find((item) => {
       if (item.channel.group_id === group_id) {
         const current = moment().isBetween(
           moment(item.date_begin, 'YYYY/MM/DD HH:mm:ss'),
@@ -144,7 +144,7 @@ const CollectionExample = ({
             setUseNavigationNew(true)
             refScroll.current._onScroll({
               ...scroll,
-              scrollTop: style.top + eventHeight + paddingRow
+              scrollTop: style.top + eventHeight + paddingRow,
             })
           }
         }
@@ -170,7 +170,7 @@ const CollectionExample = ({
             setUseNavigationNew(true)
             refScroll.current._onScroll({
               ...scroll,
-              scrollTop: style.top - epgFullHeight < 0 ? 0 : style.top - epgFullHeight
+              scrollTop: style.top - epgFullHeight < 0 ? 0 : style.top - epgFullHeight,
             })
           }
         }
@@ -192,7 +192,7 @@ const CollectionExample = ({
       setUseNavigationNew(true)
       refScroll.current._onScroll({
         ...scroll,
-        scrollLeft: style.left
+        scrollLeft: style.left,
       })
     }
 
@@ -205,7 +205,7 @@ const CollectionExample = ({
       width: style.width,
       height: style.height,
       title: event.title,
-      time: event.time
+      time: event.time,
     })
 
     // set Item que se utiliza en epg
@@ -215,7 +215,7 @@ const CollectionExample = ({
   const cellSizeAndPositionGetter = useCallback(({ index }) => {
     const {
       width,
-      channel: { index: rowNumber }
+      channel: { index: rowNumber },
     } = events.get(index)
 
     const y = rowNumber * eventHeight
@@ -242,20 +242,20 @@ const CollectionExample = ({
           changeChannel={changeChannel}
           event={event}
           current={current(event)}
-          onKeyDown={e => {
+          onKeyDown={(e) => {
             onKeyDown({
               e,
               event,
               style,
-              miniEpg
+              miniEpg,
             })
           }}
-          onFocus={e => {
+          onFocus={(e) => {
             onFocus({
               e,
               event,
               style,
-              miniEpg
+              miniEpg,
             })
           }}
         />

@@ -9,20 +9,20 @@ import TextMessages from '../Typography/TextMessages'
 import imagePopcorn from '../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 import imagePopcornInicio from '../Icons/Messages/net_vcard_renta_exito.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   searchNoResult: {
     fontWeight: 500,
     top: 0,
-    left: 0
+    left: 0,
   },
   messageTwo: {
     minWidth: 500,
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   title: {
     fontSize: 30,
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   subTitle: {
     color: theme.palette.titleMessages.main,
@@ -30,14 +30,14 @@ const useStyles = makeStyles(theme => ({
 
     '& strong': {
       color: '#fff',
-      fontSize: 23
-    }
+      fontSize: 23,
+    },
   },
   contentLoadingSearch: {
     position: 'relative',
     width: '100%',
-    height: 300
-  }
+    height: 300,
+  },
 }))
 
 const RenderLoading = ({ result, input, loading }) => {

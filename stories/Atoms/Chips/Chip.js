@@ -1,15 +1,17 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { text, number } from '@storybook/addon-knobs/react'
+import { withKnobs, text, number } from '@storybook/addon-knobs'
 
-import ChipContainer from 'Components/Atoms/Chip/ChipContainer'
+import Chip from 'Components/Atoms/Chip/ChipContainer'
 
-const stories = storiesOf('/Atoms/Chip', module)
+export default {
+  title: '/Atoms/Chip',
+  decorators: [withKnobs],
+}
 
-stories.add('ChipContainer', () => (
-  <ChipContainer 
-    title={text('texto', 'etiqueta')} 
-    color={text('Background', '#000000')} 
-    width={number('ancho', 230)} 
+export const ChipContainer = () => (
+  <Chip
+    title={text('texto', 'etiqueta')}
+    color={text('Background', '#000000')}
+    width={number('ancho', 230)}
   />
-))
+)

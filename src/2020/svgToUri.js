@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 
-const SvgToUri = Icon => {
+const SvgToUri = (Icon) => {
   if (!Icon) return ''
 
   const svgString = encodeURIComponent(renderToStaticMarkup(<Icon />))

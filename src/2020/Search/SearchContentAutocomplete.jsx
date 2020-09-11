@@ -9,8 +9,8 @@ const useStyles = makeStyles(() => ({
     margin: '10px auto',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
-  })
+    alignItems: 'center',
+  }),
 }))
 
 export default function SearchContentAutocomplete({ children }) {

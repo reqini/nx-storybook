@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import ButtonGeneric from '../../../2020/Buttons/ButtonGeneric'
 import ImageMessage from '../../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -13,12 +13,12 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     margin: '10px 0px 15px 0px !important',
     padding: '0px 20px',
-    fontSize: '40px'
+    fontSize: '40px',
   },
   content: {
     textAlign: 'center',
@@ -27,8 +27,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: '25px',
     lineHeight: '36px',
     fontWeight: '400',
-    color: 'gray'
-  }
+    color: 'gray',
+  },
 }))
 
 const showError = ({ onClose = () => {} }) => {
@@ -47,12 +47,12 @@ const showError = ({ onClose = () => {} }) => {
       <p
         className={classes.content}
         dangerouslySetInnerHTML={{
-          __html: msg.split('.').join('. <br/>')
+          __html: msg.split('.').join('. <br/>'),
         }}
       />
       <ButtonGeneric
         href='#'
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
           onClose()
         }}

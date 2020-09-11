@@ -30,13 +30,13 @@ const nodes = [
     id: '47338',
     code: 'home',
     text: 'início',
-    image: imageHome
+    image: imageHome,
   },
   {
     id: '54231',
     code: 'tv',
     text: 'ao Vivo',
-    image: imageTv
+    image: imageTv,
   },
   {
     id: '47339',
@@ -47,41 +47,41 @@ const nodes = [
       {
         id: '47346',
         code: 'filmes_acao',
-        text: 'Ação'
+        text: 'Ação',
       },
       {
         id: '53440',
         code: 'filmes_teens',
-        text: 'Teens'
+        text: 'Teens',
       },
       {
         id: '47348',
         code: 'filmes_comedia',
-        text: 'Comédia'
-      }
-    ]
+        text: 'Comédia',
+      },
+    ],
   },
   {
     id: '54234',
     code: 'series',
     text: 'séries',
-    image: imageSeries
+    image: imageSeries,
   },
   {
     id: '47341',
     code: 'kids',
     text: 'infantil',
-    image: imageKids
+    image: imageKids,
   },
   {
     id: '47341',
     code: 'mycontents',
     text: 'Meus Conteúdos',
-    image: imageMyContents
-  }
+    image: imageMyContents,
+  },
 ]
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   header: {
     position: 'absolute',
     display: 'flex',
@@ -96,13 +96,13 @@ const useStyles = makeStyles(theme => ({
       width: '100%',
       fontSize: 18,
       height: '100%',
-      maxWidth: 266
-    }
+      maxWidth: 266,
+    },
   },
   contentNav: {
     width: '100%',
     height: 'auto',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   nav: {
     display: 'flex',
@@ -112,12 +112,12 @@ const useStyles = makeStyles(theme => ({
     listStyle: 'none',
     margin: 0,
     padding: '6px 0',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   iconNav: {
     height: 35,
     width: 35,
-    marginRight: '25px'
+    marginRight: '25px',
   },
   navItem: {
     width: '100%',
@@ -138,20 +138,20 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 0,
       backgroundColor: theme.palette.primary.main,
       outline: 0,
-      fontWeight: '800'
-    }
+      fontWeight: '800',
+    },
   },
   navItemActive: {
     backgroundColor: theme.palette.active.main,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   li: {
     overflow: 'hidden',
     margin: '4px 0',
     minHeight: 36,
     display: 'flex',
-    width: '100%'
-  }
+    width: '100%',
+  },
 }))
 
 const NavLinkMenu = ({ id, to, image, translate, onClick, location, snDown = null }) => {
@@ -211,7 +211,7 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
           image={{ src: iconMenuNav, alt: node.text }}
           translate={{
             key: `aa-${node.text}`,
-            text: node.text
+            text: node.text,
           }}
           location={location}
         />
@@ -228,11 +228,11 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             to={`/profile`}
             image={{
               src: imageProfile,
-              alt: 'menu minha lista'
+              alt: 'menu minha lista',
             }}
             translate={{
               key: 'net_minha_conta_menu_vertical',
-              text: 'minha conta'
+              text: 'minha conta',
             }}
             location={location}
           />
@@ -243,11 +243,11 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             to={`/mylist`}
             image={{
               src: imageMylist,
-              alt: 'menu minha lista'
+              alt: 'menu minha lista',
             }}
             translate={{
               key: 'net_minha_lista_menu_vertical',
-              text: 'minha lista'
+              text: 'minha lista',
             }}
             location={location}
           />
@@ -258,11 +258,11 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             to={`/search`}
             image={{
               src: imageSearch,
-              alt: 'menu search'
+              alt: 'menu search',
             }}
             translate={{
               key: 'net_busca_menu_vertical',
-              text: 'busca'
+              text: 'busca',
             }}
             location={location}
           />
@@ -276,11 +276,11 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             to={`/plans`}
             image={{
               src: imagePlanos,
-              alt: 'plans'
+              alt: 'plans',
             }}
             translate={{
               key: 'net_planos_menu_vertical',
-              text: 'planos'
+              text: 'planos',
             }}
             location={location}
           />
@@ -293,11 +293,11 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             }}
             image={{
               src: imageSalir,
-              alt: 'settings'
+              alt: 'settings',
             }}
             translate={{
               key: 'btn_menu_quit',
-              text: 'salir'
+              text: 'salir',
             }}
             snDown={' '}
             location={location}

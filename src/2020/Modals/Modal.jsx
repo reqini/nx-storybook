@@ -38,7 +38,7 @@ const Modal = ({ onClose, children, style = {}, disableAutoFocus = false }) => {
     window.SpatialNavigation.add(id, {
       selector: `#${id} .focusable`,
       defaultElement: '.default-item .focusable',
-      restrict: 'self-only'
+      restrict: 'self-only',
     })
     window.SpatialNavigation.makeFocusable(id)
     // window.SpatialNavigation.makeFocusable();
@@ -52,7 +52,7 @@ const Modal = ({ onClose, children, style = {}, disableAutoFocus = false }) => {
     window.SpatialNavigation.focus(`@${id}`)
   }
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e) => {
     const currentKey = keys ? keys.getPressKey(e.keyCode) : null
     switch (currentKey) {
       case 'BACK':
@@ -83,7 +83,7 @@ const Modal = ({ onClose, children, style = {}, disableAutoFocus = false }) => {
             height: 720,
             background: 'black',
             zIndex: 9999,
-            ...style
+            ...style,
           }}
         >
           {typeof children === 'function' ? children({ setFocus }) : children}

@@ -1,9 +1,11 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { number } from '@storybook/addon-knobs/react'
+import { withKnobs, number } from '@storybook/addon-knobs'
 
-import SimpleImage from 'Components/Atoms/Image/SimpleImage'
+import Image from 'Components/Atoms/Image/SimpleImage'
 
-const stories = storiesOf('/Atoms/Images', module)
+export default {
+  title: '/Atoms/Images',
+  decorators: [withKnobs],
+}
 
-stories.add('SimpleImage', () => (<SimpleImage width={number('ancho', 100)} />))
+export const SimpleImage = () => <Image width={number('ancho', 100)} />

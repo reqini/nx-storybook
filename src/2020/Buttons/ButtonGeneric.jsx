@@ -1,13 +1,13 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   constainer: ({ width, margin = 10 }) => ({
     display: 'flex',
     flexFlow: 'column',
     boxSizing: 'border-box',
     width: width,
-    margin: margin
+    margin: margin,
   }),
   button: ({
     width,
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     minHeight,
     heightFocoDisable = false,
     backgroundButton = false,
-    fontWeight = false
+    fontWeight = false,
   }) => {
     return {
       width: width,
@@ -44,27 +44,27 @@ const useStyles = makeStyles(theme => ({
         background: theme.palette.primary.main,
         boxSizing: 'border-box',
         transition: 'box-shadow 0.15s ease-in',
-        boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)'
+        boxShadow: '0 0 0 5px rgba(71, 83, 107, 1)',
       },
 
       '& span': {
         fontWeight: fontWeightSpan,
-        fontSize: 20
+        fontSize: 20,
         //textTransform: "lowercase",
-      }
+      },
     }
   },
   nonFocusable: {
     background: 'silver!important',
     color: 'gray!important',
-    cursor: 'no-drop!important'
+    cursor: 'no-drop!important',
   },
   description: {
     marginTop: 5,
     fontSize: '18px',
     textTransform: 'lowercase',
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 }))
 
 const ButtonGeneric = ({
@@ -83,7 +83,7 @@ const ButtonGeneric = ({
   snDown = null,
   snRight = null,
   snLeft = null,
-  minHeight = null
+  minHeight = null,
 }) => {
   const classes = useStyles({
     width,
@@ -93,7 +93,7 @@ const ButtonGeneric = ({
     heightFocoDisable,
     margin,
     isFocusable,
-    backgroundButton
+    backgroundButton,
   })
 
   return (
@@ -101,7 +101,7 @@ const ButtonGeneric = ({
       <div
         tabIndex='0'
         className={`${isFocusable ? 'focusable' : classes.nonFocusable} ${classes.button}`}
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
           onClick && onClick(e)
         }}

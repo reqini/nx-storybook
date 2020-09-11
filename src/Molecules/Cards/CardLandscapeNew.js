@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   landscape: ({ width, height, bgSize, borderRadius, image }) => ({
     backgroundImage: `url(${image})`,
     border: '4px solid black',
@@ -11,9 +11,9 @@ const useStyles = makeStyles(theme => ({
     height: height || 136,
     width: width || 230,
     '&:focus': {
-      border: `4px solid white`
-    }
-  })
+      border: `4px solid white`,
+    },
+  }),
 }))
 
 const CardLandscape = ({
@@ -45,7 +45,7 @@ const CardLandscape = ({
   snDown = null,
   snLeft = null,
   id,
-  focusHandlerDown = () => {}
+  focusHandlerDown = () => {},
 }) => {
   const history = useHistory()
   const classes = useStyles({
@@ -60,7 +60,7 @@ const CardLandscape = ({
     minWidth,
     notDefaultImg,
     padding,
-    marginFoco
+    marginFoco,
   })
   const [foco, setFoco] = useState(false)
 
@@ -77,7 +77,7 @@ const CardLandscape = ({
         data.href && !data.provider ? classes.category : ''
       }`}
       tabIndex='0'
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault()
 
         if (data.sendToPlay) {
@@ -89,11 +89,11 @@ const CardLandscape = ({
         } else {
           history.push({
             pathname: data.href || `/vcard/${data.group_id}`,
-            state: { menuSelect: match.url }
+            state: { menuSelect: match.url },
           })
         }
       }}
-      onFocus={e => {
+      onFocus={(e) => {
         if (scrollToTop) {
           let item = e.currentTarget.parentNode.parentNode.parentNode.parentNode
 
@@ -107,10 +107,10 @@ const CardLandscape = ({
         // setFoco(true);
         focusHandler(data)
       }}
-      onKeyUp={e => {
+      onKeyUp={(e) => {
         focusHandler(data)
       }}
-      onKeyDown={e => {
+      onKeyDown={(e) => {
         focusHandlerDown(e)
       }}
       data-sn-up={snUp}

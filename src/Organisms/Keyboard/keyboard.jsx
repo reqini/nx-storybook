@@ -13,9 +13,9 @@ import TvSymbolsLayout from './layouts/tvSymbols'
 
 import KeyboardButton from '../../Atoms/Keyboard/button'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   keyboardHeaderHorizontal: {
-    paddingLeft: '90px'
+    paddingLeft: '90px',
   },
   keyboardLetterHor: {
     fontWeight: '100',
@@ -29,26 +29,26 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       color: theme.palette.secondary.main,
       background: 'transparent!important',
-      fontWeight: '900'
-    }
+      fontWeight: '900',
+    },
   },
   keyboard: {
     height: 'auto',
-    width: '100%'
+    width: '100%',
   },
   keyboardRow: {
     overflow: 'hidden',
-    width: '100%'
+    width: '100%',
   },
   number: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   keyboardRowHeader: {
-    display: 'none'
+    display: 'none',
   },
   keyboardRowDomains: {
-    display: 'none'
+    display: 'none',
   },
   keyboardEmpty: {
     borderRadius: '6px',
@@ -58,13 +58,13 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
-      fontWeight: '900'
+      fontWeight: '900',
     },
     '&:hover': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
-      fontWeight: '900'
-    }
+      fontWeight: '900',
+    },
   },
   keyboardEmpty2: {
     borderRadius: 6,
@@ -75,19 +75,19 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
-      fontWeight: '900'
+      fontWeight: '900',
     },
     '&:hover': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
-      fontWeight: '900'
-    }
+      fontWeight: '900',
+    },
   },
   borrar: {
-    padding: '8px 0'
+    padding: '8px 0',
   },
   limpiar: {
-    padding: '8px 10px'
+    padding: '8px 10px',
   },
   space: {
     minWidth: 270,
@@ -95,27 +95,27 @@ const useStyles = makeStyles(theme => ({
     marginRight: 10,
     background: theme.palette.buttonsColor.foco,
     padding: '8px 10px',
-    borderRadius: 6
+    borderRadius: 6,
   },
   upper: {
-    padding: '0 10px'
+    padding: '0 10px',
   },
   keyboardImage: {
     display: 'block',
     height: 19,
     padding: '5px 0',
     margin: 'auto',
-    width: 'auto'
+    width: 'auto',
   },
   keyboardImage2: {
     display: 'block',
     height: 35,
     padding: '5px 0',
     margin: 'auto',
-    width: 'auto'
+    width: 'auto',
   },
   especial: {
-    minWidth: 60
+    minWidth: 60,
   },
   keyboardLetter: {
     borderRadius: '50%',
@@ -128,8 +128,8 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
-      fontWeight: '900'
-    }
+      fontWeight: '900',
+    },
     /*     '&:hover': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
@@ -147,8 +147,8 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
-      fontWeight: '900'
-    }
+      fontWeight: '900',
+    },
     /*     '&:hover': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
@@ -159,8 +159,8 @@ const useStyles = makeStyles(theme => ({
     boxSizing: 'border-box',
     height: '100%',
     width: '100%',
-    maxWidth: '605px'
-  }
+    maxWidth: '605px',
+  },
 }))
 
 const Keyboard = ({
@@ -170,7 +170,7 @@ const Keyboard = ({
   currentValue = '',
   onClick = () => {},
   backspaceClick = () => {},
-  snUp = null
+  snUp = null,
 }) => {
   const classes = useStyles()
   const { t, i18n } = useTranslation()
@@ -221,7 +221,7 @@ const Keyboard = ({
       : TvLatinLower.layoutHeader['default']
   }
 
-  const handleLetterButtonClick = key => {
+  const handleLetterButtonClick = (key) => {
     const nextValue = `${input}${key}`
 
     onClick(nextValue)
@@ -262,7 +262,7 @@ const Keyboard = ({
     return existModalKeyboard ? true : false
   }
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e) => {
     if (thereIsAnotherKeyboard()) {
       return
     }
@@ -310,11 +310,11 @@ const Keyboard = ({
             <div className={classes.keyboardHeaderHorizontal}>
               {keysHeader.map((row, index) => (
                 <div key={index}>
-                  {row.map(button => (
+                  {row.map((button) => (
                     <KeyboardButton
                       value={button}
                       className={classes.keyboardLetterHor}
-                      onClick={key => handleLetterButtonClick(key)}
+                      onClick={(key) => handleLetterButtonClick(key)}
                       key={button}
                     />
                   ))}
@@ -331,21 +331,21 @@ const Keyboard = ({
           style={{
             margin: '0',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
           }}
         >
           <div className={classes.formContainer}>
             {keys.map((row, index) => {
               return (
                 <div key={index}>
-                  {row.map(button => {
+                  {row.map((button) => {
                     return (
                       <KeyboardButton
                         useMail={showMails}
                         isTop={index === 0}
                         value={button}
                         className={classes.keyboardLetter}
-                        onClick={key => handleLetterButtonClick(key)}
+                        onClick={(key) => handleLetterButtonClick(key)}
                         key={button}
                         snUp={snUp}
                       />
@@ -363,7 +363,7 @@ const Keyboard = ({
                 }
                 className={`${classes.keyboardEmpty} ${classes.especial}`}
                 onClick={() => {
-                  setTypeKeyboard(state => (state !== 'symbols' ? 'symbols' : ''))
+                  setTypeKeyboard((state) => (state !== 'symbols' ? 'symbols' : ''))
                 }}
               />
               <KeyboardButton
@@ -376,25 +376,25 @@ const Keyboard = ({
                 }
                 className={`${classes.keyboardEmpty} ${classes.upper}`}
                 onClick={() => {
-                  setTypeKeyboard(state => (state !== 'upper' ? 'upper' : ''))
+                  setTypeKeyboard((state) => (state !== 'upper' ? 'upper' : ''))
                 }}
               />
               <KeyboardButton
                 value={t('net_teclado_espacio', 'espaço')}
                 className={`${classes.keyboardEmpty} ${classes.space}`}
-                onClick={key => handleSpaceButtonClick()}
+                onClick={(key) => handleSpaceButtonClick()}
                 dataSnDown='none'
               />
               <KeyboardButton
                 value={<BackSpaceIcon alt='back-space-icon' className={classes.keyboardImage} />}
                 className={`${classes.keyboardEmpty} ${classes.borrar}`}
-                onClick={key => handleBackspaceClick()}
+                onClick={(key) => handleBackspaceClick()}
                 dataSnDown='none'
               />
               <KeyboardButton
                 value={t('empty', 'limpar')}
                 className={`${classes.keyboardEmpty} ${classes.limpiar}`}
-                onClick={key => handleEmptyClick()}
+                onClick={(key) => handleEmptyClick()}
                 dataSnDown='none'
               />
             </div>
@@ -405,17 +405,17 @@ const Keyboard = ({
           xs={4}
           style={{
             margin: '12px 0',
-            borderLeft: '3px solid rgba(29,29,32, 1)'
+            borderLeft: '3px solid rgba(29,29,32, 1)',
           }}
         >
           {keysNumber.map((row, index) => (
             <div className={classes.number} key={index}>
-              {row.map(button => (
+              {row.map((button) => (
                 <KeyboardButton
                   isTop={index === 0}
                   value={button}
                   className={classes.keyboardLetterNumber}
-                  onClick={key => handleLetterButtonClick(key)}
+                  onClick={(key) => handleLetterButtonClick(key)}
                   key={button}
                   snUp={snUp}
                 />

@@ -5,8 +5,8 @@ const useStyles = makeStyles(() => ({
   simpleImage: ({ height, width, circular }) => ({
     height: height || null,
     width: width || null,
-    borderRadius: circular ? '50%' : null
-  })
+    borderRadius: circular ? '50%' : null,
+  }),
 }))
 
 const SimpleImage = ({
@@ -15,7 +15,7 @@ const SimpleImage = ({
   title = null,
   width,
   height,
-  circular
+  circular,
 }) => {
   const classes = useStyles({ image, width, height, circular })
 

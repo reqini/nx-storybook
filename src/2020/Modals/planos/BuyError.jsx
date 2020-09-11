@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -12,12 +12,12 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     margin: '10px 0px 15px 0px !important',
     padding: '0px 20px',
-    fontSize: '40px'
+    fontSize: '40px',
   },
   content: {
     width: '70%',
@@ -26,8 +26,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: '25px',
     lineHeight: '36px',
     fontWeight: '400',
-    color: 'gray'
-  }
+    color: 'gray',
+  },
 }))
 
 const BuyError = ({ text, content, onClose }) => {
@@ -50,13 +50,13 @@ const BuyError = ({ text, content, onClose }) => {
       <p
         className={classes.content}
         dangerouslySetInnerHTML={{
-          __html: msg.split('.').join('. <br/>')
+          __html: msg.split('.').join('. <br/>'),
         }}
       />
       <div className={`modal-buttons-horizontal`}>
         <ButtonGeneric
           href='#'
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault()
             onClose()
           }}

@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
     overflow: noWrap ? 'hidden' : null,
     maxWidth: maxWidth || '100%',
     whiteSpace: noWrap ? 'nowrap' : null,
-    textOverflow: noWrap ? 'ellipsis' : null
+    textOverflow: noWrap ? 'ellipsis' : null,
   }),
   buttomBack: {
     width: 50,
@@ -28,15 +28,15 @@ const useStyles = makeStyles(() => ({
       backgroundSize: 55,
       marginBottom: 0,
       height: 55,
-      width: 55
-    }
+      width: 55,
+    },
   },
   contentTitle: ({ position }) => ({
     display: 'flex',
     flexDirection: 'column',
     top: 0,
-    position: position || null
-  })
+    position: position || null,
+  }),
 }))
 
 const TitleVcard = ({ title, onClose = null, position, maxWidth, noWrap = false }) => {
@@ -48,7 +48,7 @@ const TitleVcard = ({ title, onClose = null, position, maxWidth, noWrap = false 
         <div
           className={`${classes.buttomBack} focusable`}
           tabIndex='0'
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault()
             onClose()
           }}

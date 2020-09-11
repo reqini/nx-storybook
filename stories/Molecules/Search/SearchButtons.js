@@ -1,11 +1,11 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-// import { text, number } from '@storybook/addon-knobs/react'
+import { withKnobs } from '@storybook/addon-knobs'
 
-import SearchButtons from 'Components/Molecules/Search/SearchButtons'
+import ButtonsSearch from 'Components/Molecules/Search/SearchButtons'
 
-const stories = storiesOf('/Molecules/Search', module)
+export default {
+  title: '/Molecules/Search',
+  decorators: [withKnobs],
+}
 
-stories.add('SearchButtons', () => (
-  <SearchButtons />
-))
+export const SearchButtons = () => <ButtonsSearch />

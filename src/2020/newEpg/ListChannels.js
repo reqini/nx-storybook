@@ -12,7 +12,7 @@ const Channels = ({
   paddingRow,
   eventHeight = 100,
   width,
-  height
+  height,
 }) => {
   const rowRenderer = React.useCallback(
     ({ index, key, style }) => {

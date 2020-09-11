@@ -14,9 +14,9 @@ const useStyles = makeStyles(() => ({
     overflow: 'hidden',
 
     '& p': {
-      margin: 0
-    }
-  }
+      margin: 0,
+    },
+  },
 }))
 
 const Description = ({ description }) => {

@@ -10,81 +10,81 @@ const fullHd = 1920
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: [
+    fontFamily: `
       '-apple-system',
       'BlinkMacSystemFont',
-      '"Segoe UI"',
+      'Segoe UI',
       'Roboto',
-      '"Helvetica Neue"',
+      'Helvetica Neue',
       'Arial',
       'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
-    ].join(',')
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol'
+      `,
   },
   palette: {
     type: 'dark',
     active: {
-      main: '#E1261C'
+      main: '#E1261C',
     },
     primary: {
       light: '#6b7588',
       main: '#47536B',
       dark: '#313a4a',
-      contrastText: '#CCC'
+      contrastText: '#CCC',
     },
     background: {
-      main: '#030D14'
+      main: '#030D14',
     },
     colorRented: {
-      main: '#AF9008'
+      main: '#AF9008',
     },
     secondary: {
       light: '#e75048',
       main: '#E1251B',
       dark: '#9d1912',
-      contrastText: '#FFFFFF'
+      contrastText: '#FFFFFF',
     },
     buttonsColor: {
       main: '#4E565C',
-      foco: '#272E35'
+      foco: '#272E35',
     },
     titleMessages: {
-      main: '#a5aab1'
+      main: '#a5aab1',
     },
     cardSearch: {
-      main: '#181B1C'
+      main: '#181B1C',
     },
     optional: {
-      main: '#1C1D1E'
+      main: '#1C1D1E',
     },
     colorRents: {
-      main: 'rgb(210, 176, 7)'
+      main: 'rgb(210, 176, 7)',
     },
     colorSearch: {
-      main: 'rgb(153, 203, 255)'
+      main: 'rgb(153, 203, 255)',
     },
     colorModal: {
-      main: '#222D35'
+      main: '#222D35',
     },
     grayColor: {
-      main: '#212224'
+      main: '#212224',
     },
     fontColorPrimary: {
-      main: '#99CBFF'
+      main: '#99CBFF',
     },
     colorActive: {
-      main: /* "#47536A" */ ''
+      main: /* "#47536A" */ '',
     },
     default: {
-      main: '#121317'
+      main: '#121317',
     },
     error: {
       light: 'red',
       main: 'red',
       dark: 'red',
-      contrastText: '#ccc'
+      contrastText: '#ccc',
     },
     epg: {
       /* main: "rgba(0, 0, 0, 0.6)",
@@ -97,34 +97,34 @@ const theme = createMuiTheme({
       active: '#34455F',
       activeBlock: '#1A222F',
       focus: '#007DFF',
-      focusBlock: '#4171B9'
+      focusBlock: '#4171B9',
     },
     textColor: {
-      main: '#FFFFFF'
-    }
+      main: '#FFFFFF',
+    },
   },
   sizeButton: {
     height: {
       main: 48,
-      foco: 54
+      foco: 54,
     },
-    width: 160
+    width: 160,
   },
   sizeBody: {
     width: width <= hd ? 220 : width <= fullHd ? 440 : 880,
     height: width <= hd ? 150 : width <= fullHd ? 300 : 600,
     hd: {
       width: 1280,
-      height: 720
+      height: 720,
     },
     fullHd: {
       width: 1920,
-      height: 1080
+      height: 1080,
     },
     ultraHd: {
       width: 3840,
-      height: 2160
-    }
+      height: 2160,
+    },
   },
   sizeCard: {
     width: width <= hd ? 220 : width <= fullHd ? 440 : 880,
@@ -132,19 +132,19 @@ const theme = createMuiTheme({
 
     foco: {
       width: width <= hd ? 220 : width <= fullHd ? 440 : 880,
-      height: width <= hd ? 150 : width <= fullHd ? 300 : 600
+      height: width <= hd ? 150 : width <= fullHd ? 300 : 600,
     },
     background: {
       width: width <= hd ? 220 : width <= fullHd ? 440 : 880,
-      height: width <= hd ? 150 : width <= fullHd ? 300 : 600
-    }
+      height: width <= hd ? 150 : width <= fullHd ? 300 : 600,
+    },
   },
   sizeMenu: {
     width: width <= hd ? 220 : width <= fullHd ? 440 : 880,
-    height: width <= hd ? 150 : width <= fullHd ? 300 : 600
+    height: width <= hd ? 150 : width <= fullHd ? 300 : 600,
   },
   shadowBox: {
-    generic: '0 3px 5px 2px rgba(0, 0, 0, .4)'
-  }
+    generic: '0 3px 5px 2px rgba(0, 0, 0, .4)',
+  },
 })
 export default theme

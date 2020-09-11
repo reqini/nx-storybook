@@ -17,7 +17,7 @@ const Ribbon = ({
   snLeft,
   snRight,
   scrollToTop,
-  index: indexRibbon
+  index: indexRibbon,
 }) => {
   const [episodeFocus, setEpisodeFocus] = useState(1)
 
@@ -25,7 +25,7 @@ const Ribbon = ({
     setEpisodeFocus(1)
   }, [items])
 
-  const focusHandler = item => {
+  const focusHandler = (item) => {
     setEpisodeFocus(parseInt(item.episode))
   }
 
@@ -50,7 +50,7 @@ const Ribbon = ({
             style={{
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center'
+              justifyContent: 'center',
             }}
           >
             {items.map((item, index) => {
@@ -120,17 +120,17 @@ Ribbon.propTypes = {
       group_id: PropTypes.string.isRequired,
       cover: PropTypes.string.isRequired,
       provider: PropTypes.string,
-      format_types: PropTypes.arrayOf(PropTypes.string)
+      format_types: PropTypes.arrayOf(PropTypes.string),
     })
   ).isRequired,
   focusHandler: PropTypes.func,
-  isSerie: PropTypes.bool
+  isSerie: PropTypes.bool,
 }
 
 Ribbon.defaultProps = {
   items: [],
   focusHandler: () => {},
-  isSerie: false
+  isSerie: false,
 }
 
 export default React.memo(Ribbon)

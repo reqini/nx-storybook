@@ -8,15 +8,15 @@ const heightCategory = 170
 const heightLiveEvent = 300
 const heightCard = 260
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   autoSizer: {
     overflow: 'hidden!important',
     height: '100%!important',
-    width: '100%!important'
+    width: '100%!important',
   },
   collection: {
-    overflow: 'hidden!important'
-  }
+    overflow: 'hidden!important',
+  },
 }))
 
 const Ribbons = ({
@@ -29,7 +29,7 @@ const Ribbons = ({
   api = () => {},
   snUp = null,
   snDown = null,
-  snLeft = null
+  snLeft = null,
 }) => {
   const classes = useStyles()
   var glY = 0
@@ -54,7 +54,7 @@ const Ribbons = ({
       height: index === list.length - 1 ? 400 : height, // al ultimo carusel seteo el tamaño asi tiene margen hacia abajo
       width: 1000,
       x: 0,
-      y: y
+      y: y,
     }
   }, [])
 
@@ -75,7 +75,7 @@ const Ribbons = ({
           snDown={snDown || index === list.length - 1 ? ' ' : null}
           snLeft={snLeft}
           scrollToTop={false}
-          focusHandler={data => {
+          focusHandler={(data) => {
             setScrollTop2(index)
             focusHandler({ data })
           }}

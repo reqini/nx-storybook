@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -13,20 +13,20 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     margin: '10px 0px 15px 0px !important',
     padding: '0px 20px',
-    fontSize: '40px'
+    fontSize: '40px',
   },
   content: {
     margin: 0,
     fontSize: '25px',
     lineHeight: '36px',
     fontWeight: '400',
-    color: 'gray'
-  }
+    color: 'gray',
+  },
 }))
 
 const BuySuccess = ({ isVcard = false, isSVOD, onClose, playFullMedia, refresh }) => {
@@ -47,13 +47,13 @@ const BuySuccess = ({ isVcard = false, isSVOD, onClose, playFullMedia, refresh }
       <p
         className={classes.content}
         dangerouslySetInnerHTML={{
-          __html: msg.split('.').join('. <br/>')
+          __html: msg.split('.').join('. <br/>'),
         }}
       />
       {isVcard ? (
         <div className={'modal-buttons-horizontal'}>
           <ButtonGeneric
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault()
               playFullMedia()
               onClose()
@@ -61,7 +61,7 @@ const BuySuccess = ({ isVcard = false, isSVOD, onClose, playFullMedia, refresh }
             title={t('net_ver_ahora', 'Ver ahora')}
           />
           <ButtonGeneric
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault()
               refresh()
               onClose()
@@ -72,7 +72,7 @@ const BuySuccess = ({ isVcard = false, isSVOD, onClose, playFullMedia, refresh }
       ) : (
         <div className={'modal-buttons-horizontal'}>
           <ButtonGeneric
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault()
 
               history.push('/node/mycontents')

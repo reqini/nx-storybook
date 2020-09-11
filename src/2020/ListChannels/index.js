@@ -4,19 +4,19 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import CardEpgChannels from '../Cards/CardEpgChannels'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   channelsContainer: () => ({
     boxSizing: 'border-box',
     height: theme.sizeBody.hd.height,
     width: theme.sizeBody.hd.width,
-    padding: '50px 40px 0px 40px'
+    padding: '50px 40px 0px 40px',
   }),
   channelsList: {
     width: '100%',
     padding: 0,
     margin: 0,
     height: 670,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   channelsLi: {
     position: 'relative',
@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => ({
     width: 270,
     height: 155,
     float: 'left',
-    margin: '0px 14px 45px 14px'
-  }
+    margin: '0px 14px 45px 14px',
+  },
 }))
 
 const ListChannels = ({
@@ -37,7 +37,7 @@ const ListChannels = ({
   getCurrentEvent = () => {},
   listEvents = [],
   listChannels = [],
-  changeChannel = () => {}
+  changeChannel = () => {},
 }) => {
   const classes = useStyles()
 

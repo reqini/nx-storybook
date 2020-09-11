@@ -12,21 +12,21 @@ const hideTime = 6000
 var gShowEpg = false // poruqe dentro del handleKey no cambia el showEpg
 var gMiniEpg = false // poruqe dentro del handleKey no cambia el showEpg
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   PlayerContainer: () => ({
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
     height: '100%',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   }),
   PlayerWrapper: () => ({
     display: 'flex',
     flexFlow: 'column',
     position: 'absolute',
     width: '100%',
-    bottom: 0
+    bottom: 0,
   }),
   Hours: {
     display: 'flex',
@@ -35,11 +35,11 @@ const useStyles = makeStyles(theme => ({
     fontWeight: '400',
     fontSize: 14,
     marginLeft: 153,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   Epg: () => ({
-    flexDirection: 'row'
-  })
+    flexDirection: 'row',
+  }),
 }))
 
 const Epg = ({
@@ -53,12 +53,12 @@ const Epg = ({
   yellowHandler,
   blueHandler,
   notHide,
-  setEvent
+  setEvent,
 }) => {
   const classes = useStyles()
 
   const [item, setItem] = useState(null)
-  const setItemCallback = useCallback(item => setItem(item), [])
+  const setItemCallback = useCallback((item) => setItem(item), [])
 
   const [miniEpg, setMiniEpg] = useState(true)
   const [showEpg, setShowEpg] = useState(false)
@@ -124,7 +124,7 @@ const Epg = ({
   }
 
   const getCurrentEvent = React.useCallback((list, currentChannel) => {
-    const eventFocus = list.find(item => {
+    const eventFocus = list.find((item) => {
       if (item.channel.group_id === currentChannel.group_id) {
         const current = moment().isBetween(
           moment(item.date_begin, 'YYYY/MM/DD HH:mm:ss'),
@@ -138,7 +138,7 @@ const Epg = ({
     return eventFocus
   }, [])
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e) => {
     const currentKey = keys ? keys.getPressKey(e.keyCode) : null
 
     if (!gShowEpg) {
@@ -157,13 +157,13 @@ const Epg = ({
         e.preventDefault()
         e.stopPropagation()
 
-        setMiniEpg(prevState => !prevState)
+        setMiniEpg((prevState) => !prevState)
         break
     }
   }
 
   const redHandler = React.useCallback(() => {
-    setMiniEpg(prevState => !prevState)
+    setMiniEpg((prevState) => !prevState)
   }, [])
 
   if (loading) {
@@ -180,7 +180,7 @@ const Epg = ({
           style={{
             background: miniEpg
               ? 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)'
-              : 'transparent'
+              : 'transparent',
           }}
         >
           <EpgHeader
@@ -197,7 +197,7 @@ const Epg = ({
             style={{
               background: 'rgba(0, 0, 0, 0.3)',
               height: miniEpg ? '97px' : '380px',
-              marginBottom: 10
+              marginBottom: 10,
             }}
           >
             {channels.size > 0 && showEpg && (
