@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 
-import svgToUri from '../../svgToUri'
 import ImagePopcorn from '../../Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 
 const useStyles = makeStyles(() => ({
@@ -32,7 +31,11 @@ const Message = ({ image, children, height = 720, alt = 'popcorn icon' }) => {
   return (
     <Grid container spacing={0} className={`fromVMenu rents-error ${classes.globalError}`}>
       <Grid item xs={4} className={classes.contentError}>
-        <img src={image && svgToUri(ImagePopcorn)} alt={alt} className={classes.image} />
+        {image ? (
+          <img src={image} alt={alt} className={classes.image} />
+        ) : (
+          <ImagePopcorn alt={alt} className={classes.image} />
+        )}
         {children}
       </Grid>
     </Grid>
