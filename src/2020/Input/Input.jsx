@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     height: 48,
-    backgroundColor: '#212224',
+    backgroundColor: theme.palette.grayColor.main,
     color: '#fff',
-    borderRadius: '4px',
-    paddingLeft: '12px',
+    borderRadius: 4,
+    paddingLeft: 12,
     fontStyle: 'normal',
     textDecoration: 'none',
 
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   placeholder: {
     borderBottom: 'none',
     display: 'inline-block',
-    height: '20px',
+    height: 20,
     overflowX: 'hidden',
     fontWeight: '300',
     overflowY: 'hidden',

@@ -19,14 +19,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundButton = false,
     fontWeight = false,
   }) => ({
-    width: width || 230,
-    height: theme.sizeButton.height.main,
+    /* width: width || 230,
+    height: theme.sizeButton.height.main, */
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     background: backgroundButton ? theme.palette.buttonsColor.main : '',
     borderRadius: 6,
-    fontSize: 26,
+    /* fontSize: 26, */
     lineHeight: '22px',
     color: '#fff',
     position: 'relative',
@@ -50,6 +50,21 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 20,
     },
   }),
+  big: ({ width }) => ({
+    width: width || 230,
+    height: theme.sizeButton.height.main,
+    fontSize: 24,
+  }),
+  medium: ({ width }) => ({
+    width: width || 180,
+    height: 38,
+    fontSize: 21,
+  }),
+  small: ({ width }) => ({
+    width: width || 100,
+    height: 28,
+    fontSize: 18,
+  }),
   nonFocusable: {
     background: 'silver',
     color: 'gray',
@@ -64,6 +79,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ButtonGeneric = ({
+  big,
+  medium,
+  small,
   backgroundButton = true,
   fontWeight = true,
   isFocusable = true,
@@ -96,7 +114,9 @@ const ButtonGeneric = ({
     <div className={classes.constainer}>
       <div
         tabIndex='0'
-        className={`${isFocusable ? 'focusable' : classes.nonFocusable} ${classes.button}`}
+        className={`${isFocusable ? 'focusable' : classes.nonFocusable} ${classes.button} ${
+          (medium && classes.medium) || (small && classes.small) || classes.big
+        }`}
         onClick={(e) => {
           e.preventDefault()
           onClick && onClick(e)
