@@ -1,6 +1,6 @@
 {
   "name": "@joseirrazabal/nxbook",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "description": "Libreria de componentes del proyecto",
   "scripts": {
     "predist": "prettier --write 'src/**/*.js'",
@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm test"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
@@ -33,9 +33,6 @@
       "enzyme-to-json/serializer"
     ],
     "moduleNameMapper": {
-      "^react-dom(.*)$": "<rootDir>/node_modules/react-dom2$1",
-      "^react/(.*)$": "<rootDir>/node_modules/react2$1",
-      "^@material-ui/core(.*)$": "<rootDir>/node_modules/@material-ui2/core$1",
       "^Components(.*)$": "<rootDir>/src$1"
     }
   },
