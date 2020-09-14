@@ -531,10 +531,10 @@ exports[`<Component /> should render 1`] = `
 >
   <Memo(ButtonGeneric)>
     <div
-      className="makeStyles-constainer-1 makeStyles-constainer-5"
+      className="makeStyles-constainer-1 makeStyles-constainer-8"
     >
       <div
-        className="focusable makeStyles-button-2 makeStyles-button-6"
+        className="focusable makeStyles-button-2 makeStyles-button-9 makeStyles-big-3 makeStyles-big-10"
         data-sn-down={null}
         data-sn-left={null}
         data-sn-right={null}
