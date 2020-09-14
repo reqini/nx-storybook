@@ -5,7 +5,6 @@ import get from 'lodash/get'
 import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
-import ButtonBack from '../../Buttons/ButtonBack'
 import imageLogo from '../../Icons/App/net_launch_logo_claro.svg'
 
 const useStyles = makeStyles((theme) => ({
@@ -169,14 +168,6 @@ const BuyPlan = ({ SetScreen, onClose, item, priceStart, priceEnd, RenderButtonB
       <div className={classes.container03}>
         {/* item.items.length > 12 && <Gradient /> */}
         <div style={{ display: 'flex' }} id='modalButtons'>
-          {purchased && (
-            <ButtonBack
-              id='list-channel-back'
-              onClick={() => {
-                onClose()
-              }}
-            />
-          )}
           <img src={imageLogo} alt='netflex' style={{ width: 'auto', height: 40, marginBottom: 20 }} />
         </div>
 

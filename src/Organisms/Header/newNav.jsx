@@ -8,18 +8,18 @@ import Exit from '../Modals/exit/exit'
 
 import PersistentDrawerLeft from './materialNav'
 
-import imageHome from '../Icons/Nav/home.svg'
-import imageTv from '../Icons/Nav/tv.svg'
-import imageMovies from '../Icons/Nav/movies.svg'
-import imageSeries from '../Icons/Nav/series.svg'
-import imageKids from '../Icons/Nav/kids.svg'
-import imageMyContents from '../Icons/Nav/mycontents.svg'
+import imageHome from '../../Atoms/Icons/Nav/home.svg'
+import imageTv from '../../Atoms/Icons/Nav/tv.svg'
+import imageMovies from '../../Atoms/Icons/Nav/movies.svg'
+import imageSeries from '../../Atoms/Icons/Nav/series.svg'
+import imageKids from '../../Atoms/Icons/Nav/kids.svg'
+import imageMyContents from '../../Atoms/Icons/Nav/mycontents.svg'
 
-import imageProfile from '../Icons/Nav/profile.svg'
-import imageMylist from '../Icons/Nav/MInhaLista.svg'
-import imageSearch from '../Icons/Nav/Search.svg'
-import imagePlanos from '../Icons/Nav/Planos.svg'
-import imageSalir from '../Icons/Nav/salir.svg'
+import imageProfile from '../../Atoms/Icons/Nav/profile.svg'
+import imageMylist from '../../Atoms/Icons/Nav/MInhaLista.svg'
+import imageSearch from '../../Atoms/Icons/Nav/Search.svg'
+import imagePlanos from '../../Atoms/Icons/Nav/Planos.svg'
+import imageSalir from '../../Atoms/Icons/Nav/salir.svg'
 
 // para usar nodes dinamicamente llamar a
 // import { navData } from "../../requests/loader";
