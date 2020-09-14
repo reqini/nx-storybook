@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import SliderProgress from './sliderProgress'
 import PlayerControler from './PlayerControler'
-import ButtonBack from '../Buttons/ButtonBack'
 
 var time = false
 const hideTime = 6000
