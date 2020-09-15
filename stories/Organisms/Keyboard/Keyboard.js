@@ -1,7 +1,7 @@
 import React from 'react'
 import { withKnobs } from '@storybook/addon-knobs'
 
-import Keyboard from 'Components/Organisms/Keyboard/Keyboard'
+import KeyboardComponent from 'Components/Organisms/Keyboard/keyboard'
 
 export default {
   title: '/Organisms/Keyboard',
@@ -9,7 +9,5 @@ export default {
 }
 
 export const Keyboard = () => {
-  return(
-    <Keyboard />
-  )
+  return <KeyboardComponent />
 }
