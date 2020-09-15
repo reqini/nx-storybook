@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     color: color || 'white',
     borderRadius: borderRadius,
     lineHeight: '22px',
+    padding: '0 15px',
     position: 'relative',
     textDecoration: 'none',
     boxSizing: 'border-box',
