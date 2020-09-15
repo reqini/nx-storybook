@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     textDecoration: 'none',
     boxSizing: 'border-box',
+    minWidth: width,
 
     '&:focus': {
       height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
@@ -51,19 +52,16 @@ const useStyles = makeStyles((theme) => ({
   }),
   big: ({ fullWidth }) => ({
     width: fullWidth ? '100%' : 'auto',
-    minWidth: 200,
     height: theme.sizeButton.height.main,
     fontSize: 24,
   }),
   medium: ({ fullWidth }) => ({
     width: fullWidth ? '100%' : 'auto',
-    minWidth: 180,
     height: 38,
     fontSize: 21,
   }),
   small: ({ fullWidth }) => ({
     width: fullWidth ? '100%' : 'auto',
-    minWidth: 100,
     height: 28,
     fontSize: 18,
   }),

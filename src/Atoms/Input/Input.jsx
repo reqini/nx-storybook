@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'hidden',
     fontWeight: '300',
     overflowY: 'hidden',
-    padding: '4px 0',
+    // padding: '4px 0',
     whiteSpace: 'nowrap',
     textTransform: 'lowercase',
   },
