@@ -103,7 +103,7 @@ const Program = ({ channel, event, onClose }) => {
     resolution,
   } = event
 
-  const dateTime = `Hoje ${moment(event.date_begin, 'YYYY/MM/DD HH:mm:ss').format('HH:mm')} - ${moment(
+  const date_time = `Hoje ${moment(event.date_begin, 'YYYY/MM/DD HH:mm:ss').format('HH:mm')} - ${moment(
     event.date_end,
     'YYYY/MM/DD HH:mm:ss'
   ).format('HH:mm')}`
@@ -144,7 +144,7 @@ const Program = ({ channel, event, onClose }) => {
                   <div className='resume-description block-with-text'>
                     <p>{description}</p>
                   </div>
-                  <h4 className={`focusable ${classes.contentFutureTime}`}>{dateTime}</h4>
+                  <h4 className={`focusable ${classes.contentFutureTime}`}>{date_time}</h4>
                 </div>
               </div>
             </div>

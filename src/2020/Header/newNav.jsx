@@ -17,65 +17,53 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     width: '100%',
     zIndex: 5,
-
-    '& nav': {
-      textAlign: 'center',
-      width: '100%',
-      fontSize: 18,
-      height: '100%',
-      maxWidth: 266,
-    },
-  },
-  contentNav: {
-    width: '100%',
-    height: 'auto',
-    overflow: 'hidden',
   },
   nav: {
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: 266,
+    maxWidth: '266px',
     overflowX: 'hidden',
+
     listStyle: 'none',
     margin: 0,
     padding: '6px 0',
     overflow: 'hidden',
   },
   iconNav: {
-    height: 35,
-    width: 35,
+    height: '35px',
+    width: '35px !important',
     marginRight: '25px',
   },
   navItem: {
     width: '100%',
     minWidth: 'max-content',
     color: '#fff',
-    padding: 5,
+    padding: '5px',
     textDecoration: 'none',
     textAlign: 'left',
     alignItems: 'center',
     display: 'flex',
-    fontWeight: '300',
+    fontWeight: '300 !important',
 
     padding: '4px 0 4px 21px',
     textTransform: 'lowercase',
     fontWeight: 400,
 
     '&:focus': {
-      borderRadius: 0,
+      borderRadius: '0px',
       backgroundColor: theme.palette.primary.main,
       outline: 0,
-      fontWeight: '800',
+      fontWeight: '800 !important',
     },
   },
   navItemActive: {
     backgroundColor: theme.palette.active.main,
-    fontWeight: '500',
+    fontWeight: '500 !important',
   },
   li: {
     overflow: 'hidden',
     margin: '4px 0',
-    minHeight: 36,
+    minHeight: '36px',
     display: 'flex',
     width: '100%',
   },
@@ -302,10 +290,20 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
     <div id='header' style={{ width: '80px' }}>
       <PersistentDrawerLeft>
         <div className={classes.header}>
-          <div className={classes.contentNav}>
-            <nav>
-              <Nav nodes={nodes} />
-            </nav>
+          <div style={{ width: '100%' }}>
+            <div style={{ width: '100%', height: 'auto', overflow: 'hidden' }}>
+              <nav
+                style={{
+                  textAlign: 'center',
+                  width: '100%',
+                  fontSize: '18px',
+                  height: '100%',
+                  maxWidth: '266px',
+                }}
+              >
+                <Nav nodes={nodes} />
+              </nav>
+            </div>
           </div>
         </div>
       </PersistentDrawerLeft>

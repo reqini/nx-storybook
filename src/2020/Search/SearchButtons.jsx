@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     height: theme.sizeButton.height.main,
     borderRadius: 4,
     fontWeight: 300,
-    fontSize: 26,
+    fontSize: 21,
     color: '#fff',
     textDecoration: 'none',
     '&:focus': {

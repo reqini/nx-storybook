@@ -122,6 +122,11 @@ const ModalElenco = ({
     return null
   }
 
+  if (isLoading) {
+    return null;
+  }
+
+
   return (
     <div className={classes.container}>
       <div className={`${classes.flexElenco}`}>
@@ -129,7 +134,7 @@ const ModalElenco = ({
           <div className={classes.image} style={{ backgroundImage: `url(${imageTalent})` }} />
         ) : (
           <Avatar className={classes.avatar}>
-            {`${nameToInitials(name)} ${nameToInitials(lastName)}`}
+            {`${nameToInitials(name)} ${nameToInitials(lastName)}`.substr(0,2)}
           </Avatar>
         )}
         <h2 className={classes.title}>{`${name || ''} ${lastName || ''}`}</h2>

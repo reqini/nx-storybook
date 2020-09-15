@@ -178,7 +178,11 @@ const CardTalent = ({
           data-sn-up={snUp}
           data-sn-down={snDown}
         >
-          {image ? children : <div>{`${nameToInitials(name)}${nameToInitials(lastName)}`}</div>}
+          {image ? (
+            children
+          ) : (
+            <div>{`${nameToInitials(name)}${nameToInitials(lastName)}`.substr(0,2)}</div>
+          )}
         </div>
       </div>
       <div className={classes.infoCard}>
