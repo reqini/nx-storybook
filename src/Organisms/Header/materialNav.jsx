@@ -2,8 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
-
-import ImageLogo from '../../Atoms/Icons/App/net_launch_logo_claro.svg'
+import { useTranslation } from 'react-i18next'
 
 const drawerWidth = 266
 
@@ -69,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const PersistentDrawerLeft = (props) => {
+  const { t } = useTranslation()
   const classes = useStyles()
   const [open, setOpen] = React.useState(props.menuVisible ? true : false)
 
@@ -76,11 +76,11 @@ const PersistentDrawerLeft = (props) => {
     setOpen(props.menuVisible)
   }, [props.menuVisible])
 
-  function handleDrawerOpen() {
+  const handleDrawerOpen = () => {
     setOpen(true)
   }
 
-  function handleDrawerClose() {
+  const handleDrawerClose = () => {
     setOpen(false)
   }
 
@@ -106,7 +106,13 @@ const PersistentDrawerLeft = (props) => {
       >
         {open && (
           <div className={classes.contentLogo}>
-            <ImageLogo height={35} width={100} alt='claroTv logo' className={classes.logo} />
+            <img
+              src={t('asset.logo')}
+              height={35}
+              width={100}
+              alt='claroTv logo'
+              className={classes.logo}
+            />
           </div>
         )}
         {props.children}

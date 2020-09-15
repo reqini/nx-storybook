@@ -5,7 +5,6 @@ import get from 'lodash/get'
 import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
-import imageLogo from '../../Icons/App/net_launch_logo_claro.svg'
 
 const useStyles = makeStyles((theme) => ({
   container03: {
@@ -139,7 +138,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const BuyPlan = ({ SetScreen, onClose, item, priceStart, priceEnd, RenderButtonBuy, info }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const classes = useStyles()
 
   const purchased = item.purchased || false
@@ -168,7 +167,11 @@ const BuyPlan = ({ SetScreen, onClose, item, priceStart, priceEnd, RenderButtonB
       <div className={classes.container03}>
         {/* item.items.length > 12 && <Gradient /> */}
         <div style={{ display: 'flex' }} id='modalButtons'>
-          <img src={imageLogo} alt='netflex' style={{ width: 'auto', height: 40, marginBottom: 20 }} />
+          <img
+            src={t('asset.logo')}
+            alt='netflex'
+            style={{ width: 'auto', height: 40, marginBottom: 20 }}
+          />
         </div>
 
         <div className={classes.logoDescription}>

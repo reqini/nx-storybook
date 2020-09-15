@@ -1,11 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import { useTranslation } from 'react-i18next'
 
 import Message from './message'
 import TextMessages from '../Typography/TextMessages'
 import ButtonGeneric from '../Buttons/ButtonGeneric'
-
-import ImageMessage from '../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 
 const useStyles = makeStyles((theme) => ({
   landscape: () => ({
@@ -27,11 +26,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const MessageGeneric = ({ title = '', msg = '', onClick = () => {}, textButton = '' }) => {
+  const { t } = useTranslation()
   const classes = useStyles()
 
   return (
     <div className={classes.landscape}>
-      <Message image={ImageMessage}>
+      <Message image={t('asset.imagePopcorn')}>
         <TextMessages
           title={title}
           textContent={msg}

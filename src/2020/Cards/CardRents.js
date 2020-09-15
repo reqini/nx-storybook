@@ -1,8 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-const defaultImage = require('./images/default-image.svg')
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   cardRents: ({ width, height, borderRadius }) => ({
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
     },
   }),
-  cardRentsContentDefaultImage: () => ({
+  cardRentsContentDefaultImage: ({ defaultImage }) => ({
     background: theme.palette.cardSearch.main,
     backgroundImage: `url(${defaultImage})`,
     backgroundRepeat: 'no-repeat',
@@ -86,6 +85,7 @@ const CardRents = ({
   isFirst = false,
   focusHandlerDown = () => {},
 }) => {
+  const { t } = useTranslation()
   const classes = useStyles({
     width,
     height,
@@ -93,6 +93,7 @@ const CardRents = ({
     borderRadius,
     image,
     bgSizeFocus,
+    defaultImage: t('asset.cards.default'),
   })
 
   return (

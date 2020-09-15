@@ -6,8 +6,6 @@ import Message from '../../Messages/message'
 import TextMessages from '../../Typography/TextMessages'
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
 
-import ImageMessage from '../../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
-
 const useStyles = makeStyles((theme) => ({
   landscape: () => ({
     display: 'flex',
@@ -28,13 +26,13 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ErrorApi = ({ getData = () => {}, title = false }) => {
+  const { t } = useTranslation()
   const classes = useStyles()
-  const { t, i18n } = useTranslation()
 
   return (
     <div className={classes.landscape}>
       {title && <h2 className={classes.title}>{title}</h2>}
-      <Message image={ImageMessage}>
+      <Message image={t('asset.imagePopcorn')}>
         <TextMessages
           title={t('net_ningun_resultado', 'ooops!')}
           textContent={t('net_error_carga_alquilados', 'Aconteceu um erro ao carregar o conteúdo')}

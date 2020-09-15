@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-const imageDefault = require('./images/placeholder-actor.svg')
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   containerCardTalent: {
@@ -14,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 15,
     minHeight: 160,
   },
-  contentDefaultTalent: ({ width }) => ({
-    backgroundImage: `url(${imageDefault})`,
+  contentDefaultTalent: ({ width, talentDefault }) => ({
+    backgroundImage: `url(${talentDefault})`,
     position: 'relative',
     //padding: 5,
     backgroundSize: width || 100,
@@ -117,7 +116,15 @@ const CardTalent = ({
   id,
   focusHandlerDown = () => {},
 }) => {
-  const classes = useStyles({ width, height, bgSize, borderRadius, image })
+  const { t } = useTranslation()
+  const classes = useStyles({
+    width,
+    height,
+    bgSize,
+    borderRadius,
+    image,
+    talentDefault: t('asset.cards.talentDefault'),
+  })
 
   const aTitle = title.split(' ') || []
 

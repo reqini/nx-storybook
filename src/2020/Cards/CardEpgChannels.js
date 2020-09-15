@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import defaultImage from '../newEpg/images/net_epg_candado_2.svg'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles(() => ({
   flex: () => ({
@@ -33,8 +33,8 @@ const useStyles = makeStyles(() => ({
     },
   }),
 
-  block: {
-    backgroundImage: `url(${defaultImage})`,
+  block: ({ candado }) => ({
+    backgroundImage: `url(${candado})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '230px 5px',
     backgroundSize: 25,
@@ -42,7 +42,7 @@ const useStyles = makeStyles(() => ({
     height: '100%',
     left: 0,
     top: 0,
-  },
+  }),
   channel: () => ({
     textDecoration: 'none',
     backgroundColor: '#212224',
@@ -95,7 +95,8 @@ const useStyles = makeStyles(() => ({
 }))
 
 const CardEpgChannels = ({ onClick, number, name, image, title, time, canPlay, active = false }) => {
-  const classes = useStyles()
+  const { t } = useTranslation()
+  const classes = useStyles({ candado: t('asset.candado') })
 
   return (
     <div

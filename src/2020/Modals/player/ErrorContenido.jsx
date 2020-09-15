@@ -2,8 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
-import ImageMessage from '../../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
-
 const useStyles = makeStyles((theme) => ({
   container: ({ useButtom }) => ({
     position: useButtom ? 'initial' : 'absolute',
@@ -51,15 +49,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const showError = ({ onClose = () => {}, useButtom = true }) => {
-  const { t, i18n } = useTranslation()
+const ShowError = ({ onClose = () => {}, useButtom = true }) => {
+  const { t } = useTranslation()
   const classes = useStyles({ useButtom })
 
-  let msg = t('player_error_contenido', 'Este conteúdo não está disponível')
+  const msg = t('player_error_contenido', 'Este conteúdo não está disponível')
 
   return (
     <div className={classes.container}>
-      <img src={ImageMessage} alt='' height='160' />
+      <img src={t('asset.imagePopcorn')} alt='' height='160' />
       <h3 className={classes.title}>{t('player_error_contenido_title', 'Erro na reprodução')}</h3>
       <p
         className={classes.content}
@@ -80,4 +78,4 @@ const showError = ({ onClose = () => {}, useButtom = true }) => {
   )
 }
 
-export default showError
+export default ShowError

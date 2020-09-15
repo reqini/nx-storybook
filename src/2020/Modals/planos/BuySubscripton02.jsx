@@ -2,8 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
-import imageLogo from '../../Icons/App/net_launch_logo_claro.svg'
-
 const useStyles = makeStyles((theme) => ({
   container03: {
     width: 900,
@@ -123,10 +121,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const BuyConfirmation = ({ onClose, card, item, priceStart, priceEnd, RenderButtonBuy }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const classes = useStyles()
 
-  let preferredCard = card.data.creditCardResults.filter((e) => {
+  const preferredCard = card.data.creditCardResults.filter((e) => {
     return e.preferred
   })
 
@@ -147,7 +145,7 @@ const BuyConfirmation = ({ onClose, card, item, priceStart, priceEnd, RenderButt
       <div className={classes.container03}>
         {/* item.items.length > 12 ? <Gradient /> : null */}
         <img
-          src={imageLogo}
+          src={t('asset.logo')}
           alt='netflex'
           style={{ width: 'auto', height: 40, marginBottom: 30, maxWidth: 100 }}
         />

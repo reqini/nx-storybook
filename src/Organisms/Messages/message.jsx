@@ -1,8 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-
-import ImagePopcorn from '../../Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles(() => ({
   globalError: {
@@ -26,19 +25,16 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Message = ({ image, children, height = 720, alt = 'popcorn icon' }) => {
+  const { t } = useTranslation()
   const classes = useStyles({ height })
 
   return (
     <Grid container spacing={0} className={`fromVMenu rents-error ${classes.globalError}`}>
       <Grid item xs={4} className={classes.contentError}>
-        {image ? (
-          <img src={image} alt={alt} className={classes.image} />
-        ) : (
-          <ImagePopcorn alt={alt} className={classes.image} />
-        )}
+        <img src={image || t('asset.imagePopcorn ')} alt={alt} className={classes.image} />
         {children}
       </Grid>
     </Grid>
   )
 }
-export default Message
+export default React.memo(Message)

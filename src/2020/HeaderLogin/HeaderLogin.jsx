@@ -2,8 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
-import ImageLogo from '../Icons/App/net_launch_logo_claro.svg'
-
 const useStyles = makeStyles((theme) => ({
   container: {
     position: 'absolute',
@@ -26,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const HeaderLogin = () => {
+  const { t } = useTranslation()
   const classes = useStyles()
-  const { t, i18n } = useTranslation()
 
   return (
     <div className={classes.container}>
-      <ImageLogo className={classes.img} alt='Claro Logo' />
+      <img src={t('asset.logo')} className={classes.img} alt='Claro Logo' />
       <div>
         <h2 className={classes.title}>{t('login.header', 'Login')}</h2>
       </div>

@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../../2020/Buttons/ButtonGeneric'
-import ImageMessage from '../../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -31,18 +30,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const showError = ({ onClose = () => {} }) => {
-  const { t, i18n } = useTranslation()
+const ShowError = ({ onClose = () => {} }) => {
+  const { t } = useTranslation()
   const classes = useStyles()
 
-  let msg = t(
+  const msg = t(
     'PLY_DEV_00006',
     'Sua conta atingiu o limite máximo de dispositivos em uso. Para gerenciar seus dispositivos, acesse no aplicativo do seu celular, a opção Menu - Configurações - Gerenciar Dispositivos'
   )
 
   return (
     <div className={classes.container}>
-      <img src={ImageMessage} alt='' height='160' />
+      <img src={t('asset.imagePopcorn')} alt='' height='160' />
       <h3 className={classes.title}>{t('social_title_ups123', 'ooops!')}</h3>
       <p
         className={classes.content}
@@ -62,4 +61,4 @@ const showError = ({ onClose = () => {} }) => {
   )
 }
 
-export default showError
+export default React.memo(ShowError)

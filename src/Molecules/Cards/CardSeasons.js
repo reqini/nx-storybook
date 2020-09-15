@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
-
-import svgToUri from '../../svgToUri'
-import DefaultImage from '../../Atoms/Icons/default-image.svg'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   tagNetflex: {
@@ -59,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       top: 0,
       background: theme.palette.optional.main,
-      backgroundImage: `url(${notDefaultImg || svgToUri(DefaultImage)})`,
+      backgroundImage: `url(${notDefaultImg})`,
       backgroundSize: 80,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -195,6 +193,7 @@ const CardSeasons = ({
   dubbed = false,
   subbed = false,
 }) => {
+  const { t } = useTranslation()
   const classes = useStyles({
     withContent,
     numberSeason,
@@ -209,7 +208,7 @@ const CardSeasons = ({
     image,
     bgSizeFocus,
     border,
-    notDefaultImg,
+    notDefaultImg: notDefaultImg || t('asset.cards.default'),
   })
   // cargar imagen full en paralelo
   useEffect(() => {

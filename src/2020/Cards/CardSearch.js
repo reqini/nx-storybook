@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-const defaultImage = require('./images/default-image.svg')
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   cardSearch: ({ width, height, borderRadius, notPlaceHolder }) => ({
     //background: "gray",
-    backgroundImage: `url(${notPlaceHolder || defaultImage})`,
+    backgroundImage: `url(${notPlaceHolder})`,
     backgroundSize: 80,
     backgroundPosition: '85px 40px',
     backgroundRepeat: 'no-repeat',
@@ -103,6 +102,7 @@ const CardSearch = ({
   snLeft = null,
   focusHandlerDown = () => {},
 }) => {
+  const { t } = useTranslation()
   const classes = useStyles({
     width,
     height,
@@ -111,7 +111,7 @@ const CardSearch = ({
     image,
     floatImage,
     color,
-    notPlaceHolder,
+    notPlaceHolder: notPlaceHolder || t('asset.cards.default'),
   })
 
   // cargar imagen full en paralelo

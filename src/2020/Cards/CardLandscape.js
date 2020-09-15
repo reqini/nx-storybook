@@ -4,8 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import { withRouter } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
-
-const defaultImage = require('./images/default-image.svg')
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   containerCard: ({ height, width, minWidth }) => ({
@@ -56,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       top: 0,
       background: theme.palette.optional.main,
-      backgroundImage: `url(${notDefaultImg || defaultImage})`,
+      backgroundImage: `url(${notDefaultImg})`,
       backgroundSize: 80,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -156,6 +155,7 @@ const CardLandscape = ({
   id,
   focusHandlerDown = () => {},
 }) => {
+  const { t } = useTranslation()
   const classes = useStyles({
     withContent,
     width,
@@ -166,7 +166,7 @@ const CardLandscape = ({
     bgSizeFocus,
     border,
     minWidth,
-    notDefaultImg,
+    notDefaultImg: notDefaultImg || t('asset.cards.default'),
     padding,
     marginFoco,
   })
@@ -177,7 +177,7 @@ const CardLandscape = ({
     const imgObj = new Image()
     imgObj.src = data.imageFull
   }, [])
-  //console.log("RENDER CARD SIMPLE")
+
   return (
     <div
       className={data.href ? null : classes.containerCard}

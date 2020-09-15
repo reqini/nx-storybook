@@ -3,9 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
-
-import DefaultImage from '../../Atoms/Icons/default-image.svg'
-import svgToUri from '../../svgToUri'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   containerCard: ({ height, width, minWidth }) => ({
@@ -50,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       top: 0,
       background: theme.palette.optional.main,
-      backgroundImage: `${notDefaultImg ? `url(${notDefaultImg})` : svgToUri(DefaultImage)}`,
+      backgroundImage: `url(${notDefaultImg})`,
       backgroundSize: 80,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -145,6 +143,7 @@ const CardLandscape = ({
   id,
   focusHandlerDown = () => {},
 }) => {
+  const { t } = useTranslation()
   const classes = useStyles({
     withContent,
     width,
@@ -155,10 +154,11 @@ const CardLandscape = ({
     bgSizeFocus,
     border,
     minWidth,
-    notDefaultImg,
+    notDefaultImg: notDefaultImg || t('asset.cards.default'),
     padding,
     marginFoco,
   })
+
   // cargar imagen full en paralelo
   useEffect(() => {
     const imgObj = new Image()

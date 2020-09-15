@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router-dom'
@@ -7,79 +7,6 @@ import { Modal } from '../Modals/Modal'
 import Exit from '../Modals/exit/exit'
 
 import PersistentDrawerLeft from './materialNav'
-
-import imageHome from '../../Atoms/Icons/Nav/home.svg'
-import imageTv from '../../Atoms/Icons/Nav/tv.svg'
-import imageMovies from '../../Atoms/Icons/Nav/movies.svg'
-import imageSeries from '../../Atoms/Icons/Nav/series.svg'
-import imageKids from '../../Atoms/Icons/Nav/kids.svg'
-import imageMyContents from '../../Atoms/Icons/Nav/mycontents.svg'
-
-import imageProfile from '../../Atoms/Icons/Nav/profile.svg'
-import imageMylist from '../../Atoms/Icons/Nav/MInhaLista.svg'
-import imageSearch from '../../Atoms/Icons/Nav/Search.svg'
-import imagePlanos from '../../Atoms/Icons/Nav/Planos.svg'
-import imageSalir from '../../Atoms/Icons/Nav/salir.svg'
-
-// para usar nodes dinamicamente llamar a
-// import { navData } from "../../requests/loader";
-// navData()
-// ---------------
-const nodes = [
-  {
-    id: '47338',
-    code: 'home',
-    text: 'início',
-    image: imageHome,
-  },
-  {
-    id: '54231',
-    code: 'tv',
-    text: 'ao Vivo',
-    image: imageTv,
-  },
-  {
-    id: '47339',
-    code: 'movies',
-    text: 'filmes',
-    image: imageMovies,
-    childs: [
-      {
-        id: '47346',
-        code: 'filmes_acao',
-        text: 'Ação',
-      },
-      {
-        id: '53440',
-        code: 'filmes_teens',
-        text: 'Teens',
-      },
-      {
-        id: '47348',
-        code: 'filmes_comedia',
-        text: 'Comédia',
-      },
-    ],
-  },
-  {
-    id: '54234',
-    code: 'series',
-    text: 'séries',
-    image: imageSeries,
-  },
-  {
-    id: '47341',
-    code: 'kids',
-    text: 'infantil',
-    image: imageKids,
-  },
-  {
-    id: '47341',
-    code: 'mycontents',
-    text: 'Meus Conteúdos',
-    image: imageMyContents,
-  },
-]
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -157,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
 const NavLinkMenu = ({ id, to, image, translate, onClick, location, snDown = null }) => {
   const history = useHistory()
   const classes = useStyles()
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   let active =
     (location && location.state && location.state.menuSelect) || (location && location.pathname) || false
@@ -196,12 +123,69 @@ const NavLinkMenu = ({ id, to, image, translate, onClick, location, snDown = nul
 }
 
 const VerticalNav = ({ user, location, logout = () => {} }) => {
+  const { t } = useTranslation()
   const classes = useStyles()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
+  const nodes = [
+    {
+      id: '47338',
+      code: 'home',
+      text: 'início',
+      image: t('asset.menu.imageHome'),
+    },
+    {
+      id: '54231',
+      code: 'tv',
+      text: 'ao Vivo',
+      image: t('asset.menu.imageTv'),
+    },
+    {
+      id: '47339',
+      code: 'movies',
+      text: 'filmes',
+      image: t('asset.menu.imageMovies'),
+      childs: [
+        {
+          id: '47346',
+          code: 'filmes_acao',
+          text: 'Ação',
+        },
+        {
+          id: '53440',
+          code: 'filmes_teens',
+          text: 'Teens',
+        },
+        {
+          id: '47348',
+          code: 'filmes_comedia',
+          text: 'Comédia',
+        },
+      ],
+    },
+    {
+      id: '54234',
+      code: 'series',
+      text: 'séries',
+      image: t('asset.menu.imageSeries'),
+    },
+    {
+      id: '47341',
+      code: 'kids',
+      text: 'infantil',
+      image: t('asset.menu.imageKids'),
+    },
+    {
+      id: '47341',
+      code: 'mycontents',
+      text: 'Meus Conteúdos',
+      image: t('asset.menu.imageMyContents'),
+    },
+  ]
+
   const NavItem = ({ node, location }) => {
-    let iconMenuNav = node.image
+    const iconMenuNav = node.image
 
     return (
       <li key={node.id} className={classes.li}>
@@ -227,7 +211,7 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             id='profile'
             to={`/profile`}
             image={{
-              src: imageProfile,
+              src: t('asset.menu.imageProfile'),
               alt: 'menu minha lista',
             }}
             translate={{
@@ -242,7 +226,7 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             id='mylist'
             to={`/mylist`}
             image={{
-              src: imageMylist,
+              src: t('asset.menu.imageMylist'),
               alt: 'menu minha lista',
             }}
             translate={{
@@ -257,7 +241,7 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             id='search'
             to={`/search`}
             image={{
-              src: imageSearch,
+              src: t('asset.menu.imageSearch'),
               alt: 'menu search',
             }}
             translate={{
@@ -275,7 +259,7 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
             id='plans'
             to={`/plans`}
             image={{
-              src: imagePlanos,
+              src: t('asset.menu.imagePlanos'),
               alt: 'plans',
             }}
             translate={{
@@ -292,7 +276,7 @@ const VerticalNav = ({ user, location, logout = () => {} }) => {
               setIsModalOpen(true)
             }}
             image={{
-              src: imageSalir,
+              src: t('asset.menu.imageSalir'),
               alt: 'settings',
             }}
             translate={{

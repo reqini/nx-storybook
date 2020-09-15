@@ -4,10 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import LoadingComponent from '../Loading/LoadingComponent'
 import Message from '../Messages/message'
-import TextMessages from '../../2020/Typography/TextMessages'
-
-import imagePopcorn from '../../Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
-import imagePopcornInicio from '../../Atoms/Icons/Messages/net_vcard_renta_exito.svg'
+import TextMessages from '../Typography/TextMessages'
 
 const useStyles = makeStyles((theme) => ({
   searchNoResult: {
@@ -42,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 const RenderLoading = ({ result, input, loading }) => {
   const classes = useStyles({})
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   if (loading) {
     return (
@@ -55,7 +52,7 @@ const RenderLoading = ({ result, input, loading }) => {
   if (!input || input.length === 0) {
     return (
       <div className={`${classes.searchNoResult}`}>
-        <Message image={imagePopcornInicio} height={300}>
+        <Message image={t('asset.imagePopcornInicio')} height={300}>
           <TextMessages
             title={t('net_ningun_resultado123', 'busque e descubra')}
             textContent={t('search_result_no_resultado3123', 'Encontre o que você quer assitir')}
@@ -68,7 +65,7 @@ const RenderLoading = ({ result, input, loading }) => {
   return (
     <div className={`${classes.searchNoResult} results`}>
       {(!result || result.length === 0) && (
-        <Message image={imagePopcorn} height={300}>
+        <Message image={t('asset.imagePopcorn')} height={300}>
           <p className={classes.messageTwo}>
             <span className={classes.title}>
               <strong>{t('net_ningun_resultado', 'ooops!')}</strong>
@@ -87,4 +84,4 @@ const RenderLoading = ({ result, input, loading }) => {
   )
 }
 
-export default RenderLoading
+export default React.memo(RenderLoading)

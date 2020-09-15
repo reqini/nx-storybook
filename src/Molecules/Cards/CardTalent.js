@@ -1,9 +1,7 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-import DefaultImage from '../../Atoms/Icons/default-image.svg'
-import svgToUri from '../../svgToUri'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   containerCardTalent: {
@@ -15,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 15,
     minHeight: 160,
   },
-  contentDefaultTalent: ({ width }) => ({
-    backgroundImage: `url(${svgToUri(DefaultImage)})`,
+  contentDefaultTalent: ({ width, defaultImage }) => ({
+    backgroundImage: `url(${defaultImage})`,
     position: 'relative',
     backgroundSize: width || 100,
     backgroundPosition: 'center',
@@ -104,7 +102,15 @@ const CardTalent = ({
   id,
   focusHandlerDown = () => {},
 }) => {
-  const classes = useStyles({ width, height, bgSize, borderRadius, image })
+  const { t } = useTranslation()
+  const classes = useStyles({
+    width,
+    height,
+    bgSize,
+    borderRadius,
+    image,
+    defaultImage: t('asset.cards.default'),
+  })
 
   const aTitle = title.split(' ') || []
 

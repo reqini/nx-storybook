@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-
-const lupa = require('../Icons/Nav/Search.svg')
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   inputContainer: {
@@ -42,14 +41,14 @@ const useStyles = makeStyles((theme) => ({
     color: 'gray',
     cursor: 'no-drop',
   },
-  lupa: {
+  lupa: ({ lupa }) => ({
     height: 40,
     width: 48,
     backgroundImage: `url(${lupa})`,
     backgroundSize: 30,
     backgroundPosition: '0px center',
     backgroundRepeat: 'no-repeat',
-  },
+  }),
   textInput: {
     display: 'inline-block',
     float: 'left',
@@ -80,7 +79,8 @@ const Input = ({
   type = 'text',
   onClick = () => {},
 }) => {
-  const classes = useStyles()
+  const { t } = useTranslation()
+  const classes = useStyles({ lupa: t('asset.input.lupa') })
   const focused = currentFocus === name
 
   // espacio para el cursor si has espacios al final del texto

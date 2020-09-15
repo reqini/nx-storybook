@@ -3,10 +3,6 @@ import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
-import BackSpaceIcon from './images/back-space.svg'
-import CapitalLettersActive from './images/capital_letters_active.svg'
-import CapitalLettersInactive from './images/capital_letters_inactive.svg'
-
 import TvLatinLower from './layouts/tvLatinLower'
 import TvLatinUpper from './layouts/tvLatinUpper'
 import TvSymbolsLayout from './layouts/tvSymbols'
@@ -176,7 +172,7 @@ const Keyboard = ({
   snUp = null,
 }) => {
   const classes = useStyles()
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   const [typeKeyboard, setTypeKeyboard] = useState('')
 
@@ -377,9 +373,17 @@ const Keyboard = ({
               <KeyboardButton
                 value={
                   typeKeyboard === 'upper' ? (
-                    <CapitalLettersActive alt='back-space-icon' className={classes.keyboardImage2} />
+                    <img
+                      src={t('asset.keyboard.capitalLettersActive')}
+                      alt='back-space-icon'
+                      className={classes.keyboardImage2}
+                    />
                   ) : (
-                    <CapitalLettersInactive alt='back-space-icon' className={classes.keyboardImage2} />
+                    <img
+                      src={t('asset.keyboard.capitalLettersInactive')}
+                      alt='back-space-icon'
+                      className={classes.keyboardImage2}
+                    />
                   )
                 }
                 className={`${classes.keyboardEmpty} ${classes.upper}`}
@@ -394,7 +398,13 @@ const Keyboard = ({
                 dataSnDown='none'
               />
               <KeyboardButton
-                value={<BackSpaceIcon alt='back-space-icon' className={classes.keyboardImage} />}
+                value={
+                  <img
+                    src={t('asset.Keyboard.backSpaceIcon')}
+                    alt='back-space-icon'
+                    className={classes.keyboardImage}
+                  />
+                }
                 className={`${classes.keyboardEmpty} ${classes.borrar}`}
                 onClick={(key) => handleBackspaceClick()}
                 dataSnDown='none'

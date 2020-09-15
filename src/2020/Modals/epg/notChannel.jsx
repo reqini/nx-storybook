@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
-import imageLogo from '../../Icons/App/net_launch_logo_claro.svg'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const showError = ({ channel, onClose = () => {} }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const classes = useStyles()
   const history = useHistory()
 
@@ -48,7 +47,7 @@ const showError = ({ channel, onClose = () => {} }) => {
   return (
     <div className={classes.container}>
       <div className={classes.contentLogo}>
-        <img src={imageLogo} alt='netflex' style={{ height: 40 }} />
+        <img src={t('asset.logo')} alt='netflex' style={{ height: 40 }} />
       </div>
 
       <h3 className={classes.title}>
