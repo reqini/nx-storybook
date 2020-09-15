@@ -65,11 +65,27 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     fontSize: 18,
   }),
-  nonFocusable: {
+  disabled: ({ borderRadius, fontWeightSpan, width }) => ({
     background: 'silver',
     color: 'gray',
     cursor: 'no-drop',
-  },
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: borderRadius,
+    lineHeight: '22px',
+    padding: '0 15px',
+    position: 'relative',
+    textDecoration: 'none',
+    boxSizing: 'border-box',
+    minWidth: width,
+
+    '& span': {
+      fontWeight: fontWeightSpan,
+      fontSize: 20,
+    },
+  }),
   description: {
     marginTop: 5,
     fontSize: '18px',
@@ -80,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ButtonGeneric = ({
   size = 'medium',
+  stateButton = 'button',
   backgroundButton,
   borderRadius,
   fullWidth = true,
@@ -118,7 +135,7 @@ const ButtonGeneric = ({
     <div className={classes.constainer}>
       <div
         tabIndex='0'
-        className={`${isFocusable ? 'focusable' : classes.nonFocusable} ${classes.button} ${
+        className={`${isFocusable ? 'focusable' : classes.disabled} ${classes[stateButton]} ${
           classes[size]
         }`}
         onClick={(e) => {
