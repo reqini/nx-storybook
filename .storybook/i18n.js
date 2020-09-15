@@ -3,8 +3,6 @@ import { initReactI18next } from 'react-i18next'
 
 import logo from 'Components/Atoms/Icons/App/net_launch_logo_claro.svg'
 
-import candado from '../newEpg/images/net_epg_candado_2.svg'
-
 import defaultImage from 'Components/Atoms/Icons/default-image.svg'
 import lupa from 'Components/Atoms/Icons/Nav/Search.svg'
 
@@ -27,6 +25,7 @@ import imageSearch from 'Components/Atoms/Icons/Nav/Search.svg'
 import imagePlanos from 'Components/Atoms/Icons/Nav/Planos.svg'
 import imageSalir from 'Components/Atoms/Icons/Nav/salir.svg'
 
+import candado from 'Components/2020/newEpg/images/net_epg_candado_2.svg'
 import talentDefault from 'Components/2020/Cards/images/placeholder-actor.svg'
 
 const resources = {
