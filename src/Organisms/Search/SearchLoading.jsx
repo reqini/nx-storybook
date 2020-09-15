@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import LoadingComponent from '../Loading/LoadingComponent'
 import Message from '../Messages/message'
 import TextMessages from '../Typography/TextMessages'
+import MessageChildren from '../Messages/MessageChildren'
 
 const useStyles = makeStyles((theme) => ({
   searchNoResult: {
@@ -65,7 +66,7 @@ const RenderLoading = ({ result, input, loading }) => {
   return (
     <div className={`${classes.searchNoResult} results`}>
       {(!result || result.length === 0) && (
-        <Message image={t('asset.imagePopcorn')} height={300}>
+        <MessageChildren image={t('assets.imagePopcorn')} height={300}>
           <p className={classes.messageTwo}>
             <span className={classes.title}>
               <strong>{t('net_ningun_resultado', 'ooops!')}</strong>
@@ -78,7 +79,7 @@ const RenderLoading = ({ result, input, loading }) => {
               {t('search_result_no_resultado3', 'Tente uma nova busca com outro nome.')}
             </span>
           </p>
-        </Message>
+        </MessageChildren>
       )}
     </div>
   )

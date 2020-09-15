@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   }),
   big: ({ fullWidth }) => ({
     width: fullWidth ? '100%' : 'auto',
-    minWidth: 230,
+    minWidth: 200,
     height: theme.sizeButton.height.main,
     fontSize: 24,
   }),
