@@ -81,9 +81,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ButtonGeneric = ({
-  big,
-  medium,
-  small,
+  size = 'medium',
   backgroundButton,
   borderRadius,
   fullWidth = true,
@@ -123,7 +121,7 @@ const ButtonGeneric = ({
       <div
         tabIndex='0'
         className={`${isFocusable ? 'focusable' : classes.nonFocusable} ${classes.button} ${
-          (medium && classes.medium) || (small && classes.small) || classes.big
+          classes[size]
         }`}
         onClick={(e) => {
           e.preventDefault()
