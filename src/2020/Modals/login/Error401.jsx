@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
-import LogoError from '../../Icons/modal_error.svg'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -29,15 +28,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const showError = ({ onClose = () => {} }) => {
-  const { t, i18n } = useTranslation()
+const ShowError = ({ onClose = () => {} }) => {
+  const { t } = useTranslation()
   const classes = useStyles()
 
-  let msg = t('invalid_mail_or_password_msg', 'Usuário/e-mail ou senha inválido(s)')
+  const msg = t('invalid_mail_or_password_msg', 'Usuário/e-mail ou senha inválido(s)')
 
   return (
     <div className={classes.container}>
-      <img src={LogoError} alt='' height='100' />
+      <img src={t('asset.modalError')} alt='' height='100' />
       <h3 className={classes.title}>{t('net_alugados_contenido_no_disponible_ooops', 'ooops!')}</h3>
       <p
         className={classes.content}
@@ -56,4 +55,4 @@ const showError = ({ onClose = () => {} }) => {
   )
 }
 
-export default showError
+export default React.memo(ShowError)

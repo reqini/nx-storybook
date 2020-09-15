@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-
-import ImagePopcorn from '../../Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles(() => ({
   globalError: {
@@ -26,16 +25,13 @@ const useStyles = makeStyles(() => ({
 }))
 
 const MessageChildren = ({ image, children, height = 720, alt = 'popcorn icon' }) => {
+  const { t } = useTranslation()
   const classes = useStyles({ height })
 
   return (
     <div className={`fromVMenu rents-error ${classes.globalError}`}>
       <div className={classes.contentError}>
-        {image ? (
-          <img src={image} alt={alt} className={classes.image} />
-        ) : (
-          <ImagePopcorn alt={alt} className={classes.image} />
-        )}
+        <img src={image || t('asset.imagePopcorn')} alt={alt} className={classes.image} />
         {children}
       </div>
     </div>

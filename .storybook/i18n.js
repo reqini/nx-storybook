@@ -2,17 +2,17 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 import logo from 'Components/Atoms/Icons/App/net_launch_logo_claro.svg'
-
 import defaultImage from 'Components/Atoms/Icons/default-image.svg'
 import lupa from 'Components/Atoms/Icons/Nav/Search.svg'
-
 import imagePopcorn from 'Components/Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
 import imagePopcornInicio from 'Components/Atoms/Icons/Messages/net_vcard_renta_exito.svg'
-
 import backSpaceIcon from 'Components/Atoms/Icons/Keyboard/back-space.svg'
 import capitalLettersActive from 'Components/Atoms/Icons/Keyboard/capital_letters_active.svg'
 import capitalLettersInactive from 'Components/Atoms/Icons/Keyboard/capital_letters_inactive.svg'
+import logoError from 'Components/2020/Atoms/Icons/icon_Alert_x1.svg'
+import modalError from 'Components/2020/Atoms/Icons/modal_error.svg'
 
+// menu
 import imageHome from 'Components/Atoms/Icons/Nav/home.svg'
 import imageTv from 'Components/Atoms/Icons/Nav/tv.svg'
 import imageMovies from 'Components/Atoms/Icons/Nav/movies.svg'
@@ -25,17 +25,42 @@ import imageSearch from 'Components/Atoms/Icons/Nav/Search.svg'
 import imagePlanos from 'Components/Atoms/Icons/Nav/Planos.svg'
 import imageSalir from 'Components/Atoms/Icons/Nav/salir.svg'
 
+// player
+import iconBack from 'Components/Atoms/Icons/App/net_back_icon.svg'
+import iconEpisodes from 'Components/Atoms/Icons/Player/Episodes.svg'
+import iconBackward from 'Components/Atoms/Icons/Player/Back10s.svg'
+import iconPlay from 'Components/Atoms/Icons/Player/Play.svg'
+import iconPause from 'Components/Atoms/Icons/Player/Pause.svg'
+import iconForward from 'Components/Atoms/Icons/Player/Forward10s.svg'
+import iconSub from 'Components/Atoms/Icons/Player/Subtitles.svg'
+
+// en componentes (revisar)
 import candado from 'Components/2020/newEpg/images/net_epg_candado_2.svg'
 import talentDefault from 'Components/2020/Cards/images/placeholder-actor.svg'
+import resumeDefault from 'Components/2020/Resume/images/placeholder_background.svg'
 
 const resources = {
   pt: {
     translation: {
       asset: {
+        modalError,
+        logoError,
         imagePopcorn,
         imagePopcornInicio,
         logo,
         candado,
+        player: {
+          iconBack,
+          iconEpisodes,
+          iconBackward,
+          iconPlay,
+          iconPause,
+          iconForward,
+          iconSub,
+        },
+        resume: {
+          default: resumeDefault,
+        },
         menu: {
           imageHome,
           imageTv,

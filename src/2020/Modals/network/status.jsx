@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
 import ButtonGeneric from '../../Buttons/ButtonGeneric'
-import LogoError from '../../Icons/icon_Alert_x1.svg'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -29,15 +28,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const showError = ({ onClose = () => {} }) => {
-  const { t, i18n } = useTranslation()
+const ShowError = ({ onClose = () => {} }) => {
+  const { t } = useTranslation()
   const classes = useStyles()
 
-  let msg = t('net_error_conexion_internet', 'Você está sem conexão com a intenert')
+  const msg = t('net_error_conexion_internet', 'Você está sem conexão com a intenert')
 
   return (
     <div className={classes.container}>
-      <img src={LogoError} alt='' height='100' />
+      <img src={t('asset.logoError')} alt='' height='100' />
       <h3 className={classes.title}>{t('net_alugados_contenido_no_disponible_ooops', 'ooops!')}</h3>
       <p
         className={classes.content}
@@ -56,4 +55,4 @@ const showError = ({ onClose = () => {} }) => {
   )
 }
 
-export default showError
+export default React.memo(ShowError)

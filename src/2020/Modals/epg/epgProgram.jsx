@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import { makeStyles } from '@material-ui/core/styles'
+import { useTranslation } from 'react-i18next'
 
 import TitleRibbons from '../../Typography/TitleRibbons'
 import { Info } from '../../Resume/Resume'
-
-import imageDefault from '../../Resume/images/placeholder_background.svg'
 
 const useStyles = makeStyles((theme) => ({
   containerFuture: {
@@ -61,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Program = ({ channel, event, onClose }) => {
+  const { t } = useTranslation()
   const [loading, setLoading] = useState(true)
 
   const classes = useStyles()
@@ -103,7 +103,7 @@ const Program = ({ channel, event, onClose }) => {
     resolution,
   } = event
 
-  const date_time = `Hoje ${moment(event.date_begin, 'YYYY/MM/DD HH:mm:ss').format('HH:mm')} - ${moment(
+  const dateTime = `Hoje ${moment(event.date_begin, 'YYYY/MM/DD HH:mm:ss').format('HH:mm')} - ${moment(
     event.date_end,
     'YYYY/MM/DD HH:mm:ss'
   ).format('HH:mm')}`
@@ -114,7 +114,7 @@ const Program = ({ channel, event, onClose }) => {
       <div onClick={(e) => onClose()} className={`content-future ${classes.containerFuture}`}>
         <div
           className={classes.background}
-          style={{ backgroundImage: `url(${image || imageDefault})` }}
+          style={{ backgroundImage: `url(${image || t('asset.resume.default')})` }}
         />
         <div className={`${classes.resume} fromVMenu`}>
           <div className={'resume-container fullWidth'}>
@@ -144,7 +144,7 @@ const Program = ({ channel, event, onClose }) => {
                   <div className='resume-description block-with-text'>
                     <p>{description}</p>
                   </div>
-                  <h4 className={`focusable ${classes.contentFutureTime}`}>{date_time}</h4>
+                  <h4 className={`focusable ${classes.contentFutureTime}`}>{dateTime}</h4>
                 </div>
               </div>
             </div>

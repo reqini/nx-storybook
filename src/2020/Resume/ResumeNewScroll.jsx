@@ -7,8 +7,6 @@ import Description from './Dascription'
 import SimpleImage from '../Image/SimpleImage'
 import TitleVcard from '../Typography/TitleVcard'
 
-import imageDefault from './images/placeholder_background.svg'
-
 const useStyles = makeStyles((theme) => ({
   resume: {
     display: 'flex',
@@ -212,7 +210,10 @@ const ResumeNew = ({
               ))}
           </div>
         </div>
-        <div className={classes.wrapImageBackground} style={{ backgroundImage: `url(${imageDefault})` }}>
+        <div
+          className={classes.wrapImageBackground}
+          style={{ backgroundImage: `url(${t('asset.resume.default')})` }}
+        >
           <div
             className={classes.backgroundVcard}
             style={{
@@ -220,7 +221,7 @@ const ResumeNew = ({
               '-webkit-box-shadow': 'inset 7em -6em 6em 0em #000',
               '-moz-box-shadow': 'inset 7em -6em 6em 0em #000',
               'box-shadow': 'inset 7em -6em 6em 0em #000',
-              backgroundImage: `url(${srcImage || imageDefault})`,
+              backgroundImage: `url(${srcImage || t('asset.resume.default')})`,
             }}
           >
             {/* <GradientLanding width={"40%"} /> */}

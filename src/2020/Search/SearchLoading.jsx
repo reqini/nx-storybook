@@ -6,9 +6,6 @@ import LoadingComponent from '../Loading/LoadingComponent'
 import Message from '../Messages/message'
 import TextMessages from '../Typography/TextMessages'
 
-import imagePopcorn from '../Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
-import imagePopcornInicio from '../Icons/Messages/net_vcard_renta_exito.svg'
-
 const useStyles = makeStyles((theme) => ({
   searchNoResult: {
     fontWeight: 500,
@@ -55,7 +52,7 @@ const RenderLoading = ({ result, input, loading }) => {
   if (!input || input.length === 0) {
     return (
       <div className={`${classes.searchNoResult}`}>
-        <Message image={imagePopcornInicio} height={300}>
+        <Message image={t('asset.imagePopcornInicio')} height={300}>
           <TextMessages
             title={t('net_ningun_resultado123', 'busque e descubra')}
             textContent={t('search_result_no_resultado3123', 'Encontre o que você quer assitir')}
@@ -68,7 +65,7 @@ const RenderLoading = ({ result, input, loading }) => {
   return (
     <div className={`${classes.searchNoResult} results`}>
       {(!result || result.length === 0) && (
-        <Message image={imagePopcorn} height={300}>
+        <Message image={t('asset.imagePopcorn')} height={300}>
           <p className={classes.messageTwo}>
             <span className={classes.title}>
               <strong>{t('net_ningun_resultado', 'ooops!')}</strong>

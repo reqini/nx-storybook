@@ -7,11 +7,6 @@ import Description from './Dascription'
 import SimpleImage from '../Image/SimpleImage'
 import TitleVcard from '../Typography/TitleVcard'
 
-import imageDefault from './images/placeholder_background.svg'
-
-import backButton from '../Icons/App/net_back_icon.svg'
-import backButtonFocus from '../Icons/App/net_back_icon_focus.svg'
-
 const useStyles = makeStyles((theme) => ({
   resume: {
     display: 'flex',
@@ -106,25 +101,6 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 100,
     overflow: 'hidden',
   },
-  buttomBack: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-    zIndex: 1,
-    width: 50,
-    height: 50,
-    marginRight: 10,
-    backgroundSize: 50,
-    backgroundImage: `url(${backButton})`,
-    backgroundRepeat: 'no-repeat',
-
-    '&:focus': {
-      backgroundImage: `url(${backButtonFocus})`,
-      backgroundSize: 55,
-      height: 55,
-      width: 55,
-    },
-  },
   infoRented: {
     '& p': {
       color: theme.palette.colorRented.main,
@@ -218,7 +194,7 @@ const ResumeNew = ({
         <div
           className={classes.wrapImageBackground}
           style={{
-            backgroundImage: `url(${imageDefault})`,
+            backgroundImage: `url(${t('asset.resume.default')})`,
           }}
         >
           <div
@@ -230,7 +206,7 @@ const ResumeNew = ({
               'box-shadow': 'inset 7em -6em 6em 0em #000',
               //boxShadow: "inset 14em -5em 14em 0em #000",
               //boxShadow: 'inset 1em 0em 4em 4em #000',
-              backgroundImage: `url(${srcImage || imageDefault})`,
+              backgroundImage: `url(${srcImage || t('asset.resume.default')})`,
             }}
           >
             {/* <GradientLanding width={"40%"} /> */}

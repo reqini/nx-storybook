@@ -1,9 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-import backButton from '../Icons/App/net_back_icon.svg'
-import backButtonFocus from '../Icons/App/net_back_icon_focus.svg'
-
 const useStyles = makeStyles(() => ({
   titleVcard: ({ maxWidth, noWrap }) => ({
     margin: 0,
@@ -15,22 +12,6 @@ const useStyles = makeStyles(() => ({
     whiteSpace: noWrap ? 'nowrap' : null,
     textOverflow: noWrap ? 'ellipsis' : null,
   }),
-  buttomBack: {
-    width: 50,
-    height: 50,
-    marginBottom: 5,
-    backgroundSize: 50,
-    backgroundImage: `url(${backButton})`,
-    backgroundRepeat: 'no-repeat',
-
-    '&:focus': {
-      backgroundImage: `url(${backButtonFocus})`,
-      backgroundSize: 55,
-      marginBottom: 0,
-      height: 55,
-      width: 55,
-    },
-  },
   contentTitle: ({ position }) => ({
     display: 'flex',
     flexDirection: 'column',
@@ -44,16 +25,6 @@ const TitleVcard = ({ title, onClose = null, position, maxWidth, noWrap = false 
 
   return (
     <div className={classes.contentTitle}>
-      {onClose && (
-        <div
-          className={`${classes.buttomBack} focusable`}
-          tabIndex='0'
-          onClick={(e) => {
-            e.preventDefault()
-            onClose()
-          }}
-        />
-      )}
       <h4 className={classes.titleVcard}>{title}</h4>
     </div>
   )

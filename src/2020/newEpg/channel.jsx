@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 
 import SimpleImage from '../Image/SimpleImage'
-import defaultImage from './images/net_epg_candado_2.svg'
 
 const useStyles = makeStyles((theme) => ({
   channelNumber: {
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   }),
   imageBlock: ({ imageBlock }) => ({
     position: 'absolute',
-    backgroundImage: `url(${imageBlock || defaultImage})`,
+    backgroundImage: `url(${imageBlock})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: 25,
@@ -67,7 +66,8 @@ const rowChannel = ({
   active,
   eventHeight,
 }) => {
-  const classes = useStyles({ eventHeight })
+  const { t } = useTranslation()
+  const classes = useStyles({ eventHeight, imageBlock: t('asset.candado') })
 
   const styleImage = React.useMemo(
     () => ({

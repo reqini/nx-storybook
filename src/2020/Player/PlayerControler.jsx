@@ -1,73 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-
-import IconBack from '../Icons/App/net_back_icon.svg'
-import IconEpisodes from '../Icons/Player/Episodes.svg'
-import IconBackward from '../Icons/Player/Back10s.svg'
-import IconPlay from '../Icons/Player/Play.svg'
-import IconPause from '../Icons/Player/Pause.svg'
-import IconForward from '../Icons/Player/Forward10s.svg'
-import IconSub from '../Icons/Player/Subtitles.svg'
-
-import svgToUri from '../svgToUri'
-
-const getProperties = ({ type }) => {
-  switch (type) {
-    case 'back':
-      return {
-        className: 'transparent',
-        image: IconBack,
-      }
-    case 'episodes':
-      return {
-        image: IconEpisodes,
-      }
-    case 'replay':
-      return {}
-    case 'previewSong':
-      return {}
-    case 'stepBackward':
-      return {
-        image: IconBackward,
-      }
-    case 'play':
-      return {
-        className: 'transparent',
-        image: IconPlay,
-      }
-    case 'pause':
-      return {
-        className: 'transparent',
-        image: IconPause,
-      }
-    case 'stepForward':
-      return {
-        image: IconForward,
-      }
-    case 'next':
-      return {
-        image: IconForward,
-      }
-    case 'nextSong':
-      return {}
-    case 'language':
-      return {
-        image: IconSub,
-      }
-    case 'skipIntro':
-      return {
-        // text: Translator.get("skip_intro_player", "Omitir intro"),
-        className: 'focusable focusable-skip skip-control-btn action',
-      }
-    case 'record':
-      return {
-        className: 'player-ui-button action',
-      }
-    case 'favorite':
-    default:
-      return {}
-  }
-}
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   containerControls: {
@@ -96,13 +29,13 @@ const useStyles = makeStyles((theme) => ({
     height: 48,
     margin: '0 10px',
     borderRadius: '50%',
-    backgroundImage: `${svgToUri(image)}`,
+    backgroundImage: `url(${image})`,
     backgroundSize: 48,
     backgroundPosition: 'center',
 
     '&:focus': {
       background: theme.palette.primary.main,
-      backgroundImage: `${svgToUri(image)}`,
+      backgroundImage: `url(${image})`,
       backgroundSize: 48,
       backgroundPosition: 'center',
     },
@@ -116,6 +49,65 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Button = React.memo(({ text, classButton, type, image, onClick = () => {} }) => {
+  const { t } = useTranslation()
+  const getProperties = ({ type }) => {
+    switch (type) {
+      case 'back':
+        return {
+          className: 'transparent',
+          image: t('asset.player.iconBack'),
+        }
+      case 'episodes':
+        return {
+          image: t('asset.player.iconEpisodes'),
+        }
+      case 'replay':
+        return {}
+      case 'previewSong':
+        return {}
+      case 'stepBackward':
+        return {
+          image: t('asset.player.iconBackward'),
+        }
+      case 'play':
+        return {
+          className: 'transparent',
+          image: t('asset.player.iconPlay'),
+        }
+      case 'pause':
+        return {
+          className: 'transparent',
+          image: t('asset.player.iconPause'),
+        }
+      case 'stepForward':
+        return {
+          image: t('asset.player.iconForward'),
+        }
+      case 'next':
+        return {
+          image: t('asset.player.iconForward'),
+        }
+      case 'nextSong':
+        return {}
+      case 'language':
+        return {
+          image: t('asset.player.iconSub'),
+        }
+      case 'skipIntro':
+        return {
+          // text: Translator.get("skip_intro_player", "Omitir intro"),
+          className: 'focusable focusable-skip skip-control-btn action',
+        }
+      case 'record':
+        return {
+          className: 'player-ui-button action',
+        }
+      case 'favorite':
+      default:
+        return {}
+    }
+  }
+
   const data = getProperties({ type })
   const classes = useStyles({ image: data.image, type })
 
