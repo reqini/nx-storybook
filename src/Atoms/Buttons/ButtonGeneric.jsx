@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     width,
     fontWeightSpan,
     heightFocoDisable = false,
-    backgroundButton = theme.palette.buttonsColor.main,
     color = 'white',
     fontWeight = false,
     borderRadius = 6,
@@ -23,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    background: backgroundButton,
     color: color || 'white',
     borderRadius: borderRadius,
     lineHeight: '22px',
@@ -50,6 +48,17 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 20,
     },
   }),
+  default: () => ({
+    background: theme.palette.buttonsColor.main,
+  }),
+  active: () => ({
+    background: theme.palette.active.main,
+  }),
+  disabled: () => ({
+    background: 'silver',
+    color: 'gray',
+    cursor: 'no-drop',
+  }),
   big: ({ fullWidth }) => ({
     width: fullWidth ? '100%' : 'auto',
     height: theme.sizeButton.height.main,
@@ -65,27 +74,6 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     fontSize: 18,
   }),
-  disabled: ({ borderRadius, fontWeightSpan, width }) => ({
-    background: 'silver',
-    color: 'gray',
-    cursor: 'no-drop',
-
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: borderRadius,
-    lineHeight: '22px',
-    padding: '0 15px',
-    position: 'relative',
-    textDecoration: 'none',
-    boxSizing: 'border-box',
-    minWidth: width,
-
-    '& span': {
-      fontWeight: fontWeightSpan,
-      fontSize: 20,
-    },
-  }),
   description: {
     marginTop: 5,
     fontSize: '18px',
@@ -96,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ButtonGeneric = ({
   size = 'medium',
-  stateButton = 'button',
+  stateButton = 'default',
   backgroundButton,
   borderRadius,
   fullWidth = true,
@@ -135,9 +123,9 @@ const ButtonGeneric = ({
     <div className={classes.constainer}>
       <div
         tabIndex='0'
-        className={`${isFocusable ? 'focusable' : classes.disabled} ${classes[stateButton]} ${
-          classes[size]
-        }`}
+        className={`${isFocusable ? 'focusable' : classes.disabled} ${classes.button} ${
+          classes[stateButton]
+        } ${classes[size]}`}
         onClick={(e) => {
           e.preventDefault()
           onClick && onClick(e)
