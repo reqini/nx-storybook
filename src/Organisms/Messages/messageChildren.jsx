@@ -1,6 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
+import ImagePopcorn from '../../Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
+
 const useStyles = makeStyles(() => ({
   globalError: {
     width: '100%',
@@ -21,38 +23,22 @@ const useStyles = makeStyles(() => ({
     height: 140,
     marginBottom: 15,
   },
-  title: {
-    fontWeight: 700,
-    fontSize: 32,
-    margin: 0,
-    marginTop: 20,
-  },
-  text: {
-    fontSize: 28,
-    color: '#B8B8B8',
-    margin: '0px 0 20px 0',
-  },
 }))
 
-const Message = ({
-  image,
-  height = 720,
-  children,
-  alt = 'popcorn icon',
-  title = 'Titulo de ejemplo',
-  textContent,
-}) => {
+const MessageChildren = ({ image, children, height = 720, alt = 'popcorn icon' }) => {
   const classes = useStyles({ height })
 
   return (
     <div className={`fromVMenu rents-error ${classes.globalError}`}>
       <div className={classes.contentError}>
-        {image && <img src={image} alt={alt} className={classes.image} />}
-        {title && <h2 className={classes.title}>{title}</h2>}
-        {textContent && <p className={classes.text}>{textContent}</p>}
+        {image ? (
+          <img src={image} alt={alt} className={classes.image} />
+        ) : (
+          <ImagePopcorn alt={alt} className={classes.image} />
+        )}
         {children}
       </div>
     </div>
   )
 }
-export default Message
+export default MessageChildren

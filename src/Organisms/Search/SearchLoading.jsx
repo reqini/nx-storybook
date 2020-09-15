@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
 import LoadingComponent from '../Loading/LoadingComponent'
-import Message from '../Messages/message'
+import MessageChildren from '../Messages/MessageChildren'
 import TextMessages from '../../2020/Typography/TextMessages'
 
 import imagePopcorn from '../../Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
@@ -68,7 +68,7 @@ const RenderLoading = ({ result, input, loading }) => {
   return (
     <div className={`${classes.searchNoResult} results`}>
       {(!result || result.length === 0) && (
-        <Message image={imagePopcorn} height={300}>
+        <MessageChildren image={imagePopcorn} height={300}>
           <p className={classes.messageTwo}>
             <span className={classes.title}>
               <strong>{t('net_ningun_resultado', 'ooops!')}</strong>
@@ -81,7 +81,7 @@ const RenderLoading = ({ result, input, loading }) => {
               {t('search_result_no_resultado3', 'Tente uma nova busca com outro nome.')}
             </span>
           </p>
-        </Message>
+        </MessageChildren>
       )}
     </div>
   )
