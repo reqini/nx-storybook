@@ -96,7 +96,7 @@ const NavLinkMenu = ({ id, to, image, translate, onClick, location, snDown = nul
       active = '/node/movies'
   }
 
-  const { src: Image, alt } = image
+  const { src, alt } = image
   const { key, text } = translate
 
   return (
@@ -116,7 +116,7 @@ const NavLinkMenu = ({ id, to, image, translate, onClick, location, snDown = nul
       }}
       data-sn-down={snDown}
     >
-      <Image className={classes.iconNav} alt={alt} />
+      <img src={src} className={classes.iconNav} alt={alt} />
       <span>{t(key, text)}</span>
     </div>
   )

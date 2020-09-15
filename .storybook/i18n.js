@@ -9,8 +9,6 @@ import imagePopcornInicio from 'Components/Atoms/Icons/Messages/net_vcard_renta_
 import backSpaceIcon from 'Components/Atoms/Icons/Keyboard/back-space.svg'
 import capitalLettersActive from 'Components/Atoms/Icons/Keyboard/capital_letters_active.svg'
 import capitalLettersInactive from 'Components/Atoms/Icons/Keyboard/capital_letters_inactive.svg'
-import logoError from 'Components/2020/Atoms/Icons/icon_Alert_x1.svg'
-import modalError from 'Components/2020/Atoms/Icons/modal_error.svg'
 
 // menu
 import imageHome from 'Components/Atoms/Icons/Nav/home.svg'
@@ -38,6 +36,8 @@ import iconSub from 'Components/Atoms/Icons/Player/Subtitles.svg'
 import candado from 'Components/2020/newEpg/images/net_epg_candado_2.svg'
 import talentDefault from 'Components/2020/Cards/images/placeholder-actor.svg'
 import resumeDefault from 'Components/2020/Resume/images/placeholder_background.svg'
+import modalError from 'Components/2020/Icons/modal_error.svg'
+import logoError from 'Components/2020/Icons/icon_Alert_x1.svg'
 
 const resources = {
   pt: {
@@ -74,7 +74,7 @@ const resources = {
           imagePlanos,
           imageSalir,
         },
-        Keyboard: {
+        keyboard: {
           backSpaceIcon,
           capitalLettersActive,
           capitalLettersInactive,

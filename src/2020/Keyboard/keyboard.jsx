@@ -400,7 +400,7 @@ const Keyboard = ({
               <KeyboardButton
                 value={
                   <img
-                    src={t('asset.Keyboard.backSpaceIcon')}
+                    src={t('asset.keyboard.backSpaceIcon')}
                     alt='back-space-icon'
                     className={classes.keyboardImage}
                   />
