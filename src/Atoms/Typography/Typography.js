@@ -1,18 +1,22 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-
 const useStyles = makeStyles(({
   fontSize = 30, 
-  fontWeight = 300,
+  fontWeight = 500,
   color = 'white',
-  fontStyle = 'normal'
+  fontStyle = 'normal',
+  margin = 0,
+  textAlign = 'center'
 }) => ({
   Typography: {
-   fontSize: fontSize,
-   fontWeight: fontWeight,
-   color: color,
-   fontStyle: fontStyle
+    width: '100%',
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    color: color,
+    margin: margin,
+    textAlign: textAlign,
+    fontStyle: fontStyle
  }
 }))
 
