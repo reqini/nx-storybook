@@ -1,6 +1,7 @@
 import { withMuiTheme } from '@harelpls/storybook-addon-materialui'
 
 import theme from '../src/theme/DefaultTheme'
+import theme2 from '../src/theme/Theme02'
 
 import './i18n'
 
@@ -28,5 +29,6 @@ export const parameters = {
 export const decorators = [
   withMuiTheme({
     'Default theme': theme,
+    'Theme 02': theme2,
   }),
 ]
