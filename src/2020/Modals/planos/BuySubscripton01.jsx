@@ -228,7 +228,7 @@ const BuyPlan = ({ SetScreen, onClose, item, priceStart, priceEnd, RenderButtonB
                   )
                 })}
             </ul>
-            <h3>{item.LIVE.length > 0 ? `canais ${item.name}` : ''}</h3>
+            <h3>{get(item, 'LIVE.length') > 0 ? `canais ${item.name}` : ''}</h3>
             <ul className={classes.itemList}>
               {console.log('ITEMS', item)}
               {item.LIVE &&
