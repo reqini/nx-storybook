@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
   gridForm: {
     marginBottom: 20,
-  },
+  }
 }))
 
 const PasswordComponent = () => {
