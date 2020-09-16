@@ -9,5 +9,5 @@ export default {
 }
 
 export const Keyboard = () => {
-  return <KeyboardComponent />
+  return <KeyboardComponent showMails />
 }
