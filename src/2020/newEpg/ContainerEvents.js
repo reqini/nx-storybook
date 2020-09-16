@@ -69,7 +69,7 @@ const CollectionExample = ({
 
     setTimeout(() => {
       let modal = document.getElementById(`modalNew`)
-      let sel = document.getElementById(`event-number-${currentEvent.index}`)
+      let sel = document.getElementById(`event-number-${currentEvent && currentEvent.index}`)
       if (sel && !modal) {
         window.SpatialNavigation.focus(sel)
       }
