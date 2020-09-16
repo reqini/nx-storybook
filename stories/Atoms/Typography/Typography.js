@@ -9,7 +9,8 @@ export default {
 }
 
 export const TypographyComponent = () => {
-  const selectedVariant = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'strong']
+
+  const selectedVariant = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']
   const selectedAlign = ['left', 'center', 'right']
 
   return (

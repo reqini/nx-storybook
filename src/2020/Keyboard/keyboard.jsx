@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Keyboard = ({
-  region = "brasil",
+  region = 'brasil',
   keysDevice,
   showMails = false,
   currentValue = '',
@@ -439,4 +439,3 @@ const Keyboard = ({
 }
 
 export default React.memo(Keyboard)
-

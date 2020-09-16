@@ -3,12 +3,12 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   Typography: ({
-    fontSize = 30,
-    fontWeight = 500,
-    color = 'white',
-    fontStyle = 'normal',
-    margin = 0,
-    textAlign = 'center',
+    fontSize,
+    fontWeight,
+    color,
+    fontStyle,
+    margin,
+    textAlign,
   }) => ({
     width: '100%',
     fontSize: fontSize,

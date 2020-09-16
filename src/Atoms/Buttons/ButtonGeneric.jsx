@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ButtonGeneric = ({
-  size = 'medium',
+  size = 'big',
   stateButton = 'default',
   backgroundButton,
   borderRadius,

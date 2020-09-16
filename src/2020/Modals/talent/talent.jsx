@@ -123,9 +123,8 @@ const ModalElenco = ({
   }
 
   if (isLoading) {
-    return null;
+    return null
   }
-
 
   return (
     <div className={classes.container}>
@@ -134,7 +133,7 @@ const ModalElenco = ({
           <div className={classes.image} style={{ backgroundImage: `url(${imageTalent})` }} />
         ) : (
           <Avatar className={classes.avatar}>
-            {`${nameToInitials(name)} ${nameToInitials(lastName)}`.substr(0,2)}
+            {`${nameToInitials(name)} ${nameToInitials(lastName)}`.substr(0, 2)}
           </Avatar>
         )}
         <h2 className={classes.title}>{`${name || ''} ${lastName || ''}`}</h2>

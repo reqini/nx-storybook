@@ -11,9 +11,6 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  gridForm: {
-    marginBottom: 20,
   }
 }))
 
@@ -21,7 +18,7 @@ const PasswordComponent = () => {
   const classes = useStyles({})
 
   return (
-    <div className={`${classes.gridForm} ${classes.flexFormRow}`}>
+    <div className={classes.flexFormRow}>
       <Input
         //isFocusable={get(values, "email.length") > 0}
         //currentFocus={currentKey}
@@ -35,6 +32,7 @@ const PasswordComponent = () => {
         heightFocoDisable
         size={'big'}
         width={130}
+        margin={'0 0 0 10px'}
         //isFocusable={get(values, "email.length") > 0}
         type='button'
         title={'mostrar'}
