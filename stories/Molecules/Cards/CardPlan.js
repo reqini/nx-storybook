@@ -1,5 +1,4 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number } from '@storybook/addon-knobs'
 import get from 'lodash/get'
 
@@ -40,9 +39,7 @@ const props = {
       ? ' dias (s/recorrência)'
       : ' dias',
   unlimited: recurrence.recurrent,
-  clickHandler: () => {
-    action('click')
-  },
+  clickHandler: () => {},
 }
 
 export default {

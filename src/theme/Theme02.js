@@ -26,7 +26,7 @@ const theme = createMuiTheme({
   palette: {
     type: 'dark',
     active: {
-      main: '#E1261C',
+      main: '#6666E5',
     },
     secondary: {
       light: '#6b7588',
@@ -47,7 +47,7 @@ const theme = createMuiTheme({
       contrastText: '#FFFFFF',
     },
     buttonsColor: {
-      main: 'red',
+      main: '#4E565C',
       foco: '#272E35',
     },
     titleMessages: {
