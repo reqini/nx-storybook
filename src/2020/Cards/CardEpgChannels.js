@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: "102px !important",
+    height: '102px !important',
 
     '& img': {
       opacity: 0.5,
@@ -51,7 +51,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: "102px !important",
+    height: '102px !important',
 
     '&:focus': {
       backgroundColor: 'rgb(65, 113, 185)',
