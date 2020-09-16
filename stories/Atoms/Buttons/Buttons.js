@@ -9,14 +9,13 @@ export default {
 }
 
 export const ButtonGeneric = () => {
-
   const optionsSize = ['small', 'medium', 'big']
   const optionState = ['default', 'disabled', 'active']
 
   return (
     <Button
       title={text('titulo', 'Button')}
-      size={select('size', optionsSize, 'medium')}
+      size={select('size', optionsSize, 'big')}
       stateButton={select('stado', optionState, 'default')}
       width={number('ancho', 230)}
       backgroundButton={text('background', '#4E565C')}
