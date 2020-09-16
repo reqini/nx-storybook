@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Keyboard = ({
-  DeviceStorage,
+  region = "brasil",
   keysDevice,
   showMails = false,
   currentValue = '',
@@ -203,26 +203,18 @@ const Keyboard = ({
     }
 
     if (typeKeyboard === 'upper') {
-      return typeof TvLatinUpper.layout[DeviceStorage.getItem('region')] !== 'undefined'
-        ? TvLatinUpper.layout[DeviceStorage.getItem('region')]
-        : TvLatinUpper.layout['default']
+      return TvLatinUpper.layout[region]
     }
 
-    return typeof TvLatinLower.layout[DeviceStorage.getItem('region')] !== 'undefined'
-      ? TvLatinLower.layout[DeviceStorage.getItem('region')]
-      : TvLatinLower.layout['default']
+    return TvLatinLower.layout[region]
   }
 
   const getKeysLayoutNumber = () => {
-    return typeof TvLatinLower.layoutNumber[DeviceStorage.getItem('region')] !== 'undefined'
-      ? TvLatinLower.layoutNumber[DeviceStorage.getItem('region')]
-      : TvLatinLower.layoutNumber['default']
+    return TvLatinLower.layoutNumber[region]
   }
 
   const getKeysLayoutHeader = () => {
-    return typeof TvLatinLower.layoutHeader[DeviceStorage.getItem('region')] !== 'undefined'
-      ? TvLatinLower.layoutHeader[DeviceStorage.getItem('region')]
-      : TvLatinLower.layoutHeader['default']
+    return TvLatinLower.layoutHeader[region]
   }
 
   const handleLetterButtonClick = (key) => {
@@ -447,3 +439,4 @@ const Keyboard = ({
 }
 
 export default React.memo(Keyboard)
+
