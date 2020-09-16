@@ -1,6 +1,6 @@
 {
   "name": "@joseirrazabal/nxbook",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Libreria de componentes del proyecto",
   "scripts": {
     "predist": "prettier --write 'src/**/*.js'",

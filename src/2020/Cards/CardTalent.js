@@ -181,7 +181,7 @@ const CardTalent = ({
           {image ? (
             children
           ) : (
-            <div>{`${nameToInitials(name)}${nameToInitials(lastName)}`.substr(0,2)}</div>
+            <div>{`${nameToInitials(name)}${nameToInitials(lastName)}`.substr(0, 2)}</div>
           )}
         </div>
       </div>
