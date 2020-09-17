@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next'
 const useStyles = makeStyles((theme) => ({
   active: {
     height: theme.sizeButton.height.main,
-    background: `${theme.palette.active.main}`,
-    border: `3px solid ${theme.palette.active.main}`,
+    background: `${theme.palette.active.main}!important`,
+    border: `3px solid ${theme.palette.active.main}!important`,
     fontWeight: 900,
     position: 'initial',
     marginBottom: 0,
