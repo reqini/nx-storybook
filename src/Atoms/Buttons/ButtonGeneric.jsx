@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   }),
   button: ({
     width,
+    circular,
     fontWeightSpan,
     heightFocoDisable = false,
     color = 'white',
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
     '&:focus': {
       height: heightFocoDisable ? theme.sizeButton.height.main : theme.sizeButton.height.foco,
-      borderRadius: 1,
+      //borderRadius: 1 || borderRadius,
       fontWeight: fontWeight ? 500 : 900,
       color: '#fff',
       border: 'none',

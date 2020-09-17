@@ -153,7 +153,7 @@ const useStyles = makeStyles((theme) => ({
     boxSizing: 'border-box',
     height: '100%',
     width: '100%',
-    maxWidth: 605,
+    maxWidth: 640,
     display: 'flex',
     flexDirection: 'column',
   },
@@ -312,7 +312,7 @@ const Keyboard = ({
           </div>
         </div>
       )}
-      <Grid container className='keyboardPad'>
+      <Grid container className='keyboardPad' style={{ padding: '15px 0' }}>
         <Grid
           item
           xs={8}
@@ -325,24 +325,27 @@ const Keyboard = ({
           <div className={classes.formContainer}>
             {keys.map((row, index) => {
               return (
-                <div key={index}>
+                <div key={index} style={{ display: 'flex' }}>
                   {row.map((button) => {
                     return (
-                      <KeyboardButton
+                      <ButtonGeneric
                         useMail={showMails}
-                        isTop={index === 0}
-                        value={button}
-                        className={classes.keyboardLetter}
+                        title={button}
                         onClick={(key) => handleLetterButtonClick(key)}
+                        stateButton={'keyboard'}
+                        width={48}
                         key={button}
                         snUp={snUp}
+                        size={'big'}
+                        margin={5}
+                        borderRadius={'50%'}
                       />
                     )
                   })}
                 </div>
               )
             })}
-            <div style={{ width: '100%', display: 'flex' }}>
+            <Grid item xs={12} style={{ width: '100%', display: 'flex', margin: '12px 0' }}>
               <ButtonGeneric
                 title={
                   typeKeyboard === 'symbols'
@@ -385,7 +388,7 @@ const Keyboard = ({
                 title={t('net_teclado_espacio', 'espaço')}
                 onClick={(key) => handleSpaceButtonClick()}
                 stateButton={'default'}
-                width={260}
+                width={310}
                 dataSnDown='none'
                 size={'big'}
                 margin={5}
@@ -414,27 +417,32 @@ const Keyboard = ({
                 size={'big'}
                 margin={5}
               />
-            </div>
+            </Grid>
           </div>
         </Grid>
         <Grid
           item
           xs={4}
           style={{
-            margin: '12px 0',
+            //margin: '12px 0',
             borderLeft: '3px solid rgba(29,29,32, 1)',
           }}
         >
           {keysNumber.map((row, index) => (
             <div className={classes.number} key={index}>
               {row.map((button) => (
-                <KeyboardButton
+                <ButtonGeneric
                   isTop={index === 0}
-                  value={button}
+                  title={button}
                   className={classes.keyboardLetterNumber}
                   onClick={(key) => handleLetterButtonClick(key)}
                   key={button}
                   snUp={snUp}
+                  stateButton={'keyboard'}
+                  width={48}
+                  size={'big'}
+                  margin={5}
+                  borderRadius={'50%'}
                 />
               ))}
             </div>
