@@ -104,5 +104,4 @@ const ChannelsOpen = () => {
     </div>
   );
 };
-
 export default ChannelsOpen;
