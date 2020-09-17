@@ -8,4 +8,11 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Loading = () => <LoadingComponent title={text('Titulo', 'Cargando...')} />
+export const Loading = () => {
+  return(
+    <LoadingComponent 
+      position={text('position', 'absolute')} 
+      title={text('Titulo', 'Cargando...')} 
+    />
+  )
+}

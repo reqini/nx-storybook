@@ -4,18 +4,18 @@ import { makeStyles } from '@material-ui/core/styles'
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const useStyles = makeStyles((theme) => ({
-  containerLoading: {
+  containerLoading: ({ position }) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    // position: 'absolute',
+    position: position,
     zIndex: 10,
     top: 0,
     left: 0,
     width: '100%',
     height: '100%',
-  },
+  }),
   text: {
     fontSize: 24,
     color: 'white',
@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const LoadingComponent = ({ image, title, background }) => {
+const LoadingComponent = ({ image, title, background, position = 'relative' }) => {
   const { t } = useTranslation()
-  const classes = useStyles()
+  const classes = useStyles({ position })
 
   return (
     <div className={`${classes.containerLoading}`} style={{ background: background }}>

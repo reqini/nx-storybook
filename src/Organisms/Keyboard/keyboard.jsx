@@ -8,10 +8,15 @@ import TvLatinUpper from './layouts/tvLatinUpper'
 import TvSymbolsLayout from './layouts/tvSymbols'
 
 import KeyboardButton from '../../Atoms/Keyboard/button'
+import ButtonGeneric from '../../Atoms/Buttons/ButtonGeneric'
 
 const useStyles = makeStyles((theme) => ({
   keyboardHeaderHorizontal: {
     paddingLeft: '90px',
+  },
+  keyboardMails: {
+    width: '100%',
+    background: '#1C1D1E',
   },
   keyboardLetterHor: {
     fontWeight: '100',
@@ -47,10 +52,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   keyboardEmpty: {
-    borderRadius: '6px',
+    borderRadius: 6,
     border: 'none',
     margin: '5px 0',
-    padding: 10,
+    height: 48,
+    // padding: 10,
+    background: 'silver',
+
     '&:focus': {
       fontWeight: 900,
       background: theme.palette.secondary.main,
@@ -79,23 +87,23 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: '900',
     },
   },
-  borrar: {
+  /* borrar: {
     padding: '8px 0',
-  },
-  limpiar: {
+  }, */
+  /*  limpiar: {
     padding: '8px 10px',
-  },
+  }, */
   space: {
     minWidth: 270,
     marginLeft: 10,
     marginRight: 10,
     background: theme.palette.buttonsColor.foco,
-    padding: '8px 10px',
+    padding: '10px',
     borderRadius: 6,
   },
-  upper: {
+  /*   upper: {
     padding: '0 10px',
-  },
+  }, */
   keyboardImage: {
     display: 'block',
     height: 19,
@@ -126,11 +134,6 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.main,
       fontWeight: '900',
     },
-    /*     '&:hover': {
-      fontWeight: 900,
-      background: theme.palette.secondary.main,
-      fontWeight: '900'
-    } */
   },
   keyboardLetterNumber: {
     borderRadius: '50%',
@@ -145,17 +148,14 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.main,
       fontWeight: '900',
     },
-    /*     '&:hover': {
-      fontWeight: 900,
-      background: theme.palette.secondary.main,
-      fontWeight: '900'
-    } */
   },
   formContainer: {
     boxSizing: 'border-box',
     height: '100%',
     width: '100%',
-    maxWidth: '605px',
+    maxWidth: 605,
+    display: 'flex',
+    flexDirection: 'column',
   },
 }))
 
@@ -293,7 +293,7 @@ const Keyboard = ({
   return (
     <Grid container>
       {showMails && (
-        <Grid item xs={12} className='keyboardGral' style={{ background: '#1C1D1E' }}>
+        <div className={`keyboardGral ${classes.keyboardMails}`}>
           <div style={{ maxWidth: 630 }}>
             <div className={classes.keyboardHeaderHorizontal}>
               {keysHeader.map((row, index) => (
@@ -310,7 +310,7 @@ const Keyboard = ({
               ))}
             </div>
           </div>
-        </Grid>
+        </div>
       )}
       <Grid container className='keyboardPad'>
         <Grid
@@ -342,62 +342,77 @@ const Keyboard = ({
                 </div>
               )
             })}
-            <div>
-              <KeyboardButton
-                value={
+            <div style={{ width: '100%', display: 'flex' }}>
+              <ButtonGeneric
+                title={
                   typeKeyboard === 'symbols'
                     ? TvLatinLower.symbolsKeyValue
                     : TvSymbolsLayout.symbolsKeyValue
                 }
-                className={`${classes.keyboardEmpty} ${classes.especial}`}
                 onClick={() => {
                   setTypeKeyboard((state) => (state !== 'symbols' ? 'symbols' : ''))
                 }}
+                stateButton={'keyboard'}
+                width={60}
+                dataSnDown='none'
+                size={'big'}
+                margin={5}
               />
-              <KeyboardButton
-                value={
-                  typeKeyboard === 'upper' ? (
-                    <img
-                      src={t('asset.keyboard.capitalLettersActive')}
-                      alt='back-space-icon'
-                      className={classes.keyboardImage2}
-                    />
-                  ) : (
-                    <img
-                      src={t('asset.keyboard.capitalLettersInactive')}
-                      alt='back-space-icon'
-                      className={classes.keyboardImage2}
-                    />
-                  )
-                }
-                className={`${classes.keyboardEmpty} ${classes.upper}`}
+              <ButtonGeneric
                 onClick={() => {
                   setTypeKeyboard((state) => (state !== 'upper' ? 'upper' : ''))
                 }}
-              />
-              <KeyboardButton
-                value={t('net_teclado_espacio', 'espaço')}
-                className={`${classes.keyboardEmpty} ${classes.space}`}
+                stateButton={'keyboard'}
+                width={60}
+                size={'big'}
+                margin={5}
+              >
+                {typeKeyboard === 'upper' ? (
+                  <img
+                    src={t('asset.keyboard.capitalLettersActive')}
+                    alt='back-space-icon'
+                    className={classes.keyboardImage2}
+                  />
+                ) : (
+                  <img
+                    src={t('asset.keyboard.capitalLettersInactive')}
+                    alt='back-space-icon'
+                    className={classes.keyboardImage2}
+                  />
+                )}
+              </ButtonGeneric>
+              <ButtonGeneric
+                title={t('net_teclado_espacio', 'espaço')}
                 onClick={(key) => handleSpaceButtonClick()}
+                stateButton={'default'}
+                width={260}
                 dataSnDown='none'
+                size={'big'}
+                margin={5}
               />
-              <KeyboardButton
-                value={
+              <ButtonGeneric
+                onClick={(key) => handleBackspaceClick()}
+                stateButton={'keyboard'}
+                width={60}
+                size={'big'}
+                margin={5}
+              >
+                {
                   <img
                     src={t('asset.keyboard.backSpaceIcon')}
                     alt='back-space-icon'
                     className={classes.keyboardImage}
                   />
                 }
-                className={`${classes.keyboardEmpty} ${classes.borrar}`}
-                onClick={(key) => handleBackspaceClick()}
-                dataSnDown='none'
-              />
-              <KeyboardButton
-                value={t('empty', 'limpar')}
-                className={`${classes.keyboardEmpty} ${classes.limpiar}`}
+              </ButtonGeneric>
+              <ButtonGeneric
+                title={t('empty', 'limpar')}
                 onClick={(key) => handleEmptyClick()}
+                stateButton={'keyboard'}
+                width={60}
                 dataSnDown='none'
+                size={'big'}
+                margin={5}
               />
             </div>
           </div>

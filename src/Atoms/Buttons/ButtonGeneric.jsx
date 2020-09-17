@@ -48,6 +48,13 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 20,
     },
   }),
+  keyboard: () => ({
+    background: 'transparent',
+
+    '&:focus': {
+      background: theme.palette.secondary.main,
+    },
+  }),
   default: () => ({
     background: theme.palette.buttonsColor.main,
   }),
@@ -87,7 +94,7 @@ const ButtonGeneric = ({
   stateButton = 'default',
   backgroundButton,
   borderRadius,
-  fullWidth = true,
+  fullWidth = false,
   fontWeight = true,
   isFocusable = true,
   fontWeightSpan,
