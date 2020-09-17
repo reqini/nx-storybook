@@ -2,6 +2,7 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 import logo from 'Components/Atoms/Icons/App/net_launch_logo_claro.svg'
+import wifi from 'Components/Atoms/Icons/App/wifi.svg'
 import defaultImage from 'Components/Atoms/Icons/default-image.svg'
 import lupa from 'Components/Atoms/Icons/Nav/Search.svg'
 import imagePopcorn from 'Components/Atoms/Icons/Messages/net_contenido_alquilado_sin_contenido.svg'
@@ -86,6 +87,7 @@ const resources = {
           default: defaultImage,
           talentDefault,
         },
+        wifi: { wifi },
         net_vcard_renta_sin_tarjeta:
           'http://clarovideocdn8.clarovideo.net/pregeneracion/cms/apa/996264de20e74fb01393510961964bd0/net_vcard_renta_sin_tarjeta.png?1586827518',
         net_vcard_renta_exito:

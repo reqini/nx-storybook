@@ -16,9 +16,10 @@ const SimpleImage = ({
   width,
   height,
   circular = null,
+  className,
 }) => {
   const classes = useStyles({ image, width, height, circular })
 
-  return <img className={classes.simpleImage} src={image} alt={alt} title={title} />
+  return <img className={`${classes.simpleImage} ${className}`} src={image} alt={alt} title={title} />
 }
 export default React.memo(SimpleImage)

@@ -16,14 +16,17 @@ export const Message = () => {
 
   return (
     <MessageComponent
-      title={'Modal ejemplo'}
+      title={'opps!'}
       image={t('asset.imagePopcorn')}
       textContent={
         'Reunimos o maior acervo de conteúdo, programas de TV, filmes e séries. Tudo o que você gosta em um só lugar'
       }
     >
-      <ButtonGeneric title={'Sair'} />
-      <ButtonGeneric title={'Cancelar'} />
+      <ButtonGeneric 
+        size={'big'} 
+        width={200} 
+        title={'entendi'} 
+      />
     </MessageComponent>
   )
 }

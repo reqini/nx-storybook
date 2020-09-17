@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  constainer: ({ width, margin = 10, minHeight }) => ({
+  constainer: ({ margin = 10, minHeight }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -142,5 +142,4 @@ const ButtonGeneric = ({
     </div>
   )
 }
-
 export default React.memo(ButtonGeneric)
