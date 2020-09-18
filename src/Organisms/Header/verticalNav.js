@@ -54,7 +54,7 @@ const VerticalNav = ({
         <div className={classes.header}>
           <div className={classes.contentNav}>
             <nav>
-              <NavList />
+              <NavList location={location} />
             </nav>
           </div>
         </div>

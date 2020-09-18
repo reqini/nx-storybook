@@ -76,7 +76,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const NavList = () => {
+const NavList = ({location}) => {
 
   const { t } = useTranslation()
   const classes = useStyles()
