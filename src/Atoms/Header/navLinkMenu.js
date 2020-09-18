@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next'
 
 import { makeStyles } from '@material-ui/core/styles'
 
+import SimpleImage from "../Image/SimpleImage"
+
 const useStyles = makeStyles((theme) => ({
   //
   navItem: {
@@ -74,7 +76,7 @@ const NavLinkMenu = ({ id, to, image, translate, onClick, location, snDown = nul
       }}
       data-sn-down={snDown}
     >
-      <img src={src} className={classes.iconNav} alt={alt} />
+      <SimpleImage image={src} alt={alt} height={35} className={classes.iconNav} />
       <span>{t(key, text)}</span>
     </div>
   )

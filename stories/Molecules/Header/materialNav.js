@@ -4,7 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs'
 import PersistentDrawerLeft from 'Components/Molecules/Header/materialNav'
 
 export default {
-  title: '/Molecules/Header/',
+  title: '/Molecules/Header',
   decorators: [withKnobs],
 }
 
