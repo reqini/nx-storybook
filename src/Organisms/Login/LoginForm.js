@@ -33,9 +33,10 @@ const LoginForm = () => {
         <PasswordComponent />
       </div>
       <div>
-        <ButtonGeneric margin={0} title={'entrar'}/>
+        <ButtonGeneric fullWidth margin={0} title={'entrar'}/>
       </div>
     </div>
   )
+  
 }
 export default LoginForm

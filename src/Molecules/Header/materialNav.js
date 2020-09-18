@@ -1,9 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
+import { useTranslation } from 'react-i18next'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
-import { useTranslation } from 'react-i18next'
+
+import SimpleImage from '../../Atoms/Image/SimpleImage'
 
 const drawerWidth = 266
 
@@ -69,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const PersistentDrawerLeft = (props) => {
+
   const { t } = useTranslation()
   const classes = useStyles()
   const [open, setOpen] = React.useState(props.menuVisible ? true : false)
@@ -107,13 +110,7 @@ const PersistentDrawerLeft = (props) => {
       >
         {open && (
           <div className={classes.contentLogo}>
-            <img
-              src={t('asset.logo')}
-              height={35}
-              width={100}
-              alt='claroTv logo'
-              className={classes.logo}
-            />
+            <SimpleImage image={t('asset.logo')} height={35} alt='claroTv logo' />
           </div>
         )}
         {props.children}

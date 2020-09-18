@@ -3,7 +3,7 @@ import { withKnobs } from '@storybook/addon-knobs'
 import LoginPage from "Components/Templates/LoginPage"
 
 export default {
-  title: '/Templates',
+  title: '/Templates/LoginPage',
   decorators: [withKnobs],
 }
 

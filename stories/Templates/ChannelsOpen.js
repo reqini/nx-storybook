@@ -3,7 +3,7 @@ import { withKnobs } from '@storybook/addon-knobs'
 import ChannelsOpen from "Components/Templates/ChannelsOpen"
 
 export default {
-  title: '/Templates',
+  title: '/Templates/ChannelsOpen',
   decorators: [withKnobs],
 }
 
