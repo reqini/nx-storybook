@@ -93,7 +93,8 @@ const PersistentDrawerLeft = (props) => {
       <Drawer
         onFocus={handleDrawerOpen}
         onBlur={handleDrawerClose}
-        onClick={handleDrawerClose}
+        //onClick={handleDrawerClose}
+        onClick={handleDrawerOpen}
         variant='permanent'
         anchor='left'
         open={open}

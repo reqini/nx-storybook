@@ -11,19 +11,19 @@ const nodes = [
     id: '47338',
     code: 'home',
     text: 'início',
-    image: t('asset.menu.imageHome'),
+    // image: t('asset.menu.imageHome'),
   },
   {
     id: '54231',
     code: 'tv',
     text: 'ao Vivo',
-    image: t('asset.menu.imageTv'),
+    // image: t('asset.menu.imageTv'),
   },
   {
     id: '47339',
     code: 'movies',
     text: 'filmes',
-    image: t('asset.menu.imageMovies'),
+    // image: t('asset.menu.imageMovies'),
     childs: [
       {
         id: '47346',
@@ -46,19 +46,19 @@ const nodes = [
     id: '54234',
     code: 'series',
     text: 'séries',
-    image: t('asset.menu.imageSeries'),
+    // image: t('asset.menu.imageSeries'),
   },
   {
     id: '47341',
     code: 'kids',
     text: 'infantil',
-    image: t('asset.menu.imageKids'),
+    // image: t('asset.menu.imageKids'),
   },
   {
     id: '47341',
     code: 'mycontents',
     text: 'Meus Conteúdos',
-    image: t('asset.menu.imageMyContents'),
+    // image: t('asset.menu.imageMyContents'),
   },
 ]
 
