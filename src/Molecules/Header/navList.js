@@ -3,67 +3,11 @@ import { useTranslation } from 'react-i18next'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import NavLinkMenu from "../../Atoms/Header/navLinkMenu"
-import ItemLink from "../../Atoms/Header/ItemLink"
-
-const nodes = [
-  {
-    id: '47338',
-    code: 'home',
-    text: 'início',
-    // image: t('asset.menu.imageHome'),
-  },
-  {
-    id: '54231',
-    code: 'tv',
-    text: 'ao Vivo',
-    // image: t('asset.menu.imageTv'),
-  },
-  {
-    id: '47339',
-    code: 'movies',
-    text: 'filmes',
-    // image: t('asset.menu.imageMovies'),
-    childs: [
-      {
-        id: '47346',
-        code: 'filmes_acao',
-        text: 'Ação',
-      },
-      {
-        id: '53440',
-        code: 'filmes_teens',
-        text: 'Teens',
-      },
-      {
-        id: '47348',
-        code: 'filmes_comedia',
-        text: 'Comédia',
-      },
-    ],
-  },
-  {
-    id: '54234',
-    code: 'series',
-    text: 'séries',
-    // image: t('asset.menu.imageSeries'),
-  },
-  {
-    id: '47341',
-    code: 'kids',
-    text: 'infantil',
-    // image: t('asset.menu.imageKids'),
-  },
-  {
-    id: '47341',
-    code: 'mycontents',
-    text: 'Meus Conteúdos',
-    // image: t('asset.menu.imageMyContents'),
-  },
-]
+import NavLinkMenu from '../../Atoms/Header/navLinkMenu'
+import ItemLink from '../../Atoms/Header/ItemLink'
 
 const useStyles = makeStyles(() => ({
-  // 
+  //
   nav: {
     display: 'flex',
     flexDirection: 'column',
@@ -73,13 +17,68 @@ const useStyles = makeStyles(() => ({
     margin: 0,
     padding: '6px 0',
     overflow: 'hidden',
-  }
+  },
 }))
 
-const NavList = ({location}) => {
-
+const NavList = ({ location }) => {
   const { t } = useTranslation()
   const classes = useStyles()
+
+  const nodes = [
+    {
+      id: '47338',
+      code: 'home',
+      text: 'início',
+      image: t('asset.menu.imageHome'),
+    },
+    {
+      id: '54231',
+      code: 'tv',
+      text: 'ao Vivo',
+      image: t('asset.menu.imageTv'),
+    },
+    {
+      id: '47339',
+      code: 'movies',
+      text: 'filmes',
+      image: t('asset.menu.imageMovies'),
+      childs: [
+        {
+          id: '47346',
+          code: 'filmes_acao',
+          text: 'Ação',
+        },
+        {
+          id: '53440',
+          code: 'filmes_teens',
+          text: 'Teens',
+        },
+        {
+          id: '47348',
+          code: 'filmes_comedia',
+          text: 'Comédia',
+        },
+      ],
+    },
+    {
+      id: '54234',
+      code: 'series',
+      text: 'séries',
+      image: t('asset.menu.imageSeries'),
+    },
+    {
+      id: '47341',
+      code: 'kids',
+      text: 'infantil',
+      image: t('asset.menu.imageKids'),
+    },
+    {
+      id: '47341',
+      code: 'mycontents',
+      text: 'Meus Conteúdos',
+      image: t('asset.menu.imageMyContents'),
+    },
+  ]
 
   return (
     <ul className={classes.nav}>
@@ -154,9 +153,8 @@ const NavList = ({location}) => {
         snDown={' '}
         location={location}
       />
-      </ul>
+    </ul>
   )
-
 }
 
 export default React.memo(NavList)
