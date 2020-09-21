@@ -1,5 +1,7 @@
+import React from 'react'
 import { withMuiTheme } from '@harelpls/storybook-addon-materialui'
 
+import Focus from '../src/Focus'
 import theme from '../src/theme/DefaultTheme'
 import theme2 from '../src/theme/Theme02'
 
@@ -31,4 +33,10 @@ export const decorators = [
     'Default theme': theme,
     'Theme 02': theme2,
   }),
+  (Story) => (
+    <div>
+      <Focus />
+      <Story />
+    </div>
+  ),
 ]
