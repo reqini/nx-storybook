@@ -150,4 +150,6 @@ const ButtonGeneric = ({
     </div>
   )
 }
+
+export { ButtonGeneric }
 export default React.memo(ButtonGeneric)
