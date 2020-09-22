@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
       margin: 0,
       fontSize: 20,
     },
-  },
+  }
 }))
 
 const Description = ({ description }) => {

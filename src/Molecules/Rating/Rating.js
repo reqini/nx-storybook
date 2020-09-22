@@ -43,9 +43,14 @@ const Rating = ({ rating }) => {
 
   return (
     <div className={classes.contentRating}>
-      <ChipContainer borderRadius={3} height={21} width={32} title={rating} color={colorRating()} />
+      <ChipContainer 
+        borderRadius={3} 
+        height={21} 
+        width={32} 
+        title={rating} 
+        color={colorRating()} 
+      />
     </div>
   )
 }
-
 export default Rating
