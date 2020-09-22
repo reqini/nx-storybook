@@ -13,7 +13,7 @@ const ComponentTest = ({ /* props */ }) => {
 
   return (
     <div>
-      component
+      component nuevo para juli
     </div>
   )
 }
