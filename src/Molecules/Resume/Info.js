@@ -3,6 +3,8 @@ import moment from 'moment'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
+import Rating from '../Rating/Rating'
+
 const useStyles = makeStyles(() => ({
   resumeMetadata: () => ({
     fontSize: 21,
@@ -11,9 +13,11 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     display: 'flex',
     padding: 0,
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: 10
   }),
   resumeWeta: {
-    marginBottom: 10,
     marginRight: 10,
     listStyle: 'none',
     overflow: 'hidden',
@@ -36,16 +40,7 @@ const useStyles = makeStyles(() => ({
   },
   tagBold: {
     fontWeight: 500,
-  },
-  resumeColor: {
-    borderRadius: 3,
-    fontSize: 16,
-    height: 21,
-    marginTop: 1.5,
-    width: 32,
-    textAlign: 'center',
-    lineHeight: '22px',
-  },
+  }
 }))
 
 const Info = ({
@@ -69,33 +64,6 @@ const Info = ({
 
   const classes = useStyles()
   const { t, i18n } = useTranslation()
-
-  const colorRating = () => {
-    const color = rating
-    switch (color) {
-      case 'L':
-        return '#02AF52'
-        break
-      case '10':
-        return '#02CCFF'
-        break
-      case '12':
-        return '#FFCC01'
-        break
-      case '14':
-        return '#FF6600'
-        break
-      case '16':
-        return '#FF0000'
-        break
-      case '18':
-        return '#000000'
-        break
-      default:
-        return null
-        break
-    }
-  }
 
   const formatDuration = useCallback((duration = '00:00:00') => {
     duration = moment.duration(duration)
@@ -127,14 +95,7 @@ const Info = ({
 
           {year && <li className={classes.resumeWeta}>{year}</li>}
 
-          {rating && (
-            <li
-              className={`${classes.resumeWeta} ${classes.resumeColor}`}
-              style={{ background: colorRating() }}
-            >
-              {rating}
-            </li>
-          )}
+          {rating && ( <Rating rating={rating} /> )}
 
           {category && <li className={`${classes.resumeWeta} ${classes.noWrap}`}>{category}</li>}
 

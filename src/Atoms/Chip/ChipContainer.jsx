@@ -3,10 +3,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
-  chip: ({ color, height, uppercase, width, padding }) => ({
+  chip: ({ color, height, uppercase, width, padding, borderRadius }) => ({
     margin: 0,
     width: width && null,
-    borderRadius: 10,
+    borderRadius: borderRadius,
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
@@ -27,7 +27,16 @@ const useStyles = makeStyles((theme) => ({
   }),
 }))
 
-const ChipContainer = ({ title, color, height, gradient, uppercase, width, padding }) => {
+const ChipContainer = ({
+  title,
+  color,
+  height,
+  gradient,
+  uppercase,
+  width,
+  padding,
+  borderRadius = 10,
+}) => {
   const classes = useStyles({
     title,
     color,
@@ -35,7 +44,9 @@ const ChipContainer = ({ title, color, height, gradient, uppercase, width, paddi
     uppercase,
     width,
     padding,
+    borderRadius,
   })
+
   let style = {}
 
   if (gradient) {
