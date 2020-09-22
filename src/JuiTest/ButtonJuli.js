@@ -1,6 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
+import ChipContainer from '../Atoms/Chip/ChipContainer'
+
 const useStyles = makeStyles((theme) => ({
   classButton:{   //nombre de la clase
     borderRadius: 10,
@@ -15,11 +17,9 @@ const useStyles = makeStyles((theme) => ({
   texto:{
     color: 'white',
     width: '100%',
-    textAllign: 'left',
+    textAlign: 'left',
     margin: 0
   }
-
-
 }))
 
 const ButtonJuli = ({ 
@@ -37,11 +37,12 @@ const ButtonJuli = ({
             {children}
            </p>
        </button>
-       <button className={classes.classButton2}> {/*Así se invoca a la clase */}
+       <button className={classes.classButton2}>
           <p className={classes.texto}>
             {children}
           </p>
        </button>
+       <ChipContainer title="Estoy aprendiendo lento como Maradona" color="pink" /> {/* */}
     </React.Fragment>
 
   )
