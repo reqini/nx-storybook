@@ -7,8 +7,7 @@ import Typography from '../../Atoms/Typography/Typography'
 
 import Info from '../../Molecules/Resume/Info'
 import Description from '../../Molecules/Resume/Dascription'
-
-// const srcImage = cover || imageFull || imageCard || image_background || previewImage || image_still
+import TitleVcard from '../../Molecules/Typography/TitleVcard'
 
 const useStyles = makeStyles((theme) => ({
   resume: {
@@ -21,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
   resumeDataContainer: {
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'flex-start',
     height: '400px',
     margin: 'auto',
@@ -31,28 +29,19 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     top: 20,
   },
-  globalIntro: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    position: 'absolute',
-    boxSizing: 'border-box',
-    top: 0,
-  },
   global: {
     backgroundColor: 'black',
-    height: 720,
-    position: 'absolute',
-    boxSizing: 'border-box',
-    overflow: 'hidden',
+    height: 403,
     top: 0,
-    left: 0,
-    width: 1280
+    width: '100%',
+    maxWidth: 1280,
+    position: 'absolute',
+    display: 'flex',
   },
   contentRibbons: {
     height: 360,
     width: theme.sizeBody.hd.width - 20,
-    position: 'relative',
+    position: 'absolute',
     zIndex: 2,
     bottom: 0,
     paddingLeft: 20,
@@ -67,9 +56,9 @@ const useStyles = makeStyles((theme) => ({
   infoVcard: {
     width: '41%',
     position: 'relative',
-    background: 'black',
     zIndex: 1,
-    height: 405,
+    background: 'black',
+    height: '100%',
     boxSizing: 'border-box',
   },
   contInfoResume: {
@@ -82,14 +71,13 @@ const useStyles = makeStyles((theme) => ({
   },
   wrapImageBackground: {
     width: '60%',
-    height: 405,
+    height: '100%',
     position: 'absolute',
     top: 0,
     right: 0,
     backgroundSize: 1280,
     backgroundPosition: 'top right',
     backgroundRepeat: 'no-repeat',
-    // backgroundImage: `url(${t('asset.resume.default')})`
   },
   backgroundVcard: {
     width: '100%',
@@ -100,8 +88,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     '-webkit-box-shadow': 'inset 7em -6em 6em 0em #000',
     '-moz-box-shadow': 'inset 7em -6em 6em 0em #000',
-    'box-shadow': 'inset 7em -6em 6em 0em #000',
-    // backgroundImage: `url(${ srcImage || t('asset.resume.default')})`
+    'box-shadow': 'inset 7em -6em 6em 0em #000'
   },
   contentRibonns: {
     listStyle: 'none',
@@ -124,20 +111,13 @@ const useStyles = makeStyles((theme) => ({
     '& p': {
       color: theme.palette.colorRented.main,
       margin: 0,
-      marginTop: 5,
+      marginTop: 10,
       fontSize: 20,
     },
   },
-  titleVcard: ({ maxWidth, noWrap }) => ({
-    margin: 0,
-    marginBottom: 20,
-    fontSize: 40,
-    fontWeight: 800,
-    overflow: noWrap ? 'hidden' : null,
-    maxWidth: maxWidth || '100%',
-    whiteSpace: noWrap ? 'nowrap' : null,
-    textOverflow: noWrap ? 'ellipsis' : null,
-  })
+  actions: {
+    display: 'flex'
+  }
 }))
 
 const Resume = ({
@@ -159,13 +139,8 @@ const Resume = ({
     leg,
     language,
     resolution,
-    showActionBtns,
-    previewImage,
-    image_still,
-    image_background,
     imageFull,
-    imageCard,
-    cover,
+    showActionBtns,
     infoRented,
   },
   onClose = null,
@@ -175,20 +150,18 @@ const Resume = ({
   buttons,
   hasLanguages,
 }) => {
-
+  
   const { t, i18n } = useTranslation()
   const classes = useStyles()
+  const srcImage = imageFull
 
   return (
-    <div className={`${classes.global}`}>
-      <div className={`${classes.globalIntro}`}>
+    <React.Fragment>
+      <div className={`${classes.global}`}>
         <div className={`${classes.infoVcard}`}>
           <div className={classes.contInfoResume}>
-            <div className={classes.contentTitle}>
-              <Typography variant="h4">{title}</Typography>
-            </div>
+            <TitleVcard onClose={onClose} title={title} />
             <Info
-              isModalProps
               isLive={isLive}
               schedule={schedule}
               year={year}
@@ -206,45 +179,40 @@ const Resume = ({
             <Description description={description} />
             {infoRented && (
               <div className={classes.infoRented}>
-                <p>{`assista até ${infoRented}`}</p>
+                <Typography variant="p">{`assista até ${infoRented}`}</Typography>
               </div>
             )}
             {(buttons || favoriteButton) &&
               (!hasLanguages ? (
                 <React.Fragment>
                   <div className={classes.infoRented}>
-                    <p>{`este conteúdo não está disponível`}</p>
+                    <Typography variant="p">{`este conteúdo não está disponível`}</Typography>
                   </div>
-                  <div style={{ display: 'flex' }}>
-                    {buttons}
+                  <div className={`resume-action-buttons ${classes.actions}`}>
                     {favoriteButton}
                   </div>
                 </React.Fragment>
               ) : (
-                <div style={{ display: 'flex' }}>
+                <div className={`resume-action-buttons ${classes.actions}`}>
                   {buttons}
                   {favoriteButton}
                 </div>
               ))}
           </div>
         </div>
-        <div className={classes.wrapImageBackground}>
-          <div className={classes.backgroundVcard}>
+        <div className={classes.wrapImageBackground} style={{ backgroundImage: `url(${t('asset.resume.default')})` }}>
+          <div className={classes.backgroundVcard} style={{ backgroundImage: `url(${srcImage || t('asset.resume.default')})` }}>
             {code.includes('nx_') && (
               <div className={classes.imgChannelResume}>
-                <SimpleImage 
-                  image={t(`asset.net_icon_${code}`)} 
-                  alt='channel' 
-                  height={100} 
-                />
+                <SimpleImage image={t(`asset.net_icon_${code}`)} alt='channel' height={100} />
               </div>
             )}
           </div>
         </div>
       </div>
-      {children}
-    </div>
+      <div className={`${classes.contentRibbons}`}>{children}</div>
+    </React.Fragment>
   )
 }
 export { Info }
-export default React.memo(Resume)
+export default Resume

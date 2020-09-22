@@ -2,8 +2,8 @@ import React from 'react'
 import { withKnobs } from '@storybook/addon-knobs'
 //import { useTranslation } from 'react-i18next'
 
-// import Resume from 'Components/Organisms/Resume/Resume'
-import Resume from 'Components/2020/Resume/ResumeNew'
+import Resume from 'Components/Organisms/Resume/Resume'
+
 
 const item = {
   category: 'Aventura, Comedy',

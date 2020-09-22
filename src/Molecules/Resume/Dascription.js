@@ -4,10 +4,7 @@ import Typography from '../../Atoms/Typography/Typography'
 
 const useStyles = makeStyles(() => ({
   description: {
-    fontSize: '20px',
     lineHeight: '26px',
-    fontWeight: '300 !important',
-    textAlign: 'left',
     maxWidth: '700px',
     marginBottom: 15,
     height: 'auto',
@@ -16,6 +13,7 @@ const useStyles = makeStyles(() => ({
 
     '& p': {
       margin: 0,
+      fontSize: '20px',
     },
   },
 }))
@@ -26,7 +24,12 @@ const Description = ({ description }) => {
 
   return (
     <div className={`${classes.description}`}>
-      <Typography variant="p">{description}</Typography>
+      <Typography 
+      textAlign="left" 
+      fontWeight={300} 
+      variant="p">
+        {description}
+      </Typography>
     </div>
   )
 }
