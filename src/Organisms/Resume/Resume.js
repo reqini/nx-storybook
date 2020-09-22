@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
 import SimpleImage from '../../Atoms/Image/SimpleImage'
+import BackgroundImage from '../../Atoms/Image/BackgroundImage'
 import Typography from '../../Atoms/Typography/Typography'
 
 import Info from '../../Molecules/Resume/Info'
@@ -15,14 +16,8 @@ const useStyles = makeStyles((theme) => ({
     flexFlow: 'column',
     overflow: 'hidden',
     width: '100%',
-    minHeight: '200px',
-    paddingLeft: '15px',
-  },
-  resumeDataContainer: {
-    display: 'flex',
-    alignItems: 'flex-start',
-    height: '400px',
-    margin: 'auto',
+    minHeight: 200,
+    paddingLeft: 15,
   },
   imgChannelResume: {
     position: 'absolute',
@@ -83,9 +78,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
     position: 'absolute',
-    backgroundSize: 'cover',
-    backgroundPosition: 'top',
-    backgroundRepeat: 'no-repeat',
     '-webkit-box-shadow': 'inset 7em -6em 6em 0em #000',
     '-moz-box-shadow': 'inset 7em -6em 6em 0em #000',
     'box-shadow': 'inset 7em -6em 6em 0em #000'
@@ -201,13 +193,20 @@ const Resume = ({
           </div>
         </div>
         <div className={classes.wrapImageBackground} style={{ backgroundImage: `url(${t('asset.resume.default')})` }}>
-          <div className={classes.backgroundVcard} style={{ backgroundImage: `url(${srcImage || t('asset.resume.default')})` }}>
+          <BackgroundImage className={classes.backgroundVcard} image={srcImage || t('asset.resume.default')}>
             {code.includes('nx_') && (
               <div className={classes.imgChannelResume}>
                 <SimpleImage image={t(`asset.net_icon_${code}`)} alt='channel' height={100} />
               </div>
             )}
-          </div>
+          </BackgroundImage>
+          {/* <div className={classes.backgroundVcard} style={{ backgroundImage: `url(${srcImage || t('asset.resume.default')})` }}>
+            {code.includes('nx_') && (
+              <div className={classes.imgChannelResume}>
+                <SimpleImage image={t(`asset.net_icon_${code}`)} alt='channel' height={100} />
+              </div>
+            )}
+          </div> */}
         </div>
       </div>
       <div className={`${classes.contentRibbons}`}>{children}</div>

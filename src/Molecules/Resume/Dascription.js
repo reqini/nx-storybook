@@ -5,15 +5,15 @@ import Typography from '../../Atoms/Typography/Typography'
 const useStyles = makeStyles(() => ({
   description: {
     lineHeight: '26px',
-    maxWidth: '700px',
+    maxWidth: 700,
     marginBottom: 15,
     height: 'auto',
-    maxHeight: '102px',
+    maxHeight: 102,
     overflow: 'hidden',
 
     '& p': {
       margin: 0,
-      fontSize: '20px',
+      fontSize: 20,
     },
   },
 }))
