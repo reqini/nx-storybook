@@ -1,10 +1,12 @@
 import React from 'react'
 import { withKnobs } from '@storybook/addon-knobs'
-import ComponentTest from "Components/JuiTest/ComponentTest"
+import ButtonJuli from "Components/JuiTest/ButtonJuli"
 
 export default {
-  title: '/Templates/ComponentTest',
+  title: '/Templates/ButtonJuli',
   decorators: [withKnobs],
 }
 
-export const Component = () => <ComponentTest />
+export const Component = () => <ButtonJuli>
+  soy un boton
+</ButtonJuli>
