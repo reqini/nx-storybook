@@ -42,9 +42,16 @@ const ButtonJuli = ({
             {children}
           </p>
        </button>
-       <ChipContainer title="Estoy aprendiendo lento como Maradona" color="pink" /> {/* */}
+       <ChipContainer 
+        title="Estoy aprendiendo lento como Maradona" 
+        color="pink" 
+       />
+       {/* <ChipContainer 
+        color="pink" 
+       >
+         <p>Estoy aprendiendo lento como Maradona</p>
+       </ChipContainer> */}
     </React.Fragment>
-
   )
 }
 export default ButtonJuli
