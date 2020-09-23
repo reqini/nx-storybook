@@ -17,8 +17,6 @@ const listMock = [1, 2, 3, 4];
 const useStyles = makeStyles(() => ({
   container: {
     display: "flex",
-    /* width: 1280,
-    height: 720, */
     justifyContent: "center",
     alignSelf: "center",
     alignItems: "center",
@@ -66,11 +64,11 @@ const useStyles = makeStyles(() => ({
 }));
 
 var settings = {
-  dots: false,
+  dots: true,
   arrows: true,
-  infinite: true,
+  infinite: false,
   initialSlide: 0,
-  slidesToScroll: 0,
+  slidesToScroll: 1,
   slidesToShow: 1,
 };
 
@@ -90,7 +88,7 @@ const ChannelsOpen = () => {
                 <SimpleImage image={t('asset.logo')} height={71} />
                 <SimpleImage className={classes.icon} image={t('asset.wifi.wifi')} height={71} />
                 <Typography fontSize={32} fontWeight="bold" variant="h2">sinal aberto!</Typography>
-                <Typography fontSize={32} color="#B8B8B8" margin="20px 0" variant="p">
+                <Typography fontSize={32} color="#B8B8B8" margin="0 0 40px 0" variant="p">
                   Desfrute de todo conteúdo HBO até 20/07/2019
                 </Typography>
                 <ButtonGeneric margin={5} title={"ver filmes e séries"} />

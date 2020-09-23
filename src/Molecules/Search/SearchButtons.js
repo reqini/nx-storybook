@@ -1,50 +1,26 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-
 import { useTranslation } from 'react-i18next'
 
-const useStyles = makeStyles((theme) => ({
-  active: {
-    height: theme.sizeButton.height.main,
-    background: `${theme.palette.active.main}`,
-    border: `3px solid ${theme.palette.active.main}`,
-    fontWeight: 900,
-    position: 'initial',
-    marginBottom: 0,
-  },
+import ButtonGeneric from '../../Atoms/Buttons/ButtonGeneric'
+
+const useStyles = makeStyles(() => ({
   formGroup: {
     margin: 'auto',
     width: '100%',
   },
   buttonFilter: {
     height: 56,
-    width: 750,
+    width: 720,
     paddingTop: 5,
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-  },
-  btnSearch: {
-    background: theme.palette.buttonsColor.main,
-    border: '3px solid transparent',
-    minWidth: 137,
-    height: theme.sizeButton.height.main,
-    borderRadius: 4,
-    fontWeight: 300,
-    fontSize: 26,
-    color: '#fff',
-    textDecoration: 'none',
-    '&:focus': {
-      height: theme.sizeButton.height.foco,
-      background: theme.palette.primary.main,
-      position: 'initial',
-      marginBottom: 0,
-      marginTop: 0,
-    },
-  },
+  }
 }))
 
 const RenderButton = ({ pagSelected, setPagSelected, result = [] }) => {
+  
   const classes = useStyles({})
   const { t /* i18n */ } = useTranslation()
   const extraProps = { 'data-sn-down': '@searchCont' }
@@ -55,51 +31,51 @@ const RenderButton = ({ pagSelected, setPagSelected, result = [] }) => {
 
   return (
     <div id='searchButtoms' className={`${classes.formGroup} ${classes.buttonFilter} button-filter`}>
-      <button
-        className={`${classes.btnSearch} focusable ${
-          pagSelected === 'all' && `${classes.active} active`
-        }`}
+      <ButtonGeneric
         onClick={() => setPagSelected('all')}
         {...extraProps}
-      >
-        {t('search.net_busqueda_all', 'todos')}
-      </button>
-      <button
-        className={`${classes.btnSearch} focusable ${
-          pagSelected === 'tv' && `${classes.active} active`
-        }`}
+        size={'big'}
+        width={130}
+        margin={0}
+        type={pagSelected === 'all' ? 'active' : 'default'}
+        title={t('search.net_busqueda_all', 'todos')}
+      />
+      <ButtonGeneric
         onClick={() => setPagSelected('tv')}
         {...extraProps}
-      >
-        {t('search.net_busqueda_tv')}
-      </button>
-      <button
-        className={`${classes.btnSearch} focusable ${
-          pagSelected === 'movies' && `${classes.active} active`
-        }`}
+        size={'big'}
+        width={130}
+        margin={0}
+        type={pagSelected === 'tv' ? 'active' : 'default'}
+        title={t('search.net_busqueda_tv')}
+      />
+      <ButtonGeneric
         onClick={() => setPagSelected('movies')}
         {...extraProps}
-      >
-        {t('search.net_busqueda_filmes', 'Filmes')}
-      </button>
-      <button
-        className={`${classes.btnSearch} focusable ${
-          pagSelected === 'series' && `${classes.active} active`
-        }`}
+        size={'big'}
+        width={130}
+        margin={0}
+        type={'default'}
+        title={t('search.net_busqueda_filmes', 'Filmes')}
+      />
+      <ButtonGeneric
         onClick={() => setPagSelected('series')}
         {...extraProps}
-      >
-        {t('search.net_busqueda_series', 'Series')}
-      </button>
-      <button
-        className={`${classes.btnSearch} focusable ${
-          pagSelected === 'talents' && `${classes.active} active`
-        }`}
+        size={'big'}
+        width={130}
+        margin={0}
+        type={pagSelected === 'series' ? 'active' : 'default'}
+        title={t('search.net_busqueda_series', 'Series')}
+      />
+      <ButtonGeneric
         onClick={() => setPagSelected('talents')}
         {...extraProps}
-      >
-        {t('search.net_busqueda_artista', 'artista')}
-      </button>
+        size={'big'}
+        width={130}
+        margin={0}
+        type={pagSelected === 'talents' ? 'active' : 'default'}
+        title={t('search.net_busqueda_artista', 'artista')}
+      />
     </div>
   )
 }

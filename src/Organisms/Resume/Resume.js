@@ -200,16 +200,11 @@ const Resume = ({
               </div>
             )}
           </BackgroundImage>
-          {/* <div className={classes.backgroundVcard} style={{ backgroundImage: `url(${srcImage || t('asset.resume.default')})` }}>
-            {code.includes('nx_') && (
-              <div className={classes.imgChannelResume}>
-                <SimpleImage image={t(`asset.net_icon_${code}`)} alt='channel' height={100} />
-              </div>
-            )}
-          </div> */}
         </div>
       </div>
-      <div className={`${classes.contentRibbons}`}>{children}</div>
+      <div className={`${classes.contentRibbons}`}>
+        {children}
+      </div>
     </React.Fragment>
   )
 }
