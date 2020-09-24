@@ -1,17 +1,19 @@
+/* eslint-disable import/exports-last */
 import React from 'react'
-import { withKnobs } from '@storybook/addon-knobs'
 import { useTranslation } from 'react-i18next'
 
 import MessageComponent from 'Components/Organisms/Messages/message'
 import ButtonGeneric from 'Components/Atoms/Buttons/ButtonGeneric'
 
+const Component = ({ ...args }) => {
+  return <ButtonGeneric {...args} />
+}
+
 export default {
   title: '/Organisms/Messages',
-  decorators: [withKnobs],
 }
 
 export const Message = () => {
-
   const { t } = useTranslation()
 
   return (
@@ -22,11 +24,7 @@ export const Message = () => {
         'Reunimos o maior acervo de conteúdo, programas de TV, filmes e séries. Tudo o que você gosta em um só lugar'
       }
     >
-      <ButtonGeneric 
-        size={'big'} 
-        width={200} 
-        title={'entendi'} 
-      />
+      <ButtonGeneric size={'big'} width={200} title={'entendi'} />
     </MessageComponent>
   )
 }
