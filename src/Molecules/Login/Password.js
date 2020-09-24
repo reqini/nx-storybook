@@ -5,7 +5,6 @@ import Input from '../../Atoms/Input/Input'
 import Button from '../../Atoms/Buttons/ButtonGeneric'
 
 const useStyles = makeStyles(() => ({
-  // styles
   flexFormRow: {
     display: 'flex',
     flexDirection: 'row',
@@ -15,6 +14,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const PasswordComponent = () => {
+
   const classes = useStyles({})
 
   return (
