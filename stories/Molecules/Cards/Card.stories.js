@@ -61,6 +61,7 @@ export const search = () => (
   />
 )
 
+/*
 export const channels = () => (
   <CardChannels
     title={text('Titulo', 'Titulo de ejemplo de una pelicula')}
@@ -71,3 +72,4 @@ export const channels = () => (
     borderRadius={number('border radius', 6)}
   />
 )
+*/

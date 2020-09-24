@@ -1,9 +1,7 @@
+/* eslint-disable import/exports-last */
 import React from 'react'
-import { withKnobs } from '@storybook/addon-knobs'
-//import { useTranslation } from 'react-i18next'
 
 import Resume from 'Components/Organisms/Resume/Resume'
-
 
 const item = {
   category: 'Aventura, Comedy',
@@ -21,13 +19,13 @@ const item = {
   year: '2020',
 }
 
+const Component = ({ ...args }) => {
+  return <Resume code={'home'} item={item} {...args} />
+}
+
 export default {
   title: '/Organisms/Resume',
-  decorators: [withKnobs],
 }
 
-export const ResumeComponent = () => {
-  //const { t } = useTranslation()
-
-  return <Resume code={'home'} item={item} />
-}
+export const ResumeComponent = Component.bind({})
+ResumeComponent.argTypes = {}
