@@ -42,7 +42,7 @@ const Rating = ({ rating }) => {
   const classes = useStyles({})
 
   return (
-    <div className={classes.contentRating}>
+    <li className={classes.contentRating}>
       <ChipContainer 
         borderRadius={3} 
         height={21} 
@@ -50,7 +50,7 @@ const Rating = ({ rating }) => {
         title={rating} 
         color={colorRating()} 
       />
-    </div>
+    </li>
   )
 }
 export default Rating

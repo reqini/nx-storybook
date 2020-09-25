@@ -22,16 +22,18 @@ const useStyles = makeStyles((theme) => ({
 
 const Typography = ({
   children,
+  className,
   variant = 'h1',
   fontSize = 30,
   fontWeight = 500,
   color = 'white',
   fontStyle = 'normal',
   margin = 0,
-  textAlign = 'center',
+  textAlign = 'left',
 }) => {
   const classes = useStyles({
     fontSize,
+    className,
     fontWeight,
     color,
     fontStyle,
@@ -39,7 +41,7 @@ const Typography = ({
     textAlign,
   })
 
-  return React.createElement(variant, { className: classes.Typography }, children)
+  return React.createElement(variant, { className: `${className}  ${classes.Typography}` }, children)
 }
 
 export default Typography

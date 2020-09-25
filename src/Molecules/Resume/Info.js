@@ -77,7 +77,7 @@ const Info = ({
   return (
     <React.Fragment>
       {!isLive && (
-        <ul className={classes.resumeMetadata}>
+        <ol className={classes.resumeMetadata}>
           {window.location.href.includes('node/nx_claro_') === true || !isModalProps
             ? season && (
                 <li className={`${classes.resumeWeta} ${classes.noWrap}`}>
@@ -115,7 +115,7 @@ const Info = ({
           {resolution && (
             <li className={`${classes.resumeWeta} ${classes.tagBold} ${classes.tagNetflex}`}>HD</li>
           )}
-        </ul>
+        </ol>
       )}
     </React.Fragment>
   )

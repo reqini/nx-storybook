@@ -4,12 +4,10 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import CardLandscape from './CardLandscape'
 import ChipContainer from '../../Atoms/Chip/ChipContainer'
+import SimpleImage from '../../Atoms/Image/SimpleImage'
+import Typography from '../../Atoms/Typography/Typography'
 
-const colorClasses = [
-  '45deg,#0D9F70,#2574B4',
-  /* "45deg,#6D51B8,#D44169", */
-  /* "45deg,#AA00FF,#D89D2F", */
-]
+const colorClasses = ['45deg,#0D9F70,#2574B4']
 
 const useStyles = makeStyles((theme) => ({
   channelsPlans: {
@@ -59,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
       },
 
       '& img': {
-        // width: '100%',
         width: 37.3,
       },
     },
@@ -143,23 +140,23 @@ const CardPlans = ({
           />
         ) : null}
       </div>
-      <div className={classes.channelsPlans}>{live} canais</div>
+      <Typography variant="p" className={classes.channelsPlans}>{live} canais</Typography>
       <div className={classes.pricePlans}>
-        <p>
+        <Typography variant="p" textAlign="center">
           {price.currency}
-          <b>{price.wholeNumber}</b>,{price.decimals}
+          <Typography variant="b">{price.wholeNumber}</Typography>, {price.decimals}
           {duration}
           {period}
-        </p>
+        </Typography>
       </div>
       <ul className={classes.listChannelsPlans}>
         {channels.map((ch, i) => {
           if (get(ch, 'composition.systemParameters.IMAGE_URL')) {
             return (
               <li key={i}>
-                <img
-                  src={ch.composition.systemParameters.IMAGE_URL}
-                  alt={ch.composition.systemParameters.DISPAY_NAME}
+                <SimpleImage 
+                  image={ch.composition.systemParameters.IMAGE_URL}
+                  alt={'planos' || ch.composition.systemParameters.DISPAY_NAME}
                 />
               </li>
             )

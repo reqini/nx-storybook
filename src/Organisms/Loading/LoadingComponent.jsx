@@ -2,8 +2,9 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import PulseLoader from 'react-spinners/PulseLoader'
+import SimpleImage from '../../Atoms/Image/SimpleImage'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   containerLoading: ({ position }) => ({
     display: 'flex',
     flexDirection: 'column',
@@ -26,13 +27,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const LoadingComponent = ({ image, title, background, position = 'relative' }) => {
+const LoadingComponent = ({ image, title, background = 'black', position = 'relative' }) => {
   const { t } = useTranslation()
   const classes = useStyles({ position })
 
   return (
     <div className={`${classes.containerLoading}`} style={{ background: background }}>
-      {image && <img className={classes.imgLogin} src={t('asset.logo')} />}
+      {image && <SimpleImage image={image || t('asset.logo')} className={classes.imgLogin} />}
       {title && <p className={classes.text}>{title}</p>}
       <PulseLoader sizeUnit={'px'} size={18} color={'#E1261C'} loading={true} />
     </div>

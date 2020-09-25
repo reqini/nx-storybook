@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     '& p': {
       margin: 0,
       fontSize: 20,
-    },
+    }
   }
 }))
 
@@ -24,10 +24,7 @@ const Description = ({ description }) => {
 
   return (
     <div className={`${classes.description}`}>
-      <Typography 
-      textAlign="left" 
-      fontWeight={300} 
-      variant="p">
+      <Typography extAlign="left" fontWeight={300} variant="p">
         {description}
       </Typography>
     </div>

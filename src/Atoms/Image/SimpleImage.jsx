@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
 
 const SimpleImage = ({
   image = 'https://netb.tmsimg.com/assets/s10021_lw_h3_ab.png',
-  alt = null,
+  alt = 'Netflex',
   title = null,
   width,
   height,
