@@ -2,6 +2,7 @@ import React from 'react'
 import { withMuiTheme } from '@harelpls/storybook-addon-materialui'
 import { themes } from '@storybook/theming'
 // import { addParameters, addDecorator } from '@storybook/react'
+import 'fontsource-roboto';
 
 import Focus from '../src/Focus'
 import theme from '../src/theme/DefaultTheme'
