@@ -2,29 +2,63 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import MessageComponent from 'Components/Organisms/Messages/message'
-import ButtonGeneric from 'Components/Atoms/Buttons/ButtonGeneric'
+import { Message as MessageComponent } from 'Components/Organisms/Messages/message'
+import { ButtonGeneric } from 'Components/Atoms/Buttons/ButtonGeneric'
 
-const Component = ({ ...args }) => {
-  return <ButtonGeneric {...args} />
+const Component = ({ image, ...args }) => {
+  const { t } = useTranslation()
+
+  return (
+    <MessageComponent image={image || t('asset.imagePopcorn')} {...args}>
+      <ButtonGeneric size={'big'} width={200} title={'entendi'} />
+    </MessageComponent>
+  )
 }
 
 export default {
   title: '/Organisms/Messages',
 }
 
-export const Message = () => {
-  const { t } = useTranslation()
-
-  return (
-    <MessageComponent
-      title={'opps!'}
-      image={t('asset.imagePopcorn')}
-      textContent={
-        'Reunimos o maior acervo de conteúdo, programas de TV, filmes e séries. Tudo o que você gosta em um só lugar'
-      }
-    >
-      <ButtonGeneric size={'big'} width={200} title={'entendi'} />
-    </MessageComponent>
-  )
+export const Message = Component.bind({})
+Message.argTypes = {
+  title: {
+    name: 'titulo',
+    description: 'Texto del boton',
+    type: { name: 'string', required: true },
+    control: {
+      type: 'text',
+    },
+    defaultValue: 'opps!',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'opps!' },
+    },
+  },
+  image: {
+    name: 'image',
+    description: 'imagen',
+    type: { name: 'string', required: true },
+    control: {
+      type: 'text',
+    },
+    defaultValue: '',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'Button' },
+    },
+  },
+  textContent: {
+    name: 'texto',
+    description: 'descripcion',
+    type: { name: 'string', required: true },
+    control: {
+      type: 'text',
+    },
+    defaultValue:
+      'Reunimos o maior acervo de conteúdo, programas de TV, filmes e séries. Tudo o que você gosta em um só lugar',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'Button' },
+    },
+  },
 }

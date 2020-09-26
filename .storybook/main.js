@@ -7,7 +7,7 @@ module.exports = {
     // '@storybook/addon-actions',
     '@storybook/addon-docs',
     '@storybook/addon-controls',
-    '@storybook/addon-knobs',
+    // '@storybook/addon-knobs',
     '@storybook/addon-a11y',
     '@harelpls/storybook-addon-materialui',
     '@storybook/addon-viewport',

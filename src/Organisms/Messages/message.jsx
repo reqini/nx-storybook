@@ -55,4 +55,5 @@ const Message = ({
     </div>
   )
 }
+export { Message }
 export default React.memo(Message)
