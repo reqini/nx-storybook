@@ -2,7 +2,7 @@ const path = require('path')
 const appRootDir = require('app-root-dir')
 
 module.exports = {
-  stories: ['../stories/**/*.@(ts|tsx|js|jsx|mdx)'],
+  stories: ['../**/*.stories.@(ts|tsx|js|jsx|md)x'],
   addons: [
     // '@storybook/addon-actions',
     '@storybook/addon-docs',
