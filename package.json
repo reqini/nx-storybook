@@ -108,7 +108,7 @@
     "json-loader": "^0.5.7",
     "lint-staged": "^10.3.0",
     "moment": "^2.27.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.1",
     "raw-loader": "^4.0.1",
